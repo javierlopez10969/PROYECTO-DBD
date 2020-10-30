@@ -4,3 +4,5 @@ print ("El primero que realizará el control de ingeso:  ",rdm.choice (lista))
 
 
 //Esta es mi linea de test ATTE El Cevas
+
+// Linea del pana Deivid uwu
