@@ -7,7 +7,11 @@ print ("El primero que realizará el control de ingeso:  ",rdm.choice (lista))
 
 // Linea del pana Deivid uwu
 
+<<<<<<< HEAD
 //Línea de Martín
 
 lista2 = ["Hola","Ese es un mensaje","Merge"]
 print (rdm.choice(lista2))
+=======
+#Confirmo , el comentario era gato , linea de 0carloscastillo0
+>>>>>>> d87e54025b0f5393d9489df9742f9d9c34c01f73
