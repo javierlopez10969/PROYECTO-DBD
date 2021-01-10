@@ -14,18 +14,18 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-			//Llave primaria
+            //Llave primaria
             $table->id();//Id del usuario, llave primaria
-			$table->string('nombre_cliente');
-			$table->string('telefono_cliente');
+            $table->string('nombre_cliente');
+            $table->string('telefono_cliente');
             $table->timestamps();
             //Llaves foraneas
             /*
-			//id_feriaF
+	    //id_feriaF
             $table->unsignedBigInteger('id_feriaF');
             $table->foreign('id_feriaF')->references('id')->on('feriaF');
             
-	  		//id_ferianteF
+	     //id_ferianteF
             $table->unsignedBigInteger('id_ferianteF');
             $table->foreign('id_ferianteF')->references('id')->on('ferianteF');
 
