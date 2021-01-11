@@ -18,16 +18,15 @@ class CreateDatosPersonalesTable extends Migration
             $table->string('correo_electronico'); //Correo electronico
             $table->string('user_name');//Nombre del usuario
             $table->string('password');//Contraseña
-            $table->timestamps();
             //Llaves foraneas
             //id_feriante
-            /*
+            
             $table->unsignedBigInteger('id_feriante');
-            $table->foreign('id_feriante')->references('id')->on('feriante');
+            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
             //id_cliente
             $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('cliente');	
-            */
+            $table->foreign('id_cliente')->references('id')->on('clientes');	
+            
             
         });
     }

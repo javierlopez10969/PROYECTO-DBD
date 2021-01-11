@@ -17,10 +17,9 @@ class CreateFeriaFeriafavoritosTable extends Migration
             $table->id();
             
             //llaves foraneas
-            /*
             $table->unsignedBigInteger('id_feria');
-            $table->foreign('id_feria')->references('id')->on('feria');
-            */
+            $table->foreign('id_feria')->references('id_feria')->on('feria');
+            
             $table->unsignedBigInteger('id_feriafavoritos');
             $table->foreign('id_feriafavoritos')->references('id')->on('feriafavoritos');
             

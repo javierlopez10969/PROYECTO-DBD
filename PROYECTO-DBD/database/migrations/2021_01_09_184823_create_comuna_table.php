@@ -16,11 +16,9 @@ class CreateComunaTable extends Migration
         Schema::create('comuna', function (Blueprint $table) {
             $table->id('id_comuna');
             $table->string('nombre_comuna');
-
+            
             $table->unsignedBigInteger('id_region');
-            $table->foreign('id_region')->references('id')->on('region');
-
-            $table->timestamps();
+            $table->foreign('id_region')->references('id_region')->on('region');
         });
     }
 

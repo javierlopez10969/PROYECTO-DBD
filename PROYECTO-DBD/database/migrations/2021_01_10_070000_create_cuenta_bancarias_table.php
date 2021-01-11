@@ -19,18 +19,21 @@ class CreateCuentaBancariasTable extends Migration
             $table->string('banco');
             $table->string('tipo_cuenta');
             $table->integer('balance');
-            $table->timestamps();
-			/*
-			//id_feriante
+			
+            //id_feriante
+            
             $table->unsignedBigInteger('id_feriante');
-            $table->foreign('id_feriante')->references('id')->on('feriante');	
-			//id_orden_pago
-            $table->unsignedBigInteger('id_orden_de_pago');
-            $table->foreign('id_orden_de_pago')->references('id')->on('orden_de_pagos');
+            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');	
+            
+            //id_orden_pago
+            $table->unsignedBigInteger('id_orden_pago');
+            $table->foreign('id_orden_pago')->references('id')->on('orden_de_pagos');
+            
+            
 			//id_cliente
             $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('cliente');	
-			*/
+            $table->foreign('id_cliente')->references('id')->on('clientes');	
+			
         });
     }
 

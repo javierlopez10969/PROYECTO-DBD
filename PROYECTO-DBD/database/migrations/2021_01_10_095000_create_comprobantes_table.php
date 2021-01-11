@@ -17,12 +17,11 @@ class CreateComprobantesTable extends Migration
             $table->id();
             $table->string('tipo_de_comprobante');
             $table->integer('precio');
-            $table->timestamps();
-	    /*
-	    Llave foranea orden de pago
+	    
+	    //Llave foranea orden de pago
             $table->unsignedBigInteger('id_orden_de_pagos');
             $table->foreign('id_orden_de_pagos')->references('id')->on('orden_de_pagos'); 
-	    */
+	    
 
         });
     }

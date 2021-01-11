@@ -16,10 +16,10 @@ class CreateFerianteFeriantesfavoritosTable extends Migration
         Schema::create('feriante_feriantesfavoritos', function (Blueprint $table) {
             $table->id();
             //llaves foraneas
-            /*
+            
             $table->unsignedBigInteger('id_feriante');
-            $table->foreign('id_feriante')->references('id')->on('feriante');
-            */
+            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
+            
             $table->unsignedBigInteger('id_feriantesfavoritos');
             $table->foreign('id_feriantesfavoritos')->references('id')->on('feriantesfavoritos');
             

@@ -22,13 +22,13 @@ class CreateOrdendedespachoTable extends Migration
             $table->float('valor_despacho',6,0);//(por ahora)
             
             //llaves foraneas
-            /*
+            
             $table->unsignedBigInteger('id_feriante');
-            $table->foreign('id_feriante')->references('id')->on('feriante');
+            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
             
             $table->unsignedBigInteger('id_pago');
-            $table->foreign('id_pago')->references('id')->on('pago');
-            */
+            $table->foreign('id_pago')->references('id')->on('pagos');
+            
         });
     }
 

@@ -17,19 +17,16 @@ class CreateDireccionDespachosTable extends Migration
             $table->id();//Lave primaria
         	$table->string('direccion');//Direccion
         	$table->integer('numero')->nullable() ; //solo si aplica
-			
 
-            $table->timestamps();
+            //llaves foraneas
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->unsignedBigInteger('id_orden_despacho');
+            $table->foreign('id_orden_despacho')->references('id')->on('ordendedespacho');
+            $table->unsignedBigInteger('id_comuna');
+            $table->foreign('id_comuna')->references('id_comuna')->on('comuna');
 
-            /*
-            $table->unsignedBigInteger('id_feriaF');
-            $table->foreign('id_feriaF')->references('id')->on('feriaF');
-            $table->unsignedBigInteger('id_feriaF');
-            $table->foreign('id_feriaF')->references('id')->on('feriaF');
-            $table->unsignedBigInteger('id_feriaF');
-            $table->foreign('id_feriaF')->references('id')->on('feriaF');
-
-            */
+            
         });
     }
 

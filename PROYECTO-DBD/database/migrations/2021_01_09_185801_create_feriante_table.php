@@ -18,7 +18,6 @@ class CreateFerianteTable extends Migration
             $table->string('direccion_feriante');
             $table->integer('telefono_feriante');
             $table->string('nombre_feriante');
-            $table->timestamps();
         });
     }
 

@@ -18,7 +18,6 @@ class CreateOrdenDeComprasTable extends Migration
             $table->timestamp('fecha_pago');
             $table->integer('cantidad_elementos_orden');
             $table->boolean('estado_de_pago');
-            $table->timestamps();
             //Llaves foraneas
             
             //id_orden_de_pagos

@@ -15,10 +15,10 @@ class CreatePuestoVentaTable extends Migration
     {
         Schema::create('puesto_venta', function (Blueprint $table) {
             $table->id('id_puesto_venta');
-			$table->string('categoria');
+            $table->string('categoria');
+            
 			$table->unsignedBigInteger('id_feriante')->nullable();
-			$table->foreign('id_feriante')->references('id')->on('feriante');
-            $table->timestamps();
+			$table->foreign('id_feriante')->references('id_feriante')->on('feriante');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductosOrdenDeComprasTable extends Migration
+class CreatePagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,19 @@ class CreateProductosOrdenDeComprasTable extends Migration
      */
     public function up()
     {
-        Schema::create('_productos__orden_de_compras', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('fecha_pago');
+            $table->integer('valor_pago');
+            $table->string('tipo_pago');
+            //Llaves foraneas
+            //id_cuenta bancaria
+            $table->unsignedBigInteger('id_cuenta_bancaria');
+            $table->foreign('id_cuenta_bancaria')->references('id')->on('cuenta_bancarias');
             
-            //Llave foraneas
+            //id_orden de compra
             $table->unsignedBigInteger('id_orden_compra');
             $table->foreign('id_orden_compra')->references('id')->on('orden_de_compras');
-            
-            //id_producto
-            $table->unsignedBigInteger('id_producto');
-            $table->foreign('id_producto')->references('id_producto')->on('producto');
             
         });
     }
@@ -34,6 +37,6 @@ class CreateProductosOrdenDeComprasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_productos__orden_de_compras');
+        Schema::dropIfExists('pagos');
     }
 }

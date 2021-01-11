@@ -13,17 +13,18 @@ class CreateProductoTable extends Migration
      */
     public function up()
 	{
-        Schema::create('puesto_venta', function (Blueprint $table) {
+        Schema::create('producto', function (Blueprint $table) {
             $table->id('id_producto');
-			$table->money_format("precio_producto");
+			//$table->money_format("precio_producto");
 			$table->integer('unidad');
 			$table->boolean('tipo_de_stock');
-			$table->string('nombre_producto');
+            $table->string('nombre_producto');
+            
 			$table->unsignedBigInteger('id_categoria')->nullable();
-			$table->foreign('id_categoria')->references('id')->on('categoria');
+            $table->foreign('id_categoria')->references('id_categoria')->on('categoria');
+            
 			$table->unsignedBigInteger('id_unidad')->nullable();
-			$table->foreign('id_unidad')->references('id')->on('unidad');
-            $table->timestamps();
+			$table->foreign('id_unidad')->references('id_unidad')->on('unidad');
         });
     }
 

@@ -16,10 +16,10 @@ class CreateFeriaTable extends Migration
         Schema::create('feria', function (Blueprint $table) {
             $table->id('id_feria');
             $table->string('descripcion');
-            $table->interval('horario');
-
+            //$table->interval('horario');
+            
             $table->unsignedBigInteger('id_comuna');
-            $table->foreign('id_comuna')->references('id')->on('comuna');
+            $table->foreign('id_comuna')->references('id_comuna')->on('comuna');
 
             $table->timestamps();
 

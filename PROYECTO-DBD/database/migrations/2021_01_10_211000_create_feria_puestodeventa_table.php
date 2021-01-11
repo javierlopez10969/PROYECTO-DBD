@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductoPuestoVentaTable extends Migration
+class CreateFeriaPuestodeventaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateProductoPuestoVentaTable extends Migration
      */
     public function up()
     {
-        Schema::create('producto_puesto_venta', function (Blueprint $table) {
-            $table->id('id_producto_puesto_venta');
+        Schema::create('feria_puestodeventa', function (Blueprint $table) {
+            $table->id();
 
-			$table->unsignedBigInteger('id_puesto_venta')->nullable();
+            $table->unsignedBigInteger('id_puesto_venta')->nullable();
             $table->foreign('id_puesto_venta')->references('id_puesto_venta')->on('puesto_venta');
             
-			$table->unsignedBigInteger('id_producto')->nullable();
-			$table->foreign('id_producto')->references('id_producto')->on('producto');
+			$table->unsignedBigInteger('id_feria')->nullable();
+			$table->foreign('id_feria')->references('id_feria')->on('feria');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateProductoPuestoVentaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('producto_puesto_venta');
+        Schema::dropIfExists('feria_puestodeventa');
     }
 }
