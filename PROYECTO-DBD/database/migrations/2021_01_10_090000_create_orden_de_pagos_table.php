@@ -18,13 +18,13 @@ class CreateOrdenDePagosTable extends Migration
             $table->timestamp('fecha_de_pago');
             $table->string('tipo_pago');
             $table->integer('valor_total_pago');
-            //Lista de pagos
+
             //Llaves foraneas
             //id_pago
-            /*
+            
             $table->unsignedBigInteger('id_pago');
             $table->foreign('id_pago')->references('id')->on('pagos');
-            */
+            
             
 	     //id_feriante
             $table->unsignedBigInteger('id_feriante');

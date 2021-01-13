@@ -19,10 +19,6 @@ class CreatePagosTable extends Migration
             $table->integer('valor_pago');
             $table->string('tipo_pago');
             //Llaves foraneas
-            //id_cuenta bancaria
-            $table->unsignedBigInteger('id_cuenta_bancaria');
-            $table->foreign('id_cuenta_bancaria')->references('id')->on('cuenta_bancarias');
-            
             //id_orden de compra
             $table->unsignedBigInteger('id_orden_compra');
             $table->foreign('id_orden_compra')->references('id')->on('orden_de_compras');
