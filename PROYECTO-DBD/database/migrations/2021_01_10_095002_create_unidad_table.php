@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFerianteTable extends Migration
+class CreateUnidadTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFerianteTable extends Migration
      */
     public function up()
     {
-        Schema::create('feriante', function (Blueprint $table) {
-            $table->id('id_feriante');
-            $table->string('direccion_feriante');
-            $table->integer('telefono_feriante');
-            $table->string('nombre_feriante');
+        Schema::create('unidad', function (Blueprint $table) {
+            $table->id('id_unidad');
+			$table->integer('cantidad');
+			$table->string('tipo_cantidad');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateFerianteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feriante');
+        Schema::dropIfExists('unidad');
     }
 }
