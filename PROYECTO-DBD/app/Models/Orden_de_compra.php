@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orden_de_compra extends Model
 {
+	
+	
     use HasFactory;
     //Pago
     public function Pago(){
         return $this->hasOne(Pago::class);
     }
 
-    //Productos_orden_de_compra
+    //PRODUCTOS .- ORDEN DE COMPRA
     public function Productos_orden_de_compra (){
         return $this->hasMany(Productos_orden_de_compra::class);
     }

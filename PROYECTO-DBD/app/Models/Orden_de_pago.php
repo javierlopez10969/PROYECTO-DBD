@@ -22,7 +22,6 @@ class Orden_de_pago extends Model
     }
 
     //PAGO ORDEN DE PAGO
-    //De entidad a tabla intermedia, uno es a muchos
     public function Pago_ordendepago(){
         return $this->hasMany(Pago_ordendepago::class);
     }
