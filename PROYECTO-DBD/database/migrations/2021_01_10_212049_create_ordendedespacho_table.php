@@ -18,7 +18,7 @@ class CreateOrdendedespachoTable extends Migration
             $table->timestamp('fecha_despacho', 0);
             $table->string('tipo_despacho');
             $table->integer('cantidad_elemento_despacho');
-            $table->float('valor_despacho',6,0);//(por ahora)
+            $table->integer('valor_despacho');
             
             //llaves foraneas
             
