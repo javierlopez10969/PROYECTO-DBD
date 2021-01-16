@@ -22,6 +22,11 @@ class ComposerAutoloaderInit03ec57e3e1e1ef23d05d5fc3b7e8b104
             return self::$loader;
         }
 
+<<<<<<< Updated upstream
+        //require __DIR__ . '/platform_check.php';
+
+=======
+>>>>>>> Stashed changes
         spl_autoload_register(array('ComposerAutoloaderInit03ec57e3e1e1ef23d05d5fc3b7e8b104', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader();
         spl_autoload_unregister(array('ComposerAutoloaderInit03ec57e3e1e1ef23d05d5fc3b7e8b104', 'loadClassLoader'));
