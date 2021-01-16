@@ -22,7 +22,12 @@ class DireccionDespachoFactory extends Factory
     public function definition()
     {
         return [
-            'direccion'=>$this->faker->address
+            'direccion'=>$this->faker->streetName,
+            'numero'=>$this->faker->numberBetween($min = 1000, $max = 9000),
+            //
+            'id_cliente' => Cliente::factory(),
+            'id_comuna' => Comuna::factory(),
+            'id_orden_despacho' => OrdenDeDespacho::factory()
         ];
     }
 }

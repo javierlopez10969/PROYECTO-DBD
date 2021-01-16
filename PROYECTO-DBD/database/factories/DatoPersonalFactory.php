@@ -24,7 +24,10 @@ class DatoPersonalFactory extends Factory
         return [
             'correo_electronico'=>$this->faker->email,
             'user_name'=>$this->faker->userName,
-            'password'=>$this->faker->password
+            'password'=>$this->faker->password,
+            //
+            'id_feriante' => Feriante::factory(),
+            'id_cliente' => Cliente::factory()            
         ];
     }
 }

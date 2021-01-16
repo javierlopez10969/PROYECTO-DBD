@@ -26,7 +26,7 @@ class Feria_FeriaFavoritoFactory extends Factory
     {
         return [
             'id_feria'=> Feria::factory(),
-            'id_feriafavoritos' => FeriaFavorito::factory(),
+            'id_feriafavoritos' => FeriaFavorito::factory()
             //
         ];
     }

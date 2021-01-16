@@ -24,7 +24,7 @@ class Producto_OrdenDeCompraFactory extends Factory
         return [
             //
             'id_producto' => Producto::factory(),
-            'id_orden_compra' => Orden_de_compra::factory(),
+            'id_orden_compra' => OrdenDeCompra::factory(),
         ];
     }
 }

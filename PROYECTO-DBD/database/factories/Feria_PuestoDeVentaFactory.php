@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Feria;
+use App\Models\PuestoDeVenta;
+use App\Models\Feria_PuestoDeVenta;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class Feria_PuestoDeVentaFactory extends Factory

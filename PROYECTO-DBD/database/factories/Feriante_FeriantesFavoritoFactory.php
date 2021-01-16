@@ -26,7 +26,7 @@ class Feriante_FeriantesFavoritoFactory extends Factory
     {
         return [
             'id_feriante' => Feriante::factory(),
-            'id_feriantesfavoritos' => FeriantesFavorito::factory(),
+            'id_feriantesfavoritos' => FeriantesFavorito::factory()
             //
         ];
     }

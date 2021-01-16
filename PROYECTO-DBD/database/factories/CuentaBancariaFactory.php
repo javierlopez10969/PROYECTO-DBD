@@ -28,7 +28,11 @@ class CuentaBancariaFactory extends Factory
 																  'Banco Falabella','Banco Internacional','Banco Itaú','Banco Ripley',
 																  'Banco Security','Scotiabank')),			 
             'tipo_cuenta'=>$this->faker->($array = array ('vista','rut','ahorro','corriente','chequera electronica')),
-            'balance'=>$this->faker->numberBetween($min = 0, $max = 10000000)
+            'balance'=>$this->faker->numberBetween($min = 0, $max = 10000000),
+            //
+            'id_feriante' => Feriante::factory(),
+            'id_orden_pago' => OrdenDePago::factory(),
+            'id_cliente' => Cliente::factory()
         ];
     }
 }

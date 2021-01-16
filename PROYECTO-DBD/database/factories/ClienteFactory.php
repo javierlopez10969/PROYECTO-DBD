@@ -23,7 +23,10 @@ class ClienteFactory extends Factory
     {
         return [
             'nombre_cliente'=>$this->faker->name,
-            'telefono_cliente'=>$this->faker->tollFreePhoneNumber
+            'telefono_cliente'=>$this->faker->tollFreePhoneNumber,
+            //
+            'id_feriaF' => FeriaFavorito::factory(),
+            'id_ferianteF' => FerianteFavorito::factory()
         ];
     }
 }
