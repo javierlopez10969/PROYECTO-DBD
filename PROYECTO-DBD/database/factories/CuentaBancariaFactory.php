@@ -22,7 +22,13 @@ class CuentaBancariaFactory extends Factory
     public function definition()
     {
         return [
-            //
+			'numero_cuenta'=>$this->faker->bankAccountNumber,
+            'banco'=>$this->faker->;randomElement($array = array ('Banco Bci','Banco de Chile','Banco Estado','Banco Santander',
+																  'Banco BICE','Banco Condell','Banco CrediChile','Banco Edwards Citi',
+																  'Banco Falabella','Banco Internacional','Banco Itaú','Banco Ripley',
+																  'Banco Security','Scotiabank')),			 
+            'tipo_cuenta'=>$this->faker->($array = array ('vista','rut','ahorro','corriente','chequera electronica')),
+            'balance'=>$this->faker->numberBetween($min = 0, $max = 10000000)
         ];
     }
 }

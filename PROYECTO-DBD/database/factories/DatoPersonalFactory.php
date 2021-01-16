@@ -22,7 +22,9 @@ class DatoPersonalFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'correo_electronico'=>$this->faker->email,
+            'user_name'=>$this->faker->userName,
+            'password'=>$this->faker->password
         ];
     }
 }

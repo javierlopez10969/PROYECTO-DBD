@@ -22,7 +22,7 @@ class DireccionDespachoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'direccion'=>$this->faker->address
         ];
     }
 }

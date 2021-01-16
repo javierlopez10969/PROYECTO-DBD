@@ -22,7 +22,8 @@ class ClienteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre_cliente'=>$this->faker->name,
+            'telefono_cliente'=>$this->faker->tollFreePhoneNumber
         ];
     }
 }

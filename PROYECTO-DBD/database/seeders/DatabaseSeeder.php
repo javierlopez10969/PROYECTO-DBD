@@ -30,17 +30,17 @@ class DatabaseSeeder extends Seeder
 
         //Javier
         Orden_de_pago::factory()->create();
-        Orden_decompra::factory()->create();
+        Orden_de_compra::factory()->create();
         Pago::factory()->create();
         Productos_orden_de_compra::factory()->create();
         Pago_ordendepago::factory()->create();
 
         //David
-        ::factory()->create();
-        ::factory()->create();
-        ::factory()->create();
-        ::factory()->create();
-        ::factory()->create();
+        Cliente::factory()->create();
+        Comprobante::factory()->create();
+        Cuenta_bancaria::factory()->create();
+        Datos_personal::factory()->create();
+        Direccion_despacho::factory()->create();
 
 
 
