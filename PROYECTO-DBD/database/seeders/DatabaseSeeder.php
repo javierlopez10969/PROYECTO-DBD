@@ -42,6 +42,11 @@ class DatabaseSeeder extends Seeder
         Datos_personal::factory()->create();
         Direccion_despacho::factory()->create();
 
+        //Sebastian
+        Feria::factory()->create();
+        Feriante::factory()->create();
+        Region::factory()->create();
+        Comuna::factory()->create();
 
 
     }
