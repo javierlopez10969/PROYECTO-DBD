@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comuna extends Model
+class Feria_PuestoDeVenta extends Model
 {
 	public function feria();
 	{
 		return
 		$this->hasMany(Feria::class);
 	}
-	public function region();
+
+	public function puestoDeVenta();
 	{
 		return
-		$this->belongsTo(Region::class);
+		$this->hasMany(PuestoDeVenta::class);
 	}
+
     use HasFactory;
 }

@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
         Feriante::factory()->create();
         Region::factory()->create();
         Comuna::factory()->create();
+        Feria_PuestoDeVenta::factory()->create();
 
 
     }

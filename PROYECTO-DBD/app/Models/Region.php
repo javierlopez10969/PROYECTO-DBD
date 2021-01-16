@@ -10,7 +10,7 @@ class Region extends Model
 	public function comuna();
 	{
 		return
-		$this->hasMany('App\Models\Comuna');
+		$this->hasMany(Comuna::class);
 	}
     use HasFactory;
 }

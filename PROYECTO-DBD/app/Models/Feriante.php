@@ -10,37 +10,37 @@ class Feriante extends Model
 	public function puestoDeVenta();
 	{
 		return
-		$this->hasMany('App\Models\PuestoDeVenta');
+		$this->hasMany(PuestoDeVenta::class);
 	}
 
 	public function datos_personal();
 	{
 		return
-		$this->hasOne('App\Models\Datos_Personal');
+		$this->hasOne(Datos_Personal::class);
 	}
 
 	public function feria_FeriaFavorito();
 	{
 		return
-		$this->hasMany('App\Models\Feria_FeriaFavorito');
+		$this->hasMany(Feria_FeriaFavorito::class);
 	}
 
 	public function cuenta_bancaria();
 	{
 		return
-		$this->hasMany('App\Models\Cuenta_bancaria');
+		$this->hasMany(Cuenta_bancaria::class);
 	}
 
 	public function ordenDeDespacho();
 	{
 		return
-		$this->hasMany('App\Models\OrdenDeDespacho');
+		$this->hasMany(OrdenDeDespacho::class);
 	}
 
 	public function orden_de_pago();
 	{
 		return
-		$this->hasMany('App\Models\Orden_de_pago');
+		$this->hasMany(Orden_de_pago::class);
 	}
     use HasFactory;
 }

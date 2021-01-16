@@ -10,19 +10,19 @@ class Feria extends Model
 	public function comuna();
 	{
 		return
-		$this->hasMany('App\Models\Comuna');
+		$this->belongsTo(Comuna::class);
 	}
 
 	public function feria_FeriaFavoritos();
 	{
 		return
-		$this->hasMany('App\Models\Feria_FeriaFavoritos');
+		$this->hasMany(Feria_FeriaFavoritos::class);
 	}
 
 	public function feria_PuestoDeVenta();
 	{
 		return
-		$this->hasMany('App\Models\PuestoDeVenta');
+		$this->hasMany(PuestoDeVenta::class);
 	}
 
     use HasFactory;
