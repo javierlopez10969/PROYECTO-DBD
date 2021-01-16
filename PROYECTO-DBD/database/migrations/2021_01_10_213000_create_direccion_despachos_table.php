@@ -16,7 +16,6 @@ class CreateDireccionDespachosTable extends Migration
         Schema::create('direccion_despachos', function (Blueprint $table) {
             $table->id();//Lave primaria
         	$table->string('direccion');//Direccion
-        	$table->integer('numero')->nullable() ; //solo si aplica
 
             //llaves foraneas
             $table->unsignedBigInteger('id_cliente');

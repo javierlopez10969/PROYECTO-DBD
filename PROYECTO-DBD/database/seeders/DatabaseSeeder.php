@@ -28,6 +28,19 @@ class DatabaseSeeder extends Seeder
         FeriantesFavorito::factory()->create();
         OrdenDeDespacho::factory()->create();
 
+        //Javier
+        Orden_de_pago::factory()->create();
+        Orden_de_compra::factory()->create();
+        Pago::factory()->create();
+        Productos_orden_de_compra::factory()->create();
+        Pago_ordendepago::factory()->create();
+
+        //David
+        Cliente::factory()->create();
+        Comprobante::factory()->create();
+        Cuenta_bancaria::factory()->create();
+        Datos_personal::factory()->create();
+        Direccion_despacho::factory()->create();
 
 
 
