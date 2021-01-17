@@ -752,7 +752,7 @@ class Builder
         );
 
         if (! $value instanceof Expression) {
-            $this->addBinding(is_array($value) ? head($value) : $value, 'where');
+            $this->addBinding($value, 'where');
         }
 
         return $this;
@@ -1121,7 +1121,7 @@ class Builder
 
         $this->wheres[] = compact('type', 'column', 'values', 'boolean', 'not');
 
-        $this->addBinding(array_slice($this->cleanBindings($values), 0, 2), 'where');
+        $this->addBinding($this->cleanBindings($values), 'where');
 
         return $this;
     }
@@ -1244,8 +1244,6 @@ class Builder
             $value, $operator, func_num_args() === 2
         );
 
-        $value = is_array($value) ? head($value) : $value;
-
         if ($value instanceof DateTimeInterface) {
             $value = $value->format('Y-m-d');
         }
@@ -1285,8 +1283,6 @@ class Builder
             $value, $operator, func_num_args() === 2
         );
 
-        $value = is_array($value) ? head($value) : $value;
-
         if ($value instanceof DateTimeInterface) {
             $value = $value->format('H:i:s');
         }
@@ -1325,8 +1321,6 @@ class Builder
         [$value, $operator] = $this->prepareValueAndOperator(
             $value, $operator, func_num_args() === 2
         );
-
-        $value = is_array($value) ? head($value) : $value;
 
         if ($value instanceof DateTimeInterface) {
             $value = $value->format('d');
@@ -1371,8 +1365,6 @@ class Builder
             $value, $operator, func_num_args() === 2
         );
 
-        $value = is_array($value) ? head($value) : $value;
-
         if ($value instanceof DateTimeInterface) {
             $value = $value->format('m');
         }
@@ -1415,8 +1407,6 @@ class Builder
         [$value, $operator] = $this->prepareValueAndOperator(
             $value, $operator, func_num_args() === 2
         );
-
-        $value = is_array($value) ? head($value) : $value;
 
         if ($value instanceof DateTimeInterface) {
             $value = $value->format('Y');
@@ -1726,7 +1716,7 @@ class Builder
         $this->wheres[] = compact('type', 'column', 'operator', 'value', 'boolean');
 
         if (! $value instanceof Expression) {
-            $this->addBinding((int) $value);
+            $this->addBinding($value);
         }
 
         return $this;
@@ -1875,7 +1865,7 @@ class Builder
         $this->havings[] = compact('type', 'column', 'operator', 'value', 'boolean');
 
         if (! $value instanceof Expression) {
-            $this->addBinding(is_array($value) ? head($value) : $value, 'having');
+            $this->addBinding($value, 'having');
         }
 
         return $this;
