@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Region;
 
 class RegionController extends Controller
 {
@@ -13,18 +14,10 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        $region = Region::all();
+        return response()->json($region);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +27,13 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $region = new Region();
+        $region->$request->nombre_region;
+        $region->save();
+        retrun response()->json([
+            "message"-> "Nueva region agregada",
+            "id"=>$region->id
+        ],201);
     }
 
     /**
@@ -45,19 +44,10 @@ class RegionController extends Controller
      */
     public function show($id)
     {
-        //
+        $region = Region::find($id);
+        return response()->($region);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +58,10 @@ class RegionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $region = Region::find($id);
+        $region->nombre_region = $request->nombre_region;
+        $region->save();
+        return response()->json($region);
     }
 
     /**
@@ -79,6 +72,10 @@ class RegionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $region->delete();
+        return response()->json([
+            "message"-> "Region elimindada",
+            "id"=>$region->id
+            ],201);
     }
 }

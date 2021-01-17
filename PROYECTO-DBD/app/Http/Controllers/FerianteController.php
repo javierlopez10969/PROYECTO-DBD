@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Feriante;
 
 class FerianteController extends Controller
 {
@@ -13,18 +14,10 @@ class FerianteController extends Controller
      */
     public function index()
     {
-        //
+        $feriante = Feriante::all();
+        return response()->json($feriante);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +27,15 @@ class FerianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feriante = new Feriante();
+        $feriante->$request->direccion_feriante;
+        $feriante->$request->telefono_feriante;
+        $feriante->$request->nombre_feriante;
+        $feriante->save();
+        retrun response()->json([
+            "message"-> "Nueva feria agregado",
+            "id"=>$feriante->id
+        ],201);
     }
 
     /**
@@ -45,19 +46,10 @@ class FerianteController extends Controller
      */
     public function show($id)
     {
-        //
+        $feriante = Feriante::find($id);
+        return response()->($feriante);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +60,12 @@ class FerianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $feriante = Feriante::find($id);
+        $feriante->direccion_feriante = $request->direccion_feriante;
+        $feriante->telefono_feriante = $request->telefono_feriante;
+        $feriante->nombre_feriante = $request->nombre_feriante; 
+        $feriante->save();
+        return response()->json($feriante);
     }
 
     /**
@@ -79,6 +76,10 @@ class FerianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $feriante->delete();
+        return response()->json([
+            "message"-> "Feriante elimindado",
+            "id"=>$feriante->id
+            ],201);
     }
 }

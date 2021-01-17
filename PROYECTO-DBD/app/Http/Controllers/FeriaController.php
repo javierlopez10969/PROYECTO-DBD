@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Feria;
 
 class FeriaController extends Controller
 {
@@ -13,17 +14,8 @@ class FeriaController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $feria = Feria::all();
+        return response()->json($feria);
     }
 
     /**
@@ -34,7 +26,15 @@ class FeriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feria = new Feria();
+        $feria->$request->descripcion;
+        $feria->$request->horario_desde;
+        $feria->$request->horario_hasta;
+        $feria->save();
+        retrun response()->json([
+            "message"-> "Nueva feria agregada",
+            "id"=>$feria->id
+        ],201);
     }
 
     /**
@@ -45,18 +45,8 @@ class FeriaController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $feria = Feria::find($id);
+        return response()->($feria);
     }
 
     /**
@@ -68,7 +58,12 @@ class FeriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $feria = Feria::find($id);
+        $feria->descripcion = $request->descripcion;
+        $feria->horario_desde = $request->horario_desde;
+        $feria->horario_hasta = $request->horario_hasta; 
+        $feria->save();
+        return response()->json($feria);
     }
 
     /**
@@ -79,6 +74,10 @@ class FeriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $feria->delete();
+        return response()->json([
+            "message"-> "Feria elimindada",
+            "id"=>$feria->id
+            ],201);
     }
 }

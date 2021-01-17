@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Feria_PuestoDeVenta;
 
 class Feria_PuestoDeVentaController extends Controller
 {
@@ -13,17 +14,8 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $feria_PuestoDeVenta = Feria_PuestoDeVenta::all();
+        return response()->json($feria_PuestoDeVenta);
     }
 
     /**
@@ -34,7 +26,12 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feria_PuestoDeVenta = new Feria_PuestoDeVenta();
+        $feria_PuestoDeVenta->save();
+        retrun response()->json([
+            "message"-> "Nueva feria_PuestoDeVenta agregada",
+            "id"=>$feria_PuestoDeVenta->id
+        ],201);
     }
 
     /**
@@ -45,19 +42,10 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function show($id)
     {
-        //
+        $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
+        return response()->($feria_PuestoDeVenta);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +56,9 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
+        $feria_PuestoDeVenta->save();
+        return response()->json($feria_PuestoDeVenta);
     }
 
     /**
@@ -79,6 +69,10 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $feria_PuestoDeVenta->delete();
+        return response()->json([
+            "message"-> "Feria_PuestoDeVenta elimindada",
+            "id"=>$feria_PuestoDeVenta->id
+            ],201);
     }
 }
