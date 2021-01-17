@@ -3,82 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Unidad;
 
 class UnidadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $unidad = Unidad::all();
+		return responde()->json($unidad);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
-    }
+		$validateData = $request->validate([
+			'cantidad' => ['required'],
+			'tipo_cantidad' => ['required','unique:posts'];
+		]);
+		$unidad = new Unidad();
+		$unidad->cantidad = $request->cantidad;
+		$unidad->tipo_cantidad = $request->tipo_cantidad;
+		$unidad->save();
+		return responde()->json([
+		"message" => "Se ha creado asignar esta unidad."
+		"id" => $unidad->id
+		],202);
+	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+		$unidad = Unidad::find($id)
+		return responde()->json($unidad);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
+		$unidad = Unidad::find($id)
+		if($request->cantidad != NULL){
+			$unidad->cantidad = $request->cantidad;
+		}
+		if($request->tipo_cantidad != NULL){
+			$unidad->tipo_cantidad = $request->tipo_cantidad;
+		}
+		$unidad->save();
+		return responde()->json($unidad);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+		$unidad = Unidad::find($id)
+		if($unidad != Null){
+			$unidad->delete();
+		}
+		return responde()->json([
+		"message" => "Se ha borrado asignar esta unidad."
+		"id" => $id
+		],201);
     }
 }
