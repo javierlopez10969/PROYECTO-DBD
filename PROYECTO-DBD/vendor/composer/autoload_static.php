@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
+class ComposerStaticInita653a1a886d5865b4c03f0ff86b4bcba
 {
     public static $files = array (
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
@@ -515,6 +515,7 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Categoria' => __DIR__ . '/../..' . '/app/Models/Categoria.php',
         'App\\Models\\Cliente' => __DIR__ . '/../..' . '/app/Models/Cliente.php',
         'App\\Models\\Comprobante' => __DIR__ . '/../..' . '/app/Models/Comprobante.php',
         'App\\Models\\Comuna' => __DIR__ . '/../..' . '/app/Models/Comuna.php',
@@ -533,8 +534,11 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'App\\Models\\Orden_de_pago' => __DIR__ . '/../..' . '/app/Models/Orden_de_pago.php',
         'App\\Models\\Pago' => __DIR__ . '/../..' . '/app/Models/Pago.php',
         'App\\Models\\Pago_ordendepago' => __DIR__ . '/../..' . '/app/Models/Pago_ordendepago.php',
+        'App\\Models\\Producto_PuestoDeVenta' => __DIR__ . '/../..' . '/app/Models/Producto_PuestoDeVenta.php',
         'App\\Models\\Productos_orden_de_compra' => __DIR__ . '/../..' . '/app/Models/Productos_orden_de_compra.php',
+        'App\\Models\\PuestoDeVenta' => __DIR__ . '/../..' . '/app/Models/PuestoDeVenta.php',
         'App\\Models\\Region' => __DIR__ . '/../..' . '/app/Models/Region.php',
+        'App\\Models\\Unidad' => __DIR__ . '/../..' . '/app/Models/Unidad.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -632,6 +636,7 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -642,6 +647,7 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Factories\\CategoriaFactory' => __DIR__ . '/../..' . '/database/factories/CategoriaFactory.php',
         'Database\\Factories\\ClienteFactory' => __DIR__ . '/../..' . '/database/factories/ClienteFactory.php',
         'Database\\Factories\\ComprobanteFactory' => __DIR__ . '/../..' . '/database/factories/ComprobanteFactory.php',
         'Database\\Factories\\ComunaFactory' => __DIR__ . '/../..' . '/database/factories/ComunaFactory.php',
@@ -660,8 +666,12 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'Database\\Factories\\OrdenDePagoFactory' => __DIR__ . '/../..' . '/database/factories/OrdenDePagoFactory.php',
         'Database\\Factories\\PagoFactory' => __DIR__ . '/../..' . '/database/factories/PagoFactory.php',
         'Database\\Factories\\Pago_OrdenDePagoFactory' => __DIR__ . '/../..' . '/database/factories/Pago_OrdenDePagoFactory.php',
+        'Database\\Factories\\ProductoFactory' => __DIR__ . '/../..' . '/database/factories/ProductoFactory.php',
         'Database\\Factories\\Producto_OrdenDeCompraFactory' => __DIR__ . '/../..' . '/database/factories/Producto_OrdenDeCompraFactory.php',
+        'Database\\Factories\\Producto_PuestoDeVentaFactory' => __DIR__ . '/../..' . '/database/factories/Producto_PuestoDeVentaFactory.php',
+        'Database\\Factories\\PuestoDeVentaFactory' => __DIR__ . '/../..' . '/database/factories/PuestoDeVentaFactory.php',
         'Database\\Factories\\RegionFactory' => __DIR__ . '/../..' . '/database/factories/RegionFactory.php',
+        'Database\\Factories\\UnidadFactory' => __DIR__ . '/../..' . '/database/factories/UnidadFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
@@ -4466,7 +4476,6 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/WrappedListener.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\AddEventAliasesPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/AddEventAliasesPass.php',
-        'Symfony\\Component\\EventDispatcher\\DependencyInjection\\ExtractingEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcherInterface.php',
@@ -4835,7 +4844,6 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
         'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/GlobFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ObjectLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/ObjectLoader.php',
         'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
-        'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\XmlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/XmlFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\YamlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/YamlFileLoader.php',
         'Symfony\\Component\\Routing\\Matcher\\CompiledUrlMatcher' => __DIR__ . '/..' . '/symfony/routing/Matcher/CompiledUrlMatcher.php',
@@ -5169,10 +5177,10 @@ class ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit03ec57e3e1e1ef23d05d5fc3b7e8b104::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita653a1a886d5865b4c03f0ff86b4bcba::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita653a1a886d5865b4c03f0ff86b4bcba::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita653a1a886d5865b4c03f0ff86b4bcba::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita653a1a886d5865b4c03f0ff86b4bcba::$classMap;
 
         }, null, ClassLoader::class);
     }
