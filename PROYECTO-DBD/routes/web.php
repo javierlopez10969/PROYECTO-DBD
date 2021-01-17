@@ -119,7 +119,41 @@ Route::post('/cuenta_banc/create','CuentaBancariaController@store');
 Route::put('/cuenta_banc/update/{id}','CuentaBancariaController@update');
 Route::delete('/cuenta_banc/delete/{id}','CuentaBancariaController@destroy');
 
+//RUTAS DE CONTROLLERS DE JAVIER
+//Orden de Pago
+Route::get('/orden_de_pago','OrdenDePagoController@index');
+Route::get('/orden_de_pago/{id}','OrdenDePagoController@show');
+Route::post('/orden_de_pago/create','OrdenDePagoController@store');
+Route::put('/orden_de_pago/update/{id}','OrdenDePagoController@update');
+Route::delete('/orden_de_pago/delete/{id}','OrdenDePagoController@destroy');
 
+//Orden de compra
+Route::get('/orden_de_compra','OrdenDeCompraController@index');
+Route::get('/orden_de_compra/{id}','OrdenDeCompraController@show');
+Route::post('/orden_de_compra/create','OrdenDeCompraController@store');
+Route::put('/orden_de_compra/update/{id}','OrdenDeCompraController@update');
+Route::delete('/orden_de_compra/delete/{id}','OrdenDeCompraController@destroy');
+
+//Rutas de Pago
+Route::get('/pago','PagoController@index');
+Route::get('/pago/{id}','PagoController@show');
+Route::post('/pago/create','PagoController@store');
+Route::put('/pago/update/{id}','PagoController@update');
+Route::delete('/pago/delete/{id}','PagoController@destroy');
+
+//Rutas de Producto_OrdenDeCompraController
+Route::get('/producto_ordenDeCompra','Producto_OrdenDeCompraController@index');
+Route::get('/producto_ordenDeCompra/{id}','Producto_OrdenDeCompraController@show');
+Route::post('/producto_ordenDeCompra/create','Producto_OrdenDeCompraController@store');
+Route::put('/producto_ordenDeCompra/update/{id}','Producto_OrdenDeCompraController@update');
+Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraController@destroy');
+
+//Rutas de Pago_orden de pago
+Route::get('/pago_ordenDePago','Pago_OrdenDePagoController@index');
+Route::get('/pago_ordenDePago/{id}','Pago_OrdenDePagoController@show');
+Route::post('/pago_ordenDePago/create','Pago_OrdenDePagoController@store');
+Route::put('/pago_ordenDePago/update/{id}','Pago_OrdenDePagoController@update');
+Route::delete('/pago_ordenDePago/delete/{id}','Pago_OrdenDePagoController@destroy');
 
 
 
