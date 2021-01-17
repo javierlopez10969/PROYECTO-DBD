@@ -49,6 +49,13 @@ class DatabaseSeeder extends Seeder
         Comuna::factory()->create();
         Feria_PuestoDeVenta::factory()->create();
 
+        //Martin ??
+        Categoria::factory()->create();
+        PuestoDeVenta::factory()->create();
+        Producto::factory()->create();
+        Producto_PuestoDeVenta::factory()->create();
+        Unidad::factory()->create();
+
 
     }
 }
