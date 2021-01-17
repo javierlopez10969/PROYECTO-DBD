@@ -91,7 +91,7 @@ Route::post('/fer_ferifav/create','Feriante_FeriantesFavorito@store');
 Route::put('/fer_ferifav/update/{id}','Feriante_FeriantesFavorito@update');
 Route::delete('/fer_ferifav/delete/{id}','Feriante_FeriantesFavorito@destroy');
 
-//Rutas de FeriantesFavoritos
+//Rutas de FeriaFavoritos
 Route::get('/ferifav','FeriaFavorito@index');
 Route::get('/ferifav/{id}','FeriaFavorito@show');
 Route::post('/ferifav/create','FeriaFavorito@store');
