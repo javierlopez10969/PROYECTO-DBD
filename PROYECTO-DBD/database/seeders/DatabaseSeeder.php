@@ -22,6 +22,11 @@ use App\Models\Feriante;
 use App\Models\Region;
 use App\Models\Comuna;
 use App\Models\Feria_PuestoDeVenta;
+use App\Models\Categoria;
+use App\Models\PuestoDeVenta;
+use App\Models\Producto;
+use App\Models\Producto_PuestoDeVenta;
+use App\Models\Unidad;
 
 
 use Illuminate\Database\Seeder;
@@ -36,6 +41,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+		//Carlos
         Feria_FeriaFavorito::factory()->create();
         FeriaFavorito::factory()->create();
         Feriante_FeriantesFavorito::factory()->create();
