@@ -20,8 +20,9 @@ class CreatePagosTable extends Migration
             $table->string('tipo_pago');
             //Llaves foraneas
             //id_orden de compra
-            $table->unsignedBigInteger('id_orden_compra');
+            $table->unsignedBigInteger('id_orden_compra')->nullable();
             $table->foreign('id_orden_compra')->references('id')->on('orden_de_compras');
+
             
         });
     }

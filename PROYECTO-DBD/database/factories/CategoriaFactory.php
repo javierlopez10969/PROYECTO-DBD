@@ -22,7 +22,7 @@ class CategoriaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre'=>$this->faker->randomElement($array = array ('Carnes','Lacteos','Leches','frutas','verduras','carbohidratos','liquidos','legumbres','trigo')),,
+            'nombre'=>$this->faker->randomElement($array = array ('Carnes','Lacteos','Leches','frutas','verduras','carbohidratos','liquidos','legumbres','trigo'))
             
             //
         ];

@@ -15,7 +15,12 @@ class RegionController extends Controller
     public function index()
     {
         $region = Region::all();
-        return response()->json($region);
+        if($region != NULL){
+            return response()->json($region);
+        }
+        return response()->json([
+            "message"=>"No se encontró la region",
+        ],404);
     }
 
 
@@ -28,6 +33,11 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         $region = new Region();
+
+        $validatedData = $request->validate([
+            'nombre_region' => ['required' ,'string'],
+        ]); 
+
         $region->$request->nombre_region;
         $region->save();
         retrun response()->json([
@@ -59,7 +69,10 @@ class RegionController extends Controller
     public function update(Request $request, $id)
     {
         $region = Region::find($id);
-        $region->nombre_region = $request->nombre_region;
+       if($request->nombre_region != NULL){
+            $feria->nombre_region = $request->nombre_region;
+        }
+
         $region->save();
         return response()->json($region);
     }

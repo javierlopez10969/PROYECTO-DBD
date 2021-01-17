@@ -9,8 +9,14 @@ class UnidadController extends Controller
 {
     public function index()
     {
-        $unidad = Unidad::all();
-		return responde()->json($unidad);
+        //
+        $unidad = Unidad::all()->where('delete',false);
+        if($puesto != NULL){
+            return response()->json($unidad);
+        }
+        return response()->json([
+            "message"=>"No se encontró esta unidad",
+        ],404);
     }
 
 
@@ -18,12 +24,13 @@ class UnidadController extends Controller
     {
         //
 		$validateData = $request->validate([
-			'cantidad' => ['required'],
+			'cantidad' => ['required','numeric'],
 			'tipo_cantidad' => ['required','unique:posts'];
 		]);
 		$unidad = new Unidad();
 		$unidad->cantidad = $request->cantidad;
 		$unidad->tipo_cantidad = $request->tipo_cantidad;
+		$puesto->delete = $request->delete;
 		$unidad->save();
 		return responde()->json([
 		"message" => "Se ha creado asignar esta unidad."
@@ -34,8 +41,14 @@ class UnidadController extends Controller
 
     public function show($id)
     {
-		$unidad = Unidad::find($id)
-		return responde()->json($unidad);
+        //
+        $unidad = Unidad:find($id);
+        if($unidad == NULL or $unidad->delete == true){
+            return response()->json([
+                'message'=>'No se encontro esta unidad.'
+            ]);
+        }
+        return response()->json($unidad);
     }
 
     public function update(Request $request, $id)
@@ -48,6 +61,9 @@ class UnidadController extends Controller
 		if($request->tipo_cantidad != NULL){
 			$unidad->tipo_cantidad = $request->tipo_cantidad;
 		}
+		if($request->delete != NULL){
+            $puesto->delete = $request->delete;
+        }
 		$unidad->save();
 		return responde()->json($unidad);
     }
@@ -58,7 +74,11 @@ class UnidadController extends Controller
 		$unidad = Unidad::find($id)
 		if($unidad != Null){
 			$unidad->delete();
+			$puesto->save();
 		}
+		else{
+            "message" => "id Puesto inexistente"
+        }
 		return responde()->json([
 		"message" => "Se ha borrado asignar esta unidad."
 		"id" => $id

@@ -15,7 +15,12 @@ class Feria_PuestoDeVentaController extends Controller
     public function index()
     {
         $feria_PuestoDeVenta = Feria_PuestoDeVenta::all();
-        return response()->json($feria_PuestoDeVenta);
+        if($feria_PuestoDeVenta != NULL){
+            return response()->json($feria_PuestoDeVenta);
+        }
+        return response()->json([
+            "message"=>"No se encontró la feria_PuestoDeVenta",
+        ],404);
     }
 
     /**
@@ -27,6 +32,12 @@ class Feria_PuestoDeVentaController extends Controller
     public function store(Request $request)
     {
         $feria_PuestoDeVenta = new Feria_PuestoDeVenta();
+
+        $validatedData = $request->validate([
+            'id_feria' => ['required' , 'numeric'],            
+            'id_feria_puestodeventa' => ['required' , 'numeric'],
+        ]);   
+
         $feria_PuestoDeVenta->save();
         retrun response()->json([
             "message"-> "Nueva feria_PuestoDeVenta agregada",

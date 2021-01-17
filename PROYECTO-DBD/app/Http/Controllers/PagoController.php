@@ -14,16 +14,13 @@ class PagoController extends Controller
     public function index()
     {
         //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $pago = Pago::all()->where('delete',false);
+        if($pago != NULL){
+            return response()->json($pago);
+        }
+        return response()->json([
+            "message"=>"No se encontró el pago solicitado",
+        ],404);
     }
 
     /**
@@ -35,6 +32,29 @@ class PagoController extends Controller
     public function store(Request $request)
     {
         //
+        $pago = new Pago();
+        $validatedData = $request->validate([
+            'fecha_de_pago' => ['require' , 'min:2' , 'max:30'],
+            'tipo_pago' => ['require' , 'numeric'],
+            'valor_pago' => ['require' , 'numeric'],
+            'id_orden_compra' => ['require' , 'numeric']
+        ]);
+        
+        $orden_compra = Orden_de_compra::find($request->id_pago);
+        if ($pago == NULL){
+            return response()->json([
+                'message'=>'No existe usuario con esa id']);
+        }
+
+        $pago->fecha_de_pago = $request->fecha_de_pago;
+        $pago->tipo_pago = $request->tipo_pago;
+        $pago->valor_pago = $request->valor_pago;
+        $pago->save();
+        return response()->json([
+        "mesage"=>"Se ha creado una store",
+        "id" => $pago->id
+        ],202);
+
     }
 
     /**
@@ -46,17 +66,13 @@ class PagoController extends Controller
     public function show($id)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $pago = Pago::find($id);
+        if($pago == NULL){
+            return response()->json([
+                'message'=>'No se encontro el pago'
+            ]);
+        }
+        return response()->json($pago);
     }
 
     /**
@@ -68,7 +84,18 @@ class PagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pago = Pago::find($id);
+        if($request->fecha_de_pago != NULL){
+            $pago->categoria = $request->fecha_de_pago;
+        }
+        if($request->tipo_pago != NULL){
+            $pago->tipo_pago = $request->tipo_pago;
+        }
+        if($request->valor_pago != NULL){
+            $pago->valor_pago = $request->valor_pago;
+        }
+        $pago->save();
+        return response()->json($pago);
     }
 
     /**
@@ -79,6 +106,12 @@ class PagoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pago = Pago::find($id);
+        $pago->delete();
+        return response()->json([
+            "message"-> "orden de compra elimindada",
+            "id"=>$ordenDeCompra->id
+            ],201);    
+        }
     }
 }

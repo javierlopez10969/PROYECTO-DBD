@@ -24,9 +24,9 @@ class FeriaFactory extends Factory
         return [
             'descipcion'=>$this->faker->text($maxNbChars = 200), 
             'horario_desde'=>$this->faker->time($format = 'H:i:s', $max = 'now'),
-            'horario_hasta'$this->faker->time($format = 'H:i:s', $max = 'now')
+            'horario_hasta'$this->faker->time($format = 'H:i:s', $max = 'now'),
             //
-            'id_comuna' => Comuna::factory(),
+            'id_comuna' => Comuna::factory()
         ];
     }
 }

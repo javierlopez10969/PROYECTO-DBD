@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comprobante;
+use App\Models\Orden_de_pago;
 
 class ComprobanteController extends Controller
 {
@@ -13,18 +15,16 @@ class ComprobanteController extends Controller
      */
     public function index()
     {
-        //
+       //
+        $comprobante = Comprobante::all();
+        if($comprobante != NULL){
+            return response()->json($comprobante);
+        }
+        return response()->json([
+            "message"=>"No se encontró el comprobante",
+        ],404);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +34,31 @@ class ComprobanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                        //
+        $comprobante = new Comprobante();
+        $validatedData = $request->validate([
+            'precio' => ['required' ,'numeric'],
+            'tipo_de_comprobante' => ['required' , 'min:2' , 'max:50'],
+			
+            'id_orden_de_pagos' => ['required' , 'numeric']
+        ]);
+		
+		
+        //verificar las llaves foraneas
+        $orden_de_pago = Orden_de_pago::find($request->id_orden_de_pagos);
+        if($orden_de_pago == NULL){
+            return response()->json([
+                'message'=>'No existe una orden de pago con esa id'
+        }
+
+		
+        $comprobante->precio = $request->precio;
+        $comprobante->tipo_de_comprobante = $request->tipo_de_comprobante;		
+        $comprobante->save();
+        return response()->json([
+			"message"=>"Se ha creado un comprobante",
+			"id" => $comprobante->id
+        ],202);
     }
 
     /**
@@ -45,19 +69,10 @@ class ComprobanteController extends Controller
      */
     public function show($id)
     {
-        //
+		$comprobante = Comprobante::find($id);
+        return response()->($comprobante);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +83,16 @@ class ComprobanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comprobante = Comprobante::find($id);
+        if($request->precio != NULL){
+            $comprobante->precio = $request->precio;
+        }
+        if($request->tipo_de_comprobante != NULL){
+            $comprobante->tipo_de_comprobante = $request->tipo_de_comprobante;
+        }
+		
+        $comprobante->save();
+        return response()->json($comprobante);
     }
 
     /**
@@ -79,6 +103,10 @@ class ComprobanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comprobante->delete();
+        return response()->json([
+            "message"-> "comprobante elimindado",
+            "id"=>$comprobante->id
+        ],201);    
     }
 }

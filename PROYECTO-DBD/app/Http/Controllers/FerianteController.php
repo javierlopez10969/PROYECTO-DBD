@@ -15,7 +15,12 @@ class FerianteController extends Controller
     public function index()
     {
         $feriante = Feriante::all();
-        return response()->json($feriante);
+        if($feriante != NULL){
+            return response()->json($feriante);
+        }
+        return response()->json([
+            "message"=>"No se encontró el Feriante",
+        ],404);
     }
 
 
@@ -28,12 +33,27 @@ class FerianteController extends Controller
     public function store(Request $request)
     {
         $feriante = new Feriante();
+            $validatedData = $request->validate([
+            'direccion_feriante' => ['required' ,'string'],
+            'telefono_feriante' => ['required' , 'string'],
+            'nombre_feriante' => ['required' , 'string'],
+            
+            'id_comuna' => ['required' , 'numeric'],
+        ]);        
+
+        $feriante = Feriante::find($request->id_feriante);
+        if($feriante == NULL){
+            return response()->json([
+                'message'=>'No existe un feriante con esa id'
+            ],404)
+        }
+
         $feriante->$request->direccion_feriante;
         $feriante->$request->telefono_feriante;
         $feriante->$request->nombre_feriante;
         $feriante->save();
         retrun response()->json([
-            "message"-> "Nueva feria agregado",
+            "message"-> "Nueva feriante agregado",
             "id"=>$feriante->id
         ],201);
     }
@@ -61,6 +81,17 @@ class FerianteController extends Controller
     public function update(Request $request, $id)
     {
         $feriante = Feriante::find($id);
+
+       if($request->direccion_feriante != NULL){
+            $feria->direccion_feriante = $request->direccion_feriante;
+        }
+        if($request->telefono_feriante != NULL){
+            $feria->telefono_feriante = $request->telefono_feriante;
+        }
+        if($request->nombre_feriante != NULL){
+            $feria->nombre_feriante = $request->nombre_feriante;
+        }
+
         $feriante->direccion_feriante = $request->direccion_feriante;
         $feriante->telefono_feriante = $request->telefono_feriante;
         $feriante->nombre_feriante = $request->nombre_feriante; 

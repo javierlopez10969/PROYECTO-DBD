@@ -31,7 +31,7 @@ class OrdenDeDespachoFactory extends Factory
             'valor_despacho'=>$this->faker->numberBetween($min = 1000, $max = 15000)
             //
             'id_feriante' => Feriante::factory(),
-            'id_pago' => Pago::factory(),
+            'id_pago' => Pago::factory()
         ];
     }
 }

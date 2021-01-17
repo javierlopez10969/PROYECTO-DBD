@@ -15,7 +15,12 @@ class ComunaController extends Controller
     public function index()
     {
         $comuna = Comuna::all();
-        return response()->json($comuna);
+        if($comuna != NULL){
+            return response()->json($comuna);
+        }
+        return response()->json([
+            "message"=>"No se encontró la comuna",
+        ],404);
     }
 
 
@@ -28,14 +33,29 @@ class ComunaController extends Controller
     public function store(Request $request)
     {
         $comuna = new Comuna();
-        $comuna->$request->descripcion;
-        $comuna->$request->horario_desde;
-        $comuna->$request->horario_hasta;
+
+        $validatedData = $request->validate([
+            'nombre_comuna' => ['required' ,'string'],
+            
+            'id_region' => ['required' , 'numeric'],
+        ]);     
+
+        $region = Region::find($request->id_region);
+        if($region == NULL){
+            return response()->json([
+                'message'=>'No existe un region con esa id'
+                ],404)
+            }
+
+        $comuna->$request->nombre_comuna;
         $comuna->save();
         retrun response()->json([
             "message"-> "Nueva comuna agregada",
             "id"=>$comuna->id
         ],201);
+
+
+
     }
 
     /**
@@ -61,9 +81,9 @@ class ComunaController extends Controller
     public function update(Request $request, $id)
     {
         $comuna = Comuna::find($id);
-        $comuna->descripcion = $request->descripcion;
-        $comuna->horario_desde = $request->horario_desde;
-        $comuna->horario_hasta = $request->horario_hasta; 
+       if($request->nombre_comuna != NULL){
+            $comuna->nombre_comuna = $request->nombre_comuna;
+        }
         $comuna->save();
         return response()->json($comuna);
     }
