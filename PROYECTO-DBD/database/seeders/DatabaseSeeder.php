@@ -7,7 +7,21 @@ use App\Models\FeriaFavorito;
 use App\Models\Feriante_FeriantesFavorito;
 use App\Models\FeriantesFavorito;
 use App\Models\OrdenDeDespacho;
-
+use App\Models\Orden_de_pago;
+use App\Models\Orden_de_compra;
+use App\Models\Pago;
+use App\Models\Productos_orden_de_compra;
+use App\Models\Pago_ordendepago;
+use App\Models\Cliente;
+use App\Models\Comprobante;
+use App\Models\Cuenta_bancaria;
+use App\Models\Direccion_despacho;
+use App\Models\Datos_personal;
+use App\Models\Feria;
+use App\Models\Feriante;
+use App\Models\Region;
+use App\Models\Comuna;
+use App\Models\Feria_PuestoDeVenta;
 
 
 use Illuminate\Database\Seeder;
@@ -55,6 +69,7 @@ class DatabaseSeeder extends Seeder
         Producto::factory()->create();
         Producto_PuestoDeVenta::factory()->create();
         Unidad::factory()->create();
+
 
 
     }
