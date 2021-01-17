@@ -1,3 +1,21 @@
+## Flujo de Trabajo
+
+Siempre hacer pull antes de empezar a trabajar y antes de realizar cualquier push.
+
+git pull
+
+git commit -m "[Integrantes] [Comentario]"
+
+git push origin master
+
+NUNCA subir la carpeta vendor al proyecto, mantenerla alejada.
+
+En caso de subirla por error, borrarla de su zona de trabajo, y hacer un push con el trabajo sin la carpeta.
+
+Para recuperar la carpeta  : 
+
+composer install
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -8,6 +26,8 @@
 </p>
 
 ## About Laravel
+
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
