@@ -82,3 +82,51 @@ Route::get('/OrdenDes/{id}','OrdenDeDespacho@show');
 Route::post('/OrdenDes/create','OrdenDeDespacho@store');
 Route::put('/OrdenDes/update/{id}','OrdenDeDespacho@update');
 Route::delete('/OrdenDes/delete/{id}','OrdenDeDespacho@destroy');
+
+//RUTAS DE CONTROLLERS DE DAVID
+//Rutas de Cliente
+Route::get('/cliente','ClienteController@index');
+Route::get('/cliente/{id}','ClienteController@show');
+Route::post('/cliente/create','ClienteController@store');
+Route::put('/cliente/update/{id}','ClienteController@update');
+Route::delete('/cliente/delete/{id}','ClienteController@destroy');
+
+//Rutas de Comprobante
+Route::get('/comprobante','ComprobanteController@index');
+Route::get('/comprobante/{id}','ComprobanteController@show');
+Route::post('/comprobante/create','ComprobanteController@store');
+Route::put('/comprobante/update/{id}','ComprobanteController@update');
+Route::delete('/comprobante/delete/{id}','ComprobanteController@destroy');
+
+//Rutas de DatoPersonal
+Route::get('/datos_personales','DatoPersonalController@index');
+Route::get('/datos_personales/{id}','DatoPersonalController@show');
+Route::post('/datos_personales/create','DatoPersonalController@store');
+Route::put('/datos_personales/update/{id}','DatoPersonalController@update');
+Route::delete('/datos_personales/delete/{id}','DatoPersonalController@destroy');
+
+//Rutas de DireccionDespacho
+Route::get('/dir_desp','DireccionDespachoController@index');
+Route::get('/dir_desp/{id}','DireccionDespachoController@show');
+Route::post('/dir_desp/create','DireccionDespachoController@store');
+Route::put('/dir_desp/update/{id}','DireccionDespachoController@update');
+Route::delete('/dir_desp/delete/{id}','DireccionDespachoController@destroy');
+
+//Rutas de CuentaBancaria
+Route::get('/cuenta_banc','CuentaBancariaController@index');
+Route::get('/cuenta_banc/{id}','CuentaBancariaController@show');
+Route::post('/cuenta_banc/create','CuentaBancariaController@store');
+Route::put('/cuenta_banc/update/{id}','CuentaBancariaController@update');
+Route::delete('/cuenta_banc/delete/{id}','CuentaBancariaController@destroy');
+
+
+
+
+
+
+
+
+
+
+
+
