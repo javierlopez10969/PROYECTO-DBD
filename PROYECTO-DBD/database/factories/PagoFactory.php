@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\CuentaBancaria;
+use App\Models\Cuenta_bancaria;
 use App\Models\OrdenDeCompra;
 use App\Models\Pago;
 use Illuminate\Database\Eloquent\Factories\Factory;

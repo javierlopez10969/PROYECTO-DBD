@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cuenta_bancaria extends Model
 {
     use HasFactory;
+
 	
 	//ORDEN DE PAGO
     public function Orden_de_pago (){

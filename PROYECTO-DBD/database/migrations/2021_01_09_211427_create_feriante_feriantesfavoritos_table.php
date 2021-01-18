@@ -17,10 +17,10 @@ class CreateFerianteFeriantesfavoritosTable extends Migration
             $table->id('id_feriante_feriantesfavoritos');
             //llaves foraneas
             
-            $table->unsignedBigInteger('id_feriante')->nulleable;
+            $table->unsignedBigInteger('id_feriante')->nullable();
             $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
             
-            $table->unsignedBigInteger('id_feriantesfavoritos')->nulleable;
+            $table->unsignedBigInteger('id_feriantesfavoritos')->nullable();
             $table->foreign('id_feriantesfavoritos')->references('id_feriantesfavoritos')->on('feriantesfavoritos');
             
         });
