@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\PuestoDeVenta;
+use App\Models\Producto;
+use App\Models\Producto_PuestoDeVenta;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+
 
 class Producto_PuestoDeVentaFactory extends Factory
 {
@@ -12,7 +15,7 @@ class Producto_PuestoDeVentaFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Producto_PuestoDeVenta::class;
 
     /**
      * Define the model's default state.

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\OrdenDePago;
 use App\Models\Comprobante;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

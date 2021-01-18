@@ -41,13 +41,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-		//Carlos
+        
+        //Carlos
         Feria_FeriaFavorito::factory()->create();
         FeriaFavorito::factory()->create();
         Feriante_FeriantesFavorito::factory()->create();
         FeriantesFavorito::factory()->create();
         OrdenDeDespacho::factory()->create();
-
+        
         //Javier
         Orden_de_pago::factory()->create();
         Orden_de_compra::factory()->create();

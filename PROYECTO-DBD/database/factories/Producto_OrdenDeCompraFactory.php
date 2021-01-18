@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Producto_orden_de_compra;
+use App\Models\Producto;
+use App\Models\OrdenDeCompra;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class Producto_OrdenDeCompraFactory extends Factory
@@ -12,7 +14,7 @@ class Producto_OrdenDeCompraFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Producto_orden_de_compra::class;
 
     /**
      * Define the model's default state.

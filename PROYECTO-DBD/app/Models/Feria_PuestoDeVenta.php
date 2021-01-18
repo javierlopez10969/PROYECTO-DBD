@@ -7,17 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feria_PuestoDeVenta extends Model
 {
-	public function feria();
+	use HasFactory;
+	
+	public function feria()
 	{
 		return
 		$this->hasMany(Feria::class);
 	}
 
-	public function puestoDeVenta();
+	public function puestoDeVenta()
 	{
 		return
 		$this->hasMany(PuestoDeVenta::class);
 	}
 
-    use HasFactory;
+    
 }

@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Feriante;
+use App\Models\Orden_de_pago;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrdenDePagoFactory extends Factory
@@ -12,7 +13,7 @@ class OrdenDePagoFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Orden_de_pago::class;
 
     /**
      * Define the model's default state.

@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Feriante;
+use App\Models\Cliente;
+use App\Models\Datos_personal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DatoPersonalFactory extends Factory
@@ -12,7 +14,7 @@ class DatoPersonalFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Datos_personal::class;
 
     /**
      * Define the model's default state.
@@ -27,7 +29,7 @@ class DatoPersonalFactory extends Factory
             'password'=>$this->faker->password,
             //
             'id_feriante' => Feriante::factory(),
-            'id_cliente' => Cliente::factory()            
+            'id_cliente' => Cliente::factory()          
         ];
     }
 }

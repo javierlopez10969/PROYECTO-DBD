@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comuna extends Model
 {
-	public function feria();
+	use HasFactory;
+	
+	public function feria()
 	{
-		return
-		$this->hasMany(Feria::class);
+		return $this->hasMany(Feria::class);
 	}
-	public function region();
+	public function region()
 	{
-		return
-		$this->belongsTo(Region::class);
+		return $this->belongsTo(Region::class);
 	}
-    use HasFactory;
+    
 }

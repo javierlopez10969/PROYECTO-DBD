@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Feriante;
+use App\Models\OrdenDePago;
+use App\Models\Cliente;
+use App\Models\Cuenta_Bancaria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CuentaBancariaFactory extends Factory
@@ -12,7 +15,7 @@ class CuentaBancariaFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Cuenta_Bancaria::class;
 
     /**
      * Define the model's default state.

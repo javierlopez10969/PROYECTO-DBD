@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Region extends Model
 {
-	public function comuna();
+	use HasFactory;
+	
+	public function comuna()
 	{
-		return
-		$this->hasMany(Comuna::class);
+		return $this->hasMany(Comuna::class);
 	}
-    use HasFactory;
+    
 }

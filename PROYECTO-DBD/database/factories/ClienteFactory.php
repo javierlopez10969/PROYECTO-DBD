@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Cliente;
+use App\Models\FeriaFavorito;
+use App\Models\FerianteFavorito;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClienteFactory extends Factory

@@ -14,7 +14,7 @@ class Feria_PuestoDeVentaFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Feria_PuestoDeVenta::class;
 
     /**
      * Define the model's default state.

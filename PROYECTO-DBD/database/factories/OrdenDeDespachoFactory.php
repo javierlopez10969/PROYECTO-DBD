@@ -25,10 +25,10 @@ class OrdenDeDespachoFactory extends Factory
     public function definition()
     {
         return [
-            'fecha_despacho'=>$this->faker->date($format = 'Y-m-d', $max = 'now')
-            'tipo_despacho'=>$this->faker->lexify('Despacho ???')
-            'cantidad_elemento_despacho'=>$this->faker->numberBetween($min = 1, $max = 200)
-            'valor_despacho'=>$this->faker->numberBetween($min = 1000, $max = 15000)
+            'fecha_despacho'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'tipo_despacho'=>$this->faker->lexify('Despacho ???'),
+            'cantidad_elemento_despacho'=>$this->faker->numberBetween($min = 1, $max = 200),
+            'valor_despacho'=>$this->faker->numberBetween($min = 1000, $max = 15000),
             //
             'id_feriante' => Feriante::factory(),
             'id_pago' => Pago::factory()

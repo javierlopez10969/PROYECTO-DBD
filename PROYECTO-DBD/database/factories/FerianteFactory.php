@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Feriante;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FerianteFactory extends Factory
@@ -12,7 +12,7 @@ class FerianteFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Feriante::class;
 
     /**
      * Define the model's default state.

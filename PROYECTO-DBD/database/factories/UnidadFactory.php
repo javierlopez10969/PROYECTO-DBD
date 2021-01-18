@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Model;
+use App\Models\Unidad;
 
 class UnidadFactory extends Factory
 {
@@ -12,7 +12,7 @@ class UnidadFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Unidad::class;
 
     /**
      * Define the model's default state.
