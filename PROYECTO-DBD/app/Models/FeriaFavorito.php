@@ -10,7 +10,7 @@ class FeriaFavorito extends Model
     use HasFactory;
 	protected $table = 'feriafavoritos';
     public $timestamps = false;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_feriafavoritos';
 	
     public function cliente(){
         return $this->belongsTo(Cliente::class);

@@ -14,7 +14,7 @@ class CreateFeriafavoritosTable extends Migration
     public function up()
     {
         Schema::create('feriafavoritos', function (Blueprint $table) {
-            $table->id('id');
+            $table->id('id_feriafavoritos');
             $table->integer('valoracion');
         });
     }

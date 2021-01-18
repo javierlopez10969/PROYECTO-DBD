@@ -14,11 +14,11 @@ class CreateProductosOrdenDeComprasTable extends Migration
     public function up()
     {
         Schema::create('_productos__orden_de_compras', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_producto_orden_compra');
             
             //Llave foraneas
             $table->unsignedBigInteger('id_orden_compra');
-            $table->foreign('id_orden_compra')->references('id')->on('orden_de_compras');
+            $table->foreign('id_orden_compra')->references('id_orden_compras')->on('orden_de_compras');
             
             //id_producto
             $table->unsignedBigInteger('id_producto');

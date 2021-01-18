@@ -14,13 +14,13 @@ class CreateComprobantesTable extends Migration
     public function up()
     {
         Schema::create('comprobantes', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_comprobante');
             $table->string('tipo_de_comprobante');
             $table->integer('precio');
 	    
 	    //Llave foranea orden de pago
             $table->unsignedBigInteger('id_orden_de_pagos');
-            $table->foreign('id_orden_de_pagos')->references('id')->on('orden_de_pagos'); 
+            $table->foreign('id_orden_de_pagos')->references('id_orden_pagos')->on('orden_de_pagos'); 
 	    
 
         });

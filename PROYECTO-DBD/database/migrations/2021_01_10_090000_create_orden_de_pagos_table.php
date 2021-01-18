@@ -14,7 +14,7 @@ class CreateOrdenDePagosTable extends Migration
     public function up()
     {
         Schema::create('orden_de_pagos', function (Blueprint $table) {
-            $table->id(); //Primaria
+            $table->id('id_orden_pagos'); //Primaria
             $table->timestamp('fecha_de_pago');
             $table->string('tipo_pago');
             $table->integer('valor_total_pago');            

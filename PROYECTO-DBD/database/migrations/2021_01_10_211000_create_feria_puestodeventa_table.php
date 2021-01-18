@@ -14,7 +14,7 @@ class CreateFeriaPuestodeventaTable extends Migration
     public function up()
     {
         Schema::create('feria_puestodeventa', function (Blueprint $table) {
-            $table->id();
+            $table->id('feria_puestodeventa');
 
             $table->unsignedBigInteger('id_puesto_venta')->nullable();
             $table->foreign('id_puesto_venta')->references('id_puesto_venta')->on('puesto_venta');

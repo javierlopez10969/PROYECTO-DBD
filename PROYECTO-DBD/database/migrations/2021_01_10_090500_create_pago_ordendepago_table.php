@@ -14,16 +14,16 @@ class CreatePagoOrdendepagoTable extends Migration
     public function up()
     {
         Schema::create('pago_ordendepago', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_orden_pagos');
             
             //llaves foraneas
             //id_pago
             $table->unsignedBigInteger('id_pago');
-            $table->foreign('id_pago')->references('id')->on('pagos');
+            $table->foreign('id_pago')->references('id_pagos')->on('pagos');
             
             //id_orden_pago
             $table->unsignedBigInteger('id_orden_pago');
-            $table->foreign('id_orden_pago')->references('id')->on('orden_de_pagos');
+            $table->foreign('id_orden_pago')->references('id_orden_pagos')->on('orden_de_pagos');
             
 
         });

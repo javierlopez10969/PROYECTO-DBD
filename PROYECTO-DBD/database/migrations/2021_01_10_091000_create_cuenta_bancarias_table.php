@@ -14,7 +14,7 @@ class CreateCuentaBancariasTable extends Migration
     public function up()
     {
         Schema::create('cuenta_bancarias', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_cuenta_bancaria');
             $table->integer('numero_cuenta');
             $table->string('banco');
             $table->string('tipo_cuenta');
@@ -27,12 +27,12 @@ class CreateCuentaBancariasTable extends Migration
             
             //id_orden_pago
             $table->unsignedBigInteger('id_orden_pago');
-            $table->foreign('id_orden_pago')->references('id')->on('orden_de_pagos');
+            $table->foreign('id_orden_pago')->references('id_orden_pagos')->on('orden_de_pagos');
             
             
 			//id_cliente
             $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('clientes');	
+            $table->foreign('id_cliente')->references('id_clientes')->on('clientes');	
 			
         });
     }

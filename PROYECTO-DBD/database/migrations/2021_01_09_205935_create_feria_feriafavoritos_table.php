@@ -14,14 +14,14 @@ class CreateFeriaFeriafavoritosTable extends Migration
     public function up()
     {
         Schema::create('feria_feriafavoritos', function (Blueprint $table) {
-            $table->id('id');
+            $table->id('id_feria_feriafavoritos');
             
             //llaves foraneas
             $table->unsignedBigInteger('id_feria');
             $table->foreign('id_feria')->references('id_feria')->on('feria');
             
             $table->unsignedBigInteger('id_feriafavoritos');
-            $table->foreign('id_feriafavoritos')->references('id')->on('feriafavoritos');
+            $table->foreign('id_feriafavoritos')->references('id_feriafavoritos')->on('feriafavoritos');
             
         });
     }

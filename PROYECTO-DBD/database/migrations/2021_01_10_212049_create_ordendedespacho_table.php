@@ -14,7 +14,7 @@ class CreateOrdendedespachoTable extends Migration
     public function up()
     {
         Schema::create('ordendedespacho', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_orden_despacho');
             $table->timestamp('fecha_despacho', 0);
             $table->string('tipo_despacho');
             $table->integer('cantidad_elemento_despacho');
@@ -26,7 +26,7 @@ class CreateOrdendedespachoTable extends Migration
             $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
             
             $table->unsignedBigInteger('id_pago');
-            $table->foreign('id_pago')->references('id')->on('pagos');
+            $table->foreign('id_pago')->references('id_pagos')->on('pagos');
             
         });
     }
