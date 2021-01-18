@@ -5,9 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orden_de_pago extends Model
+class OrdenDePago extends Model
 {
     use HasFactory;
+    		
+	protected $table = 'orden_de_pagos';
+	public $timestamps = false;
+	protected $primaryKey = 'id_orden_pagos';
+    protected $keyType = 'string';
+    
+    
     //Comprobante
     public function Comprobante(){
         return $this->hasOne(Comprobante::class);

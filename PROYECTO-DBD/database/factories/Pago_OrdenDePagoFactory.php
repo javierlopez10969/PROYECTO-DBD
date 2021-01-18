@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Pago;
-use App\Models\Orden_de_pago;
+use App\Models\OrdenDePago;
 use App\Models\Pago_ordendepago;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -26,7 +26,7 @@ class Pago_OrdenDePagoFactory extends Factory
         return [
             //
             'id_pago' => Pago::factory(),
-            'id_orden_pago' => Orden_de_pago::factory()
+            'id_orden_pago' => OrdenDePago::factory()
         ];
     }
 }

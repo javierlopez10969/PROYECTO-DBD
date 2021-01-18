@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Feriante;
 use App\Models\OrdenDePago;
 use App\Models\Cliente;
-use App\Models\Cuenta_bancaria;
+use App\Models\CuentaBancaria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CuentaBancariaFactory extends Factory
@@ -26,11 +26,11 @@ class CuentaBancariaFactory extends Factory
     {
         return [
 			'numero_cuenta'=>$this->faker->bankAccountNumber,
-            'banco'=>$this->faker->;randomElement($array = array ('Banco Bci','Banco de Chile','Banco Estado','Banco Santander',
+            'banco'=>$this->faker->randomElement($array = array ('Banco Bci','Banco de Chile','Banco Estado','Banco Santander',
 																  'Banco BICE','Banco Condell','Banco CrediChile','Banco Edwards Citi',
 																  'Banco Falabella','Banco Internacional','Banco Itaú','Banco Ripley',
 																  'Banco Security','Scotiabank')),			 
-            'tipo_cuenta'=>$this->faker->($array = array ('vista','rut','ahorro','corriente','chequera electronica')),
+            'tipo_cuenta'=>$this->faker->randomElement($array = array ('vista','rut','ahorro','corriente','chequera electronica')),
             'balance'=>$this->faker->numberBetween($min = 0, $max = 10000000),
             //
             'id_feriante' => Feriante::factory(),

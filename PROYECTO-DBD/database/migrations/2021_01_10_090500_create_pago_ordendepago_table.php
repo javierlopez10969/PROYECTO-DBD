@@ -18,11 +18,11 @@ class CreatePagoOrdendepagoTable extends Migration
             
             //llaves foraneas
             //id_pago
-            $table->unsignedBigInteger('id_pago');
+            $table->unsignedBigInteger('id_pago')->nulleable();
             $table->foreign('id_pago')->references('id_pagos')->on('pagos');
             
             //id_orden_pago
-            $table->unsignedBigInteger('id_orden_pago');
+            $table->unsignedBigInteger('id_orden_pago')->nulleable();
             $table->foreign('id_orden_pago')->references('id_orden_pagos')->on('orden_de_pagos');
             
 

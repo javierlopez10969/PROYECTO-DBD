@@ -20,11 +20,8 @@ class CreateOrdenDePagosTable extends Migration
             $table->integer('valor_total_pago');            
             
 	        //id_feriante
-            $table->unsignedBigInteger('id_feriante');
-            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
-            
-
-            
+            $table->unsignedBigInteger('id_feriante')->nulleable();
+            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');  
         });
     }
 
