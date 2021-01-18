@@ -22,7 +22,7 @@ class FerianteFactory extends Factory
     public function definition()
     {
         return [
-            'direccion_feriante'=>$this->faker->adress,
+            'direccion_feriante'=>$this->faker->address,
             'telefono_feriante'=>$this->faker->phoneNumber,
             'nombre_feriante'=>$this->faker->name
             //

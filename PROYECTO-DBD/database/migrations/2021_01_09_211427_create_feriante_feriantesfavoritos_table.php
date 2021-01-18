@@ -14,13 +14,13 @@ class CreateFerianteFeriantesfavoritosTable extends Migration
     public function up()
     {
         Schema::create('feriante_feriantesfavoritos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             //llaves foraneas
             
-            $table->unsignedBigInteger('id_feriante');
+            $table->unsignedBigInteger('id_feriante')->nulleable;
             $table->foreign('id_feriante')->references('id_feriante')->on('feriante');
             
-            $table->unsignedBigInteger('id_feriantesfavoritos');
+            $table->unsignedBigInteger('id_feriantesfavoritos')->nulleable;
             $table->foreign('id_feriantesfavoritos')->references('id')->on('feriantesfavoritos');
             
         });

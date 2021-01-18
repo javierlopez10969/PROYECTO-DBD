@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Feria extends Model
 {
 	use HasFactory;
+		
+	protected $table = 'feria';
+	public $timestamps = false;
+	protected $primaryKey = 'id_feria';
+	protected $keyType = 'string';
 	
 	public function comuna()
 	{

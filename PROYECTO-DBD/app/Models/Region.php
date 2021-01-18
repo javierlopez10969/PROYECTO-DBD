@@ -9,6 +9,10 @@ class Region extends Model
 {
 	use HasFactory;
 	
+	protected $table = 'region';
+	public $timestamps = false;
+	protected $primaryKey = 'id_region';
+	
 	public function comuna()
 	{
 		return $this->hasMany(Comuna::class);

@@ -16,7 +16,7 @@ class CreateFerianteTable extends Migration
         Schema::create('feriante', function (Blueprint $table) {
             $table->id('id_feriante');
             $table->string('direccion_feriante');
-            $table->integer('telefono_feriante');
+            $table->string('telefono_feriante');
             $table->string('nombre_feriante');
         });
     }

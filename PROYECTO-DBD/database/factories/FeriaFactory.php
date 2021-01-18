@@ -23,7 +23,7 @@ class FeriaFactory extends Factory
     public function definition()
     {
         return [
-            'descipcion'=>$this->faker->text($maxNbChars = 200), 
+            'descripcion'=>$this->faker->text($maxNbChars = 200), 
             'horario_desde'=>$this->faker->time($format = 'H:i:s', $max = 'now'),
             'horario_hasta'=>$this->faker->time($format = 'H:i:s', $max = 'now'),
             //

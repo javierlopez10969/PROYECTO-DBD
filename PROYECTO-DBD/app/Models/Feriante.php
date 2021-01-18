@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Feriante extends Model
 {
 	use HasFactory;
+	protected $table = 'feriante';
+    public $timestamps = false;
+    protected $primaryKey = 'id_feriante';
+	public $incrementing = false;
 	
 	public function puestoDeVenta()
 	{

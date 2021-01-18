@@ -14,7 +14,7 @@ class CreateFeriaFeriafavoritosTable extends Migration
     public function up()
     {
         Schema::create('feria_feriafavoritos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             
             //llaves foraneas
             $table->unsignedBigInteger('id_feria');
