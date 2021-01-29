@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cuenta_bancaria;
 use App\Models\Cliente;
 use App\Models\Feriante;
-use App\Models\Orden_de_pago;
+use App\Models\OrdenDePago;
 
 class CuentaBancariaController extends Controller
 {

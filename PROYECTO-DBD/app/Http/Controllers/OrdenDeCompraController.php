@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\OrdenDeCompra;
+use App\Models\Feriante;
 
 class OrdenDeCompraController extends Controller
 {
@@ -14,7 +16,7 @@ class OrdenDeCompraController extends Controller
     public function index()
     {
         //
-        $ordenDeCompra = Orden_de_compra::all()->where('delete',false);
+        $ordenDeCompra = OrdenDeCompra::all()->where('delete',false);
         if($ordenDeCompra != NULL){
             return response()->json($ordenDeCompra);
         }
@@ -32,7 +34,7 @@ class OrdenDeCompraController extends Controller
     public function store(Request $request)
     {
         //
-        $ordenDeCompra = new Orden_de_compra();
+        $ordenDeCompra = new OrdenDeCompra();
         $validatedData = $request->validate([
             'fecha_pago' => ['require' , 'min:2' , 'max:30'],
             'cantidad_elementos_orden' => ['require' , 'numeric'],
@@ -65,7 +67,7 @@ class OrdenDeCompraController extends Controller
     public function show($id)
     {
         //
-        $ordenDeCompra = Orden_de_compra::find($id);
+        $ordenDeCompra = OrdenDeCompra::find($id);
         if($ordenDeCompra == NULL){
             return response()->json([
                 'message'=>'No se encontro la orden de compra'
@@ -83,7 +85,7 @@ class OrdenDeCompraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ordenDeCompra = Orden_de_compra::find($id);
+        $ordenDeCompra = OrdenDeCompra::find($id);
         if($request->fecha_pago != NULL){
             $ordenDeCompra->categoria = $request->fecha_pago;
         }
@@ -105,7 +107,7 @@ class OrdenDeCompraController extends Controller
      */
     public function destroy($id)
     {
-        $ordenDeCompra = Orden_de_compra::find($id);
+        $ordenDeCompra = OrdenDeCompra::find($id);
         $ordenDeCompra->delete();
         return response()->json([
             "message"-> "orden de compra elimindada",

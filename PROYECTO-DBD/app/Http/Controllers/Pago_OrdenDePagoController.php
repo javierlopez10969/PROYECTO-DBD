@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pago_ordendepago;
+use App\Models\Pago;
+use App\Models\Orden_de_pago;
 
 class Pago_OrdenDePagoController extends Controller
 {

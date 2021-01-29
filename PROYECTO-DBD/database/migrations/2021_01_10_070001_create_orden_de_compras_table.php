@@ -15,7 +15,7 @@ class CreateOrdenDeComprasTable extends Migration
     {
         Schema::create('orden_de_compras', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('fecha_pago');
+            $table->string('fecha_de_pago');
             $table->integer('cantidad_elementos_orden');
             $table->boolean('estado_de_pago');
             //Llaves foraneas

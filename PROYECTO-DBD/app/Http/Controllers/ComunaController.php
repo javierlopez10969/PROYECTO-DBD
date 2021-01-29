@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comuna;
+use App\Models\Region;
 
 class ComunaController extends Controller
 {

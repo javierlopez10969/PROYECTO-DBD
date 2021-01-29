@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class OrdenDeCompra extends Model
 {
 	public $timestamps = false;
+	protected $table = 'orden_de_compras';
+	protected $primaryKey = 'id';
+	protected $keyType = 'string';
 	
     use HasFactory;
     //Pago

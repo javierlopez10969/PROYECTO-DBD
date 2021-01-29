@@ -28,7 +28,6 @@ class PagoFactory extends Factory
             'fecha_pago'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
             'valor_pago'=>$this->faker->numberBetween($min = 100, $max = 100000),
             'tipo_pago'=>$this->faker->randomElement($array = array ('Credito','Debito','Prepago','Deposito')),
-            'id_cuenta_bancaria' => CuentaBancaria::factory(),
             'id_orden_compra' => OrdenDeCompra::factory()
         ];
     }

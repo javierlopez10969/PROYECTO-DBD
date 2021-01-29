@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pago;
+use App\Models\OrdenDeCompra;
 
 class PagoController extends Controller
 {
@@ -40,7 +42,7 @@ class PagoController extends Controller
             'id_orden_compra' => ['require' , 'numeric']
         ]);
         
-        $orden_compra = Orden_de_compra::find($request->id_pago);
+        $orden_compra = OrdenDeCompra::find($request->id_pago);
         if ($pago == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id']);

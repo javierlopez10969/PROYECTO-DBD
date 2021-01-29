@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Productos_orden_de_compra;
+use App\Models\Producto;
+use App\Models\Feriante;
+
 
 class Producto_OrdenDeCompraController extends Controller
 {
