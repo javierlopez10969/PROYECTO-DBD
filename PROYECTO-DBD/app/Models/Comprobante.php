@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comprobante extends Model
 {
+	public $timestamps = false;
     use HasFactory;
     //ORDEN DE PAGO
     public function Orden_de_pago (){

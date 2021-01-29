@@ -14,14 +14,14 @@ class CreateOrdenDePagosTable extends Migration
     public function up()
     {
         Schema::create('orden_de_pagos', function (Blueprint $table) {
-            $table->id('id_orden_pagos'); //Primaria
+            $table->id(); //Primaria
             $table->timestamp('fecha_de_pago');
             $table->string('tipo_pago');
             $table->integer('valor_total_pago');            
             
 	        //id_feriante
             $table->unsignedBigInteger('id_feriante')->nulleable();
-            $table->foreign('id_feriante')->references('id_feriante')->on('feriante');  
+            $table->foreign('id_feriante')->references('id')->on('feriante');  
         });
     }
 

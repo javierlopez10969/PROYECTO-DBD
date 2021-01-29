@@ -11,7 +11,7 @@ class Comuna extends Model
 		
 	protected $table = 'comuna';
 	public $timestamps = false;
-	protected $primaryKey = 'id_comuna';
+	protected $primaryKey = 'id';
 	
 	
 	public function feria()

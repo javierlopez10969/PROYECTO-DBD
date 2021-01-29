@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto_PuestoDeVenta extends Model
 {
+	public $timestamps = false;
     use HasFactory;
     public function Producto(){
         return $this->belongsTo(Producto::class);

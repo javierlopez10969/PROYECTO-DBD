@@ -14,14 +14,14 @@ class CreatePagosTable extends Migration
     public function up()
     {
         Schema::create('pagos', function (Blueprint $table) {
-            $table->id('id_pagos');
+            $table->id();
             $table->timestamp('fecha_pago');
             $table->integer('valor_pago');
             $table->string('tipo_pago');
             //Llaves foraneas
             //id_orden de compra
             $table->unsignedBigInteger('id_orden_compra')->nullable();
-            $table->foreign('id_orden_compra')->references('id_orden_compras')->on('orden_de_compras');
+            $table->foreign('id_orden_compra')->references('id')->on('orden_de_compras');
 
             
         });

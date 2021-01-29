@@ -11,7 +11,7 @@ class Region extends Model
 	
 	protected $table = 'region';
 	public $timestamps = false;
-	protected $primaryKey = 'id_region';
+	protected $primaryKey = 'id';
 	
 	public function comuna()
 	{

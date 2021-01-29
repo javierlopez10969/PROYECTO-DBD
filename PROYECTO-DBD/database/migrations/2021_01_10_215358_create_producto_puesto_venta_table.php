@@ -14,13 +14,13 @@ class CreateProductoPuestoVentaTable extends Migration
     public function up()
     {
         Schema::create('producto_puesto_venta', function (Blueprint $table) {
-            $table->id('id_producto_puesto_venta');
+            $table->id();
 
 			$table->unsignedBigInteger('id_puesto_venta')->nullable();
-            $table->foreign('id_puesto_venta')->references('id_puesto_venta')->on('puesto_venta');
+            $table->foreign('id_puesto_venta')->references('id')->on('puesto_venta');
             
 			$table->unsignedBigInteger('id_producto')->nullable();
-			$table->foreign('id_producto')->references('id_producto')->on('producto');
+			$table->foreign('id_producto')->references('id')->on('producto');
         });
     }
 

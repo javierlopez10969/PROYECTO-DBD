@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdenDeCompra extends Model
 {
-	
+	public $timestamps = false;
 	
     use HasFactory;
     //Pago

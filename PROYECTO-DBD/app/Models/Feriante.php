@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feriante extends Model
 {
+	public $timestamps = false;
 	use HasFactory;
 	protected $table = 'feriante';
-    public $timestamps = false;
-    protected $primaryKey = 'id_feriante';
+    protected $primaryKey = 'id';
 	public $incrementing = false;
 	
 	public function puestoDeVenta()

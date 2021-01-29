@@ -14,13 +14,13 @@ class CreateFeriaPuestodeventaTable extends Migration
     public function up()
     {
         Schema::create('feria_puestodeventa', function (Blueprint $table) {
-            $table->id('feria_puestodeventa');
+            $table->id();
 
             $table->unsignedBigInteger('id_puesto_venta')->nullable();
-            $table->foreign('id_puesto_venta')->references('id_puesto_venta')->on('puesto_venta');
+            $table->foreign('id_puesto_venta')->references('id')->on('puesto_venta');
             
 			$table->unsignedBigInteger('id_feria')->nullable();
-			$table->foreign('id_feria')->references('id_feria')->on('feria');
+			$table->foreign('id_feria')->references('id')->on('feria');
         });
     }
 

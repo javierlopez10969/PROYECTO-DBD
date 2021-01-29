@@ -27,7 +27,7 @@ class OrdenDePagoFactory extends Factory
             'fecha_de_pago'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
             'tipo_pago'=>$this->faker->randomElement($array = array ('Credito','Debito','Prepago','Deposito')) ,
             'valor_total_pago'=>$this->faker->numberBetween($min = 100, $max = 100000),
-            'id_feriante' => Feriante::factory()
+            'id_feriante' => Feriante::all()->random()->id
         ];
     }
 }

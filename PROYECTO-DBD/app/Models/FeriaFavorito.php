@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class FeriaFavorito extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 	protected $table = 'feriafavoritos';
-    public $timestamps = false;
-    protected $primaryKey = 'id_feriafavoritos';
+    protected $primaryKey = 'id';
 	
     public function cliente(){
         return $this->belongsTo(Cliente::class);

@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Feria_FeriaFavorito extends Model
-{
+{public $timestamps = false;
     use HasFactory;
 	protected $table = 'feria_feriafavoritos';
-    public $timestamps = false;
-    protected $primaryKey = 'id_feria_feriafavoritos';
+    protected $primaryKey = 'id';
 	
     public function feria(){
         return $this->belongsTo(Feria::class);

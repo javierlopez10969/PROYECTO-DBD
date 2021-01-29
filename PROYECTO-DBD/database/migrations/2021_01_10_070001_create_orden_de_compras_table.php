@@ -14,15 +14,15 @@ class CreateOrdenDeComprasTable extends Migration
     public function up()
     {
         Schema::create('orden_de_compras', function (Blueprint $table) {
-            $table->id('id_orden_compras');
+            $table->id();
             $table->timestamp('fecha_pago');
             $table->integer('cantidad_elementos_orden');
             $table->boolean('estado_de_pago');
             //Llaves foraneas
             
             //id_orden_de_pagos
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id_clientes')->on('clientes');
+            $table->unsignedBigInteger('id_cliente')->nullable();
+            $table->foreign('id_cliente')->references('id')->on('clientes');
             
         });
     }

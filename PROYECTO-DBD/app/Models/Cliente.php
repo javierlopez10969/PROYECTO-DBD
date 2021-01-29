@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
-	
+	public $timestamps = false;
 	//ORDEN DE COMPRA
     public function Orden_de_compra (){
         return $this->hasMany(Orden_de_compra::class);

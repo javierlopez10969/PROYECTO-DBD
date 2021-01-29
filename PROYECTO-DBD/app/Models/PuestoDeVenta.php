@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PuestoDeVenta extends Model
 {
+	public $timestamps = false;
     use HasFactory;
     public function Producto_PuestoDeVenta(){
         return $this->hasMany(Producto_PuestoDeVenta::class);

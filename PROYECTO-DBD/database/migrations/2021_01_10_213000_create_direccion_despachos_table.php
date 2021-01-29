@@ -14,16 +14,18 @@ class CreateDireccionDespachosTable extends Migration
     public function up()
     {
         Schema::create('direccion_despachos', function (Blueprint $table) {
-            $table->id('id_direccion_despachos');//Lave primaria
+            $table->id();//Lave primaria
         	$table->string('direccion');//Direccion
 
             //llaves foraneas
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id_clientes')->on('clientes');
-            $table->unsignedBigInteger('id_orden_despacho');
-            $table->foreign('id_orden_despacho')->references('id_orden_despacho')->on('ordendedespacho');
-            $table->unsignedBigInteger('id_comuna');
-            $table->foreign('id_comuna')->references('id_comuna')->on('comuna');
+            $table->unsignedBigInteger('id_cliente')->nullable();
+            $table->foreign('id_cliente')->references('id')->on('clientes');
+			
+            $table->unsignedBigInteger('id_orden_despacho')->nullable();
+            $table->foreign('id_orden_despacho')->references('id')->on('ordendedespacho');
+			
+            $table->unsignedBigInteger('id_comuna')->nullable();
+            $table->foreign('id_comuna')->references('id')->on('comuna');
 
             
         });

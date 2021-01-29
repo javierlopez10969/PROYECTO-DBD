@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feria extends Model
 {
+	public $timestamps = false;
 	use HasFactory;
 		
 	protected $table = 'feria';
-	public $timestamps = false;
-	protected $primaryKey = 'id_feria';
+	protected $primaryKey = 'id';
 	protected $keyType = 'string';
 	
 	public function comuna()

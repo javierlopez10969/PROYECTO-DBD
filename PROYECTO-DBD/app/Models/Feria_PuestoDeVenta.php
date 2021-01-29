@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Feria_PuestoDeVenta extends Model
-{
+{public $timestamps = false;
 	use HasFactory;
 	
 	public function feria()

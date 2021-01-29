@@ -14,12 +14,12 @@ class CreateFeriaTable extends Migration
     public function up()
     {
         Schema::create('feria', function (Blueprint $table) {
-            $table->id('id_feria');
+            $table->id();
             $table->string('descripcion');
             $table->string('horario_desde');
             $table->string('horario_hasta');
-            $table->unsignedBigInteger('id_comuna');
-            $table->foreign('id_comuna')->references('id_comuna')->on('comuna');
+            $table->unsignedBigInteger('id_comuna')->nullable();
+            $table->foreign('id_comuna')->references('id')->on('comuna');
         });
     }
 

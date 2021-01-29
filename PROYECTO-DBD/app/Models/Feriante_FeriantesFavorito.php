@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feriante_FeriantesFavorito extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 	protected $table = 'feriante_feriantesfavoritos';
-    public $timestamps = false;
     protected $primaryKey = 'id';
 	public $incrementing = false;
 	

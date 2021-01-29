@@ -37,8 +37,6 @@ class FerianteController extends Controller
             'direccion_feriante' => ['required' ,'string'],
             'telefono_feriante' => ['required' , 'string'],
             'nombre_feriante' => ['required' , 'string'],
-            
-            'id_comuna' => ['required' , 'numeric'],
         ]);        
 
         $feriante = Feriante::find($request->id_feriante);

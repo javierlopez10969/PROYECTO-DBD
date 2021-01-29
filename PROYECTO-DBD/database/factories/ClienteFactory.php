@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Cliente;
 use App\Models\FeriaFavorito;
-use App\Models\FerianteFavorito;
+use App\Models\FeriantesFavorito;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClienteFactory extends Factory
@@ -28,7 +28,7 @@ class ClienteFactory extends Factory
             'telefono_cliente'=>$this->faker->tollFreePhoneNumber,
             //
             'id_feriaF' => FeriaFavorito::factory(),
-            'id_ferianteF' => FerianteFavorito::factory()
+            'id_ferianteF' => FeriantesFavorito::factory()
         ];
     }
 }

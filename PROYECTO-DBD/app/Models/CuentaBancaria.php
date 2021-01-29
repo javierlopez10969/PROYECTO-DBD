@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CuentaBancaria extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 
 	

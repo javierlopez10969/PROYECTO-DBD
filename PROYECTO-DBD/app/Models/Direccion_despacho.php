@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Direccion_despacho extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 	
 	//CLIENTE

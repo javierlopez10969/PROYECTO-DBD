@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class FeriantesFavorito extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 	protected $table = 'feriantesfavoritos';
-    public $timestamps = false;
     protected $primaryKey = 'id';
-	public $incrementing = false;
 	
     public function feriante_feriantesFavoritos(){
         return $this->hasMany(Feriante_FeriantesFavorito::class);

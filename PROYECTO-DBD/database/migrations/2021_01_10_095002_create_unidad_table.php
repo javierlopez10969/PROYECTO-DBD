@@ -14,7 +14,7 @@ class CreateUnidadTable extends Migration
     public function up()
     {
         Schema::create('unidad', function (Blueprint $table) {
-            $table->id('id_unidad');
+            $table->id();
 			$table->integer('cantidad');
 			$table->string('tipo_cantidad');
         });

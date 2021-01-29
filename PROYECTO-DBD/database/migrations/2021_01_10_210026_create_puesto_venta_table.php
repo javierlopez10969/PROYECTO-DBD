@@ -14,11 +14,11 @@ class CreatePuestoVentaTable extends Migration
     public function up()
     {
         Schema::create('puesto_venta', function (Blueprint $table) {
-            $table->id('id_puesto_venta');
+            $table->id();
             $table->string('categoria');
             
 			$table->unsignedBigInteger('id_feriante')->nullable();
-			$table->foreign('id_feriante')->references('id_feriante')->on('feriante');
+			$table->foreign('id_feriante')->references('id')->on('feriante');
         });
     }
 

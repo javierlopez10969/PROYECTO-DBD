@@ -9,7 +9,7 @@ class Pago extends Model
 {
 	
 	//protected $table = 'pagos';
-	
+	public $timestamps = false;
     use HasFactory;
     //ORDEN DE COMPRA
     public function Orden_de_compra (){

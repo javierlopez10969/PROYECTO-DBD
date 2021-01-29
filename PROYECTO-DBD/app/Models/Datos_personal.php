@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datos_personal extends Model
 {
+	public $timestamps = false;
     use HasFactory;
 	
 	//CLIENTE

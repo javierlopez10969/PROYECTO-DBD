@@ -11,7 +11,7 @@ class OrdenDePago extends Model
     		
 	protected $table = 'orden_de_pagos';
 	public $timestamps = false;
-	protected $primaryKey = 'id_orden_pagos';
+	protected $primaryKey = 'id';
     protected $keyType = 'string';
     
     
