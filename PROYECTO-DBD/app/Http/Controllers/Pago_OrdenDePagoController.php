@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pago_ordendepago;
 use App\Models\Pago;
-use App\Models\Orden_de_pago;
+#use App\Models\Orden_de_pago;
+use App\Models\OrdenDePago;
 
 class Pago_OrdenDePagoController extends Controller
 {
@@ -46,7 +47,8 @@ class Pago_OrdenDePagoController extends Controller
             return response()->json([
                 'message'=>'No existe usuario con esa id']);
         }
-        $orden_de_pago = Orden_de_pago::find($request->id_orden_pago);
+        #$orden_de_pago = Orden_de_pago::find($request->id_orden_pago);
+        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
         if ($orden_de_pago == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id']);

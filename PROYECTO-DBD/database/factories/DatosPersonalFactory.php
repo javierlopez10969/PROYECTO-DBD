@@ -7,7 +7,7 @@ use App\Models\Cliente;
 use App\Models\Datos_personal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DatoPersonalFactory extends Factory
+class DatosPersonalFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

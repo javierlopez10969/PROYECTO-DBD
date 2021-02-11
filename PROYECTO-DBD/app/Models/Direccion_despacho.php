@@ -17,7 +17,8 @@ class Direccion_despacho extends Model
 	
     //ORDEN DE DESPACHO
     public function Orden_de_despacho (){
-        return $this->belongsTo(Orden_de_despacho::class);
+        #return $this->belongsTo(Orden_de_despacho::class);
+        return $this->belongsTo(OrdenDeDespacho::class);
     }
 	
     //COMUNA

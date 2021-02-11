@@ -34,7 +34,8 @@ class Feriante extends Model
 	public function cuenta_bancaria()
 	{
 		return
-		$this->hasMany(Cuenta_bancaria::class);
+		#$this->hasMany(Cuenta_bancaria::class);
+		$this->hasMany(CuentaBancaria::class);
 	}
 
 	public function ordenDeDespacho()
@@ -46,7 +47,8 @@ class Feriante extends Model
 	public function orden_de_pago()
 	{
 		return
-		$this->hasMany(Orden_de_pago::class);
+		#$this->hasMany(Orden_de_pago::class);
+		$this->hasMany(OrdenDePago::class);
 	}
     
 }

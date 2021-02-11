@@ -23,7 +23,8 @@ class Feria extends Model
 	public function feria_FeriaFavoritos()
 	{
 		return
-		$this->hasMany(Feria_FeriaFavoritos::class);
+		#$this->hasMany(Feria_FeriaFavoritos::class);
+		$this->hasMany(Feria_FeriaFavorito::class);
 	}
 
 	public function feria_PuestoDeVenta()

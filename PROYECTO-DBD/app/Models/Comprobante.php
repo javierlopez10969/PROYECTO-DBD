@@ -11,7 +11,8 @@ class Comprobante extends Model
     use HasFactory;
     //ORDEN DE PAGO
     public function Orden_de_pago (){
-        return $this->belongsTo(Orden_de_pago::class);
+        #return $this->belongsTo(Orden_de_pago::class);
+        return $this->belongsTo(OrdenDePago::class);
     }
 	
 }

@@ -13,7 +13,8 @@ class Pago extends Model
     use HasFactory;
     //ORDEN DE COMPRA
     public function Orden_de_compra (){
-        return $this->belongsTo(Orden_de_compra::class);
+        #return $this->belongsTo(Orden_de_compra::class);
+        return $this->belongsTo(OrdenDeCompra::class);
     }
     //ORDEN DE DESPACHO
     public function Orden_de_despacho (){

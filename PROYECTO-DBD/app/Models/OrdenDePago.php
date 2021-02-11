@@ -25,7 +25,8 @@ class OrdenDePago extends Model
     }
     //Cuenta Bancaria
     public function Cuenta_bancaria(){
-        return $this->hasMany(Cuenta_bancaria::class);
+        #return $this->hasMany(Cuenta_bancaria::class);
+        return $this->hasMany(CuentaBancaria::class);
     }
 
     //PAGO ORDEN DE PAGO

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cuenta_bancaria;
+#use App\Models\Cuenta_bancaria;
+use App\Models\CuentaBancaria;
 use App\Models\Cliente;
 use App\Models\Feriante;
 use App\Models\OrdenDePago;
@@ -18,7 +19,8 @@ class CuentaBancariaController extends Controller
     public function index()
     {
         //
-        $cuenta_bancarias = Cuenta_bancaria::all();
+        #$cuenta_bancarias = Cuenta_bancaria::all();
+        $cuenta_bancarias = CuentaBancaria::all();
         if($cuenta_bancarias != NULL){
             return response()->json($cuenta_bancarias);
         }
@@ -37,7 +39,8 @@ class CuentaBancariaController extends Controller
     public function store(Request $request)
     {
                 //
-        $cuenta_bancarias = new Cuenta_bancaria();
+        #$cuenta_bancarias = new Cuenta_bancaria();
+        $cuenta_bancarias = new CuentaBancaria();
         $validatedData = $request->validate([
             'numero_cuenta' => ['required' ,'numeric'],
             'banco' => ['required' , 'min:2' , 'max:50'],
@@ -60,7 +63,8 @@ class CuentaBancariaController extends Controller
             return response()->json([
                 'message'=>'No existe un feriante con esa id'
         }
-        $orden_de_pago = Orden_de_pago::find($request->id_orden_pago);
+        #$orden_de_pago = Orden_de_pago::find($request->id_orden_pago);
+        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
         if($orden_de_pago == NULL){
             return response()->json([
                 'message'=>'No existe orden de pago con esa id'
@@ -86,7 +90,8 @@ class CuentaBancariaController extends Controller
      */
     public function show($id)
     {
-        $cuenta_bancarias = Cuenta_bancaria::find($id);
+        #$cuenta_bancarias = Cuenta_bancaria::find($id);
+        $cuenta_bancarias = CuentaBancaria::find($id);
         return response()->($cuenta_bancarias);
     }
 
@@ -99,7 +104,8 @@ class CuentaBancariaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cuenta_bancarias = Cuenta_bancaria::find($id);
+        #$cuenta_bancarias = Cuenta_bancaria::find($id);
+        $cuenta_bancarias = CuentaBancaria::find($id);
         if($request->numero_cuenta != NULL){
             $cuenta_bancarias->numero_cuenta = $request->numero_cuenta;
         }

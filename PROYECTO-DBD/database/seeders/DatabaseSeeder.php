@@ -2,19 +2,23 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\Feria_FeriaFavorito;
 use App\Models\FeriaFavorito;
 use App\Models\Feriante_FeriantesFavorito;
 use App\Models\FeriantesFavorito;
 use App\Models\OrdenDeDespacho;
-use App\Models\Orden_de_pago;
-use App\Models\Orden_de_compra;
+#use App\Models\Orden_de_pago;
+use App\Models\OrdenDePago;
+#use App\Models\Orden_de_compra;
+use App\Models\OrdenDeCompra;
 use App\Models\Pago;
 use App\Models\Productos_orden_de_compra;
 use App\Models\Pago_ordendepago;
 use App\Models\Cliente;
 use App\Models\Comprobante;
-use App\Models\Cuenta_bancaria;
+#use App\Models\Cuenta_bancaria;
+use App\Models\CuentaBancaria;
 use App\Models\Direccion_despacho;
 use App\Models\Datos_personal;
 use App\Models\Feria;
@@ -50,8 +54,10 @@ class DatabaseSeeder extends Seeder
         OrdenDeDespacho::factory()->create();
         
         //Javier
-        Orden_de_pago::factory()->create();
-        Orden_de_compra::factory()->create();
+        #Orden_de_pago::factory()->create();
+        OrdenDePago::factory()->create();
+        #Orden_de_compra::factory()->create();
+        OrdenDeCompra::factory()->create();
         Pago::factory()->create();
         Productos_orden_de_compra::factory()->create();
         Pago_ordendepago::factory()->create();
@@ -59,7 +65,8 @@ class DatabaseSeeder extends Seeder
         //David
         Cliente::factory()->create();
         Comprobante::factory()->create();
-        Cuenta_bancaria::factory()->create();
+        #Cuenta_bancaria::factory()->create();
+        CuentaBancaria::factory()->create();
         Datos_personal::factory()->create();
         Direccion_despacho::factory()->create();
 

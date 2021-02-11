@@ -12,7 +12,8 @@ class Productos_orden_de_compra extends Model
     use HasFactory;
     //Orden_de_compra
     public function Orden_de_compra(){
-        return $this->belongsTo(Orden_de_compra::class);
+        #return $this->belongsTo(Orden_de_compra::class);
+        return $this->belongsTo(OrdenDeCompra::class);
     }
     public function Producto(){
         return $this->belongsTo(Producto::class);
