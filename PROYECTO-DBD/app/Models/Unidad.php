@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
 {
-	public $timestamps = false;
+    public $timestamps = false;
+    protected $table = 'unidad';
+	protected $primaryKey = 'id';
+	protected $keyType = 'string'; 
     use HasFactory;
     public function Producto(){
         return $this->belongsTo(Producto::class);

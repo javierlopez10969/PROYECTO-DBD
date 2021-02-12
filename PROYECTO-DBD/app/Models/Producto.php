@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
 	public $timestamps = false;
+    protected $table = 'producto';
+	protected $primaryKey = 'id';
+	protected $keyType = 'string';
     use HasFactory;
 	
 	public function categoria(){

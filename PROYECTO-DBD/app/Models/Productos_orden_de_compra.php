@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Productos_orden_de_compra extends Model
 {
-	public $timestamps = false;
-	
+    public $timestamps = false;
+    protected $table = 'productos_ordenDeCompras';
+	protected $primaryKey = 'id';
+	protected $keyType = 'string';
+    
+    /*
+    productos_ordenDeCompras
+    */
+
     use HasFactory;
     //Orden_de_compra
     public function Orden_de_compra(){

@@ -13,7 +13,7 @@ class CreateProductosOrdenDeComprasTable extends Migration
      */
     public function up()
     {
-        Schema::create('_productos__orden_de_compras', function (Blueprint $table) {
+        Schema::create('productos_orden_de_compras', function (Blueprint $table) {
             $table->id();
             
             //Llave foraneas
@@ -23,7 +23,6 @@ class CreateProductosOrdenDeComprasTable extends Migration
             //id_producto
             $table->unsignedBigInteger('id_producto')->nullable();
             $table->foreign('id_producto')->references('id')->on('producto');
-            
         });
     }
 
@@ -34,6 +33,6 @@ class CreateProductosOrdenDeComprasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_productos__orden_de_compras');
+        Schema::dropIfExists('productos_orden_de_compras');
     }
 }

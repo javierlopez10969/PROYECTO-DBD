@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdenDeDespacho extends Model
 {
-	public $timestamps = false;
+    public $timestamps = false;
+    protected $table = 'ordendedespacho';
+	protected $primaryKey = 'id';
+	protected $keyType = 'string';
+
     use HasFactory;
     public function pago(){
         return $this->belongsTo(Pago::class);
