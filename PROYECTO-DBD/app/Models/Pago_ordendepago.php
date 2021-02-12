@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pago_ordendepago extends Model
 {
+    protected $table = 'pago_ordendepago';
 	public $timestamps = false;
     use HasFactory;
     //Pago

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pago extends Model
 {
 	
-	//protected $table = 'pagos';
+	protected $table = 'pagos';
 	public $timestamps = false;
     use HasFactory;
     //ORDEN DE COMPRA

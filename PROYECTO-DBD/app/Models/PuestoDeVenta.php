@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PuestoDeVenta extends Model
 {
+    protected $table = 'puesto_venta';
 	public $timestamps = false;
     use HasFactory;
     public function Producto_PuestoDeVenta(){

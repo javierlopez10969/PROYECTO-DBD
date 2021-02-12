@@ -19,8 +19,8 @@ use App\Models\Cliente;
 use App\Models\Comprobante;
 #use App\Models\Cuenta_bancaria;
 use App\Models\CuentaBancaria;
-use App\Models\Direccion_despacho;
-use App\Models\Datos_personal;
+use App\Models\DireccionDespacho;
+use App\Models\DatosPersonal;
 use App\Models\Feria;
 use App\Models\Feriante;
 use App\Models\Region;
@@ -67,8 +67,8 @@ class DatabaseSeeder extends Seeder
         Comprobante::factory()->create();
         #Cuenta_bancaria::factory()->create();
         CuentaBancaria::factory()->create();
-        Datos_personal::factory()->create();
-        Direccion_despacho::factory()->create();
+        DatosPersonal::factory()->create();
+        DireccionDespacho::factory()->create();
 
         //Sebastian
         Feria::factory()->create();

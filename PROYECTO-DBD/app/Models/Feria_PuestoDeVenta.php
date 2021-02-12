@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Feria_PuestoDeVenta extends Model
-{public $timestamps = false;
+{
+	public $timestamps = false;
 	use HasFactory;
+	protected $table = 'feria_puestodeventa';
 	
 	public function feria()
 	{

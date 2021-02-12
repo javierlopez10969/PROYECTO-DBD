@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\OrdenDeDespacho;
 use App\Models\Comuna;
 use App\Models\Cliente;
-use App\Models\Direccion_despacho;
+use App\Models\DireccionDespacho;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DireccionDespachoFactory extends Factory
@@ -15,7 +15,7 @@ class DireccionDespachoFactory extends Factory
      *
      * @var string
      */
-    protected $model = Direccion_despacho::class;
+    protected $model = DireccionDespacho::class;
 
     /**
      * Define the model's default state.
@@ -26,7 +26,6 @@ class DireccionDespachoFactory extends Factory
     {
         return [
             'direccion'=>$this->faker->streetName,
-            'numero'=>$this->faker->numberBetween($min = 1000, $max = 9000),
             //
             'id_cliente' => Cliente::factory(),
             'id_comuna' => Comuna::factory(),

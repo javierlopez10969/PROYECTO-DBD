@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+    protected $table = 'clientes';
 	public $timestamps = false;
 	//ORDEN DE COMPRA
     public function Orden_de_compra (){
@@ -17,7 +18,7 @@ class Cliente extends Model
     //DIRECCION DE DESPACHO
     public function Direccion_de_despacho (){
         #return $this->hasMany(Direccion_de_despacho::class);
-        return $this->hasMany(Direccion_despacho::class);
+        return $this->hasMany(DireccionDespacho::class);
     }
     //CUENTA BANCARIA
     public function Cuenta_bancaria(){
@@ -36,6 +37,6 @@ class Cliente extends Model
     }
     //DATOS PERSONALES
     public function Datos_Personal(){
-        return $this->hasOne(Datos_Personal::class);
+        return $this->hasOne(Datos_personal::class);
     }
 }

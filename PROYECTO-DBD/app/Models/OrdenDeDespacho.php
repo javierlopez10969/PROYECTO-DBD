@@ -22,6 +22,6 @@ class OrdenDeDespacho extends Model
     }
 
     public function direccion_despacho(){
-        return $this->belongsTo(Direccion_despacho::class);
+        return $this->belongsTo(DireccionDespacho::class);
     }
 }

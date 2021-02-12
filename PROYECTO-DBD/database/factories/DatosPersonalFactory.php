@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Feriante;
 use App\Models\Cliente;
-use App\Models\Datos_personal;
+use App\Models\DatosPersonal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DatosPersonalFactory extends Factory
@@ -14,7 +14,7 @@ class DatosPersonalFactory extends Factory
      *
      * @var string
      */
-    protected $model = Datos_personal::class;
+    protected $model = DatosPersonal::class;
 
     /**
      * Define the model's default state.

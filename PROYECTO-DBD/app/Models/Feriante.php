@@ -22,7 +22,7 @@ class Feriante extends Model
 	public function datos_personal()
 	{
 		return
-		$this->hasOne(Datos_Personal::class);
+		$this->hasOne(Datos_personal::class);
 	}
 
 	public function feria_FeriaFavorito()

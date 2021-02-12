@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Datos_personal;
+use App\Models\DatosPersonal;
 use App\Models\Cliente;
 use App\Models\Feriante;
 

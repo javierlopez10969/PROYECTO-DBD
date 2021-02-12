@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Productos_orden_de_compra extends Model
 {
     public $timestamps = false;
-    protected $table = 'productos_ordenDeCompras';
+    protected $table = 'productos_orden_de_compras';
 	protected $primaryKey = 'id';
 	protected $keyType = 'string';
     

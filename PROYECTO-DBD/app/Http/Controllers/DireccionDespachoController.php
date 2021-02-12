@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Direccion_despacho;
+use App\Models\DireccionDespacho;
 use App\Models\Cliente;
 use App\Models\Comuna;
 use App\Models\OrdenDeDespacho;
@@ -37,7 +37,7 @@ class DireccionDespachoController extends Controller
     public function store(Request $request)
     {
                 //
-        $direccion_despacho = new Direccion_despacho();
+        $direccion_despacho = new DireccionDespacho();
         $validatedData = $request->validate([
             'direccion' => ['required' , 'min:2' , 'max:150'],
 			
@@ -82,7 +82,7 @@ class DireccionDespachoController extends Controller
      */
     public function show($id)
     {
-        $direccion_despacho = Direccion_despacho::find($id);
+        $direccion_despacho = DireccionDespacho::find($id);
         return response()->($direccion_despacho);
     }
 
@@ -95,7 +95,7 @@ class DireccionDespachoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $direccion_despacho = Direccion_despacho::find($id);
+        $direccion_despacho = DireccionDespacho::find($id);
         if($request->direccion != NULL){
             $direccion_despacho->direccion = $request->direccion;
         }

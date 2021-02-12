@@ -26,7 +26,7 @@ class ComprobanteFactory extends Factory
             'tipo_de_comprobante'=>$this->faker->randomElement($array = array ('boleta','factura')),
             'precio'=>$this->faker->numberBetween($min = 100, $max = 100000),
             //
-            'id_orden_pago' => OrdenDePago::factory()
+            'id_orden_de_pagos' => OrdenDePago::factory()
         ];
     }
 }
