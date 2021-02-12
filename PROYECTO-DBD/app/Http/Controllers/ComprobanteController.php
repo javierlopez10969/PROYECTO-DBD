@@ -32,6 +32,7 @@ class ComprobanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
                         //
@@ -49,6 +50,7 @@ class ComprobanteController extends Controller
         if($orden_de_pago == NULL){
             return response()->json([
                 'message'=>'No existe una orden de pago con esa id'
+            ]);
         }
 
 		
@@ -69,8 +71,20 @@ class ComprobanteController extends Controller
      */
     public function show($id)
     {
-		$comprobante = Comprobante::find($id);
-        return response()->($comprobante);
+		if(is_numeric($id)){
+            $comprobante = Comprobante::find($id);
+            if($comprobante == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el comprobante'
+                ]);
+            }
+            return response()->json($comprobante);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
 
@@ -83,16 +97,30 @@ class ComprobanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $comprobante = Comprobante::find($id);
-        if($request->precio != NULL){
-            $comprobante->precio = $request->precio;
+        if(is_numeric($id)){
+            $comprobante = Comprobante::find($id);
+            if($comprobante == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el comprobante'
+                ]);
+            }
+            else{
+                if($request->precio != NULL){
+                    $comprobante->precio = $request->precio;
+                }
+                if($request->tipo_de_comprobante != NULL){
+                    $comprobante->tipo_de_comprobante = $request->tipo_de_comprobante;
+                }
+                
+                $comprobante->save();
+                return response()->json($comprobante);
+            }  
         }
-        if($request->tipo_de_comprobante != NULL){
-            $comprobante->tipo_de_comprobante = $request->tipo_de_comprobante;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-		
-        $comprobante->save();
-        return response()->json($comprobante);
     }
 
     /**
@@ -103,10 +131,26 @@ class ComprobanteController extends Controller
      */
     public function destroy($id)
     {
-        $comprobante->delete();
-        return response()->json([
-            "message"-> "comprobante elimindado",
-            "id"=>$comprobante->id
-        ],201);    
+        if(is_numeric($id)){
+            $comprobante = Comprobante::find($id); 
+            if($comprobante != NULL){
+                $comprobante->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Comprobante inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "comprobante eliminado",
+                "id"=>$comprobante->id
+            ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }   
     }
 }

@@ -35,11 +35,11 @@ Route::post('/regiones/create','RegionController@store');
 Route::put('/regiones/update/{id}','RegionController@update');
 Route::delete('/regiones/delete/{id}','RegionController@destroy');
 
-Route::get('/comunas','ComunaController@index');
-Route::get('/comunas/{id}','ComunaController@show');
-Route::post('/comunas/create','ComunaController@store');
-Route::put('/comunas/update/{id}','ComunaController@update');
-Route::delete('/comunas/delete/{id}','ComunaController@destroy');
+Route::get('/comuna','ComunaController@index');
+Route::get('/comuna/{id}','ComunaController@show');
+Route::post('/comuna/create','ComunaController@store');
+Route::put('/comuna/update/{id}','ComunaController@update');
+Route::delete('/comuna/delete/{id}','ComunaController@destroy');
 
 Route::get('/feria_puestosDeVenta','Feria_PuestoDeVenta@index');
 Route::get('/feria_puestosDeVenta/{id}','Feria_PuestoDeVenta@show');
@@ -65,5 +65,19 @@ Route::post('/producto/create','ProductoController@store');
 Route::put('/producto/update/{id}','ProductoController@update');
 Route::delete('/producto/delete/{id}','ProductoController@destroy');
 
+Route::get('/cliente','ClienteController@index');
+Route::get('/cliente/{id}','ClienteController@show');
+Route::post('/cliente/create','ClienteController@store');
+Route::put('/cliente/update/{id}','ClienteController@update');
+Route::delete('/cliente/delete/{id}','ClienteController@destroy');
+
+Route::get('/comprobante','ComprobanteController@index');
+Route::get('/comprobante/{id}','ComprobanteController@show');
+Route::post('/comprobante/create','ComprobanteController@store');
+Route::put('/comprobante/update/{id}','ComprobanteController@update');
+Route::delete('/comprobante/delete/{id}','ComprobanteController@destroy');
+
+/*
 Route::get('/producto_puestosDeVenta','Producto_PuestoDeVentaController@index');
 Route::get('/producto_puestosDeVenta/{id}','Producto_PuestoDeVentaController@show');
+*/

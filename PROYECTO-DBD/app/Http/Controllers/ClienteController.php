@@ -51,15 +51,15 @@ class ClienteController extends Controller
         if($feriaF == NULL){
             return response()->json([
                 'message'=>'No existe feria favorita con esa id'
+            ]);
         }
         $ferianteF = FeriantesFavorito::find($request->id_ferianteF);
         if($ferianteF == NULL){
             return response()->json([
                 'message'=>'No existe feriante favorito con esa id'
+            ]);
         }
 
-		
-		
         $cliente->nombre_cliente = $request->nombre_cliente;
         $cliente->telefono_cliente = $request->telefono_cliente;
         $cliente->save();
@@ -75,10 +75,23 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function show($id)
     {
-        $cliente = Cliente::find($id);
-        return response()->($cliente);
+        if(is_numeric($id)){
+            $cliente = Cliente::find($id);
+            if($cliente == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el cliente'
+                ]);
+            }
+            return response()->json($cliente);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -90,16 +103,30 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cliente = Cliente::find($id);
-        if($request->nombre_cliente != NULL){
-            $cliente->nombre_cliente = $request->nombre_cliente;
+        if(is_numeric($id)){
+            $cliente = Cliente::find($id);
+            if($cliente == NULL){
+                return response()->json([
+                    'message'=>'No se encontro al cliente'
+                ]);
+            }
+            else{
+                if($request->nombre_cliente != NULL){
+                    $cliente->nombre_cliente = $request->nombre_cliente;
+                }
+                if($request->telefono_cliente != NULL){
+                    $cliente->telefono_cliente = $request->telefono_cliente;
+                }
+        
+                $cliente->save();
+                return response()->json($cliente);
+            }  
         }
-        if($request->telefono_cliente != NULL){
-            $cliente->telefono_cliente = $request->telefono_cliente;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-
-        $cliente->save();
-        return response()->json($cliente);
     }
 
     /**
@@ -108,12 +135,29 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function destroy($id)
     {
-        $cliente->delete();
-        return response()->json([
-            "message"-> "cliente eliminado",
-            "id"=>$cliente->id
-        ],201);    
+        if(is_numeric($id)){
+            $cliente = Cliente::find($id);
+            if($cliente != NULL){
+                $cliente->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Cliente inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "cliente eliminado",
+                "id"=>$cliente->id
+            ],201); 
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }   
     }
 }

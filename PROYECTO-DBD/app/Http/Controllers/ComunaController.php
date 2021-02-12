@@ -40,22 +40,21 @@ class ComunaController extends Controller
             
             'id_region' => ['required' , 'numeric'],
         ]);     
-
+        
         $region = Region::find($request->id_region);
         if($region == NULL){
             return response()->json([
                 'message'=>'No existe un region con esa id'
-                ],404)
-            }
+                ],404);
+        }
 
         $comuna->$request->nombre_comuna;
+        $comuna->$request->id_region;
         $comuna->save();
-        retrun response()->json([
-            "message"-> "Nueva comuna agregada",
+        return response()->json([
+            "message"=> "Nueva comuna agregada",
             "id"=>$comuna->id
         ],201);
-
-
 
     }
 
@@ -68,7 +67,7 @@ class ComunaController extends Controller
     public function show($id)
     {
         $comuna = Comuna::find($id);
-        return response()->($comuna);
+        return response()->json($comuna);
     }
 
 
@@ -97,9 +96,14 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
-        $comuna->delete();
+        $comuna = Comuna::find($id);
+        if($comuna != NULL){
+            $comuna->delete();
+        }
+        
         return response()->json([
-            "message"-> "comuna elimindada",
-            "id"=>$comuna->id
-            ],201);    }
+            "message"=> "comuna elimindada",
+            "id"=>$comuna->$id
+            ],201);    
+    }
 }
