@@ -30,6 +30,7 @@ class FerianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         $feriante = new Feriante();
@@ -43,15 +44,15 @@ class FerianteController extends Controller
         if($feriante == NULL){
             return response()->json([
                 'message'=>'No existe un feriante con esa id'
-            ],404)
+            ],404);
         }
 
         $feriante->$request->direccion_feriante;
         $feriante->$request->telefono_feriante;
         $feriante->$request->nombre_feriante;
         $feriante->save();
-        retrun response()->json([
-            "message"-> "Nueva feriante agregado",
+        return response()->json([
+            "message"=> "Nueva feriante agregado",
             "id"=>$feriante->id
         ],201);
     }
@@ -64,8 +65,20 @@ class FerianteController extends Controller
      */
     public function show($id)
     {
-        $feriante = Feriante::find($id);
-        return response()->($feriante);
+        if(is_numeric($id)){
+            $feriante = Feriante::find($id);
+            if($feriante == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el feriante'
+                ]);
+            }
+            return response()->json($feriante);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
 
@@ -78,23 +91,32 @@ class FerianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $feriante = Feriante::find($id);
-
-       if($request->direccion_feriante != NULL){
-            $feria->direccion_feriante = $request->direccion_feriante;
+        if(is_numeric($id)){
+            $feriante = Feriante::find($id);
+            if($feriante == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el feriante'
+                ]);
+            }
+            else{
+                if($request->direccion_feriante != NULL){
+                    $feriante->direccion_feriante = $request->direccion_feriante;
+                }
+                if($request->telefono_feriante != NULL){
+                    $feriante->telefono_feriante = $request->telefono_feriante;
+                }
+                if($request->nombre_feriante != NULL){
+                    $feriante->nombre_feriante = $request->nombre_feriante;
+                }
+                $feriante->save();
+                return response()->json($feriante);
+            }  
         }
-        if($request->telefono_feriante != NULL){
-            $feria->telefono_feriante = $request->telefono_feriante;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->nombre_feriante != NULL){
-            $feria->nombre_feriante = $request->nombre_feriante;
-        }
-
-        $feriante->direccion_feriante = $request->direccion_feriante;
-        $feriante->telefono_feriante = $request->telefono_feriante;
-        $feriante->nombre_feriante = $request->nombre_feriante; 
-        $feriante->save();
-        return response()->json($feriante);
     }
 
     /**
@@ -105,10 +127,26 @@ class FerianteController extends Controller
      */
     public function destroy($id)
     {
-        $feriante->delete();
-        return response()->json([
-            "message"-> "Feriante elimindado",
-            "id"=>$feriante->id
+        if(is_numeric($id)){
+            $feriante = Feriante::find($id);
+            if($feriante != NULL){
+                $feriante->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Feriante inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Feriante eliminado",
+                "id"=>$feriante->id
             ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

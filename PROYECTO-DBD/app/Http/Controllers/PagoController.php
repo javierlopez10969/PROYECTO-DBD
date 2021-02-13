@@ -31,6 +31,7 @@ class PagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -68,13 +69,20 @@ class PagoController extends Controller
     public function show($id)
     {
         //
-        $pago = Pago::find($id);
-        if($pago == NULL){
-            return response()->json([
-                'message'=>'No se encontro el pago'
-            ]);
+        if(is_numeric($id)){
+            $pago = Pago::find($id);
+            if($pago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el pago'
+                ]);
+            }
+            return response()->json($pago);
         }
-        return response()->json($pago);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -86,18 +94,32 @@ class PagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pago = Pago::find($id);
-        if($request->fecha_de_pago != NULL){
-            $pago->categoria = $request->fecha_de_pago;
+        if(is_numeric($id)){
+            $pago = Pago::find($id);
+            if($pago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el pago'
+                ]);
+            }
+            else{
+                if($request->fecha_de_pago != NULL){
+                    $pago->categoria = $request->fecha_de_pago;
+                }
+                if($request->tipo_pago != NULL){
+                    $pago->tipo_pago = $request->tipo_pago;
+                }
+                if($request->valor_pago != NULL){
+                    $pago->valor_pago = $request->valor_pago;
+                }
+                $pago->save();
+                return response()->json($pago);
+            }  
         }
-        if($request->tipo_pago != NULL){
-            $pago->tipo_pago = $request->tipo_pago;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->valor_pago != NULL){
-            $pago->valor_pago = $request->valor_pago;
-        }
-        $pago->save();
-        return response()->json($pago);
     }
 
     /**
@@ -108,12 +130,26 @@ class PagoController extends Controller
      */
     public function destroy($id)
     {
-        $pago = Pago::find($id);
-        $pago->delete();
-        return response()->json([
-            "message"-> "orden de compra elimindada",
-            "id"=>$ordenDeCompra->id
-            ],201);    
+        if(is_numeric($id)){
+            $pago = Pago::find($id);
+            if($pago != NULL){
+                $pago->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id pago inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "pago eliminado",
+                "id"=>$pago->id
+            ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
     }
 }

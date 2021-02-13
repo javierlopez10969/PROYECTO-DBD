@@ -21,7 +21,7 @@ class OrdenDeCompraController extends Controller
             return response()->json($ordenDeCompra);
         }
         return response()->json([
-            "message"=>"No se encontró la orden de compra solicitada",
+            "message"=>"No se encontró la orden de compra solicitada"
         ],404);
     }
 
@@ -31,6 +31,7 @@ class OrdenDeCompraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -46,14 +47,15 @@ class OrdenDeCompraController extends Controller
         if ($pago == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
+            ]);
         }
         $ordenDeCompra->fecha_pago = $request->fecha_pago;
         $ordenDeCompra->cantidad_elementos_orden = $request->cantidad_elementos_orden;
         $ordenDeCompra->estado_de_pago = $request->estado_de_pago;
         $ordenDeCompra->save();
         return response()->json([
-        "mesage"=>"Se ha creado una store",
-        "id" => $ordenDeCompra->id
+            "mesage"=>"Se ha creado una store",
+            "id" => $ordenDeCompra->id
         ],202);
 
     }
@@ -67,13 +69,20 @@ class OrdenDeCompraController extends Controller
     public function show($id)
     {
         //
-        $ordenDeCompra = OrdenDeCompra::find($id);
-        if($ordenDeCompra == NULL){
-            return response()->json([
-                'message'=>'No se encontro la orden de compra'
-            ]);
+        if(is_numeric($id)){
+            $ordenDeCompra = OrdenDeCompra::find($id);
+            if($ordenDeCompra == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de compra'
+                ]);
+            }
+            return response()->json($ordenDeCompra);
         }
-        return response()->json($ordenDeCompra);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -85,18 +94,32 @@ class OrdenDeCompraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ordenDeCompra = OrdenDeCompra::find($id);
-        if($request->fecha_pago != NULL){
-            $ordenDeCompra->categoria = $request->fecha_pago;
+        if(is_numeric($id)){
+            $ordenDeCompra = OrdenDeCompra::find($id);
+            if($ordenDeCompra == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de compra'
+                ]);
+            }
+            else{
+                if($request->fecha_pago != NULL){
+                    $ordenDeCompra->categoria = $request->fecha_pago;
+                }
+                if($request->cantidad_elementos_orden != NULL){
+                    $ordenDeCompra->cantidad_elementos_orden = $request->cantidad_elementos_orden;
+                }
+                if($request->estado_de_pago != NULL){
+                    $ordenDeCompra->estado_de_pago = $request->estado_de_pago;
+                }
+                $ordenDeCompra->save();
+                return response()->json($ordenDeCompra);
+            }  
         }
-        if($request->cantidad_elementos_orden != NULL){
-            $ordenDeCompra->cantidad_elementos_orden = $request->cantidad_elementos_orden;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->estado_de_pago != NULL){
-            $ordenDeCompra->estado_de_pago = $request->estado_de_pago;
-        }
-        $ordenDeCompra->save();
-        return response()->json($ordenDeCompra);
     }
 
     /**
@@ -107,13 +130,27 @@ class OrdenDeCompraController extends Controller
      */
     public function destroy($id)
     {
-        $ordenDeCompra = OrdenDeCompra::find($id);
-        $ordenDeCompra->delete();
-        return response()->json([
-            "message"-> "orden de compra elimindada",
-            "id"=>$ordenDeCompra->id
-            ],201);    
+        if(is_numeric($id)){
+            $ordenDeCompra = OrdenDeCompra::find($id);
+            if($ordenDeCompra != NULL){
+                $ordenDeCompra->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Orden de compra inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "orden de compra elimindada",
+                "id"=>$ordenDeCompra->id
+            ],201);
         }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }   
     }
 
 }

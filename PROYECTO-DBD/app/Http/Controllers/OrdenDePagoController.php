@@ -33,6 +33,7 @@ class OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -47,7 +48,8 @@ class OrdenDePagoController extends Controller
         $feriante = Feriante::find($request->id_feriante);
         if ($pago == NULL){
             return response()->json([
-                'message'=>'No existe usuario con esa id']);
+                'message'=>'No existe usuario con esa id'
+            ]);
         }
         $ordenDePago->fecha_de_pago = $request->fecha_de_pago;
         $ordenDePago->tipo_pago = $request->tipo_pago;
@@ -69,13 +71,20 @@ class OrdenDePagoController extends Controller
     public function show($id)
     {
         //
-        $ordenDePago = OrdenDePago::find($id);
-        if($ordenDePago == NULL){
-            return response()->json([
-                'message'=>'No se encontro la orden de pago'
-            ]);
+        if(is_numeric($id)){
+            $ordenDePago = OrdenDePago::find($id);
+            if($ordenDePago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de pago'
+                ]);
+            }
+            return response()->json($ordenDePago);
         }
-        return response()->json($ordenDePago);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -87,18 +96,32 @@ class OrdenDePagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ordenDePago = OrdenDePago::find($id);
-        if($request->fecha_de_pago != NULL){
-            $ordenDePago->categoria = $request->fecha_de_pago;
+        if(is_numeric($id)){
+            $ordenDePago = OrdenDePago::find($id);
+            if($ordenDePago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de pago'
+                ]);
+            }
+            else{
+                if($request->fecha_de_pago != NULL){
+                    $ordenDePago->categoria = $request->fecha_de_pago;
+                }
+                if($request->tipo_pago != NULL){
+                    $ordenDePago->tipo_pago = $request->tipo_pago;
+                }
+                if($request->valor_total_pago != NULL){
+                    $ordenDePago->valor_total_pago = $request->valor_total_pago;
+                }
+                $ordenDePago->save();
+                return response()->json($ordenDePago);
+            }  
         }
-        if($request->tipo_pago != NULL){
-            $ordenDePago->tipo_pago = $request->tipo_pago;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->valor_total_pago != NULL){
-            $ordenDePago->valor_total_pago = $request->valor_total_pago;
-        }
-        $ordenDePago->save();
-        return response()->json($ordenDePago);
     }
 
     /**
@@ -109,12 +132,26 @@ class OrdenDePagoController extends Controller
      */
     public function destroy($id)
     {
-        $ordenDePago = OrdenDePago::find($id);
-        $ordenDePago->delete();
-        return response()->json([
-            "message"-> "Orden de Pago elimindada",
-            "id"=>$ordenDePago->id ]
-            ,201); 
-        
+        if(is_numeric($id)){
+            $ordenDePago = OrdenDePago::find($id);
+            if($ordenDePago != NULL){
+                $ordenDePago->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Orden de pago inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Orden de Pago eliminada",
+                "id"=>$ordenDePago->id
+            ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        } 
     }
 }

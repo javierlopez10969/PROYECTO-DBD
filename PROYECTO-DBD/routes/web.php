@@ -24,12 +24,12 @@ Route::post('/feria/create','FeriaController@store');
 Route::put('/feria/update/{id}','FeriaController@update');
 Route::delete('/feria/delete/{id}','FeriaController@destroy');
 
-#feriantes
-Route::get('/feriantes','FerianteController@index');
-Route::get('/feriantes/{id}','FerianteController@show');
-Route::post('/feriantes/create','FerianteController@store');
-Route::put('/feriantes/update/{id}','FerianteController@update');
-Route::delete('/feriantes/delete/{id}','FerianteController@destroy');
+#feriante
+Route::get('/feriante','FerianteController@index');
+Route::get('/feriante/{id}','FerianteController@show');
+Route::post('/feriante/create','FerianteController@store');
+Route::put('/feriante/update/{id}','FerianteController@update');
+Route::delete('/feriante/delete/{id}','FerianteController@destroy');
 
 #regiones
 Route::get('/regiones','RegionController@index');
@@ -100,6 +100,49 @@ Route::get('/dato_personal/{id}','DatoPersonalController@show');
 Route::post('/dato_personal/create','DatoPersonalController@store');
 Route::put('/dato_personal/update/{id}','DatoPersonalController@update');
 Route::delete('/dato_personal/delete/{id}','DatoPersonalController@destroy');
+
+#direccion_despacho
+Route::get('/direccion_despacho','DireccionDespachoController@index');
+Route::get('/direccion_despacho/{id}','DireccionDespachoController@show');
+Route::post('/direccion_despacho/create','DireccionDespachoController@store');
+Route::put('/direccion_despacho/update/{id}','DireccionDespachoController@update');
+Route::delete('/direccion_despacho/delete/{id}','DireccionDespachoController@destroy');
+
+#feria favorito
+Route::get('/feria_favorito','FeriaFavoritoController@index');
+Route::get('/feria_favorito/{id}','FeriaFavoritoController@show');
+Route::post('/feria_favorito/create','FeriaFavoritoController@store');
+Route::put('/feria_favorito/update/{id}','FeriaFavoritoController@update');
+Route::delete('/feria_favorito/delete/{id}','FeriaFavoritoController@destroy');
+
+#orden de compra
+Route::get('/ordenDeCompra','OrdenDeCompraController@index');
+Route::get('/ordenDeCompra/{id}','OrdenDeCompraController@show');
+Route::post('/ordenDeCompra/create','OrdenDeCompraController@store');
+Route::put('/ordenDeCompra/update/{id}','OrdenDeCompraController@update');
+Route::delete('/ordenDeCompra/delete/{id}','OrdenDeCompraController@destroy');
+
+#orden de despacho
+Route::get('/OrdenDespacho','OrdenDeDespachoController@index');
+Route::get('/OrdenDespacho/{id}','OrdenDeDespachoController@show');
+Route::post('/OrdenDespacho/create','OrdenDeDespachoController@store');
+Route::put('/OrdenDespacho/update/{id}','OrdenDeDespachoController@update');
+Route::delete('/OrdenDespacho/delete/{id}','OrdenDeDespachoController@destroy');
+
+#orden de pago
+Route::get('/ordenDePago','OrdenDePagoController@index');
+Route::get('/ordenDePago/{id}','OrdenDePagoController@show');
+Route::post('/ordenDePago/create','OrdenDePagoController@store');
+Route::put('/ordenDePago/update/{id}','OrdenDePagoController@update');
+Route::delete('/ordenDePago/delete/{id}','OrdenDePagoController@destroy');
+
+#pago
+Route::get('/pago','PagoController@index');
+Route::get('/pago/{id}','PagoController@show');
+Route::post('/pago/create','PagoController@store');
+Route::put('/pago/update/{id}','PagoController@update');
+Route::delete('/pago/delete/{id}','PagoController@destroy');
+
 /*
 Route::get('/producto_puestosDeVenta','Producto_PuestoDeVentaController@index');
 Route::get('/producto_puestosDeVenta/{id}','Producto_PuestoDeVentaController@show');

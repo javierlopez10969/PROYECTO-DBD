@@ -18,7 +18,7 @@ class DireccionDespachoController extends Controller
     public function index()
     {
         //
-        $direccion_despacho = Direccion_despacho::all();
+        $direccion_despacho = DireccionDespacho::all();
         if($direccion_despacho != NULL){
             return response()->json($direccion_despacho);
         }
@@ -34,6 +34,7 @@ class DireccionDespachoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
                 //
@@ -52,16 +53,19 @@ class DireccionDespachoController extends Controller
         if($cliente == NULL){
             return response()->json([
                 'message'=>'No existe un cliente con esa id'
+            ]);
         }
         $orden_de_despacho = OrdenDeDespacho::find($request->id_orden_despacho);
         if($orden_de_despacho == NULL){
             return response()->json([
                 'message'=>'No existe una orden de espacho con esa id'
+            ]); 
         }
         $comuna = Comuna::find($request->id_comuna);
         if($comuna == NULL){
             return response()->json([
                 'message'=>'No existe comuna con esa id'
+            ]);
         }
 		
 		
@@ -82,8 +86,20 @@ class DireccionDespachoController extends Controller
      */
     public function show($id)
     {
-        $direccion_despacho = DireccionDespacho::find($id);
-        return response()->($direccion_despacho);
+        if(is_numeric($id)){
+            $direccion_despacho = DireccionDespacho::find($id);
+            if($direccion_despacho == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la direccion de despacho'
+                ]);
+            }
+            return response()->json($direccion_despacho);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -95,12 +111,26 @@ class DireccionDespachoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $direccion_despacho = DireccionDespacho::find($id);
-        if($request->direccion != NULL){
-            $direccion_despacho->direccion = $request->direccion;
+        if(is_numeric($id)){
+            $direccion_despacho = DireccionDespacho::find($id);
+            if($direccion_despacho == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la direccion de despacho'
+                ]);
+            }
+            else{
+                if($request->direccion != NULL){
+                    $direccion_despacho->direccion = $request->direccion;
+                }
+                $direccion_despacho->save();
+                return response()->json($direccion_despacho);
+            }  
         }
-        $direccion_despacho->save();
-        return response()->json($direccion_despacho);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -111,10 +141,26 @@ class DireccionDespachoController extends Controller
      */
     public function destroy($id)
     {
-        $direccion_despacho->delete();
-        return response()->json([
-            "message"-> "direccion de despacho eliminado",
-            "id"=>$direccion_despacho->id
-        ],201);    
+        if(is_numeric($id)){
+            $direccion_despacho = DireccionDespacho::find($id);
+            if($direccion_despacho != NULL){
+                $direccion_despacho->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Direccion despacho inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "direccion de despacho eliminado",
+                "id"=>$direccion_despacho->id
+            ],201); 
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }   
     }
 }
