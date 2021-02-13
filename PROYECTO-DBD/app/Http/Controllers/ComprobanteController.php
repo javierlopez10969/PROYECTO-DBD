@@ -46,6 +46,7 @@ class ComprobanteController extends Controller
 		
 		
         //verificar las llaves foraneas
+        
         $orden_de_pago = OrdenDePago::find($request->id_orden_de_pagos);
         if($orden_de_pago == NULL){
             return response()->json([

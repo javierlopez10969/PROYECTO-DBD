@@ -17,7 +17,7 @@ class DatoPersonalController extends Controller
     public function index()
     {
         //
-        $dato_personal = Datos_personal::all();
+        $dato_personal = DatosPersonal::all();
         if($dato_personal != NULL){
             return response()->json($dato_personal);
         }
@@ -33,14 +33,15 @@ class DatoPersonalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
                 //
-        $dato_personal = new Datos_personal();
+        $dato_personal = new DatosPersonal();
         $validatedData = $request->validate([
             'user_name' => ['required' , 'min:2' , 'max:50'],			
             'correo_electronico' => ['required' , 'min:2' , 'max:100'],
-            'password' => ['required' , 'min:2' , 'max:50']
+            'password' => ['required' , 'min:2' , 'max:50'],
 			
 			'id_feriante' => ['required' , 'numeric'],
             'id_cliente' => ['required' , 'numeric']
@@ -52,11 +53,13 @@ class DatoPersonalController extends Controller
         if($cliente == NULL){
             return response()->json([
                 'message'=>'No existe un cliente con esa id'
+            ]);
         }
         $feriante = Feriante::find($request->id_feriante);
         if($feriante == NULL){
             return response()->json([
                 'message'=>'No existe un feriante con esa id'
+            ]);
         }
 
 		
@@ -79,8 +82,20 @@ class DatoPersonalController extends Controller
      */
     public function show($id)
     {
-        $dato_personal = Datos_personal::find($id);
-        return response()->($dato_personal);
+        if(is_numeric($id)){
+            $dato_personal = DatosPersonal::find($id);
+            if($dato_personal == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el dato personal'
+                ]);
+            }
+            return response()->json($dato_personal);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -92,18 +107,32 @@ class DatoPersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dato_personal = Datos_personal::find($id);
-        if($request->user_name != NULL){
-            $dato_personal->user_name = $request->user_name;
+        if(is_numeric($id)){
+            $dato_personal = DatosPersonal::find($id);
+            if($dato_personal == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el dato personal'
+                ]);
+            }
+            else{
+                if($request->user_name != NULL){
+                    $dato_personal->user_name = $request->user_name;
+                }
+                if($request->correo_electronico != NULL){
+                    $dato_personal->correo_electronico = $request->correo_electronico;
+                }
+                if($request->password != NULL){
+                    $dato_personal->password = $request->password;
+                }
+                $dato_personal->save();
+                return response()->json($dato_personal);
+            }  
         }
-        if($request->correo_electronico != NULL){
-            $dato_personal->correo_electronico = $request->correo_electronico;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->password != NULL){
-            $dato_personal->password = $request->password;
-        }
-        $dato_personal->save();
-        return response()->json($dato_personal);
     }
 
     /**
@@ -114,10 +143,26 @@ class DatoPersonalController extends Controller
      */
     public function destroy($id)
     {
-        $dato_personal->delete();
-        return response()->json([
-            "message"-> "dato personal elimindado",
-            "id"=>$dato_personal->id
-        ],201);    
+        if(is_numeric($id)){
+            $dato_personal = DatosPersonal::find($id);
+            if($dato_personal != NULL){
+                $dato_personal->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Dato personal inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "dato personal eliminado",
+                "id"=>$dato_personal->id
+            ],201);  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }   
     }
 }

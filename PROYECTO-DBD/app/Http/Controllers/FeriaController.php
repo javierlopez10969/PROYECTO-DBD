@@ -30,6 +30,7 @@ class FeriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         $feria = new Feria();
@@ -45,15 +46,15 @@ class FeriaController extends Controller
         if($comuna == NULL){
             return response()->json([
                 'message'=>'No existe un comuna con esa id'
-                ],404)
+                ],404);
             }
 
         $feria->$request->descripcion;
         $feria->$request->horario_desde;
         $feria->$request->horario_hasta;
         $feria->save();
-        retrun response()->json([
-            "message"-> "Nueva feria agregada",
+        return response()->json([
+            "message"=> "Nueva feria agregada",
             "id"=>$feria->id
         ],201);
     }
@@ -66,8 +67,20 @@ class FeriaController extends Controller
      */
     public function show($id)
     {
-        $feria = Feria::find($id);
-        return response()->($feria);
+        if(is_numeric($id)){
+            $feria = Feria::find($id);
+            if($feria == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la feria'
+                ]);
+            }
+            return response()->json($feria);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -79,18 +92,32 @@ class FeriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $feria = Feria::find($id);
-        if($request->descripcion != NULL){
-            $feria->descripcion = $request->descripcion;
+        if(is_numeric($id)){
+            $feria = Feria::find($id);
+            if($feria == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la feria'
+                ]);
+            }
+            else{
+                if($request->descripcion != NULL){
+                    $feria->descripcion = $request->descripcion;
+                }
+                if($request->horario_desde != NULL){
+                    $feria->horario_desde = $request->horario_desde;
+                }
+                if($request->horario_hasta != NULL){
+                    $feria->horario_hasta = $request->horario_hasta;
+                }
+                $feria->save();
+                return response()->json($feria);
+            }  
         }
-        if($request->horario_desde != NULL){
-            $feria->horario_desde = $request->horario_desde;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        if($request->horario_hasta != NULL){
-            $feria->horario_hasta = $request->horario_hasta;
-        }
-        $feria->save();
-        return response()->json($feria);
     }
 
     /**
@@ -101,10 +128,26 @@ class FeriaController extends Controller
      */
     public function destroy($id)
     {
-        $feria->delete();
-        return response()->json([
-            "message"-> "Feria elimindada",
-            "id"=>$feria->id
-            ],201);
+        if(is_numeric($id)){
+            $feria = Feria::find($id);
+            if($feria != NULL){
+                $feria->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Feria inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Feria eliminada",
+                "id"=>$feria->id
+                ],201);  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

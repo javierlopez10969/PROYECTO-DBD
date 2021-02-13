@@ -48,8 +48,7 @@ class ComunaController extends Controller
                 ],404);
         }
 
-        $comuna->$request->nombre_comuna;
-        $comuna->$request->id_region;
+        $comuna->nombre_comuna = $request->nombre_comuna;
         $comuna->save();
         return response()->json([
             "message"=> "Nueva comuna agregada",
@@ -66,8 +65,21 @@ class ComunaController extends Controller
      */
     public function show($id)
     {
-        $comuna = Comuna::find($id);
-        return response()->json($comuna);
+        if(is_numeric($id)){
+            $comuna = Comuna::find($id);
+            if($comuna == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la comuna'
+                ]);
+            }
+            return response()->json($comuna);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+          
     }
 
 
@@ -80,12 +92,27 @@ class ComunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $comuna = Comuna::find($id);
-       if($request->nombre_comuna != NULL){
-            $comuna->nombre_comuna = $request->nombre_comuna;
+        if(is_numeric($id)){
+            $comuna = Comuna::find($id);
+            if($comuna == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la comuna'
+                ]);
+            }
+            else{
+                if($request->nombre_comuna != NULL){
+                    $comuna->nombre_comuna = $request->nombre_comuna;
+                }
+                $comuna->save();
+                return response()->json($comuna);
+            }  
         }
-        $comuna->save();
-        return response()->json($comuna);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+        
     }
 
     /**
@@ -96,14 +123,26 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
-        $comuna = Comuna::find($id);
-        if($comuna != NULL){
-            $comuna->delete();
+        if(is_numeric($id)){
+            $comuna = Comuna::find($id);
+            if($comuna != NULL){
+                $comuna->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Comuna inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "comuna eliminada",
+                "id"=>$comuna->$id
+                ],201);
         }
-        
-        return response()->json([
-            "message"=> "comuna elimindada",
-            "id"=>$comuna->$id
-            ],201);    
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }    
     }
 }
