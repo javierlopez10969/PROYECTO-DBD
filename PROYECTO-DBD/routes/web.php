@@ -31,12 +31,12 @@ Route::post('/feriante/create','FerianteController@store');
 Route::put('/feriante/update/{id}','FerianteController@update');
 Route::delete('/feriante/delete/{id}','FerianteController@destroy');
 
-#regiones
-Route::get('/regiones','RegionController@index');
-Route::get('/regiones/{id}','RegionController@show');
-Route::post('/regiones/create','RegionController@store');
-Route::put('/regiones/update/{id}','RegionController@update');
-Route::delete('/regiones/delete/{id}','RegionController@destroy');
+#region
+Route::get('/region','RegionController@index');
+Route::get('/region/{id}','RegionController@show');
+Route::post('/region/create','RegionController@store');
+Route::put('/region/update/{id}','RegionController@update');
+Route::delete('/region/delete/{id}','RegionController@destroy');
 
 #comuna
 Route::get('/comuna','ComunaController@index');
@@ -115,6 +115,13 @@ Route::post('/feria_favorito/create','FeriaFavoritoController@store');
 Route::put('/feria_favorito/update/{id}','FeriaFavoritoController@update');
 Route::delete('/feria_favorito/delete/{id}','FeriaFavoritoController@destroy');
 
+#feriante favorito
+Route::get('/feriante_favorito','FeriantesFavoritoController@index');
+Route::get('/feriante_favorito/{id}','FeriantesFavoritoController@show');
+Route::post('/feriante_favorito/create','FeriantesFavoritoController@store');
+Route::put('/feriante_favorito/update/{id}','FeriantesFavoritoController@update');
+Route::delete('/feriante_favorito/delete/{id}','FeriantesFavoritoController@destroy');
+
 #orden de compra
 Route::get('/ordenDeCompra','OrdenDeCompraController@index');
 Route::get('/ordenDeCompra/{id}','OrdenDeCompraController@show');
@@ -142,6 +149,20 @@ Route::get('/pago/{id}','PagoController@show');
 Route::post('/pago/create','PagoController@store');
 Route::put('/pago/update/{id}','PagoController@update');
 Route::delete('/pago/delete/{id}','PagoController@destroy');
+
+#puesto de venta
+Route::get('/puestoVenta','PuestoVentaController@index');
+Route::get('/puestoVenta/{id}','PuestoVentaController@show');
+Route::post('/puestoVenta/create','PuestoVentaController@store');
+Route::put('/puestoVenta/update/{id}','PuestoVentaController@update');
+Route::delete('/puestoVenta/delete/{id}','PuestoVentaController@destroy');
+
+#unidad
+Route::get('/unidad','UnidadController@index');
+Route::get('/unidad/{id}','UnidadController@show');
+Route::post('/unidad/create','UnidadController@store');
+Route::put('/unidad/update/{id}','UnidadController@update');
+Route::delete('/unidad/delete/{id}','UnidadController@destroy');
 
 /*
 Route::get('/producto_puestosDeVenta','Producto_PuestoDeVentaController@index');

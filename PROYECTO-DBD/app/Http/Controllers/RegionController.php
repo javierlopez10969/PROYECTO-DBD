@@ -30,6 +30,7 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         $region = new Region();
@@ -40,8 +41,8 @@ class RegionController extends Controller
 
         $region->$request->nombre_region;
         $region->save();
-        retrun response()->json([
-            "message"-> "Nueva region agregada",
+        return response()->json([
+            "message"=> "Nueva region agregada",
             "id"=>$region->id
         ],201);
     }
@@ -54,8 +55,20 @@ class RegionController extends Controller
      */
     public function show($id)
     {
-        $region = Region::find($id);
-        return response()->($region);
+        if(is_numeric($id)){
+            $region = Region::find($id);
+            if($region == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la region'
+                ]);
+            }
+            return response()->json($region);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
 
@@ -68,13 +81,27 @@ class RegionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $region = Region::find($id);
-       if($request->nombre_region != NULL){
-            $feria->nombre_region = $request->nombre_region;
+        if(is_numeric($id)){
+            $region = Region::find($id);
+            if($region == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la region'
+                ]);
+            }
+            else{
+                if($request->nombre_region != NULL){
+                    $feria->nombre_region = $request->nombre_region;
+                }
+        
+                $region->save();
+                return response()->json($region);
+            }  
         }
-
-        $region->save();
-        return response()->json($region);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -85,10 +112,26 @@ class RegionController extends Controller
      */
     public function destroy($id)
     {
-        $region->delete();
-        return response()->json([
-            "message"-> "Region elimindada",
-            "id"=>$region->id
+        if(is_numeric($id)){
+            $region = Region::find($id);
+            if($region != NULL){
+                $region->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id Region inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Region eliminada",
+                "id"=>$region->id
             ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

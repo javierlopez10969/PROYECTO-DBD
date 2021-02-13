@@ -20,7 +20,7 @@ class PuestoVentaController extends Controller
         ],404);
     }
 
-
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -33,49 +33,84 @@ class PuestoVentaController extends Controller
         if($feriante == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
+            ]);
         }
 		$puestoVenta->categoria = $request->categoria;
 		$puesto->delete = $request->delete;
 		$puestoVenta->save();
 		return responde()->json([
-		"message" => "Se ha creado una categoria."
-		"id" => $puestoVenta->id
+            "message" => "Se ha creado una categoria.",
+            "id" => $puestoVenta->id
 		],202);
 	}
 
 
     public function show($id)
     {
-		$puestoVenta = PuestoDeVenta::find($id);
-        if($puestoVenta == NULL or $puestoVenta->delete == true){
-            return response()->json([
-                'message'=>'No se encontro una puesto'
-            ]);
+		if(is_numeric($id)){
+            $puestoVenta = PuestoDeVenta::find($id);
+            if($puestoVenta == NULL or $puestoVenta->delete == true){
+                return response()->json([
+                    'message'=>'No se encontro un puesto de venta'
+                ]);
+            }
+            return response()->json($puestoVenta);
         }
-		return responde()->json($puestoVenta);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     public function update(Request $request, $id)
     {
         //
-		$puestoVenta = PuestoDeVenta::find($id)
-		if($request->categoria != NULL){
-			$puestoVenta->categoria = $request->categoria;
-		}
-		$puestoVenta->save();
-		return responde()->json($puestoVenta);
+		if(is_numeric($id)){
+            $puestoVenta = PuestoDeVenta::find($id);
+            if($puestoVenta == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el puesto de venta'
+                ]);
+            }
+            else{
+                if($request->categoria != NULL){
+                    $puestoVenta->categoria = $request->categoria;
+                }
+                $puestoVenta->save();
+                return response()->json($puestoVenta);
+            }  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     public function destroy($id)
     {
         //
-		$puestoVenta = PuestoDeVenta::find($id)
-		if($puestoVenta != Null){
-			$puestoVenta->delete();
-		}
-		return responde()->json([
-		"message" => "Se ha borrado una categoria."
-		"id" => $id
-		],201);
+		if(is_numeric($id)){
+            $puestoVenta = PuestoDeVenta::find($id);
+            if($puestoVenta != Null){
+                $puestoVenta->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id puesto de venta inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message" => "Se ha borrado un puesto de venta.",
+                "id" => $id
+            ],201);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

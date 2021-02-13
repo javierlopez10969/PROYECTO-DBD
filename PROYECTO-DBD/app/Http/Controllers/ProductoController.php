@@ -20,7 +20,7 @@ class ProductoController extends Controller
         ],404);
     }
 
-
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -30,18 +30,20 @@ class ProductoController extends Controller
 			'unidad' => ['required','numeric'],
 			'tipo_de_stock' => ['required','alpha_num'],
 			'nombre_producto' => ['required','unique:posts','max:255'],
-			'id_categoria', => ['require' , 'numeric'],
-			'id_unidad', => ['require' , 'numeric']
+			'id_categoria' => ['require' , 'numeric'],
+			'id_unidad' => ['require' , 'numeric']
 		]);
 		$categoria = Categoria::find($request->id_categoria);
         if($categoria == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
+            ]);
         }
 		$unidad = Unidad::find($request->id_unidad);
         if($unidad == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
+            ]);
         }
 		$producto->precio_producto = $request->precio_producto;
 		$producto->unidad = $request->unidad;
@@ -49,57 +51,87 @@ class ProductoController extends Controller
 		$producto->nombre_producto = $request->nombre_producto;
 		$producto->save();
 		return responde()->json([
-		"message" => "Se ha creado un producto."
-		"id" => $producto->id
+            "message" => "Se ha creado un producto.",
+            "id" => $producto->id
 		],202);
 	}
 
 
     public function show($id)
     {
-		$producto = Producto::find($id);
-        if($producto == NULL or $producto->delete == true){
-            return response()->json([
-                'message'=>'No se encontro el producto'
-            ]);
+		if(is_numeric($id)){
+            $producto = Producto::find($id);
+            if($producto == NULL or $producto->delete == true){
+                return response()->json([
+                    'message'=>'No se encontro el producto'
+                ]);
+            }
+            return response()->json($producto);
         }
-        return response()->json($producto);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     public function update(Request $request, $id)
     {
         //
-		$producto = Producto::find($id);
-		if($request->precio_producto != NULL){
-			$producto->precio_producto = $request->precio_producto;
-		}
-		if($request->unidad != NULL){
-			$producto->unidad = $request->unidad;
-		}
-		if($request->tipo_de_stock != NULL){
-			$producto->tipo_de_stock = $request->tipo_de_stock;
-		}
-		if($request->nombre_producto != NULL){
-			$producto->nombre_producto = $request->nombre_producto;
-		}
-		$producto->save();
-		return responde()->json($producto);
+		if(is_numeric($id)){
+            $producto = Producto::find($id);
+            if($producto == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el producto'
+                ]);
+            }
+            else{
+                if($request->precio_producto != NULL){
+                    $producto->precio_producto = $request->precio_producto;
+                }
+                if($request->unidad != NULL){
+                    $producto->unidad = $request->unidad;
+                }
+                if($request->tipo_de_stock != NULL){
+                    $producto->tipo_de_stock = $request->tipo_de_stock;
+                }
+                if($request->nombre_producto != NULL){
+                    $producto->nombre_producto = $request->nombre_producto;
+                }
+                $producto->save();
+                return response()->json($producto);
+            }  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     public function destroy($id)
     {
         //
-		$producto = Producto::find($id);
-        if($producto != NULL){
-           $producto->delete = true; 
-           $producto->save();
+		if(is_numeric($id)){
+            $producto = Producto::find($id);
+            if($producto != NULL){
+                $producto->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id producto inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "producto eliminado",
+                "id"=>$producto->id
+            ],201);
         }
         else{
-            "message" => "id Puesto inexistente"
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-		return responde()->json([
-		"message" => "Se ha borrado un nombre."
-		"id" => $id
-		],201);
     }
 }
