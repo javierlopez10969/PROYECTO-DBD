@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Feria_PuestoDeVenta;
+use App\Models\Feria;
+use App\Models\PuestoDeVenta;
+
 
 class Feria_PuestoDeVentaController extends Controller
 {
@@ -29,6 +32,7 @@ class Feria_PuestoDeVentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         $feria_PuestoDeVenta = new Feria_PuestoDeVenta();
@@ -37,10 +41,23 @@ class Feria_PuestoDeVentaController extends Controller
             'id_feria' => ['required' , 'numeric'],            
             'id_feria_puestodeventa' => ['required' , 'numeric'],
         ]);   
+        
+        $feria= Feria::find($request->id_feria);
+        if ($feria == NULL){
+            return response()->json([
+                'message'=>'No existe una feria con esa id'
+            ]);
+        }
+        $puesto_de_venta = PuestoDeVenta::find($request->id_puesto_venta);
+        if ($puesto_de_venta == NULL){
+            return response()->json([
+                'message'=>'No existe un puesto de venta con esa id'
+            ]);
+        }
 
         $feria_PuestoDeVenta->save();
-        retrun response()->json([
-            "message"-> "Nueva feria_PuestoDeVenta agregada",
+        return response()->json([
+            "message"=> "Nueva feria_PuestoDeVenta agregada",
             "id"=>$feria_PuestoDeVenta->id
         ],201);
     }
@@ -53,8 +70,20 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function show($id)
     {
-        $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
-        return response()->($feria_PuestoDeVenta);
+        if(is_numeric($id)){
+            $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
+            if($feria_PuestoDeVenta == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la Feria_Puesto de venta'
+                ]);
+            }
+            return response()->json($feria_PuestoDeVenta);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
 
@@ -67,9 +96,29 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
-        $feria_PuestoDeVenta->save();
-        return response()->json($feria_PuestoDeVenta);
+        if(is_numeric($id)){
+            $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
+            if($feria_PuestoDeVenta == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la Feria_puesto de venta'
+                ]);
+            }
+            else{
+                if($request->id_puesto_venta != NULL){
+                    $feria_PuestoDeVenta->id_puesto_venta = $request->id_puesto_venta;
+                }
+                if($request->id_feria != NULL){
+                    $feria_PuestoDeVenta->id_feria = $request->id_feria;
+                }
+                $feria_PuestoDeVenta->save();
+                return response()->json($feria_PuestoDeVenta);
+            }  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
     /**
@@ -80,10 +129,26 @@ class Feria_PuestoDeVentaController extends Controller
      */
     public function destroy($id)
     {
-        $feria_PuestoDeVenta->delete();
-        return response()->json([
-            "message"-> "Feria_PuestoDeVenta elimindada",
-            "id"=>$feria_PuestoDeVenta->id
-            ],201);
+        if(is_numeric($id)){
+            $feria_PuestoDeVenta = Feria_PuestoDeVenta::find($id);
+            if($feria_PuestoDeVenta != NULL){
+                $feria_PuestoDeVenta->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id feria_PuestoDeVenta inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Feria_PuestoDeVenta eliminada",
+                "id"=>$feria_PuestoDeVenta->id
+            ],201); 
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

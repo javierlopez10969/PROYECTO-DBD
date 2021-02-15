@@ -4,82 +4,122 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Feriante_FeriantesFavorito;
+use App\Models\Feriante;
+use App\Models\FeriantesFavorito;
 
 class Feriante_FeriantesFavoritoController extends Controller
 {
     //Obtener todos los datos de la tabla feriante_feriantesfavorito
     public function index()
     {
-        $fer_ferifav = Feriante_FeriantesFavorito::all();
-        if($fer_ferifav != NULL){
-            return response()->json($fer_ferifav);
+        $feriante_feriantesfavorito = Feriante_FeriantesFavorito::all();
+        if($feriante_feriantesfavorito != NULL){
+            return response()->json($feriante_feriantesfavorito);
         }
         return response()->json([
             "message"=>"No se encontró ningún dato de la tabla",
         ],404);
     }
 
-    //Crear una nueva tupla tupla 
+    //Crear una nueva tupla tupla
+    //Correxion
     public function store(Request $request)
     {
-        $fer_ferifav = new Feriante_FeriantesFavorito();
+        $feriante_feriantesfavorito = new Feriante_FeriantesFavorito();
             $validatedData = $request->validate([
             'id_feriante' => ['require' , 'numeric'],
             'id_feriantesfavoritos'=> ['require' , 'numeric'],
         ]);        
-
-        $fer_ferifav = new Feriante_FeriantesFavorito();
-        $fer_ferifav->id_feriante = $validatedData->id_feriante;
-        $fer_ferifav->id_feriantesfavoritos = $validatedData->id_feriantesfavoritos;
-        $fer_ferifav->save();
+        $feriante= Feriante::find($request->id_feriante);
+        if ($feriante == NULL){
+            return response()->json([
+                'message'=>'No existe un feriante con esa id'
+            ]);
+        }
+        $feriantefavorito = FeriantesFavorito::find($request->id_feriantesfavoritos);
+        if ($feriantefavorito == NULL){
+            return response()->json([
+                'message'=>'No existe un feriante favorito con esa id'
+            ]);
+        }
+        $feriante_feriantesfavorito->save();
         return response()->json([
-            "message"-> "Se ha añadido un nueva nueva tupla a la tabla",
-            "id"=>$fer_ferifav->id
+            "message"=> "Se ha añadido un nueva tupla a la tabla",
+            "id"=>$feriante_feriantesfavorito->id
         ],202);
     }
 
     //obtener una tupla específica de una tabla por ID (get)
     public function show($id)
     {
-        $fer_ferifav = Feriante_FeriantesFavorito::find($id);
-        if($fer_ferifav == NULL){
-            return response()->json([
-                'message'=>'No se encontro la tupla específica'
-            ]);
+        if(is_numeric($id)){
+            $feriante_feriantesfavorito = Feriante_FeriantesFavorito::find($id);
+            if($feriante_feriantesfavorito == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la tupla específica'
+                ]);
+            }
+            return response()->json($feriante_feriantesfavorito);
         }
-        return response()->($fer_ferifav);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 
 
     //Modifcar una tupla específica
+    //Ojo con el id_feriante = null
     public function update(Request $request, $id)
     {
-        $fer_ferifav = Feriante_FeriantesFavorito::find($id);
-
-        if($fer_ferifav->id_feriante != NULL){
-            $fer_ferifav->id_feriante = $request->id_feriante;
+        if(is_numeric($id)){
+            $feriante_feriantesfavorito = Feriante_FeriantesFavorito::find($id);
+            if($feriante_feriantesfavorito == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el feriante_feriantesfavorito'
+                ]);
+            }
+            else{
+                if($feriante_feriantesfavorito->id_feriante != NULL){
+                    $feriante_feriantesfavorito->id_feriante = $request->id_feriante;
+                }
+                if($feriante_feriantesfavorito->id_feriantesfavoritos != NULL){
+                    $feriante_feriantesfavorito->id_feriantesfavoritos = $request->id_feriantesfavoritos;
+                }
+                $feriante_feriantesfavorito->save();
+                return response()->json($feriante_feriantesfavorito);
+            }  
         }
-        if($fer_ferifav->id_feriantesfavoritos != NULL){
-            $fer_ferifav->id_feriantesfavoritos = $request->id_feriantesfavoritos;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-        $fer_ferifav->save();
-        return response()->json($fer_ferifav);
     }
 
     //Borrar una tupla específica
     public function destroy($id)
     {
-        $fer_ferifav = Feriante_FeriantesFavorito::find($id);
-        if($fer_ferifav != NULL){
-            $fer_ferifav->delete();
+        if(is_numeric($id)){
+            $feriante_feriantesfavorito = Feriante_FeriantesFavorito::find($id);
+            if($feriante_feriantesfavorito != NULL){
+                $feriante_feriantesfavorito->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id feriante_feriante favorito inexistente"
+                ],404);
+            }
+
             return response()->json([
-                "message"-> "Se ha eliminado una tupla",
-                "id"=>$fer_ferifav->id
+                "message"=> "Se ha eliminado una tupla",
+                "id"=>$feriante_feriantesfavorito->id
             ],202);
         }
         else{
             return response()->json([
-                "message"-> "No existe la tupla para eliminar",
+                'message'=>'id invalido'
             ],404);
         }
     }

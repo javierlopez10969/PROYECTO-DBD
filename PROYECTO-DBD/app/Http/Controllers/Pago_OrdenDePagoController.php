@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pago_ordendepago;
 use App\Models\Pago;
-#use App\Models\Orden_de_pago;
 use App\Models\OrdenDePago;
 
 class Pago_OrdenDePagoController extends Controller
@@ -23,7 +22,7 @@ class Pago_OrdenDePagoController extends Controller
             return response()->json($pago_OrdenDePago);
         }
         return response()->json([
-            "message"=>"No se encontró el Productos_orden_de_compra solicitado",
+            "message"=>"No se encontró el Pago_orden de pago solicitado",
         ],404);
     }
 
@@ -33,6 +32,7 @@ class Pago_OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -45,18 +45,19 @@ class Pago_OrdenDePagoController extends Controller
         $pago= Pago::find($request->id_pago);
         if ($producto == NULL){
             return response()->json([
-                'message'=>'No existe usuario con esa id']);
+                'message'=>'No existe usuario con esa id'
+            ]);
         }
-        #$orden_de_pago = Orden_de_pago::find($request->id_orden_pago);
         $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
         if ($orden_de_pago == NULL){
             return response()->json([
-                'message'=>'No existe usuario con esa id']);
+                'message'=>'No existe usuario con esa id'
+            ]);
         }
         $pago_OrdenDePago->save();
         return response()->json([
-        "mesage"=>"Se ha creado una store",
-        "id" => $pago_OrdenDePago->id
+            "mesage"=>"Se ha creado una store",
+            "id" => $pago_OrdenDePago->id
         ],202);
 
     }
@@ -70,13 +71,20 @@ class Pago_OrdenDePagoController extends Controller
     public function show($id)
     {
         //
-        $pago_OrdenDePago = Pago::find($id);
-        if($pago_OrdenDePago == NULL){
-            return response()->json([
-                'message'=>'No se encontro la orden de compra'
-            ]);
+        if(is_numeric($id)){
+            $pago_OrdenDePago = Pago_ordendepago::find($id);
+            if($pago_OrdenDePago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de compra'
+                ]);
+            }
+            return response()->json($pago_OrdenDePago);
         }
-        return response()->json($pago_OrdenDePago);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }  
     }
 
     /**
@@ -88,8 +96,34 @@ class Pago_OrdenDePagoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(is_numeric($id)){
+            $pago_OrdenDePago = Pago_ordendepago::find($id);
+            if($pago_OrdenDePago == NULL){
+                return response()->json([
+                    'message'=>'No se encontro pago_OrdenDePago'
+                ]);
+            }
+            else{
+                if($request->id_pago != NULL){
+                    $pago_OrdenDePago->id_pago = $request->id_pago;
+                }
+                if($request->id_orden_pago != NULL){
+                    $pago_OrdenDePago->id_orden_pago = $request->id_orden_pago;
+                }
+        
+                $pago_OrdenDePago->save();
+                return response()->json($pago_OrdenDePago);
+            }  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+        /*
         $pago_OrdenDePago = Pago::find($id);
         return response()->json($pago_OrdenDePago);
+        */
     }
 
     /**
@@ -100,12 +134,34 @@ class Pago_OrdenDePagoController extends Controller
      */
     public function destroy($id)
     {
+        if(is_numeric($id)){
+            $pago_OrdenDePago = Pago_ordendepago::find($id);
+            if($pago_OrdenDePago != NULL){
+                $pago_OrdenDePago->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id pago_OrdenDePago inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Pago eliminado",
+                "id"=>$pago_OrdenDePago->id
+            ],201); 
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+        /*
         $pago_OrdenDePago = Pago::find($id);
         $pago_OrdenDePago->delete();
         return response()->json([
-            "message"-> "Pago elimindado",
+            "message"=> "Pago elimindado",
             "id"=>$pago_OrdenDePago->id
-            ],201);    
-        }
+        ],201); 
+        */   
     }
 }

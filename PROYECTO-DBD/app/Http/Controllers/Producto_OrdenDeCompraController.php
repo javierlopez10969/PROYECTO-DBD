@@ -33,6 +33,7 @@ class Producto_OrdenDeCompraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion
     public function store(Request $request)
     {
         //
@@ -54,8 +55,8 @@ class Producto_OrdenDeCompraController extends Controller
         }
         $producto_ordenDeCompra->save();
         return response()->json([
-        "mesage"=>"Se ha creado una store",
-        "id" => $producto_ordenDeCompra->id
+            "mesage"=>"Se ha creado una store",
+            "id" => $producto_ordenDeCompra->id
         ],202);
 
     }
@@ -69,13 +70,20 @@ class Producto_OrdenDeCompraController extends Controller
     public function show($id)
     {
         //
-        $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
-        if($producto_ordenDeCompra == NULL){
-            return response()->json([
-                'message'=>'No se encontro la orden de compra'
-            ]);
+        if(is_numeric($id)){
+            $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
+            if($producto_ordenDeCompra == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la orden de compra'
+                ]);
+            }
+            return response()->json($producto_ordenDeCompra);
         }
-        return response()->json($producto_ordenDeCompra);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }  
     }
 
     /**
@@ -87,8 +95,34 @@ class Producto_OrdenDeCompraController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(is_numeric($id)){
+            $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
+            if($producto_ordenDeCompra == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el producto_orden de compra'
+                ]);
+            }
+            else{
+                if($request->id_orden_compra != NULL){
+                    $producto_ordenDeCompra->id_orden_compra = $request->id_orden_compra;
+                }
+                if($request->id_producto != NULL){
+                    $producto_ordenDeCompra->id_producto = $request->id_producto;
+                }
+        
+                $producto_ordenDeCompra->save();
+                return response()->json($producto_ordenDeCompra);
+            }  
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+        /*
         $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
         return response()->json($producto_ordenDeCompra);
+        */
     }
 
     /**
@@ -99,12 +133,34 @@ class Producto_OrdenDeCompraController extends Controller
      */
     public function destroy($id)
     {
+        if(is_numeric($id)){
+            $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
+            if($producto_ordenDeCompra != NULL){
+                $producto_ordenDeCompra->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id producto_OrdenDeCompra inexistente"
+                ],404);
+            }
+
+            return response()->json([
+                "message"=> "Productos_orden_de_compra eliminada",
+                "id"=>$producto_ordenDeCompra->id
+            ],201); 
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+        /*
         $producto_ordenDeCompra = Productos_orden_de_compra::find($id);
         $producto_ordenDeCompra->delete();
         return response()->json([
             "message"-> "Productos_orden_de_compra elimindada",
             "id"=>$producto_ordenDeCompra->id
             ],201);    
-        }
+        }*/
     }
 }

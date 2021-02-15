@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Feria_FeriaFavorito;
+use App\Models\Feria;
+use App\Models\FeriaFavorito;
 
 class Feria_FeriaFavoritoController extends Controller
 {
     //Obtener todos los datos de la tabla feria_feriafavorito
     public function index()
     {
-        $fer_ferfav = Feria_FeriaFavorito::all();
-        if($fer_ferfav != NULL){
-            return response()->json($fer_ferfav);
+        $feria_feriafavorito = Feria_FeriaFavorito::all();
+        if($feria_feriafavorito != NULL){
+            return response()->json($feria_feriafavorito);
         }
         return response()->json([
             "message"=>"No se encontró ningún dato de la tabla",
@@ -20,67 +22,109 @@ class Feria_FeriaFavoritoController extends Controller
     }
 
     //Crear una nueva tupla tupla 
+    //Correxion
     public function store(Request $request)
     {
-        $fer_ferfav = new Feria_FeriaFavorito();
+        $feria_feriafavorito = new Feria_FeriaFavorito();
             $validatedData = $request->validate([
             'id_feria' => ['require' , 'numeric'],
             'id_feriafavoritos'=> ['require' , 'numeric'],
         ]);        
+        
+        $feria= Feria::find($request->id_feria);
+        if ($feria == NULL){
+            return response()->json([
+                'message'=>'No existe una feria con esa id'
+            ]);
+        }
+        $feria_favorito = FeriaFavorito::find($request->id_feriafavoritos);
+        if ($feria_favorito == NULL){
+            return response()->json([
+                'message'=>'No existe una feria favorita con esa id'
+            ]);
+        }
 
-        $fer_ferfav = new Feria_FeriaFavorito();
-        $fer_ferfav->id_feria = $validatedData->id_feria;
-        $fer_ferfav->id_feriafavoritos = $validatedData->id_feriafavoritos;
-        $fer_ferfav->save();
+        #$feria_feriafavorito = new Feria_FeriaFavorito();
+        #$feria_feriafavorito->id_feria = $validatedData->id_feria;
+        #$feria_feriafavorito->id_feriafavoritos = $validatedData->id_feriafavoritos;
+        $feria_feriafavorito->save();
         return response()->json([
-            "message"-> "Se ha añadido un nueva nueva tupla a la tabla",
-            "id"=>$fer_ferfav->id
+            "message"=> "Se ha añadido un nueva nueva tupla a la tabla",
+            "id"=>$feria_feriafavorito->id
         ],202);
     }
 
     //obtener una tupla específica de una tabla por ID (get)
     public function show($id)
     {
-        $fer_ferfav = Feria_FeriaFavorito::find($id);
-        if($fer_ferfav == NULL){
-            return response()->json([
-                'message'=>'No se encontro la tupla específica'
-            ]);
+        if(is_numeric($id)){
+            $feria_feriafavorito = Feria_FeriaFavorito::find($id);
+            if($feria_feriafavorito == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la tupla específica'
+                ]);
+            }
+            return response()->json($feria_feriafavorito);
         }
-        return response()->($fer_ferfav);
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }  
     }
 
 
     //Modifcar una tupla específica
     public function update(Request $request, $id)
     {
-        $fer_ferfav = Feria_FeriaFavorito::find($id);
-
-        if($fer_ferfav->id_feria != NULL){
-            $fer_ferfav->id_feria = $request->id_feria;
+        if(is_numeric($id)){
+            $feria_feriafavorito = Feria_FeriaFavorito::find($id);
+            if($feria_feriafavorito == NULL){
+                return response()->json([
+                    'message'=>'No se encontro la feria_feriafavorito'
+                ]);
+            }
+            else{
+                if($request->id_feria != NULL){
+                    $feria_feriafavorito->id_feria = $request->id_feria;
+                }
+                if($request->id_feriafavoritos != NULL){
+                    $feria_feriafavorito->id_feriafavoritos = $request->id_feriafavoritos;
+                }
+        
+                $feria_feriafavorito->save();
+                return response()->json($feria_feriafavorito);
+            }  
         }
-        if($fer_ferfav->id_feriafavoritos != NULL){
-            $fer_ferfav->id_feriafavoritos = $request->id_feriafavoritos;
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
         }
-
-        $fer_ferifav->save();
-        return response()->json($fer_ferfav);
     }
 
     //Borrar una tupla específica
     public function destroy($id)
     {
-        $fer_ferfav = Feria_FeriaFavorito::find($id);
-        if($fer_ferfav != NULL){
-            $fer_ferfav->delete();
+        if(is_numeric($id)){
+            $feria_feriafavorito = Feria_FeriaFavorito::find($id);
+            if($feria_feriafavorito != NULL){
+                $feria_feriafavorito->delete();
+            }
+            else{
+                return response()->json([
+                    "message" => "id feria_feria favorito inexistente"
+                ],404);
+            }
+
             return response()->json([
-                "message"-> "Se ha eliminado una tupla",
-                "id"=>$fer_ferfav->id
-            ],202);
+                "message"=> "Se ha eliminado una tupla",
+                "id"=>$feria_feriafavorito->id
+            ],202); 
         }
         else{
             return response()->json([
-                "message"-> "No existe la tupla para eliminar",
+                'message'=>'id invalido'
             ],404);
         }
     }
