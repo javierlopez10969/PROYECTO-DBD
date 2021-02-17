@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>Prueba</title>
+    <!-- Roboto  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,58 +16,61 @@
 
     <!-- barra superior -->
         <div class="row color1">
-            <div class="col">
+            <div class="col-9 ">
                 <a href="https://ibb.co/df9mxhD"><img src="https://i.ibb.co/JcL3ghH/logo.png"  alt="logo" border="0"></a>
+            </div> 
+
+            <div class="col button text-center ">
+                <button type="button " class="btn btn-default color2 margen_up">Iniciar sesión</button>  
+            </div>
+            <div class="col button ">
+                <button type="button" class="btn btn-default color2 margen_up">Registrarse</button>  
             </div>
         </div>
      <!-- barra productos -->
         <div class="row text-center">
             <div class="col border border-dark">
-                <h4> Frutas </h4>
+                <h5 class = "fuente1 align-middle"> Frutas </h5> 
             </div>
 
-            <div class="col">
-                <h2> Verduras </h2>
+            <div class="col border border-dark">
+                <h5 > Verduras </h5>
             </div>  
-            <div class="col ">
-                <h2> Pollo </h2>
+            <div class="col border border-dark">
+                <h5 > Pollo </h5>
             </div>
 
-            <div class="col">
-                <h2> Carne y Pescado </h2>
+            <div class="col border border-dark">
+                <h5> Carne y Pescado </h5>
             </div>
 
-            <div class="col ">
-                <h2> Huevos </h2> 
+            <div class="col border border-dark">
+                <h5> Huevos </h5> 
             </div>
 
-            <div class="col">
-                <h2> Productos higiénicos </h2>
+            <div class="col border border-dark">
+                <h5> Productos higiénicos </h5>
             </div>  
-            <div class="col ">
-                <h2> Comida para mascotas </h2>
+            <div class="col border border-dark">
+                <h5> Comida para mascotas </h5>
             </div>
 
-            <div class="col">
-                <h2> Otros </h2>
+            <div class="col border border-dark">
+                <h5> Otros </h5>
             </div>
         </div>
-
+        <!-- Texto de bienvenida y publicidad-->
         <div class="row">
             <div class="col ">
-                1 of 2
+                LAS PAPAS 
             </div>
-
             <div class="col">
-                2 of 2
+                CASERAS
             </div>    
         </div>
 
         <div class="row text-center">
-
-                <a href="https://ibb.co/4T4NDFr"><img src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="Frutas y verduras" border="0"></a>
-
-
+            <a href="https://ibb.co/4T4NDFr"><img src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="Frutas y verduras" border="0"></a>
         </div>
 
     </div>
@@ -82,8 +88,21 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     }
 
     .color2{
-        background-color:green;
-        color:red;
+        background-color:#F2E8CF;
+        color:black;
+    }
+
+    .fuente1{
+        font-family: 'Roboto', sans-serif;
+    }
+    .margen_up{
+        margin-top: 8%;
+    }
+    .margen_r{
+        margin-right: 5%;
+    }
+    .margen_l{
+        margin-left: 5%;
     }
 
  </style> 
