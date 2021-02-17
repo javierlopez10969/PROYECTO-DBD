@@ -29,44 +29,50 @@
         </div>
      <!-- barra productos -->
         <div class="row text-center">
-            <div class="col border border-dark">
-                <h5 class = "fuente1 align-middle"> Frutas </h5> 
+            <div class="col border border-dark centrado">
+                <h5 class = "fuente1 align-middle "> Frutas </h5> 
             </div>
 
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5 > Verduras </h5>
             </div>  
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5 > Pollo </h5>
             </div>
 
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5> Carne y Pescado </h5>
             </div>
 
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5> Huevos </h5> 
             </div>
 
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5> Productos higiénicos </h5>
             </div>  
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5> Comida para mascotas </h5>
             </div>
 
-            <div class="col border border-dark">
+            <div class="col border border-dark centrado">
                 <h5> Otros </h5>
             </div>
         </div>
+
+        
         <!-- Texto de bienvenida y publicidad-->
-        <div class="row">
-            <div class="col ">
-                LAS PAPAS 
-            </div>
-            <div class="col">
-                CASERAS
-            </div>    
+
+        <div class="row text-center padding-text">
+        
+            <h1> NO SALGAS DE TU HOGAR </h1>
+            
+        </div>
+
+        <div class="row text-center color_verde padding-text">
+        
+            <h1> LAS MEJORES FRUTAS Y VERDURAS </h1>
+    
         </div>
 
         <div class="row text-center">
@@ -83,13 +89,17 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     -->
 <style> 
     .color1{
-        background-color:#A7C957;
+        background-color:#A7C957;  
         color:white;
     }
 
     .color2{
         background-color:#F2E8CF;
         color:black;
+    }
+    .color_verde{
+        background-color:#FFFFFF;
+        color:#386641;
     }
 
     .fuente1{
@@ -98,11 +108,20 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     .margen_up{
         margin-top: 8%;
     }
-    .margen_r{
+    .margen_r{s
         margin-right: 5%;
     }
     .margen_l{
         margin-left: 5%;
     }
+    .padding-text{
+        padding-top:30px;
+    }
+    .centrado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
  </style> 
