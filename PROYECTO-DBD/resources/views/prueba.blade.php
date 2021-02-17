@@ -21,17 +21,17 @@
             </div> 
 
             <div class="col button text-center ">
-                <button type="button " class="btn btn-default color2 margen_up">Iniciar sesión</button>  
+                <button type="button " class="btn btn-default color2 margen_up">Iniciar Sesión</button>  
             </div>
             <div class="col button ">
                 <button type="button" class="btn btn-default color2 margen_up">Registrarse</button>  
             </div>
         </div>
      <!-- barra productos -->
-        <div class="row text-center">
+        <div class="row">
             <div class="col border border-dark centrado">
-                <h5 class = "fuente1 align-middle "> Frutas </h5> 
-            </div>
+                <h5 > Frutas </h5>
+            </div>  
 
             <div class="col border border-dark centrado">
                 <h5 > Verduras </h5>
@@ -69,18 +69,49 @@
             
         </div>
 
-        <div class="row text-center color_verde padding-text">
-        
-            <h1> LAS MEJORES FRUTAS Y VERDURAS </h1>
-    
-        </div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-        <div class="row text-center">
-            <a href="https://ibb.co/4T4NDFr"><img src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="Frutas y verduras" border="0"></a>
+<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item item active  ">
+            <img class="d-block item " src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="First slide">
+            <div class="carousel-caption d-none d-md-block color_verde ">
+                <h2>LAS MEJORES FRUTAS Y VERDURAS</h2>
+                <p>The whole caption will only show up if the screen is at least medium size.</p>
+            </div>
         </div>
-
+        <div class="carousel-item item ">
+            <img class="d-block item " src="https://i.ibb.co/RpNqj7W/Sin-t-tulo-2.png" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block color_verde ">
+                <h2>ENCUENTRA TUS CARNES FAVORITAS</h2>
+                <p>The whole caption will only show up if the screen is at least medium size.</p>
+            </div>
+        </div>
+        <div class="carousel-item item ">
+            <img class="d-block item" src="https://i.ibb.co/XDY5N9H/Sin-t-tulo-3.png" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block color_verde ">
+                <h2>¡ARTICULOS DE ASEO Y MUCHO MAS!</h2>
+                <p>The whole caption will only show up if the screen is at least medium size.</p>
+            </div>
+        </div>
     </div>
-
+    <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next " href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 </body>
 </html>
 
@@ -122,6 +153,54 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         justify-content: center;
         align-items: center;
     }
+    .carousel .item {
+        height: 500px;
+        margin: auto;
+    }
+    .carousel-inner {
+        padding-top:70px; 
+        overflow:hidden;
+    }
+
+    .carousel-caption {
+        top: -70px;
+        bottom: auto;
+        background: rgba(0, 0, 0, 0);
+    }
+
+
+    .item img {
+        height: auto;
+        width: 100%;
+        margin: auto;
+        object-fit: contain;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 100px;
+        width: 100px;
+        outline: black;
+        background-size: 100%, 100%;
+        border-radius: 50%;
+        border: 1px solid black;
+        background-image: none;
+    }
+
+    .carousel-control-next-icon:after
+    {
+        content: '>';
+        font-size: 55px;
+        color: red ;
+    }
+
+    .carousel-control-prev-icon:after {
+        content: '<';
+        font-size: 55px;
+        color: red ;
+    }
+
+
 
 
  </style> 
