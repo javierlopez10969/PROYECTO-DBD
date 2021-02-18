@@ -12,20 +12,52 @@
 </head>
 
 <body>
+    
     <div class="container-fluid">
 
     <!-- barra superior -->
         <div class="row color1">
-            <div class="col-9 ">
-                <a href="https://ibb.co/df9mxhD"><img src="https://i.ibb.co/JcL3ghH/logo.png"  alt="logo" border="0"></a>
-            </div> 
+            <nav class="navbar navbar-expand-sm navbar-dark color1">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.ibb.co/JcL3ghH/logo.png" alt="" height="40">
+                </a>
+            <!-- Links -->
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Busca tu producto" aria-label="Search">
+                        <button class="btn btn-outline-success color3 rounded-pill" type="submit">Buscar</button>
+                    </form>
+                </ul>
 
-            <div class="col button text-center ">
-                <button type="button " class="btn btn-default color2 margen_up">Iniciar Sesión</button>  
             </div>
-            <div class="col button ">
-                <button type="button" class="btn btn-default color2 margen_up">Registrarse</button>  
-            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <div class="col-sm button">
+                    <button type="button "
+                    class="btn btn-default color2 rounded-pill ">
+                    Iniciar Sesión</button>  
+                </div>
+                <div class="col-sm button ">
+                    <button type="button" 
+                        class="btn btn-default color2 rounded-pill">
+                        Registrarse
+                    </button>  
+                </div>
+
+            </ul>
+
+            </nav>
+             
         </div>
      <!-- barra productos -->
         <div class="row">
@@ -74,6 +106,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
+
+<!--carousel de inicio-->
 <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -127,6 +162,18 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     .color2{
         background-color:#F2E8CF;
         color:black;
+    }
+    .color3{
+        background-color : #386641;
+        color : white;
+    }
+    .color4{
+        background-color:  #6A994E;
+        color : white;
+    }
+    .color5{
+        background-color: #BC4749;
+        color : black;
     }
     .color_verde{
         background-color:#FFFFFF;
@@ -199,8 +246,4 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         font-size: 55px;
         color: red ;
     }
-
-
-
-
  </style> 
