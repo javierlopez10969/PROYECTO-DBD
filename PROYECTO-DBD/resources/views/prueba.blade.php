@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Prueba</title>
+    <title>FERION - Feria Online</title>
     <!-- Roboto  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -17,10 +17,11 @@
 
     <!-- barra superior -->
         <div class="row color1">
+
             <nav class="navbar navbar-expand-sm navbar-dark color1">
                 <!-- Brand/logo -->
                 <a class="navbar-brand" href="#">
-                    <img src="https://i.ibb.co/JcL3ghH/logo.png" alt="" height="40">
+                    <img src="https://i.ibb.co/JcL3ghH/logo.png" onClick="window.location.reload();" alt="" height="40">
                 </a>
             <!-- Links -->
             <div class="navbar-collapse collapse">
@@ -42,11 +43,12 @@
 
             </div>
             <ul class="nav navbar-nav navbar-right">
+                <!-- Boton Iniciar Sesion -->
                 <div class="col-sm button">
-                    <button type="button "
-                    class="btn btn-default color2 rounded-pill ">
-                    Iniciar Sesión</button>  
+                    <a class="btn btn-default color2 rounded-pill " href="/login" role="button">Iniciar Sesión</a>
+                     
                 </div>
+                <!-- Boton Registrarse -->
                 <div class="col-sm button ">
                     <button type="button" 
                         class="btn btn-default color2 rounded-pill">
@@ -108,7 +110,7 @@
 
 
 
-<!--carousel de inicio-->
+<!--Carousel de inicio-->
 <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -120,21 +122,21 @@
             <img class="d-block item " src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="First slide">
             <div class="carousel-caption d-none d-md-block color_verde ">
                 <h2>LAS MEJORES FRUTAS Y VERDURAS</h2>
-                <p>The whole caption will only show up if the screen is at least medium size.</p>
+                <p>Inventen un texto para poner aqui.</p>
             </div>
         </div>
         <div class="carousel-item item ">
             <img class="d-block item " src="https://i.ibb.co/RpNqj7W/Sin-t-tulo-2.png" alt="Second slide">
             <div class="carousel-caption d-none d-md-block color_verde ">
                 <h2>ENCUENTRA TUS CARNES FAVORITAS</h2>
-                <p>The whole caption will only show up if the screen is at least medium size.</p>
+                <p>Inventen un segundo texto para poner aqui.</p>
             </div>
         </div>
         <div class="carousel-item item ">
             <img class="d-block item" src="https://i.ibb.co/XDY5N9H/Sin-t-tulo-3.png" alt="Third slide">
             <div class="carousel-caption d-none d-md-block color_verde ">
                 <h2>¡ARTICULOS DE ASEO Y MUCHO MAS!</h2>
-                <p>The whole caption will only show up if the screen is at least medium size.</p>
+                <p>Inventen un tercer texto para poner aqui.</p>
             </div>
         </div>
     </div>
@@ -186,7 +188,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     .margen_up{
         margin-top: 8%;
     }
-    .margen_r{s
+    .margen_r{
         margin-right: 5%;
     }
     .margen_l{
