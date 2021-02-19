@@ -19,13 +19,13 @@
             <div class="col">
                 
                 <div class="container-fluid ventana">
-                    <form class="form-signin">
-                        <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-                        <h1 class="h4 mb-3 font-weight-normal">Inicio de Sesión</h1>
+                    <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
+                    <form class="form-signin ">                        
+                        <h4 class="card-titl text-center">Iniciar sesión</h4>
                         <label for="inputEmail" class="sr-only">Correo electrónico</label>
-                        <input type="email" id="inputEmail" class="form-control rounded-pill" placeholder="Email address" required="" autofocus="">
+                        <input type="email" id="inputEmail" class="form-control rounded-pill" placeholder="Correo electrónico" required="" autofocus="">
                         <label for="inputPassword" class="sr-only">Contraseña</label>
-                        <input type="password" id="inputPassword" class="form-control rounded-pill" placeholder="Password" required="">
+                        <input type="password" id="inputPassword" class="form-control rounded-pill" placeholder="Contraseña" required="">
                         <div class="checkbox mb-3">
                           <label>
                             <input type="checkbox" value="remember-me"> Recordarme en este equipo
@@ -34,28 +34,17 @@
                         <button class="btn btn-lg color4 rounded-pill" type="submit">Ingresar</button>
 
                     </form>
-                    <p class="mt-5 ">¿No tienes cuenta?</p>
-                    <p class=" color6  text-decoration-underline    ">Registrate Aquí</p>
+                    <p class="text-center mt-lg-5">¿No tienes Cuenta?  <a href="/register">Registrate aquí</a> </p>  
 
                     <div class = "end-100 bottom">
                         <p class="padding_up text-muted ">FERION - Ferias Online - 2021</p>
-                    </div>
-
-                        
-                    
-                </div>
-                
-
-                
-                
-                
+                    </div>        
+                </div>   
             </div>
 
             <div class="col">
             </div>
-
           </div>
-
     </div>
 
   
@@ -155,7 +144,7 @@
         border-radius: 20px;
     }
     .padding_up{
-        padding-top: 110px;
+        padding-top: 127px;
     }
 
 </style>

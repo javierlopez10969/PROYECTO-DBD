@@ -26,6 +26,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');

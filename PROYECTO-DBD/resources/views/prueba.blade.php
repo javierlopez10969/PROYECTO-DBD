@@ -50,10 +50,7 @@
                 </div>
                 <!-- Boton Registrarse -->
                 <div class="col-sm button ">
-                    <button type="button" 
-                        class="btn btn-default color2 rounded-pill">
-                        Registrarse
-                    </button>  
+                    <a class="btn btn-default color2 rounded-pill " href="/register" role="button">Registrarse</a>
                 </div>
 
             </ul>
