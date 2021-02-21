@@ -34,6 +34,10 @@ Route::get('/perfil_datosPersonales', function () {
     return view('perfil_datosPersonales');
 });
 
+Route::get('/perfil_modificarContraseña', function () {
+    return view('perfil_modificarContraseña');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
