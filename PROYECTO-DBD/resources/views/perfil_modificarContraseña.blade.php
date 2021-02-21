@@ -29,6 +29,56 @@
             </nav>
 
         </div>
+
+        <!--  Titulo Modificar contraseña -->
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4 space_title color_texto">Modificar contraseña</div>
+        </div>
+ 
+        <!-- cuadrados -->
+        <div class="row">
+            <!-- Mi perfil -->
+            <div class="col-4">
+                <div class="container-fluid ventana_p">
+                    <form class="form_perfil">
+                        <h4 class="card-titl text-center">Mi perfil</h4>
+                        <div class="list-group padding_buttons_per">
+                            <a href="#" class="list-group-item list-group-item-action color7">Mis datos personales</a>
+                            <a href="#" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Modificar contraseña -->
+            <div class="col-8">
+                <div class="container-fluid ventana_mc">
+                    <form class="form-password">
+
+                        <div class="col-12 padding_text">
+                            <label for="inputPassword" class="form-label">Contraseña actual</label>
+                            <input type="password" id="inputPassword" class="form-control" >                      
+                        </div>
+                        <div class="col-12 padding_text">
+                            <label for="inputPassword" class="form-label">Nueva contraseña</label>
+                            <input class="form-control" type="password" required="" id="password">
+                        </div> 
+                        <div class="col-12 padding_text">
+                            <label for="inputPassword" class="form-label">Repetir nueva contraseña</label>
+                            <input class="form-control" type="password" required="" oninput="check(this)">  
+                        </div>
+                        <div class="col-12 padding_buttons_pas">
+                            <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
+                            <button type="button" class="btn btn-primary btn-lg">Guardar</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
     </div>
     
 </body>
@@ -72,4 +122,58 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         color: green;
     }
 
+    .space_title{  
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 47px;
+        padding: 20px;
+    }
+
+    .ventana_mc{
+        width: 930px;
+        height: 550px;
+        left: 493px;
+        top: 150px;
+
+        background: #F2E8CF;
+        border-radius: 39px;
+    }
+
+    .ventana_p{
+        width: 400px;
+        height: 207.83px;
+        left: 50px;
+        top: 150px;
+
+        background: #A7C957;
+        border-radius: 39px;
+    }
+
+    .form-password{
+        width: 100%;
+        max-width: 630px;
+        padding: 50px;
+        margin: 0 auto;
+    }
+
+    .form_perfil{
+        width: 100%;
+        max-width: 730px;
+        padding: 30px;
+        margin: 0 auto;
+    }
+    .padding_text{
+        padding: 20px;
+    }
+
+    .padding_buttons_pas{
+        padding: 50px;
+    }
+
+    .padding_buttons_per{
+        padding: 15px;
+    }
+    
  </style> 
