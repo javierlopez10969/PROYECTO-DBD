@@ -44,8 +44,8 @@
                     <form class="form_perfil">
                         <h4 class="card-titl text-center">Mi perfil</h4>
                         <div class="list-group padding_buttons">
-                            <a href="#" class="list-group-item list-group-item-action color7">Mis datos personales</a>
-                            <a href="#" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
+                            <a href="/perfil_datosPersonales" class="list-group-item list-group-item-action color7">Mis datos personales</a>
+                            <a href="/perfil_modificarContraseña" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
                         </div>
                     </form>
 
@@ -58,36 +58,36 @@
                     <form class="form-personal">
                         <div class="col-12 padding_text">
                             <label class="form-label">Nombre completo *</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="" required="">
                         </div>
                         <div class="col-12 padding_text">
                             <label class="form-label">Numero de telefono *</label>
-                            <input type="text" class="form-control" id="">
+                            <input type="text" class="form-control" id="" required="">
                         </div>
                         
                         <div class="row padding_text">
                             <div class="col-6">
                                 <label class="form-label">Nombre de usuario *</label>
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" required="">
                             </div>
                             <div class="col-6">
                                 <label class="form-label">Rol *</label>
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" disabled placeholder="feriante o cliente">
                             </div>
                         </div>
                         
                         <div class="col-12 padding_text">
                             <label for="inputEmail" class="form-label">Correo electrónico *</label>
-                            <input type="email" id="inputEmail" class="form-control" required="" autofocus="">
+                            <input type="email" id="inputEmail" class="form-control" required="">
                         </div>
                         <div class="col-12 padding_text">
                             <label for="inputPassword" class="form-label">Contraseña</label>
-                            <input type="password" id="inputPassword" class="form-control" >                      
+                            <input type="password" id="inputPassword" class="form-control" required="">                      
                         </div>
                         
                         <div class="col-12 padding_buttons">
                             <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
-                            <button type="button" class="btn btn-primary btn-lg">Guardar</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         </div>  
                     </form>
 

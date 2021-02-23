@@ -44,8 +44,8 @@
                     <form class="form_perfil">
                         <h4 class="card-titl text-center">Mi perfil</h4>
                         <div class="list-group padding_buttons_per">
-                            <a href="#" class="list-group-item list-group-item-action color7">Mis datos personales</a>
-                            <a href="#" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
+                            <a href="/perfil_datosPersonales" class="list-group-item list-group-item-action color7">Mis datos personales</a>
+                            <a href="/perfil_modificarContraseña" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
                         </div>
                     </form>
 
@@ -59,19 +59,19 @@
 
                         <div class="col-12 padding_text">
                             <label for="inputPassword" class="form-label">Contraseña actual</label>
-                            <input type="password" id="inputPassword" class="form-control" >                      
+                            <input class="form-control" type="password" required="" id="inputPassword">                      
                         </div>
                         <div class="col-12 padding_text">
                             <label for="inputPassword" class="form-label">Nueva contraseña</label>
-                            <input class="form-control" type="password" required="" id="password">
+                            <input class="form-control" type="password" required="" id="password" oninput="check_p(this)">
                         </div> 
                         <div class="col-12 padding_text">
                             <label for="inputPassword" class="form-label">Repetir nueva contraseña</label>
-                            <input class="form-control" type="password" required="" oninput="check(this)">  
+                            <input class="form-control" type="password" required="" oninput="check(this)"> 
                         </div>
                         <div class="col-12 padding_buttons_pas">
                             <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
-                            <button type="button" class="btn btn-primary btn-lg">Guardar</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         </div>
                     </form>
 
@@ -175,5 +175,28 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     .padding_buttons_per{
         padding: 15px;
     }
-    
  </style> 
+
+<!-- Javascript para verificar si al ingresar la nueva contraseña, estas sean distintas-->
+<script language='javascript' type='text/javascript'>
+    function check(input) {
+        if (input.value != document.getElementById('password').value) {
+            input.setCustomValidity('Las contraseñas no coinciden');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+</script>
+
+<!-- Javascript para verificar si al ingresar la contraseña actual y la nueva contraseña, estas sean distintas-->
+<script language='javascript' type='text/javascript'>
+    function check_p(input) {
+        if (input.value == document.getElementById('inputPassword').value) {
+            input.setCustomValidity('La contraseña actual debe ser distinta a la nueva contraseña');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+</script>
