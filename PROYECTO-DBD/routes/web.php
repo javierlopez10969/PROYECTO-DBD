@@ -38,6 +38,10 @@ Route::get('/perfil_modificarContraseña', function () {
     return view('perfil_modificarContraseña');
 });
 
+Route::get('/carrito', function () {
+    return view('carrito');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
