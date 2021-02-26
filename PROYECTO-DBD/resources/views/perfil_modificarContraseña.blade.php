@@ -43,10 +43,18 @@
                 <div class="container-fluid ventana_p">
                     <form class="form_perfil">
                         <h4 class="card-titl text-center">Mi perfil</h4>
-                        <div class="list-group padding_buttons_per">
-                            <a href="/perfil_datosPersonales" class="list-group-item list-group-item-action color7">Mis datos personales</a>
-                            <a href="/perfil_modificarContraseña" class="list-group-item list-group-item-action color7">Modificar contraseña</a>
-                        </div>
+                        
+                        <ul class="nav flex-column padding_buttons">
+                            <li class="nav-item">
+                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosPersonales">Mis datos personales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link color7" aria-current="page" href="/perfil_modificarContraseña">Modificar contraseña</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link color7" aria-current="page" href="/perfil_cuentaBancaria">Mi cuenta bancaria</a>
+                            </li>
+                        </ul>
                     </form>
 
                 </div>
@@ -69,7 +77,7 @@
                             <label for="inputPassword" class="form-label">Repetir nueva contraseña</label>
                             <input class="form-control" type="password" required="" oninput="check(this)"> 
                         </div>
-                        <div class="col-12 padding_buttons_pas">
+                        <div class="col-12" style="padding: 50px;">
                             <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
                             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         </div>
@@ -143,7 +151,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
 
     .ventana_p{
         width: 400px;
-        height: 207.83px;
+        height: 230px;
         left: 50px;
         top: 150px;
 
@@ -168,13 +176,10 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         padding: 20px;
     }
 
-    .padding_buttons_pas{
-        padding: 50px;
-    }
-
-    .padding_buttons_per{
+    .padding_buttons{
         padding: 15px;
     }
+
  </style> 
 
 <!-- Javascript para verificar si al ingresar la nueva contraseña, estas sean distintas-->

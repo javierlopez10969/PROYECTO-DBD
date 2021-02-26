@@ -33,7 +33,7 @@
         <!--  Titulo Mis datos personales -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Mis datos personales</div>
+            <div class="col-4 space_title color_texto">Mi cuenta bancaria</div>
         </div>
  
         <!-- cuadrados -->
@@ -44,7 +44,7 @@
                     
                     <form class="form_perfil">
                         <h4 class="card-titl text-center">Mi perfil</h4>
-
+                        
                         <ul class="nav flex-column padding_buttons">
                             <li class="nav-item">
                                 <a class="nav-link active color7" aria-current="page" href="/perfil_datosPersonales">Mis datos personales</a>
@@ -62,40 +62,28 @@
                 </div>
             </div>
 
-            <!-- Datos Personales -->
+            <!-- Cuenta bancaria -->
             <div class="col-8">
-                <div class="container-fluid ventana_dp">
-                    <form class="form-personal">
+                <div class="container-fluid ventana_cb">
+                    <form class="form-cuenta">
                         <div class="col-12 padding_text">
-                            <label class="form-label">Nombre completo *</label>
+                            <label class="form-label">Número de cuenta *</label>
                             <input type="text" class="form-control" id="" required="">
                         </div>
                         <div class="col-12 padding_text">
-                            <label class="form-label">Numero de telefono *</label>
+                            <label class="form-label">Banco *</label>
                             <input type="text" class="form-control" id="" required="">
                         </div>
-                        
-                        <div class="row padding_text">
-                            <div class="col-6">
-                                <label class="form-label">Nombre de usuario *</label>
-                                <input type="text" class="form-control" id="" required="">
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">Rol *</label>
-                                <input type="text" class="form-control" id="" disabled placeholder="feriante o cliente">
-                            </div>
-                        </div>
-                        
                         <div class="col-12 padding_text">
-                            <label for="inputEmail" class="form-label">Correo electrónico *</label>
-                            <input type="email" id="inputEmail" class="form-control" required="">
+                            <label for="inputEmail" class="form-label">Tipo de cuenta *</label>
+                            <input type="text" class="form-control" id="" required="">
                         </div>
                         <div class="col-12 padding_text">
-                            <label for="inputPassword" class="form-label">Contraseña</label>
-                            <input type="password" id="inputPassword" class="form-control" required="">                      
+                            <label for="inputPassword" class="form-label">Balance</label>
+                            <input type="text" class="form-control" id="" required="">                      
                         </div>
                         
-                        <div class="col-12 padding_buttons">
+                        <div class="col-12" style="padding: 50px;">
                             <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
                             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         </div>  
@@ -157,7 +145,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         padding: 20px;
     }
 
-    .ventana_dp{
+    .ventana_cb{
         width: 930px;
         height: 550px;
         left: 493px;
@@ -177,10 +165,10 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         border-radius: 39px;
     }
 
-    .form-personal {
+    .form-cuenta {
         width: 100%;
         max-width: 630px;
-        padding: 10px;
+        padding: 45px;
         margin: 0 auto;
     }
 

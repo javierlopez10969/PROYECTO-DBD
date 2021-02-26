@@ -38,6 +38,10 @@ Route::get('/perfil_modificarContraseña', function () {
     return view('perfil_modificarContraseña');
 });
 
+Route::get('/perfil_cuentaBancaria', function () {
+    return view('perfil_cuentaBancaria');
+});
+
 Route::get('/carrito', function () {
     return view('carrito');
 });
