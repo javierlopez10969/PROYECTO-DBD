@@ -76,6 +76,10 @@ Route::get('/carrito', function () {
     return view('carrito');
 });
 
+Route::get('/despacho', function () {
+    return view('despacho');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
