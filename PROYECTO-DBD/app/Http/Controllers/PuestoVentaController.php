@@ -29,12 +29,14 @@ class PuestoVentaController extends Controller
 			'categoria' => ['required','unique:posts','max:255'],
 			'id_feriante' => ['require' , 'numeric']
 		]);
+        /*
 		$feriante = Feriante::find($request->id_feriante);
         if($feriante == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
             ]);
         }
+        */
 		$puestoVenta->categoria = $request->categoria;
 		$puesto->delete = $request->delete;
 		$puestoVenta->save();

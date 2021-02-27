@@ -43,6 +43,7 @@ Route::get('/ingresar', function () {
 Route::get('/registrar', function () {
     return view('pages.registrar');
 })->name('registrar');
+Route::post('/cliente/create','ClienteController@store');
 
 
 Route::get('/login', function () {
@@ -71,6 +72,10 @@ Route::get('/carrito', function () {
 
 Route::get('/despacho', function () {
     return view('despacho');
+});
+
+Route::get('/pagina', function () {
+    return view('pagina_compra');
 });
 
 #feria
@@ -125,7 +130,7 @@ Route::delete('/producto/delete/{id}','ProductoController@destroy');
 #cliente
 Route::get('/cliente','ClienteController@index');
 Route::get('/cliente/{id}','ClienteController@show');
-Route::post('/cliente/create','ClienteController@store');
+//Route::post('/cliente/create','ClienteController@store');
 Route::put('/cliente/update/{id}','ClienteController@update');
 Route::delete('/cliente/delete/{id}','ClienteController@destroy');
 

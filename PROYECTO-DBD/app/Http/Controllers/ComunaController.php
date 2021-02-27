@@ -40,13 +40,13 @@ class ComunaController extends Controller
             
             'id_region' => ['required' , 'numeric'],
         ]);     
-        
+        /*
         $region = Region::find($request->id_region);
         if($region == NULL){
             return response()->json([
                 'message'=>'No existe un region con esa id'
                 ],404);
-        }
+        }*/
 
         $comuna->nombre_comuna = $request->nombre_comuna;
         $comuna->save();

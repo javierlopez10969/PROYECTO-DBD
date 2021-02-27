@@ -39,7 +39,7 @@ class Feria_PuestoDeVentaController extends Controller
 
         $validatedData = $request->validate([
             'id_feria' => ['required' , 'numeric'],            
-            'id_feria_puestodeventa' => ['required' , 'numeric'],
+            'id_puesto_venta' => ['required' , 'numeric'],
         ]);   
         
         $feria= Feria::find($request->id_feria);
@@ -55,6 +55,8 @@ class Feria_PuestoDeVentaController extends Controller
             ]);
         }
 
+        $feria_PuestoDeVenta->id_feria = $request->id_feria;
+        $feria_PuestoDeVenta->id_puesto_venta = $request->id_puesto_venta;
         $feria_PuestoDeVenta->save();
         return response()->json([
             "message"=> "Nueva feria_PuestoDeVenta agregada",

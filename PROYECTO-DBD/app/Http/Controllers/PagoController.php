@@ -42,12 +42,13 @@ class PagoController extends Controller
             'valor_pago' => ['require' , 'numeric'],
             'id_orden_compra' => ['require' , 'numeric']
         ]);
-        
+        /*
         $orden_compra = OrdenDeCompra::find($request->id_pago);
         if ($pago == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id']);
         }
+        */
 
         $pago->fecha_de_pago = $request->fecha_de_pago;
         $pago->tipo_pago = $request->tipo_pago;

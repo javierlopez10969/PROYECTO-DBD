@@ -42,18 +42,6 @@ class Pago_OrdenDePagoController extends Controller
             'id_orden_pago' => ['require' , 'numeric']
         ]);
         
-        $pago= Pago::find($request->id_pago);
-        if ($producto == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
-        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
-        if ($orden_de_pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
         $pago_OrdenDePago->save();
         return response()->json([
             "mesage"=>"Se ha creado una store",

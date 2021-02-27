@@ -9,7 +9,7 @@ class CategoriaController extends Controller
 {
     public function index()
     {
-		$categoria = Categoria::all()->where('delete',false);
+		$categoria = Categoria::all();//->where('delete',false);
         if($categoria != NULL){
             return response()->json($categoria);
         }
@@ -24,13 +24,13 @@ class CategoriaController extends Controller
         //
 		$categoria = new Categoria();
 		$validateData = $request->validate([
-			'nombre' => ['required','unique:posts','max:255'],
+			'nombre' => ['required' , 'min:2' , 'max:30'],
 		]);
 		
 		$categoria->nombre = $request->nombre;
-		$puesto->delete = $request->delete;
+		#$puesto->delete = false;
 		$categoria->save();
-		return responde()->json([
+		return response()->json([
 		    "message" => "Se ha creado un nombre.",
 		    "id" => $categoria->id
 		],202);

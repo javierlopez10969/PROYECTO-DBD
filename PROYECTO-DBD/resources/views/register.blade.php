@@ -24,19 +24,19 @@
                     <article class="card-body mx-auto" style="max-width: 400px;">
                         
                         <h4 class="card-title text-center">Crear cuenta</h4>
-                        <form>
+                        <form action=" {{URL::to('/cliente/create')}} ">
                         <div class="form-group input-group">
-                            <input name="" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
+                            <input name="nombre" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
-                            <input name="" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
+                            <input name="correo" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <select class="custom-select rounded-pill" style="max-width: 120px;">
                                 <option selected="">+569</option>
                                 <option value="1">+562</option>
                             </select>
-                            <input name="" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
+                            <input name="telefono" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group rounded-pill">
                             <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">

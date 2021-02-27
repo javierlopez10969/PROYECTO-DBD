@@ -47,7 +47,7 @@ class DireccionDespachoController extends Controller
             'id_comuna' => ['required' , 'numeric']
         ]);
 		
-		
+		/*
         //verificar las llaves foraneas
         $cliente = Cliente::find($request->id_cliente);
         if($cliente == NULL){
@@ -66,9 +66,7 @@ class DireccionDespachoController extends Controller
             return response()->json([
                 'message'=>'No existe comuna con esa id'
             ]);
-        }
-		
-		
+        }*/
 		
         $direccion_despacho->direccion = $request->direccion;
         $direccion_despacho->save();

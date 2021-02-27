@@ -45,12 +45,6 @@ class OrdenDePagoController extends Controller
             'id_feriante' => ['require' , 'numeric']
         ]);
         
-        $feriante = Feriante::find($request->id_feriante);
-        if ($pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
         $ordenDePago->fecha_de_pago = $request->fecha_de_pago;
         $ordenDePago->tipo_pago = $request->tipo_pago;
         $ordenDePago->valor_total_pago = $request->valor_total_pago;

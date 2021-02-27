@@ -44,9 +44,22 @@ class ClienteController extends Controller
             'id_ferianteF' => ['required' , 'numeric']
         ]);
         //verificar las llaves foraneas
+        $cliente= Cliente::find($request->id_cliente);
+        if ($cliente == NULL){
+            return response()->json([
+                'message'=>'No existe un cliente con esa id'
+            ]);
+        }
+        $feria_favorito = FeriaFavorito::find($request->id_puesto_venta);
+        if ($puesto_de_venta == NULL){
+            return response()->json([
+                'message'=>'No existe un puesto de venta con esa id'
+            ]);
+        }
 
-        $cliente->nombre_cliente = $request->nombre_cliente;
-        $cliente->telefono_cliente = $request->telefono_cliente;
+        $cliente->nombre_cliente = $request->nombre;
+        $cliente->telefono_cliente = $request->telefono;
+
         $cliente->save();
         return response()->json([
 			"message"=>"Se ha creado un cliente",

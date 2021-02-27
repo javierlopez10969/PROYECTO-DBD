@@ -26,11 +26,11 @@ class Feria_FeriaFavoritoController extends Controller
     public function store(Request $request)
     {
         $feria_feriafavorito = new Feria_FeriaFavorito();
-            $validatedData = $request->validate([
+        $validatedData = $request->validate([
             'id_feria' => ['require' , 'numeric'],
             'id_feriafavoritos'=> ['require' , 'numeric'],
         ]);        
-        
+        /*
         $feria= Feria::find($request->id_feria);
         if ($feria == NULL){
             return response()->json([
@@ -42,7 +42,7 @@ class Feria_FeriaFavoritoController extends Controller
             return response()->json([
                 'message'=>'No existe una feria favorita con esa id'
             ]);
-        }
+        }*/
 
         #$feria_feriafavorito = new Feria_FeriaFavorito();
         #$feria_feriafavorito->id_feria = $validatedData->id_feria;
