@@ -90,6 +90,10 @@ Route::get('/feriante_fav', function () {
     return view('feriante_fav');
 });
 
+Route::get('/confirmar_pago', function () {
+    return view('confirmar_pago');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
