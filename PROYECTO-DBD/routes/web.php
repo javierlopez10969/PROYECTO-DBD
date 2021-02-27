@@ -74,7 +74,7 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-Route::get('/pagina', function () {
+Route::get('/pagina_compra', function () {
     return view('pagina_compra');
 });
 
