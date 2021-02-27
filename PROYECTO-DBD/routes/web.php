@@ -94,6 +94,10 @@ Route::get('/confirmar_pago', function () {
     return view('confirmar_pago');
 });
 
+Route::get('/bienvenida', function () {
+    return view('bienvenida');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
