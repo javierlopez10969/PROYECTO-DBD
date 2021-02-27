@@ -12,27 +12,46 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('main');
-})->name('home');
-Route::get('/', function () {
-    return view('carrousel');
-})->name('carousel');
-
+//PRUEBA DE LAYOUT
 /*
 Route::get('/', function () {
-    return view('home');
+    return view('layouts.default');
 })->name('home');
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
+Route::get('/projects', function () {
+    return view('pages.proyects');
+})->name('projects');
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
 */
+Route::get('/', function () {
+    return view('layouts.main');
+})->name('home');
+Route::get('/', function () {
+    return view('pages.carrousel');
+})->name('carousel');
 
 Route::get('/ingresar', function () {
-    return view('ingresar');
+    return view('pages.ingresar');
 })->name('ingresar');
 
 Route::get('/registrar', function () {
-    return view('registrar');
+    return view('pages.registrar');
 })->name('registrar');
+
+/*
+*/
+/*
+Route::get('/', function () {
+    return view('prueba');
+})->name('home');
+*/
+
 Route::get('/login', function () {
     return view('login');
 });
