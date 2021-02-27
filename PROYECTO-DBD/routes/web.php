@@ -78,6 +78,18 @@ Route::get('/pagina_compra', function () {
     return view('pagina_compra');
 });
 
+Route::get('/feria_region', function () {
+    return view('feria_por_region');
+});
+
+Route::get('/feriantes_producto', function () {
+    return view('feriantes_por_producto');
+});
+
+Route::get('/feriante_fav', function () {
+    return view('feriante_fav');
+});
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');
