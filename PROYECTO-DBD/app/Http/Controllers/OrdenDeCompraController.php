@@ -37,19 +37,13 @@ class OrdenDeCompraController extends Controller
         //
         $ordenDeCompra = new OrdenDeCompra();
         $validatedData = $request->validate([
-            'fecha_pago' => ['require' , 'min:2' , 'max:30'],
-            'cantidad_elementos_orden' => ['require' , 'numeric'],
-            'estado_de_pago' => ['require' , 'boolean'],
-            'id_cliente' => ['require' , 'numeric']
+            'fecha_de_pago' => ['required' , 'min:2' , 'max:30'],
+            'cantidad_elementos_orden' => ['required' , 'numeric'],
+            'estado_de_pago' => ['required' , 'boolean'],
+            'id_cliente' => ['required' , 'numeric']
         ]);
         
-        $feriante = Feriante::find($request->id_cliente);
-        if ($pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
-        $ordenDeCompra->fecha_pago = $request->fecha_pago;
+        $ordenDeCompra->fecha_de_pago = $request->fecha_de_pago;
         $ordenDeCompra->cantidad_elementos_orden = $request->cantidad_elementos_orden;
         $ordenDeCompra->estado_de_pago = $request->estado_de_pago;
         $ordenDeCompra->save();

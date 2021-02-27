@@ -28,7 +28,6 @@ class CategoriaController extends Controller
 		]);
 		
 		$categoria->nombre = $request->nombre;
-		#$puesto->delete = false;
 		$categoria->save();
 		return response()->json([
 		    "message" => "Se ha creado un nombre.",

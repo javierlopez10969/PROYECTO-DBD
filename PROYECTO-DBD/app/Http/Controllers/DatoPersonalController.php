@@ -47,21 +47,6 @@ class DatoPersonalController extends Controller
             'id_cliente' => ['required' , 'numeric']
         ]);
 		
-		
-        //verificar las llaves foraneas
-        /*
-        $cliente = Cliente::find($request->id_cliente);
-        if($cliente == NULL){
-            return response()->json([
-                'message'=>'No existe un cliente con esa id'
-            ]);
-        }
-        $feriante = Feriante::find($request->id_feriante);
-        if($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }*/
         $dato_personal->user_name = $request->user_name;
         $dato_personal->correo_electronico = $request->correo_electronico;
         $dato_personal->password = $request->password;

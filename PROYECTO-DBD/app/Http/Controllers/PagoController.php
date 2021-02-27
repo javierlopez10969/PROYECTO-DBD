@@ -37,26 +37,20 @@ class PagoController extends Controller
         //
         $pago = new Pago();
         $validatedData = $request->validate([
-            'fecha_de_pago' => ['require' , 'min:2' , 'max:30'],
-            'tipo_pago' => ['require' , 'numeric'],
-            'valor_pago' => ['require' , 'numeric'],
-            'id_orden_compra' => ['require' , 'numeric']
+            'fecha_pago' => ['required' , 'min:2' , 'max:30'],
+            'valor_pago' => ['required' , 'numeric'],
+            'tipo_pago' => ['required' , 'numeric'],
+            
+            'id_orden_compra' => ['required' , 'numeric']
         ]);
-        /*
-        $orden_compra = OrdenDeCompra::find($request->id_pago);
-        if ($pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id']);
-        }
-        */
 
-        $pago->fecha_de_pago = $request->fecha_de_pago;
-        $pago->tipo_pago = $request->tipo_pago;
+        $pago->fecha_pago = $request->fecha_pago;
         $pago->valor_pago = $request->valor_pago;
+        $pago->tipo_pago = $request->tipo_pago;
         $pago->save();
         return response()->json([
-        "mesage"=>"Se ha creado una store",
-        "id" => $pago->id
+            "mesage"=>"Se ha creado una store",
+            "id" => $pago->id
         ],202);
 
     }

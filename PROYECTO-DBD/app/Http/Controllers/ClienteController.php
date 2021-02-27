@@ -43,22 +43,26 @@ class ClienteController extends Controller
 			'id_feriaF' => ['required' , 'numeric'],
             'id_ferianteF' => ['required' , 'numeric']
         ]);
+        //Dejar comentario en caso de...
         //verificar las llaves foraneas
-        $cliente= Cliente::find($request->id_cliente);
-        if ($cliente == NULL){
+        /*
+        $feriante_favorito= FeriantesFavorito::find($request->id_ferianteF);
+        if ($feriante_favorito== NULL){
             return response()->json([
-                'message'=>'No existe un cliente con esa id'
+                'message'=>'No existe un feriante con esa id'
             ]);
         }
-        $feria_favorito = FeriaFavorito::find($request->id_puesto_venta);
-        if ($puesto_de_venta == NULL){
+        $feria_favorito = FeriaFavorito::find($request->id_feriaF);
+        if ($feria_favorito == NULL){
             return response()->json([
-                'message'=>'No existe un puesto de venta con esa id'
+                'message'=>'No existe una feria con esa id'
             ]);
-        }
+        }*/
 
-        $cliente->nombre_cliente = $request->nombre;
-        $cliente->telefono_cliente = $request->telefono;
+        $cliente->nombre_cliente = $request->nombre_cliente;
+        $cliente->telefono_cliente = $request->telefono_cliente;
+        //$cliente->id_ferianteF = $request->id_ferianteF;
+        //$cliente->id_feriaF = $request->id_feriaF;
 
         $cliente->save();
         return response()->json([

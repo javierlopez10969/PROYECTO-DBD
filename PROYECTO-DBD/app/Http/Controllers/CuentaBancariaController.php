@@ -50,28 +50,6 @@ class CuentaBancariaController extends Controller
             'id_orden_pago' => ['required' , 'numeric']
         ]);
 		
-		
-        //verificar las llaves foraneas
-        /*
-        $cliente = Cliente::find($request->id_cliente);
-        if($cliente == NULL){
-            return response()->json([
-                'message'=>'No existe un cliente con esa id'
-            ]);
-        }
-        $feriante = Feriante::find($request->id_feriante);
-        if($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }
-        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
-        if($orden_de_pago == NULL){
-            return response()->json([
-                'message'=>'No existe orden de pago con esa id'
-            ]);
-        }
-		*/
         $cuenta_bancarias->numero_cuenta = $request->numero_cuenta;
         $cuenta_bancarias->banco = $request->banco;
         $cuenta_bancarias->tipo_cuenta = $request->tipo_cuenta;

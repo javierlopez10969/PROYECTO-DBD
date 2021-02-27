@@ -26,22 +26,11 @@ class Feriante_FeriantesFavoritoController extends Controller
     public function store(Request $request)
     {
         $feriante_feriantesfavorito = new Feriante_FeriantesFavorito();
-            $validatedData = $request->validate([
+        $validatedData = $request->validate([
             'id_feriante' => ['require' , 'numeric'],
             'id_feriantesfavoritos'=> ['require' , 'numeric'],
         ]);        
-        $feriante= Feriante::find($request->id_feriante);
-        if ($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }
-        $feriantefavorito = FeriantesFavorito::find($request->id_feriantesfavoritos);
-        if ($feriantefavorito == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante favorito con esa id'
-            ]);
-        }
+        
         $feriante_feriantesfavorito->save();
         return response()->json([
             "message"=> "Se ha añadido un nueva tupla a la tabla",

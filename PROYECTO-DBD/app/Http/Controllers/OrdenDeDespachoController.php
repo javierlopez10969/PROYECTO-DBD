@@ -29,17 +29,17 @@ class OrdenDeDespachoController extends Controller
             'tipo_despacho' => ['required'],
             'cantidad_elemento_despacho' => ['required'],
             'valor_despacho' => ['required'],
-            'id_feriante' => ['require' , 'numeric'],
-            'id_pago' => ['require' , 'numeric'],
+            'id_feriante' => ['required' , 'numeric'],
+            'id_pago' => ['required' , 'numeric'],
         ]);        
 
         $OrdenDespacho = new OrdenDeDespacho();
-        $OrdenDespacho->fecha_despacho = $validatedData->fecha_despacho;
-        $OrdenDespacho->tipo_despacho = $validatedData->tipo_despacho;
-        $OrdenDespacho->cantidad_elemento_despacho = $validatedData->cantidad_elemento_despacho;
-        $OrdenDespacho->valor_despacho = $validatedData->valor_despacho;
-        $OrdenDespacho->id_feriante = $validatedData->id_feriante;
-        $OrdenDespacho->id_pago = $validatedData->id_pago;
+        $OrdenDespacho->fecha_despacho = $request->fecha_despacho;
+        $OrdenDespacho->tipo_despacho = $request->tipo_despacho;
+        $OrdenDespacho->cantidad_elemento_despacho = $request->cantidad_elemento_despacho;
+        $OrdenDespacho->valor_despacho = $request->valor_despacho;
+        //$OrdenDespacho->id_feriante = $request->id_feriante;
+        //$OrdenDespacho->id_pago = $request->id_pago;
 
         $OrdenDespacho->save();
         return response()->json([

@@ -47,27 +47,6 @@ class DireccionDespachoController extends Controller
             'id_comuna' => ['required' , 'numeric']
         ]);
 		
-		/*
-        //verificar las llaves foraneas
-        $cliente = Cliente::find($request->id_cliente);
-        if($cliente == NULL){
-            return response()->json([
-                'message'=>'No existe un cliente con esa id'
-            ]);
-        }
-        $orden_de_despacho = OrdenDeDespacho::find($request->id_orden_despacho);
-        if($orden_de_despacho == NULL){
-            return response()->json([
-                'message'=>'No existe una orden de espacho con esa id'
-            ]); 
-        }
-        $comuna = Comuna::find($request->id_comuna);
-        if($comuna == NULL){
-            return response()->json([
-                'message'=>'No existe comuna con esa id'
-            ]);
-        }*/
-		
         $direccion_despacho->direccion = $request->direccion;
         $direccion_despacho->save();
         return response()->json([

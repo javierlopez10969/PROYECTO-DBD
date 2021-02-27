@@ -44,17 +44,6 @@ class ComprobanteController extends Controller
             'id_orden_de_pagos' => ['required' , 'numeric']
         ]);
 		
-		
-        //verificar las llaves foraneas
-        /*
-        $orden_de_pago = OrdenDePago::find($request->id_orden_de_pagos);
-        if($orden_de_pago == NULL){
-            return response()->json([
-                'message'=>'No existe una orden de pago con esa id'
-            ]);
-        }*/
-
-		
         $comprobante->precio = $request->precio;
         $comprobante->tipo_de_comprobante = $request->tipo_de_comprobante;		
         $comprobante->save();

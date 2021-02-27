@@ -30,23 +30,7 @@ class Feria_FeriaFavoritoController extends Controller
             'id_feria' => ['require' , 'numeric'],
             'id_feriafavoritos'=> ['require' , 'numeric'],
         ]);        
-        /*
-        $feria= Feria::find($request->id_feria);
-        if ($feria == NULL){
-            return response()->json([
-                'message'=>'No existe una feria con esa id'
-            ]);
-        }
-        $feria_favorito = FeriaFavorito::find($request->id_feriafavoritos);
-        if ($feria_favorito == NULL){
-            return response()->json([
-                'message'=>'No existe una feria favorita con esa id'
-            ]);
-        }*/
-
-        #$feria_feriafavorito = new Feria_FeriaFavorito();
-        #$feria_feriafavorito->id_feria = $validatedData->id_feria;
-        #$feria_feriafavorito->id_feriafavoritos = $validatedData->id_feriafavoritos;
+        
         $feria_feriafavorito->save();
         return response()->json([
             "message"=> "Se ha añadido un nueva nueva tupla a la tabla",
