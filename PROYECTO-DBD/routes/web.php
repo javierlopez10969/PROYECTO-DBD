@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('prueba');
-});
+    return view('main');
+})->name('home');
+Route::get('/', function () {
+    return view('carrousel');
+})->name('carousel');
+
 /*
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 */
 
+Route::get('/ingresar', function () {
+    return view('ingresar');
+})->name('ingresar');
+
+Route::get('/registrar', function () {
+    return view('registrar');
+})->name('registrar');
 Route::get('/login', function () {
     return view('login');
 });

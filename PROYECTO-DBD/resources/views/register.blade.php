@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,13 +11,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 </head>
-<body class="text-center">
-    <div class="container-fluid">
+<body class=>
         <div class="row">
             <div class="col">
             </div>
 
-            <div class="col ">
+            <div class="col text-center ">
                 <div class="container-fluid ventana">
                     <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
                   <form class="form-signin">
@@ -69,13 +68,24 @@
             </div>
 
         </div><!--  Row -->
-    </div><!--Container-->
 </body>
+
+
+<!-- Javascript-->
+<script language='javascript' type='text/javascript'>
+    function check(input) {
+        if (input.value != document.getElementById('password').value) {
+            input.setCustomValidity('No coinciden');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+</script>
+
 </html>
 <!--CSS-->
 <style>
-
-
     .color1{
         background-color:#A7C957;  
         color:white;
@@ -164,16 +174,3 @@
     
 
 </style>
-
-
-<!-- Javascript-->
-<script language='javascript' type='text/javascript'>
-    function check(input) {
-        if (input.value != document.getElementById('password').value) {
-            input.setCustomValidity('No coinciden');
-        } else {
-            // input is valid -- reset the error message
-            input.setCustomValidity('');
-        }
-    }
-</script>
