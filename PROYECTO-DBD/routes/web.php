@@ -44,13 +44,6 @@ Route::get('/registrar', function () {
     return view('pages.registrar');
 })->name('registrar');
 
-/*
-*/
-/*
-Route::get('/', function () {
-    return view('prueba');
-})->name('home');
-*/
 
 Route::get('/login', function () {
     return view('login');
@@ -74,6 +67,10 @@ Route::get('/perfil_cuentaBancaria', function () {
 
 Route::get('/carrito', function () {
     return view('carrito');
+});
+
+Route::get('/despacho', function () {
+    return view('despacho');
 });
 
 #feria

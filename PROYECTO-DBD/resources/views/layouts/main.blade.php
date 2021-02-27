@@ -15,8 +15,6 @@
 </head>
 
 <body>
-
-
     <div class="container-fluid">
             <header class="row">
                 @include('includes.navbar')
@@ -59,20 +57,12 @@
                 <div col class ="container-fluid text-center">
                     @yield('seccion')
                 </div>
-                <div col>
-            
-                </div>
+            <div col>
+            </div>
 
             </div>
             <!--Footer-->
-
-
-    </div>
-
-
-    
-
-    
+    </div>  
 </body>
 
 

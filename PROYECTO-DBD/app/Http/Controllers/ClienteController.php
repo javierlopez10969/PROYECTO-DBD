@@ -35,7 +35,6 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-                //
         $cliente = new Cliente();
         $validatedData = $request->validate([
             'nombre_cliente' => ['required' , 'min:2' , 'max:50'],
@@ -44,21 +43,7 @@ class ClienteController extends Controller
 			'id_feriaF' => ['required' , 'numeric'],
             'id_ferianteF' => ['required' , 'numeric']
         ]);
-		
-		
         //verificar las llaves foraneas
-        $feriaF = FeriaFavorito::find($request->id_feriaF);
-        if($feriaF == NULL){
-            return response()->json([
-                'message'=>'No existe feria favorita con esa id'
-            ]);
-        }
-        $ferianteF = FeriantesFavorito::find($request->id_ferianteF);
-        if($ferianteF == NULL){
-            return response()->json([
-                'message'=>'No existe feriante favorito con esa id'
-            ]);
-        }
 
         $cliente->nombre_cliente = $request->nombre_cliente;
         $cliente->telefono_cliente = $request->telefono_cliente;
