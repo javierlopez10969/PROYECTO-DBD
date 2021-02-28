@@ -11,7 +11,7 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $producto = Producto::all()->where('delete',false);
+        $producto = Producto::all();//->where('delete',false);
         if($producto != NULL){
             return response()->json($producto);
         }
@@ -20,19 +20,20 @@ class ProductoController extends Controller
         ],404);
     }
 
-    //Correxion
+    //Correxion (no se genera la tupla)
     public function store(Request $request)
     {
         //
 		$producto = new Producto();
 		$validateData = $request->validate([
-			'precio_producto' => ['required','max:255','numeric','regex:฿₵¢₡BsB/.₫€ƒ₲Kč₭£₤₥₦₱PRℛℳ₨рубSk৲S৳R$$₸₮₩¥zł₴₪'],
-			'unidad' => ['required','numeric'],
-			'tipo_de_stock' => ['required','alpha_num'],
-			'nombre_producto' => ['required','unique:posts','max:255'],
-			'id_categoria' => ['require' , 'numeric'],
-			'id_unidad' => ['require' , 'numeric']
-		]);
+            //'precio_producto' => ['required','max:255','numeric'/*,'regex:฿₵¢₡BsB/.₫€ƒ₲Kč₭£₤₥₦₱PRℛℳ₨рубSk৲S৳R$$₸₮₩¥zł₴₪'*/],
+            'precio_producto' => ['required','max:255','numeric'],
+            'unidad' => ['required','numeric'],
+            'tipo_de_stock' => ['required','alpha_num'],
+            'nombre_producto' => ['required','max:255'], //Unique post no existe
+			'id_categoria' => ['required' , 'numeric'],
+			'id_unidad' => ['required' , 'numeric']
+		]);/*
 		$categoria = Categoria::find($request->id_categoria);
         if($categoria == NULL){
             return response()->json([
@@ -44,7 +45,7 @@ class ProductoController extends Controller
             return response()->json([
                 'message'=>'No existe usuario con esa id'
             ]);
-        }
+        }*/
 		$producto->precio_producto = $request->precio_producto;
 		$producto->unidad = $request->unidad;
 		$producto->tipo_de_stock = $request->tipo_de_stock;

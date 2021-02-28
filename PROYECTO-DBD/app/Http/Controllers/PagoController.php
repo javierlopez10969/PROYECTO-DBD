@@ -16,7 +16,7 @@ class PagoController extends Controller
     public function index()
     {
         //
-        $pago = Pago::all()->where('delete',false);
+        $pago = Pago::all();//->where('delete',false);
         if($pago != NULL){
             return response()->json($pago);
         }
@@ -31,7 +31,7 @@ class PagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+    //Correxion(no se genera la tupla :())
     public function store(Request $request)
     {
         //

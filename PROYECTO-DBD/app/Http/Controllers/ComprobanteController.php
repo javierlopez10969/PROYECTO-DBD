@@ -32,7 +32,6 @@ class ComprobanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
                         //

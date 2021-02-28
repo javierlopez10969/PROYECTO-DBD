@@ -17,7 +17,7 @@ class Pago_OrdenDePagoController extends Controller
     public function index()
     {
         //
-        $pago_OrdenDePago = Pago_ordendepago::all()->where('delete',false);
+        $pago_OrdenDePago = Pago_ordendepago::all();//->where('delete',false);
         if($pago_OrdenDePago != NULL){
             return response()->json($pago_OrdenDePago);
         }
@@ -32,7 +32,7 @@ class Pago_OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+    //Correxion(error en la llave foranea id_pago)
     public function store(Request $request)
     {
         //

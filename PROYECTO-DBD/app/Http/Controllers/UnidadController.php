@@ -10,7 +10,7 @@ class UnidadController extends Controller
     public function index()
     {
         //
-        $unidad = Unidad::all()->where('delete',false);
+        $unidad = Unidad::all();//->where('delete',false);
         if($unidad!= NULL){
             return response()->json($unidad);
         }
@@ -19,21 +19,21 @@ class UnidadController extends Controller
         ],404);
     }
 
-    //Correxion
     public function store(Request $request)
     {
         //
+        $unidad = new Unidad();
 		$validateData = $request->validate([
 			'cantidad' => ['required','numeric'],
-			'tipo_cantidad' => ['required','unique:posts']
+			'tipo_cantidad' => ['required']
 		]);
-		$unidad = new Unidad();
+		
 		$unidad->cantidad = $request->cantidad;
 		$unidad->tipo_cantidad = $request->tipo_cantidad;
-		$puesto->delete = $request->delete;
+		//$puesto->delete = $request->delete;
 		$unidad->save();
-		return responde()->json([
-            "message" => "Se ha creado asignar esta unidad.",
+		return response()->json([
+            "message" => "Se ha asignado una nueva unidad.",
             "id" => $unidad->id
 		],202);
 	}

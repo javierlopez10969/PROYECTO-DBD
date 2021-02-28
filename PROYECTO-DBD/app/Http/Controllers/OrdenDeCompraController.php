@@ -16,7 +16,7 @@ class OrdenDeCompraController extends Controller
     public function index()
     {
         //
-        $ordenDeCompra = OrdenDeCompra::all()->where('delete',false);
+        $ordenDeCompra = OrdenDeCompra::all();//->where('delete',false);
         if($ordenDeCompra != NULL){
             return response()->json($ordenDeCompra);
         }
@@ -31,7 +31,6 @@ class OrdenDeCompraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
         //

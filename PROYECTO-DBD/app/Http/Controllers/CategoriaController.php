@@ -18,7 +18,6 @@ class CategoriaController extends Controller
         ],404);
     }
 
-    //falta edicion
     public function store(Request $request)
     {
         //
@@ -30,7 +29,7 @@ class CategoriaController extends Controller
 		$categoria->nombre = $request->nombre;
 		$categoria->save();
 		return response()->json([
-		    "message" => "Se ha creado un nombre.",
+		    "message" => "Se ha creado una categoria",
 		    "id" => $categoria->id
 		],202);
     }

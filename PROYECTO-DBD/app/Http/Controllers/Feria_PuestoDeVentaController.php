@@ -32,7 +32,6 @@ class Feria_PuestoDeVentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
         $feria_PuestoDeVenta = new Feria_PuestoDeVenta();
@@ -40,6 +39,7 @@ class Feria_PuestoDeVentaController extends Controller
             'id_feria' => ['require' , 'numeric'],
             'id_puesto_venta'=> ['require' , 'numeric'],
         ]); 
+        
         $feria_PuestoDeVenta->save();
         return response()->json([
             "message"=> "Nueva feria_PuestoDeVenta agregada",

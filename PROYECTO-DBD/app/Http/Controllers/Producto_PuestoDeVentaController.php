@@ -12,7 +12,7 @@ class Producto_PuestoDeVentaController extends Controller
     public function index()
     {
         //
-        $producto_puestodeventa = Producto_PuestoDeVenta::all()->where('delete',false);
+        $producto_puestodeventa = Producto_PuestoDeVenta::all();//->where('delete',false);
         if($producto_puestodeventa != NULL){
             return response()->json($producto_puestodeventa);
         }
@@ -21,16 +21,15 @@ class Producto_PuestoDeVentaController extends Controller
         ],404);;
     }
 
-	//Correxion
 	public function store(Request $request)
     {
         //
-        $producto_puestodeventa = new Puesto_producto();
+        $producto_puestodeventa = new Producto_PuestoDeVenta();
         $validatedData = $request->validate([
             'delete' => ['require' , 'boolean'],
             'id_productos' => ['require' , 'numeric'],
             'id_puesto_venta' => ['require' , 'numeric']
-        ]);
+        ]);/*
         $producto = Producto::find($request->id_productos);
         if($producto == NULL){
             return response()->json([
@@ -44,7 +43,7 @@ class Producto_PuestoDeVentaController extends Controller
                 'message'=>'No existe puesto con esa id'
             ]);
         }
-        $producto_puestodeventa->delete = $request->delete;
+        $producto_puestodeventa->delete = $request->delete;*/
         $producto_puestodeventa->save();
         return response()->json([
             "message"=>"Se ha creado un nuevo puesto_producto",

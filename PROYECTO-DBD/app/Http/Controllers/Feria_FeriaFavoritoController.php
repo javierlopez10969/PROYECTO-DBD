@@ -22,7 +22,6 @@ class Feria_FeriaFavoritoController extends Controller
     }
 
     //Crear una nueva tupla tupla 
-    //Correxion
     public function store(Request $request)
     {
         $feria_feriafavorito = new Feria_FeriaFavorito();
@@ -33,7 +32,7 @@ class Feria_FeriaFavoritoController extends Controller
         
         $feria_feriafavorito->save();
         return response()->json([
-            "message"=> "Se ha añadido un nueva nueva tupla a la tabla",
+            "message"=> "Se ha añadido un nueva tupla a la tabla",
             "id"=>$feria_feriafavorito->id
         ],202);
     }

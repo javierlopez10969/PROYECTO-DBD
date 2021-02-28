@@ -20,7 +20,6 @@ class FeriantesFavoritoController extends Controller
     }
 
     //Crear una nueva tupla tupla
-    //Correxion 
     public function store(Request $request)
     {
         $feriante_favorito = new FeriantesFavorito();

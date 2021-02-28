@@ -33,14 +33,14 @@ class Producto_OrdenDeCompraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+  
     public function store(Request $request)
     {
         //
         $producto_ordenDeCompra = new Productos_orden_de_compra();
         $validatedData = $request->validate([
-            'id_orden_compra' => ['required' , 'numeric'],
-            'id_producto' => ['required' , 'numeric']
+            'id_orden_compra' => ['require' , 'numeric'],
+            'id_producto' => ['require' , 'numeric']
         ]);
         /*
         $producto = Producto::find($request->id_producto);
@@ -61,7 +61,7 @@ class Producto_OrdenDeCompraController extends Controller
         $producto_ordenDeCompra->save();
         return response()->json([
             "mesage"=>"Se ha creado una producto_ordenDeCompra nuevo",
-            "id" => $pago->id
+            "id" => $producto_ordenDeCompra->id
         ],202);
 
     }

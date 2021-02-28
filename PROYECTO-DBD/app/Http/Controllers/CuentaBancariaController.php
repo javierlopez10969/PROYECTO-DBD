@@ -34,7 +34,6 @@ class CuentaBancariaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Corexion
     public function store(Request $request)
     {
                 //

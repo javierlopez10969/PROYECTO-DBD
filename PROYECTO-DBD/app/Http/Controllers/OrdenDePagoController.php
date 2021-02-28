@@ -18,7 +18,7 @@ class OrdenDePagoController extends Controller
     public function index()
     {
         //
-        $ordenDePago = OrdenDePago::all()->where('delete',false);
+        $ordenDePago = OrdenDePago::all();//->where('delete',false);
         if($ordenDePago != NULL){
             return response()->json($ordenDePago);
         }
@@ -33,6 +33,7 @@ class OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Correxion (genera error en la llave foranea id_feriante)
     public function store(Request $request)
     {
         //
@@ -48,7 +49,7 @@ class OrdenDePagoController extends Controller
         $ordenDePago->fecha_de_pago = $request->fecha_de_pago;
         $ordenDePago->tipo_pago = $request->tipo_pago;
         $ordenDePago->valor_total_pago = $request->valor_total_pago;
-        $ordenDePago->id_feriante = $request->id_feriante;
+        //$ordenDePago->id_feriante = $request->id_feriante;
         $ordenDePago->save();
         return response()->json([
             "mesage"=>"Se ha creado una store",
