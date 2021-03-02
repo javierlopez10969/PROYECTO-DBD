@@ -25,33 +25,26 @@ class ProductoController extends Controller
     {
         //
 		$producto = new Producto();
+        
 		$validateData = $request->validate([
-            //'precio_producto' => ['required','max:255','numeric'/*,'regex:฿₵¢₡BsB/.₫€ƒ₲Kč₭£₤₥₦₱PRℛℳ₨рубSk৲S৳R$$₸₮₩¥zł₴₪'*/],
-            'precio_producto' => ['required','max:255','numeric'],
+            'precio_producto' => ['required','numeric'],
             'unidad' => ['required','numeric'],
-            'tipo_de_stock' => ['required','alpha_num'],
-            'nombre_producto' => ['required','max:255'], //Unique post no existe
+            'tipo_de_stock' => ['required','boolean'],
+            'nombre_producto' => ['required','string','max:500'],
+
 			'id_categoria' => ['required' , 'numeric'],
 			'id_unidad' => ['required' , 'numeric']
-		]);/*
-		$categoria = Categoria::find($request->id_categoria);
-        if($categoria == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
-		$unidad = Unidad::find($request->id_unidad);
-        if($unidad == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }*/
+		]);
+
 		$producto->precio_producto = $request->precio_producto;
 		$producto->unidad = $request->unidad;
 		$producto->tipo_de_stock = $request->tipo_de_stock;
 		$producto->nombre_producto = $request->nombre_producto;
+		$producto->id_categoria = $request->id_categoria;
+		$producto->id_unidad = $request->id_unidad;
+
 		$producto->save();
-		return responde()->json([
+		return response()->json([
             "message" => "Se ha creado un producto.",
             "id" => $producto->id
 		],202);

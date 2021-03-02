@@ -38,10 +38,13 @@ class Pago_OrdenDePagoController extends Controller
         //
         $pago_OrdenDePago = new Pago_ordendepago();
         $validatedData = $request->validate([
-            'id_pago' => ['require' , 'numeric'],
-            'id_orden_pago' => ['require' , 'numeric']
+            'id_pago' => ['required' , 'numeric'],
+            'id_orden_pago' => ['required' , 'numeric']
         ]);
         
+        $pago_OrdenDePago->id_pago = $request->id_pago;
+        $pago_OrdenDePago->id_orden_pago = $request->id_orden_pago;
+
         $pago_OrdenDePago->save();
         return response()->json([
             "mesage"=>"Se ha creado una store",

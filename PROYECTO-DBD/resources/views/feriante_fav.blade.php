@@ -25,7 +25,7 @@
                 
                 <div class="navbar-collapse collapse">
                     <div class="col-sm text-center padding-text color7">
-                        <h1> Favoritos </h1>
+                        <h1> Mis Favoritos </h1>
                     </div>
                 </div>
 
@@ -79,77 +79,85 @@
             </div>
         </div>
 
-        <!-- Cuadrado Favoritos-->
-        <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_favoritos">
-                <!-- Primera linea -->
-                <div class="row" style="padding:20px">
-                    <div class="col titulo_favoritos text-start"> Mis Favoritos</div>
-                </div>
-                <div class="row" style="padding: 20px">
-                    <!-- Boton de Feriantes -->
-                    <div class="col">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Mis Feriantes</a>
-                    </div>
-
-                    <!-- Boton de Ferias -->
-                    <div class="col">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Mis Ferias</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Titulo Feriantes favoritos -->
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4 space_title color_texto">Feriantes favoritos</div>
         </div>
 
-        <!-- Tabla con la Lista de Feriantes -->
-        <div class="col">
-            <div class="row" style="padding: 130px">
-                <div class="container-fluid ventana_ferias">
-                    <div class="row">
-                        <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-    
+        <!-- Cuadrados -->
+        <div class="row">
 
+            <!-- Cuadrado Favoritos -->
+            <div class="col-4">
+                <div class="container-fluid ventana_favoritos">
+                    
+                    <form class="form_fav">
+                        <!-- Primera linea -->
+                        <h4 class="card-titl text-center">Mi favoritos</h4>
 
-
-
-
+                        <ul class="nav flex-column" style="padding: 15px">
+                            <!-- Boton de Feriantes -->
+                            <li class="nav-item">
+                                <a class="nav-link active color7" aria-current="page" href="/feriante_fav">Feriantes favoritos</a>
+                            </li>
+                            <!-- Boton de Ferias -->
+                            <li class="nav-item">
+                                <a class="nav-link color7" aria-current="page" href="#">Ferias favoritas</a>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
             </div>
-        </div>
+            <!-- Tabla con la Lista de Feriantes -->
+            <div class="col">
+                <!--<div class="row" style="padding: 130px">-->
+                <div class="row">
+                    <div class="container-fluid ventana_ferias">
+                        <div class="row">
+                            <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Boton de Ferias -->
-        <div class="col">
-            <a class="btn btn-secondary btn-lg" href="#" role="button">Volver</a>
-        </div>
+                <!-- Boton de Ferias -->
+                <div class="row" style="padding: 30px">
+                    <div class="col">
+                        <a class="btn btn-secondary btn-lg" href="/bienvenida" role="button">Volver</a>
+                    </div>
+                </div>
 
+            </div>
+        </div> 
     </div>
 </body>
 <!--CSS
@@ -185,9 +193,32 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         background-color:#A7C957;
         color: black;
     }
+    .centrado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .color_texto{
+        color: green;
+    }
+
+    .space_title{  
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 47px;
+        padding: 20px;
+    }
+
+    .form_fav{
+        width: 100%;
+        max-width: 730px;
+        padding: 30px;
+        margin: 0 auto;
+    }
     .ventana_favoritos{
-        position: absolute;
-        width: 324px;
+        width: 400px;
         height: 212px;
         left: 80px;
         top: 225px;
@@ -205,9 +236,9 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         color: #000000;
     }
     .ventana_ferias{
-        position: absolute;
-        width: 806px;
-        height: 580px;
+        
+        width: 900px;
+        height: 400px;
         left: 533px;
         top: 248px;
 

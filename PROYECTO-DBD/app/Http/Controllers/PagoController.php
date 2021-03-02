@@ -39,7 +39,7 @@ class PagoController extends Controller
         $validatedData = $request->validate([
             'fecha_pago' => ['required' , 'min:2' , 'max:30'],
             'valor_pago' => ['required' , 'numeric'],
-            'tipo_pago' => ['required' , 'numeric'],
+            'tipo_pago' => ['required' , 'string'],
             
             'id_orden_compra' => ['required' , 'numeric']
         ]);
@@ -47,6 +47,7 @@ class PagoController extends Controller
         $pago->fecha_pago = $request->fecha_pago;
         $pago->valor_pago = $request->valor_pago;
         $pago->tipo_pago = $request->tipo_pago;
+        $pago->id_orden_compra = $request->id_orden_compra;
         $pago->save();
         return response()->json([
             "mesage"=>"Se ha creado una store",

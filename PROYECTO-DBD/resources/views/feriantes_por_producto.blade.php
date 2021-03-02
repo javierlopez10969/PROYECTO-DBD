@@ -151,7 +151,7 @@
 
                     <!-- Boton de agregar a carrito -->
                     <div class="col">
-                        <a class="btn btn-secondary btn-lg" href="#" role="button">Volver</a>
+                        <a class="btn btn-secondary btn-lg" href="/bienvenida" role="button">Volver</a>
                     </div>
                 </div>
 

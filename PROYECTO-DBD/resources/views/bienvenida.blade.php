@@ -25,17 +25,17 @@
                 
                 <div class="navbar-collapse collapse">
                     <div class="col-sm text-center padding-text color7">
-                        <h1> Agregar a Favoritos </h1>
+                        <h1> Bienvenido ...... </h1>
                     </div>
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Boton Iniciar Sesion -->
+                    <!-- Boton Datos personales -->
                     <div class="col-sm button">
                         <a class="btn btn-default color2 rounded-pill" style="width: 100px;"  href="/perfil_datosPersonales" role="button">Perfil</a>
                         
                     </div>
-                    <!-- Boton Registrarse -->
+                    <!-- Boton Cerrar sesion -->
                     <div class="col-sm button" style="width: 150px;">
                         <a class="btn btn-default color2 rounded-pill" href="/" role="button">Cerrar sesion</a>
                     </div>
@@ -78,6 +78,21 @@
                 <h5> Otros </h5>
             </div>
         </div>
+
+        <!-- BOTONES -->
+        <div class="row justify-content-end">
+            <div class="col-6" style="padding: 20px">
+                <a class="btn color2" href="#" role="button">Listado puestos de ventas</a>
+                <a class="btn color2" href="/feriantes_producto" role="button">Listado feriantes</a>
+                <a class="btn color2" href="/feria_region" role="button">Listado ferias</a>
+                <a class="btn color2" href="/feriante_fav" role="button">Mis favoritos</a>
+            </div>
+            <div class="col-4" style="padding: 20px">
+                <a class="btn color2" href="/carrito" role="button">Mi carrito</a>
+
+            </div>
+        </div>
+        
 
         <!-- linea ofertas -->
         <div class="row" style="padding: 40px">
@@ -161,6 +176,11 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     .color7{
         background-color:#A7C957;
         color: black;
+    }
+    .centrado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .ventana_ofertas{
         position: absolute;

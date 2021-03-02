@@ -248,11 +248,11 @@ Route::put('/feria_PuestoDeVenta/update/{id}','Feria_PuestoDeVentaController@upd
 Route::delete('/feria_PuestoDeVenta/delete/{id}','Feria_PuestoDeVentaController@destroy');
 
 #producto_puestosDeVenta
-Route::get('/producto_puestosDeVenta','Producto_PuestoDeVentaController@index');
-Route::get('/producto_puestosDeVenta/{id}','Producto_PuestoDeVentaController@show');
-Route::post('/producto_puestosDeVenta/create','Producto_PuestoDeVentaController@store');
-Route::put('/producto_puestosDeVenta/update/{id}','Producto_PuestoDeVentaController@update');
-Route::delete('/producto_puestosDeVenta/delete/{id}','Producto_PuestoDeVentaController@destroy');
+Route::get('/producto_puestodeventa','Producto_PuestoDeVentaController@index');
+Route::get('/producto_puestodeventa/{id}','Producto_PuestoDeVentaController@show');
+Route::post('/producto_puestodeventa/create','Producto_PuestoDeVentaController@store');
+Route::put('/producto_puestodeventa/update/{id}','Producto_PuestoDeVentaController@update');
+Route::delete('/producto_puestodeventa/delete/{id}','Producto_PuestoDeVentaController@destroy');
 
 #feria_feriaFavorito
 Route::get('/feria_feriafavorito','Feria_FeriaFavoritoController@index');
