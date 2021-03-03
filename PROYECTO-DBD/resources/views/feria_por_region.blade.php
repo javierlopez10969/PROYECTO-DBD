@@ -25,7 +25,7 @@
                 
                 <div class="navbar-collapse collapse">
                     <div class="col-sm text-center padding-text color7">
-                        <h1> Ferias </h1>
+                        <h1> Agregar a Favoritos </h1>
                     </div>
                 </div>
 
@@ -84,59 +84,40 @@
             <div class="container-fluid ventana_selector_region">
                 <!-- Primera linea -->
                 <div class="row">
-                    <select class="form-select selector_region" aria-label="selector_region">
-                        <option selected>--Seleccione una Región--</option>
-                        <option value="1">REGIÓN DE VALPARAISO</option>
-                        <option value="2">REGIÓN METROPOLITANA</option>
-                        <option value="3">REGIÓN DE COQUIMBO</option>
-                    </select>
+                    
                 </div>
             </div>
 
                 <!-- Tabla con la Lista de Ferias -->
                 <div class="col">
                     <div class="row" style="padding: 130px">
-                        <div class="container-fluid ventana_ferias">
-                            <div class="row">
-                                <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-
-
-
-
-
+                        <div class="col titulo_ferias text-start"> Nuestras Ferias </div>
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Codigo</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Desde</th>
+                                    <th scope="col">Hasta</th>
+                                    </tr>
+                                </thead>
+                                @forelse($feria as $feria)
+                                <tbody>
+                                    <tr>
+                                    <td>{{$feria->id}}</td>
+                                    <td>{{$feria->descripcion}}</td>
+                                    <td>{{$feria->horario_desde}}</td>
+                                    <td>{{$feria->horario_hasta}}</td>
+                                    </tr>
+                                </tbody>
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
+                            </table>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Botones -->
                 <div class="row" style="padding: 10px">
@@ -147,7 +128,7 @@
 
                     <!-- Boton de agregar a carrito -->
                     <div class="col">
-                        <a class="btn btn-secondary btn-lg" href="/bienvenida" role="button">Volver</a>
+                        <a class="btn btn-secondary btn-lg" href="#" role="button">Volver</a>
                     </div>
                 </div>
 

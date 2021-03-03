@@ -55,12 +55,13 @@ class ProductoController extends Controller
     {
 		if(is_numeric($id)){
             $producto = Producto::find($id);
+            $d = Producto::all();
             if($producto == NULL or $producto->delete == true){
                 return response()->json([
                     'message'=>'No se encontro el producto'
                 ]);
             }
-            return response()->json($producto);
+            return view('pagina_compra',compact('producto'));
         }
         else{
             return response()->json([

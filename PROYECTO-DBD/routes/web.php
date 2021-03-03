@@ -74,10 +74,6 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-Route::get('/pagina_compra', function () {
-    return view('pagina_compra');
-});
-
 Route::get('/feria_region', function () {
     return view('feria_por_region');
 });
