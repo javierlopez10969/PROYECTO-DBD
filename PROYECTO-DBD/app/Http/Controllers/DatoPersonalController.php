@@ -35,21 +35,33 @@ class DatoPersonalController extends Controller
      */
     public function store(Request $request)
     {
-                //
+         
         $dato_personal = new DatosPersonal();
+        $cliente = new Cliente();//
         $validatedData = $request->validate([
+           
+			'nombre_cliente' => ['required' , 'min:2' , 'max:50'],
+            'telefono_cliente' => ['required' , 'min:2' , 'max:50'],
+
             'user_name' => ['required' , 'min:2' , 'max:50'],			
             'correo_electronico' => ['required' , 'min:2' , 'max:100'],
             'password' => ['required' , 'min:2' , 'max:50'],
-			
-			'id_feriante' => ['required' , 'numeric'],
-            'id_cliente' => ['required' , 'numeric']
+			//'id_feriante' => ['required' , 'numeric'],
+            //'id_cliente' => ['required' , 'numeric']
         ]);
-		
+        
+        
+        $cliente->nombre_cliente = $request->nombre_cliente;
+        $cliente->telefono_cliente = $request->telefono_cliente;
+        $cliente->save();
+
         $dato_personal->user_name = $request->user_name;
         $dato_personal->correo_electronico = $request->correo_electronico;
         $dato_personal->password = $request->password;
+        $dato_personal->id_cliente = $cliente->id;
+
         $dato_personal->save();
+        
         return response()->json([
 			"message"=>"Se ha creado un datos personales",
 			"id" => $dato_personal->id

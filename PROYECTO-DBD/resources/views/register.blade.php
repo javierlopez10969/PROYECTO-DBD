@@ -24,37 +24,48 @@
                         <article class="card-body mx-auto" style="max-width: 400px;">
                             
                             <h4 class="card-title text-center">Crear cuenta</h4>
-                            <form action=" {{URL::to('/cliente/create')}} ">
-                                <div class="form-group input-group">
-                                    <input name="nombre" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <input name="correo" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <select class="custom-select rounded-pill" style="max-width: 120px;">
-                                        <option selected="">+569</option>
-                                        <option value="1">+562</option>
-                                    </select>
-                                    <input name="telefono" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
-                                </div> <!-- form-group// -->
+                            <form>    
                                 <div class="form-group input-group rounded-pill">
                                     <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
                                         <option>Cliente</option>
                                         <option>Feriante</option>
                                     </select>
-                                </div> <!-- form-group end.// -->
+                                </div> 
+                            </form>
+                            <form action="{{route('DatoPersonalStore')}}" method="POST">
                                 <div class="form-group input-group">
-                                    <input class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
-                                </div> <!-- form-group// -->
+                                    <input name="nombre_cliente" class="form-control rounded-pill" placeholder="Nombre Completo" type="text" required="">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <select class="custom-select rounded-pill" style="max-width: 120px;">
+                                        <option selected="">+569</option>
+                                        <option value="1">+562</option>
+                                    </select>
+                                    <input name="telefono_cliente" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <input name="user_name" class="form-control rounded-pill" placeholder="Nombre de usuario" type="text" required="">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <input name="correo_electronico" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
+                                </div> 
+                                
+                                <div class="form-group input-group">
+                                    <input name="password" class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
+                                </div> 
                                 <div class="form-group input-group">
                                     <input class="form-control rounded-pill" placeholder="Repetir contraseña" type="password" required="" oninput="check(this)">
-                                </div> <!-- form-group// -->                                      
+                                </div>    
                                 <div class="form-group text-center">
                                     <button class="btn btn-lg color4 rounded-pill" type="submit">Crear cuenta</button>
-                                </div> <!-- form-group// -->      
-                                <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                                                 
-                        </form>
+                                </div>      
+                                <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                      
+                            </form>
+                            
+                            
                         <div class = "end-100 bottom text-center padding_up">
                             <p class="padding_up text-muted ">FERION - Ferias Online - 2021</p>
                         </div> 

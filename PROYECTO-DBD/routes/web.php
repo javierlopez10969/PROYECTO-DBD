@@ -150,7 +150,7 @@ Route::delete('/producto/delete/{id}','ProductoController@destroy');
 #cliente
 Route::get('/cliente','ClienteController@index');
 Route::get('/cliente/{id}','ClienteController@show');
-//Route::post('/cliente/create','ClienteController@store');
+Route::post('/cliente/create','ClienteController@store')->name('ClienteStore');
 Route::put('/cliente/update/{id}','ClienteController@update');
 Route::delete('/cliente/delete/{id}','ClienteController@destroy');
 
@@ -171,7 +171,7 @@ Route::delete('/cuenta_bancarias/delete/{id}','CuentaBancariaController@destroy'
 #dato personal
 Route::get('/dato_personal','DatoPersonalController@index');
 Route::get('/dato_personal/{id}','DatoPersonalController@show');
-Route::post('/dato_personal/create','DatoPersonalController@store');
+Route::post('/dato_personal/create','DatoPersonalController@store')->name('DatoPersonalStore');
 Route::put('/dato_personal/update/{id}','DatoPersonalController@update');
 Route::delete('/dato_personal/delete/{id}','DatoPersonalController@destroy');
 

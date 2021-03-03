@@ -35,13 +35,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
+        
         $validatedData = $request->validate([
             'nombre_cliente' => ['required' , 'min:2' , 'max:50'],
             'telefono_cliente' => ['required' , 'min:2' , 'max:50'],
       
-			'id_feriaF' => ['required' , 'numeric'],
-            'id_ferianteF' => ['required' , 'numeric']
+			//'id_feriaF' => ['required' , 'numeric'],
+            //'id_ferianteF' => ['required' , 'numeric']
         ]);
         //Dejar comentario en caso de...
         //verificar las llaves foraneas
@@ -58,17 +58,19 @@ class ClienteController extends Controller
                 'message'=>'No existe una feria con esa id'
             ]);
         }*/
-
+        $cliente = new Cliente();
         $cliente->nombre_cliente = $request->nombre_cliente;
         $cliente->telefono_cliente = $request->telefono_cliente;
         //$cliente->id_ferianteF = $request->id_ferianteF;
         //$cliente->id_feriaF = $request->id_feriaF;
 
         $cliente->save();
+        
         return response()->json([
 			"message"=>"Se ha creado un cliente",
 			"id" => $cliente->id
         ],202);
+        //return $cliente->id;
     }
 
     /**

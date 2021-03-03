@@ -8,47 +8,48 @@
         <div class="col text-center ">
             <div class="container-fluid ventana">
                 <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-            <form class="form-signin">
-                
-                <article class="card-body mx-auto" style="max-width: 400px;">
+
+                <form class="form-signin">
                     
-                    <h4 class="card-title text-center">Crear cuenta</h4>
-                    <form>
-                    <div class="form-group input-group">
-                        <input name="" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <input name="" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <select class="custom-select rounded-pill" style="max-width: 120px;">
-                            <option selected="">+569</option>
-                            <option value="1">+562</option>
-                        </select>
-                        <input name="" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group rounded-pill">
-                        <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
-                            <option>Cliente</option>
-                            <option>Feriante</option>
-                        </select>
-                    </div> <!-- form-group end.// -->
-                    <div class="form-group input-group">
-                        <input class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
-                    </div> <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <input class="form-control rounded-pill" placeholder="Repetir contraseña" type="password" required="" oninput="check(this)">
-                    </div> <!-- form-group// -->                                      
-                    <div class="form-group text-center">
-                        <button class="btn btn-lg color4 rounded-pill" type="submit">Crear cuenta</button>
-                    </div> <!-- form-group// -->      
-                    <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                                                 
+                    <article class="card-body mx-auto" style="max-width: 400px;">
+                        
+                        <h4 class="card-title text-center">Crear cuenta</h4>
+                        <form>
+                            <div class="form-group input-group">
+                                <input name="" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
+                            </div> 
+                            <div class="form-group input-group">
+                                <input name="" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
+                            </div> 
+                            <div class="form-group input-group">
+                                <select class="custom-select rounded-pill" style="max-width: 120px;">
+                                    <option selected="">+569</option>
+                                    <option value="1">+562</option>
+                                </select>
+                                <input name="" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
+                            </div> 
+                            <div class="form-group input-group rounded-pill">
+                                <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
+                                    <option>Cliente</option>
+                                    <option>Feriante</option>
+                                </select>
+                            </div> 
+                            <div class="form-group input-group">
+                                <input class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
+                            </div> 
+                            <div class="form-group input-group">
+                                <input class="form-control rounded-pill" placeholder="Repetir contraseña" type="password" required="" oninput="check(this)">
+                            </div>                                      
+                            <div class="form-group text-center">
+                                <button class="btn btn-lg color4 rounded-pill" type="submit">Crear cuenta</button>
+                            </div>       
+                            <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                                                 
+                        </form>
+                        <div class = "end-100 bottom text-center padding_up">
+                            <p class="padding_up text-muted ">FERION - Ferias Online - 2021</p>
+                        </div> 
+                    </article>
                 </form>
-                <div class = "end-100 bottom text-center padding_up">
-                    <p class="padding_up text-muted ">FERION - Ferias Online - 2021</p>
-                </div> 
-                </article>
-            </form>
             </div> <!-- card.// -->
 
         </div>
