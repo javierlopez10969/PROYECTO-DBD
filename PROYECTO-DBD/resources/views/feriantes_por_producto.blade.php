@@ -79,70 +79,79 @@
             </div>
         </div>
 
+
+
+
         <!-- barra busqueda -->
+        
         <div class="row" style="padding: 20px">
             <div class="container-fluid ventana_selector_region">
                 <!-- Primera linea -->
                 <div class="row">
-                    <select class="form-select selector_region" aria-label="selector_region">
-                        <option selected>--Seleccione un Producto--</option>
-                        <option value="1">Frutas</option>
-                        <option value="2">Verduras</option>
-                        <option value="3">Carnes y Pescado</option>
-                        <option value="4">Huevos</option>
-                        <option value="5">Artículos de Aseo</option>
-                        <option value="6">Comida para Mascotas</option>
-                        <option value="8">Otros</option>
-                    </select>
+                    <form>
+                        <select class="form-select selector_region" aria-label="selector_region" name="categoria">
+                            <option selected value="">--Seleccione un Producto--</option>
+                            <option value="Frutas">Frutas</option>
+                            <option value="Verduras">Verduras</option>
+                            <option value="Carne y Pescado">Carnes y Pescado</option>
+                            <option value="Huevos">Huevos</option>
+                            <option value="Artículos de Aseo">Artículos de Aseo</option>
+                            <option value="Alimento para Mascotas">Alimento para Mascotas</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+                        
+                            <input type="submit" value="Seleccionar" class="btn btn-warning"/>
+                        
+                    </form>
                 </div>
-            </div>
 
-                <!-- Tabla con la Lista de Ferias -->
-                <div class="col">
-                    <div class="row" style="padding: 130px">
-                        <div class="col titulo_ferias text-start"> Nuestras Ferias </div>
-                            <table class="table table-dark table-hover">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">Cod. ref.</th>
-                                    <th scope="col">Producto</th>
-                                    <th scope="col">Categoria</th>
-                                    <th scope="col">Precio</th>
-                                    </tr>
-                                </thead>
+                    <!-- Tabla con la Lista de Ferias -->
+                    <div class="col">
+                        <div class="row" style="padding: 130px">
+                            <div class="col titulo_ferias text-start"> Nuestras Ferias </div>
+                                <table class="table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Cod. ref.</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Precio</th>
+                                        </tr>
+                                    </thead>
 
-                                @forelse($producto as $producto)
-                                @if($producto->categoria == "Verduras")
-                                <tbody>
-                                    <tr>
-                                    <td>{{$producto->id}}</td>
-                                    <td>{{$producto->nombre_producto}}</td>
-                                    <td>{{$producto->categoria}}</td>
-                                    <td>{{$producto->precio_producto}}</td>
+                                    @forelse($producto as $producto)
                                     
-                                    </tr>
-                                </tbody>
-                                @endif
-                                @empty
-                                <p>"no hay nada"</p>
-                                @endforelse
+                                    <tbody>
+                                        <tr>
+                                        <td>{{$producto->id}}</td>
+                                        <td>{{$producto->nombre_producto}}</td>
+                                        <td>{{$producto->categoria}}</td>
+                                        <td>{{$producto->precio_producto}}</td>
+                                        
+                                        </tr>
+                                    </tbody>
+                                    
+                                    @empty
+                                    <p>"no hay nada"</p>
+                                    @endforelse
 
-                               
+                                
 
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
 
 
 
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <!-- Botones -->
                 <div class="row" style="padding: 10px">

@@ -130,13 +130,19 @@ class ProductoController extends Controller
         }
     }
 
-    public function showCategoria()
+    public function showCategoria(Request $request)
     {
-        $producto = Producto::with('categoria')->get();
-            return view('feriantes_por_producto')->with('producto',$producto);
+        $filtro = $request->get('categoria');
+        if($filtro == NULL){
+            $producto = Producto::all();
+                return view('feriantes_por_producto')->with('producto',$producto);
 
-            return response()->json([
+                return response()->json([
                 'message'=>'id invalido'
             ],404);
-    }    
+        }
+
+        $producto = Producto::all()->where('categoria', $filtro);
+        return view('feriantes_por_producto')->with('producto',$producto);
+    }
 }

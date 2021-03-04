@@ -28,7 +28,7 @@ class ProductoFactory extends Factory
         	'unidad'=>$this->faker->numberBetween($min = 1, $max = 100),
         	'tipo_de_stock'=>$this->faker->boolean,
         	'nombre_producto'=>$this->faker->sentence($nbWords = 4, $variableNbWords = true),
-            'categoria'=>$this->faker->randomElement($array = array ('Pollo','Frutas','Verduras','Carne y Pescado,','Huevos','Artículos de Aseo','Otros','Alimento para Mascotas')),            
+            'categoria'=>$this->faker->randomElement($array = array ('Pollo','Frutas','Verduras','Carne y Pescado','Huevos','Artículos de Aseo','Otros','Alimento para Mascotas')),            
             //
             'id_categoria' => Categoria::factory(),
             'id_unidad' => Unidad::factory()
