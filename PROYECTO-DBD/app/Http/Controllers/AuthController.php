@@ -104,12 +104,15 @@ class AuthController extends Controller
         $user = User::where('email',$request->email)->first();
 
         $tokenResult = $user->createToken('authToken')->plainTextToken;
-        
+        return redirect()->route('bienvenida');
+
+/*
         return response()->json([
             'status _code' => 200,
             'token' => $tokenResult
 
         ]);
+   */
     }
 
     public function logout(Request $request)

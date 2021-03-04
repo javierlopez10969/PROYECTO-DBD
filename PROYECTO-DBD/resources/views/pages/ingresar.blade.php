@@ -9,7 +9,7 @@
         <div class="col">
             <div class="container-fluid ventana">
                 <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-                <form  action="{{route('Logear')}}" method="POST">                        
+                <form action="{{route('Login')}}" method="POST">                        
                     <h4 class="card-titl text-center">Iniciar sesión</h4>
                     <label for="inputEmail" class="sr-only">Correo electrónico</label>
                     <input name="email" type="email" id="inputEmail" class="form-control rounded-pill" placeholder="Correo electrónico" required="" autofocus="">
@@ -20,7 +20,7 @@
                         <input type="checkbox" value="remember-me"> Recordarme en este equipo
                       </label>
                     </div>
-                    <button class="btn btn-lg color4 rounded-pill" type="submit">Ingresar</button>
+                    <button class="btn btn-lg color4 rounded-pill" href="/bienvenida" type="submit">Ingresar</button>
 
                 </form>
                 <p class="text-center mt-lg-5">¿No tienes Cuenta?  <a href="/register">Registrate aquí</a> </p>  
@@ -35,6 +35,8 @@
         </div>
       </div>
 </div>
+
+
     <style>
         html,
         body {

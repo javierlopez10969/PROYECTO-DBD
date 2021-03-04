@@ -68,7 +68,17 @@
             </div>
 
         </div><!--  Row -->
-
+<!-- Javascript-->
+<script language='javascript' type='text/javascript'>
+    function check(input) {
+        if (input.value != document.getElementById('password').value) {
+            input.setCustomValidity('No coinciden');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+</script>
     <style>
         .color1{
             background-color:#A7C957;  

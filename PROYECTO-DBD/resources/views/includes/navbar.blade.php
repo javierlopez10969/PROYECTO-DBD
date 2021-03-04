@@ -33,7 +33,6 @@
         <div class="col-sm button ">
             <a class="btn btn-default color2 rounded-pill " href="{{route('registrar')}}" role="button">Registrarse</a>
         </div>
-
     </ul>
 
     </nav>

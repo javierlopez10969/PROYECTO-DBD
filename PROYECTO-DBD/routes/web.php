@@ -103,8 +103,8 @@ Route::get('/confirmar_pago', function () {
 });
 
 Route::get('/bienvenida', function () {
-    return view('bienvenida');
-});
+    return view('pages.bienvenida');
+})->name('bienvenida');;
 
 #feria
 Route::get('/feria','FeriaController@index');
