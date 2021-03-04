@@ -29,9 +29,16 @@ Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
 */
+/*
+Route::get('/', function () {
+    return view('prueba');
+})->name('prueba');
+*/
+
 Route::get('/', function () {
     return view('layouts.main');
 })->name('home');
+
 Route::get('/', function () {
     return view('pages.carrousel');
 })->name('carousel');
@@ -53,6 +60,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
 
 Route::get('/perfil_datosPersonales', function () {
     return view('perfil_datosPersonales');
@@ -281,3 +289,10 @@ Route::get('/producto_ordenDeCompra/{id}','Producto_OrdenDeCompraController@show
 Route::post('/producto_ordenDeCompra/create','Producto_OrdenDeCompraController@store');
 Route::put('/producto_ordenDeCompra/update/{id}','Producto_OrdenDeCompraController@update');
 Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraController@destroy');
+
+
+##TESTEANDO
+
+#cliente
+Route::get('/user','AuthController@index');
+Route::get('/user/{id}','AuthController@show');

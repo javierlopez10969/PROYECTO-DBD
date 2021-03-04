@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('register',[AuthController::class,'register'])->name('Registrarse');
+Route::post('login',[AuthController::class,'login'])->name('Logear');
+
+Route::group(['middleware' =>['auth:sanctum']],function()
+{
+    Route::post('logout',[AuthController::class,'logout']);
 });

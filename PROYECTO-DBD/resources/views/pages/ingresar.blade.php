@@ -6,17 +6,15 @@
     <div class="row">
         <div class="col">
         </div>
-
         <div class="col">
-            
             <div class="container-fluid ventana">
                 <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-                <form class="form-signin ">                        
+                <form  action="{{route('Logear')}}" method="POST">                        
                     <h4 class="card-titl text-center">Iniciar sesión</h4>
                     <label for="inputEmail" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="inputEmail" class="form-control rounded-pill" placeholder="Correo electrónico" required="" autofocus="">
+                    <input name="email" type="email" id="inputEmail" class="form-control rounded-pill" placeholder="Correo electrónico" required="" autofocus="">
                     <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" id="inputPassword" class="form-control rounded-pill" placeholder="Contraseña" required="">
+                    <input name="password"  type="password" id="inputPassword" class="form-control rounded-pill" placeholder="Contraseña" required="">
                     <div class="checkbox mb-3">
                       <label>
                         <input type="checkbox" value="remember-me"> Recordarme en este equipo
@@ -36,7 +34,7 @@
         <div class="col">
         </div>
       </div>
-    </div>
+</div>
     <style>
         html,
         body {
@@ -50,14 +48,29 @@
             -ms-flex-align: center;
             -ms-flex-pack: center;
             -webkit-box-align: center;
-            align-items: center;
             -webkit-box-pack: center;
-            justify-content: center;        
-            padding-top: 40px;
+            justify-content: center;       
             padding-bottom: 40px;
             background: linear-gradient(0deg, #A7C957 -12.51%, rgba(255, 255, 255, 0) 85.81%), #F9F6F7;        
             background-repeat: repeat-y;
         }
+        .ventana{
+            width: 540.93px;
+            height: 693px;
+            left: 482px;
+            top: 26px;
+    
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+        }
+        .padding_up{
+            padding-top: 15px;
+        }
+        .margin-l{
+            margin-left: 51px;
+        }
+    
 
         .form-signin {
             width: 100%;

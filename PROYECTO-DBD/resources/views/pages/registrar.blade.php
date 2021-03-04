@@ -1,63 +1,73 @@
 @extends('layouts.main')
 
 @section('seccion')
-    <div class="row">
-        <div class="col">
-        </div>
+<div class="row">
+            <div class="col">
+            </div>
 
-        <div class="col text-center ">
-            <div class="container-fluid ventana">
-                <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-
-                <form class="form-signin">
-                    
-                    <article class="card-body mx-auto" style="max-width: 400px;">
+            <div class="col text-center ">
+                <div class="container-fluid ventana">
+                    <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
+                    <form class="form-signin">
                         
-                        <h4 class="card-title text-center">Crear cuenta</h4>
-                        <form>
-                            <div class="form-group input-group">
-                                <input name="" class="form-control rounded-pill" placeholder="Nombre" type="text" required="">
-                            </div> 
-                            <div class="form-group input-group">
-                                <input name="" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
-                            </div> 
-                            <div class="form-group input-group">
-                                <select class="custom-select rounded-pill" style="max-width: 120px;">
-                                    <option selected="">+569</option>
-                                    <option value="1">+562</option>
-                                </select>
-                                <input name="" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
-                            </div> 
-                            <div class="form-group input-group rounded-pill">
-                                <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
-                                    <option>Cliente</option>
-                                    <option>Feriante</option>
-                                </select>
-                            </div> 
-                            <div class="form-group input-group">
-                                <input class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
-                            </div> 
-                            <div class="form-group input-group">
-                                <input class="form-control rounded-pill" placeholder="Repetir contraseña" type="password" required="" oninput="check(this)">
-                            </div>                                      
-                            <div class="form-group text-center">
-                                <button class="btn btn-lg color4 rounded-pill" type="submit">Crear cuenta</button>
-                            </div>       
-                            <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                                                 
-                        </form>
+                        <article class="card-body mx-auto" style="max-width: 400px;">
+                            
+                            <h4 class="card-title text-center">Crear cuenta</h4>
+                            <form>    
+                                <div class="form-group input-group rounded-pill">
+                                    <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
+                                        <option>Cliente</option>
+                                        <option>Feriante</option>
+                                    </select>
+                                </div> 
+                            </form>
+                            <form action="{{route('Registrarse')}}" method="POST">
+                                <div class="form-group input-group">
+                                    <input name="nombre_cliente" class="form-control rounded-pill" placeholder="Nombre Completo" type="text" required="">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <select class="custom-select rounded-pill" style="max-width: 120px;">
+                                        <option selected="">+569</option>
+                                        <option value="1">+562</option>
+                                    </select>
+                                    <input name="telefono_cliente" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <input name="name" class="form-control rounded-pill" placeholder="Nombre de usuario" type="text" required="">
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <input name="email" class="form-control rounded-pill" placeholder="Correo electrónico" type="email" required="">
+                                </div> 
+                                
+                                <div class="form-group input-group">
+                                    <input name="password" class="form-control rounded-pill" placeholder="Contraseña" type="password" required="" id="password">
+                                </div> 
+                                <div class="form-group input-group">
+                                    <input class="form-control rounded-pill" placeholder="Repetir contraseña" type="password" required="" oninput="check(this)">
+                                </div>    
+                                <div class="form-group text-center">
+                                    <button class="btn btn-lg color4 rounded-pill" type="submit">Crear cuenta</button>
+                                </div>      
+                                <p class="text-center">¿Ya tienes cuenta?  <a href="/login">Inicia sesión aquí</a> </p>                                      
+                            </form>
+                            
+                            
                         <div class = "end-100 bottom text-center padding_up">
                             <p class="padding_up text-muted ">FERION - Ferias Online - 2021</p>
                         </div> 
-                    </article>
-                </form>
-            </div> <!-- card.// -->
+                        </article>
+                    </form>
+                </div> <!-- card.// -->
+      
+            </div>
 
-        </div>
+            <div class="col">
+            </div>
 
-        <div class="col">
-        </div>
-
-    </div><!--  Row -->
+        </div><!--  Row -->
 
     <style>
         .color1{
@@ -111,7 +121,6 @@
         body {
             height: 100%;
         }
-    
         body {
             display: -ms-flexbox;
             display: -webkit-box;
@@ -119,10 +128,8 @@
             -ms-flex-align: center;
             -ms-flex-pack: center;
             -webkit-box-align: center;
-            align-items: center;
             -webkit-box-pack: center;
-            justify-content: center;        
-            padding-top: 40px;
+            justify-content: center;     
             padding-bottom: 40px;
             background: linear-gradient(0deg, #A7C957 -12.51%, rgba(255, 255, 255, 0) 85.81%), #F9F6F7;        
             background-repeat: repeat-y;

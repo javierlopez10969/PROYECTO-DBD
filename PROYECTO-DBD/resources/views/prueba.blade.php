@@ -245,4 +245,5 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         font-size: 55px;
         color: red ;
     }
+
  </style> 
