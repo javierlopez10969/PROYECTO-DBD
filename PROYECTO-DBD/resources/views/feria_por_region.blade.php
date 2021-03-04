@@ -80,13 +80,32 @@
         </div>
 
         <!-- barra busqueda -->
+        
         <div class="row" style="padding: 20px">
             <div class="container-fluid ventana_selector_region">
                 <!-- Primera linea -->
                 <div class="row">
-                    
+                    <form>
+                        <select class="form-select selector_region" aria-label="selector_region" name="nombre_comuna">
+                            <option selected value="">--Selecciona una Comuna--</option>
+                            <option value="Arica">Arica</option>
+                            <option value="Chincolco">Chincolco</option>
+                            <option value="La Florida">La Florida</option>
+                            <option value="La Serena">La Serena</option>
+                            <option value="Putaentdo">Putaentdo</option>
+                            <option value="Quilicura">Quilicura</option>
+                            <option value="Rancagua">Rancagua</option>
+                            <option value="Renca">Renca</option>
+                            <option value="Rengo">Rengo</option>
+                            <option value="San Lorenzo">San Lorenzo</option>
+                            <option value="San Felipe">San Felipe</option>
+                        </select>
+                    </div>
+                        
+                            <input type="submit" value="Seleccionar" class="btn btn-warning"/>
+                        
+                    </form>
                 </div>
-            </div>
 
                 <!-- Tabla con la Lista de Ferias -->
                 <div class="col">
@@ -107,7 +126,7 @@
                                     <tr>
                                     <td>{{$feria->id}}</td>
                                     <td>{{$feria->descripcion}}</td>
-                                    <td>{{$feria->id_comuna}}</td>
+                                    <td>{{$feria->nombre_comuna}}</td>
                                     <td>{{$feria->horario_desde}}</td>
                                     <td>{{$feria->horario_hasta}}</td>
                                     </tr>

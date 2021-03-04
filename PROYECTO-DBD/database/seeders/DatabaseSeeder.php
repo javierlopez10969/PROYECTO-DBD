@@ -68,8 +68,8 @@ class DatabaseSeeder extends Seeder
         DireccionDespacho::factory()->create();
 
         //Sebastian
-        Feria::factory()->create();
-        Feriante::factory()->create();
+        Feria::factory(30)->create();
+        Feriante::factory(300)->create();
         Region::factory()->create();
         Comuna::factory()->create();
         Feria_PuestoDeVenta::factory()->create();

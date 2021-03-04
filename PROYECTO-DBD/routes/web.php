@@ -103,6 +103,7 @@ Route::get('/bienvenida', function () {
 })->name('bienvenida');;
 
 Route::get('/productocategoria','ProductoController@showCategoria');
+Route::get('/feriacomuna','FeriaController@showComuna');
 
 #feria
 Route::get('/feria','FeriaController@index');

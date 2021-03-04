@@ -17,7 +17,7 @@ class FeriaController extends Controller
     {
         $feria = Feria::all();
         if($feria != NULL){
-            return view('feria_por_region',compact('feria'));
+            return response()->json($feria);
         }
         return response()->json([
             "message"=>"No se encontró la feria",
@@ -141,5 +141,20 @@ class FeriaController extends Controller
                 'message'=>'id invalido'
             ],404);
         }
+    }
+    public function showComuna(Request $request)
+    {
+        $filtro = $request->get('nombre_comuna');
+        if($filtro == NULL){
+            $feria = Feria::all();
+                return view('feria_por_region')->with('feria',$feria);
+
+                return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+
+        $feria = Feria::all()->where('nombre_comuna', $filtro);
+        return view('feria_por_region')->with('feria',$feria);
     }
 }

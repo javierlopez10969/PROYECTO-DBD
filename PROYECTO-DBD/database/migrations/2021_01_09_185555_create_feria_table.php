@@ -18,6 +18,7 @@ class CreateFeriaTable extends Migration
             $table->string('descripcion');
             $table->string('horario_desde');
             $table->string('horario_hasta');
+            $table->string('nombre_comuna');
             $table->unsignedBigInteger('id_comuna')->nullable();
             $table->foreign('id_comuna')->references('id')->on('comuna');
         });
