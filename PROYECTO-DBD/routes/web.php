@@ -294,3 +294,8 @@ Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraContr
 #cliente
 Route::get('/user','AuthController@index');
 Route::get('/user/{id}','AuthController@show');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

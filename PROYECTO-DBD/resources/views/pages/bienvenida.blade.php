@@ -1,41 +1,7 @@
-    @extends('layouts.main')
+@extends('layouts.app')
+@section('content')
 
-@section('seccion')
-
-    <div class="container-fluid">
-
-        <!-- barra superior -->
-        <div class="row color1">
-
-            <nav class="navbar navbar-expand-sm navbar-dark color1">
-                <!-- Brand/logo -->
-                <a class="col navbar-brand" href="#">
-                    <img src="https://i.ibb.co/JcL3ghH/logo.png" onClick="window.location.reload();" alt="" height="40">
-                </a>
-                
-                <div class="navbar-collapse collapse">
-                    <div class="col-sm text-center padding-text color7">
-                        <h1> Bienvenido ...... </h1>
-                    </div>
-                </div>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Boton Datos personales -->
-                    <div class="col-sm button">
-                        <a class="btn btn-default color2 rounded-pill" style="width: 100px;"  href="/perfil_datosPersonales" role="button">Perfil</a>
-                        
-                    </div>
-                    <!-- Boton Cerrar sesion -->
-                    <div class="col-sm button" style="width: 150px;">
-                        <a method="POST" href="{{route('Logout')}}"  class="btn btn-default color5 rounded-pill" role="button">Cerrar sesión</a>
-                    </div>
-
-                </ul>
-
-            </nav>
-            
-        </div>
-
+    <div class="container-fluid mx-0 px-0 ">
         <!-- barra productos -->
         <div class="row">
             <div class="col border border-dark centrado">
@@ -133,7 +99,8 @@
 
 
     </div>
-
+    @endsection
+    
 <!--CSS
 estilo de colores (pude ser HEX)   ej #FFFFFF 
     -->
@@ -251,5 +218,3 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
             color: #000000;
         }
     </style>
-
-@endsection
