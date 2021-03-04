@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
         Cliente::factory()->create();
         Comprobante::factory()->create();
         CuentaBancaria::factory()->create();
-        DatosPersonal::factory()->create();
+        DatosPersonal::factory(50)->create();
         DireccionDespacho::factory()->create();
 
         //Sebastian

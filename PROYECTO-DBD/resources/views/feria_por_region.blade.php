@@ -134,7 +134,9 @@
                                 @empty
                                 <p>"no hay nada"</p>
                                 @endforelse
+                                
                             </table>
+                           
                         </div>
                     </div>
                 </div>

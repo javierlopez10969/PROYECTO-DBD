@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Document</title>
+    <style>
+    li{
+        cursor: pointer;
+    }
+</style>
 </head>
 <body class="text-center">
     <div class="container-fluid">
@@ -121,16 +126,18 @@
                                     </thead>
 
                                     @forelse($producto as $producto)
-                                    
                                     <tbody>
-                                        <tr>
+                                    <tr onclick="window.location = 'http://127.0.0.1:8000/producto/{{$producto->id}}'">
+
+                                        
                                         <td>{{$producto->id}}</td>
                                         <td>{{$producto->nombre_producto}}</td>
                                         <td>{{$producto->categoria}}</td>
                                         <td>{{$producto->precio_producto}}</td>
                                         
-                                        </tr>
+                                    </tr>
                                     </tbody>
+
                                     
                                     @empty
                                     <p>"no hay nada"</p>
