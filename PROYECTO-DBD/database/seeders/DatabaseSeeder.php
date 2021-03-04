@@ -75,9 +75,9 @@ class DatabaseSeeder extends Seeder
         Feria_PuestoDeVenta::factory()->create();
 
         //Martin ??
-        Categoria::factory()->create();
+        Categoria::factory(10)->create();
         PuestoDeVenta::factory()->create();
-        Producto::factory()->create();
+        Producto::factory(100)->create();
         Producto_PuestoDeVenta::factory()->create();
         Unidad::factory()->create();
 

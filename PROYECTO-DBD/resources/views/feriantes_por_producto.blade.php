@@ -104,20 +104,29 @@
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
-                                    <th scope="col">Codigo</th>
+                                    <th scope="col">Cod. ref.</th>
                                     <th scope="col">Producto</th>
                                     <th scope="col">Categoria</th>
+                                    <th scope="col">Precio</th>
                                     </tr>
                                 </thead>
 
-                           
+                                @forelse($producto as $producto)
+                                @if($producto->categoria == "Verduras")
                                 <tbody>
                                     <tr>
-                                    <td>{{$producto}}</td>
-                                    <td>{{$producto}}</td>
+                                    <td>{{$producto->id}}</td>
+                                    <td>{{$producto->nombre_producto}}</td>
+                                    <td>{{$producto->categoria}}</td>
+                                    <td>{{$producto->precio_producto}}</td>
                                     
                                     </tr>
                                 </tbody>
+                                @endif
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
+
                                
 
 
