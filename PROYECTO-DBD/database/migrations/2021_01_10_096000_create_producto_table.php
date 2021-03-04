@@ -19,6 +19,7 @@ class CreateProductoTable extends Migration
 			$table->integer('unidad');
 			$table->boolean('tipo_de_stock');
             $table->string('nombre_producto');
+            $table->string('categoria');
             
 			$table->unsignedBigInteger('id_categoria')->nullable();
             $table->foreign('id_categoria')->references('id')->on('categoria');

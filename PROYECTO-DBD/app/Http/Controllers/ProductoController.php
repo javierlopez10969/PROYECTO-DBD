@@ -132,9 +132,8 @@ class ProductoController extends Controller
 
     public function showCategoria()
     {
-            $producto = Producto::find($id_producto);
-            $categoria = Categoria::all();
-            return view('feriantes_por_producto',compact('producto','categoria'));
+        $producto = Producto::with('categoria')->get();
+            return view('feriantes_por_producto')->with('producto',$producto);
 
             return response()->json([
                 'message'=>'id invalido'
