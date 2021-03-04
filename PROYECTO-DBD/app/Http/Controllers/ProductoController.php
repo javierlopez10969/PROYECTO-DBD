@@ -55,12 +55,13 @@ class ProductoController extends Controller
     {
 		if(is_numeric($id)){
             $producto = Producto::find($id);
+            $d = Producto::all();
             if($producto == NULL or $producto->delete == true){
                 return response()->json([
                     'message'=>'No se encontro el producto'
                 ]);
             }
-            return response()->json($producto);
+            return view('pagina_compra',compact('producto'));
         }
         else{
             return response()->json([
@@ -128,4 +129,15 @@ class ProductoController extends Controller
             ],404);
         }
     }
+
+    public function showCategoria()
+    {
+            $producto = Producto::find($id_producto);
+            $categoria = Categoria::all();
+            return view('feriantes_por_producto',compact('producto','categoria'));
+
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+    }    
 }

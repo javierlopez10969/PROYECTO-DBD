@@ -17,7 +17,7 @@ class FeriaController extends Controller
     {
         $feria = Feria::all();
         if($feria != NULL){
-            return response()->json($feria);
+            return view('feria_por_region',compact('feria'));
         }
         return response()->json([
             "message"=>"No se encontró la feria",

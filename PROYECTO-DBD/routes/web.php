@@ -82,10 +82,6 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-Route::get('/pagina_compra', function () {
-    return view('pagina_compra');
-});
-
 Route::get('/feria_region', function () {
     return view('feria_por_region');
 });
@@ -105,6 +101,8 @@ Route::get('/confirmar_pago', function () {
 Route::get('/bienvenida', function () {
     return view('pages.bienvenida');
 })->name('bienvenida');;
+
+Route::get('/productocategoria','ProductoController@showCategoria');
 
 #feria
 Route::get('/feria','FeriaController@index');
