@@ -129,4 +129,15 @@ class ProductoController extends Controller
             ],404);
         }
     }
+
+    public function showCategoria()
+    {
+            $producto = Producto::find($id_producto);
+            $categoria = Categoria::all();
+            return view('feriantes_por_producto',compact('producto','categoria'));
+
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+    }    
 }

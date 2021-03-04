@@ -97,41 +97,34 @@
                 </div>
             </div>
 
-                <!-- Tabla con la Lista de Feriantes -->
+                <!-- Tabla con la Lista de Ferias -->
                 <div class="col">
                     <div class="row" style="padding: 130px">
-                        <div class="container-fluid ventana_ferias">
-                            <div class="row">
-                                <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="col titulo_ferias text-start"> Nuestras Ferias </div>
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Codigo</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Categoria</th>
+                                    </tr>
+                                </thead>
+
+                           
+                                <tbody>
+                                    <tr>
+                                    <td>{{$producto}}</td>
+                                    <td>{{$producto}}</td>
+                                    
+                                    </tr>
+                                </tbody>
+                               
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
 

@@ -102,6 +102,8 @@ Route::get('/bienvenida', function () {
     return view('bienvenida');
 });
 
+Route::get('/productocategoria','ProductoController@showCategoria');
+
 #feria
 Route::get('/feria','FeriaController@index');
 Route::get('/feria/{id}','FeriaController@show');

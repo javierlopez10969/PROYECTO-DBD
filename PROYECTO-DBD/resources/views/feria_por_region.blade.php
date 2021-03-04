@@ -97,6 +97,7 @@
                                     <tr>
                                     <th scope="col">Codigo</th>
                                     <th scope="col">Descripcion</th>
+                                    <th scope="col">Comuna</th>
                                     <th scope="col">Desde</th>
                                     <th scope="col">Hasta</th>
                                     </tr>
@@ -106,6 +107,7 @@
                                     <tr>
                                     <td>{{$feria->id}}</td>
                                     <td>{{$feria->descripcion}}</td>
+                                    <td>{{$feria->id_comuna}}</td>
                                     <td>{{$feria->horario_desde}}</td>
                                     <td>{{$feria->horario_hasta}}</td>
                                     </tr>
