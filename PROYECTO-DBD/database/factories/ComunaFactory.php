@@ -23,7 +23,7 @@ class ComunaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre_comuna'=>$this->faker->city,
+            'nombre_comuna'=>$this->faker->randomElement($array = array ('San Felipe','Quilicura','Rancagua','Putaentdo','Rengo','Chincolco','San Lorenzo','La Florida','Arica','Renca','La Serena')),
             //
             'id_region' => Region::factory()
         ];

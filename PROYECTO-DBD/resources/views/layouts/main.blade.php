@@ -8,6 +8,7 @@
     <title>FERION - Feria Online</title>
     <!-- Roboto  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+  
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -15,11 +16,10 @@
 </head>
 
 <body>
-
-
     <div class="container-fluid">
+            <!--NavBar -->
             <header class="row">
-                @include('includes.navbar')
+                @include('layouts.app')
             </header>
             <!-- barra productos -->
             <div class="row">
@@ -53,26 +53,18 @@
                     <h5> Otros </h5>
                 </div>
             </div>
-                <!--Cuerpo-->
-            <div row class="container">
+            <!--Cuerpo-->
+            <div row class="container mt-5">
                 <div col></div>
                 <div col class ="container-fluid text-center">
                     @yield('seccion')
                 </div>
-                <div col>
-            
-                </div>
+            <div col>
+            </div>
 
             </div>
             <!--Footer-->
-
-
-    </div>
-
-
-    
-
-    
+    </div>  
 </body>
 
 

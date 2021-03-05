@@ -18,7 +18,7 @@ class OrdenDePagoController extends Controller
     public function index()
     {
         //
-        $ordenDePago = OrdenDePago::all()->where('delete',false);
+        $ordenDePago = OrdenDePago::all();//->where('delete',false);
         if($ordenDePago != NULL){
             return response()->json($ordenDePago);
         }
@@ -33,31 +33,28 @@ class OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+    //Correxion (genera error en la llave foranea id_feriante)
     public function store(Request $request)
     {
         //
         $ordenDePago = new OrdenDePago();
         $validatedData = $request->validate([
-            'fecha_de_pago' => ['require' , 'min:2' , 'max:30'],
-            'tipo_pago' => ['require' , 'numeric'],
-            'valor_total_pago' => ['require' , 'numeric'],
-            'id_feriante' => ['require' , 'numeric']
+            'fecha_de_pago' => ['required' , 'min:2' , 'max:30'],
+            'tipo_pago' => ['required' , 'string'],
+            'valor_total_pago' => ['required' , 'numeric'],
+
+            'id_feriante' => ['required' , 'numeric']
         ]);
         
-        $feriante = Feriante::find($request->id_feriante);
-        if ($pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
         $ordenDePago->fecha_de_pago = $request->fecha_de_pago;
         $ordenDePago->tipo_pago = $request->tipo_pago;
         $ordenDePago->valor_total_pago = $request->valor_total_pago;
+        $ordenDePago->id_feriante = $request->id_feriante;
+        
         $ordenDePago->save();
         return response()->json([
-        "mesage"=>"Se ha creado una store",
-        "id" => $ordenDePago->id
+            "mesage"=>"Se ha creado una store",
+            "id" => $ordenDePago->id
         ],202);
 
     }

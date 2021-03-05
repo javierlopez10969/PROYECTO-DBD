@@ -13,7 +13,7 @@ class DatosPersonal extends Model
 	
 	//CLIENTE
     public function Cliente (){
-        return $this->belongsTo(Cliente::class);
+        return $this->hasOne(Cliente::class);
     }
     //FERIANTE
     public function Feriante (){

@@ -32,29 +32,14 @@ class Feria_PuestoDeVentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
         $feria_PuestoDeVenta = new Feria_PuestoDeVenta();
-
         $validatedData = $request->validate([
-            'id_feria' => ['required' , 'numeric'],            
-            'id_feria_puestodeventa' => ['required' , 'numeric'],
-        ]);   
+            'id_feria' => ['require' , 'numeric'],
+            'id_puesto_venta'=> ['require' , 'numeric'],
+        ]); 
         
-        $feria= Feria::find($request->id_feria);
-        if ($feria == NULL){
-            return response()->json([
-                'message'=>'No existe una feria con esa id'
-            ]);
-        }
-        $puesto_de_venta = PuestoDeVenta::find($request->id_puesto_venta);
-        if ($puesto_de_venta == NULL){
-            return response()->json([
-                'message'=>'No existe un puesto de venta con esa id'
-            ]);
-        }
-
         $feria_PuestoDeVenta->save();
         return response()->json([
             "message"=> "Nueva feria_PuestoDeVenta agregada",

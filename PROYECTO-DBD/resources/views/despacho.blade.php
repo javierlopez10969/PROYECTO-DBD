@@ -9,63 +9,84 @@
     <!-- Roboto  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+	<title>Document</title>
 </head>
 <body class="text-center">
+    <div class="container-fluid">
 
-<div class="v221_2">
-<div class="v221_28">
-<nav class="navbar navbar-expand-sm navbar-dark color1">
+        <!-- barra superior -->
+        <div class="row color1">
+
+            <nav class="navbar navbar-expand-sm navbar-dark color1">
                 <!-- Brand/logo -->
-                <a class="navbar-brand" href="#">
+                <a class="col navbar-brand" href="#">
                     <img src="https://i.ibb.co/JcL3ghH/logo.png" onClick="window.location.reload();" alt="" height="40">
                 </a>
-				 </nav>
-	<div class="v221_29"></div>
-	<div class="v221_30"></div>
-	<div class="v221_31">
-		<div class="v221_32"></div>
-		<span class="v221_33">Perfil</span>
-	</div>
-	<div class="v221_34">
-		<div class="v221_35"></div>
-		<span class="v221_36">Cerrar sesion</span>
-	</div>
-	<span class="v221_37">Despacho</span>
+                
+                <div class="navbar-collapse collapse">
+                    <div class="col-sm text-center padding-text color7">
+                        <h1> Despacho </h1>
+                    </div>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Boton Iniciar Sesion -->
+                    <div class="col-sm button">
+                        <a class="btn btn-default color2 rounded-pill" style="width: 100px;"  href="/perfil_datosPersonales" role="button">Perfil</a>
+                        
+                    </div>
+                    <!-- Boton Registrarse -->
+                    <div class="col-sm button" style="width: 150px;">
+                        <a class="btn btn-default color2 rounded-pill" href="/" role="button">Cerrar sesion</a>
+                    </div>
+
+                </ul>
+
+            </nav>
+            
+        </div>
+<div class="row">
+            <div class="col border border-dark centrado">
+                <h5 > Frutas </h5>
+            </div>  
+
+            <div class="col border border-dark centrado">
+                <h5 > Verduras </h5>
+            </div>  
+            <div class="col border border-dark centrado">
+                <h5 > Pollo </h5>
+            </div>
+
+            <div class="col border border-dark centrado">
+                <h5> Carne y Pescado </h5>
+            </div>
+
+            <div class="col border border-dark centrado">
+                <h5> Huevos </h5> 
+            </div>
+
+            <div class="col border border-dark centrado">
+                <h5> Productos higiénicos </h5>
+            </div>  
+            <div class="col border border-dark centrado">
+                <h5> Comida para mascotas </h5>
+            </div>
+
+            <div class="col border border-dark centrado">
+                <h5> Otros </h5>
+            </div>
+			<div class="col border border-dark centrado">
+                <h5> Limpieza </h5>
+            </div>
+			<div class="col border border-dark centrado">
+                <h5> Tecnología </h5>
+            </div>
+			<div class="col border border-dark centrado">
+                <h5> ¿Quiénes somos? </h5>
+            </div>
+        </div>
 </div>
-<div class="v221_3">
-	<div class="v221_4">
-	<div class="v221_5"></div>
-	<span class="v221_6">Frutas</span>
-	</div>
-	<div class="v221_7">
-		<div class="v221_8"></div>
-		<span class="v221_9">Verduras</span>
-	</div>
-	<div class="v221_10">
-		<div class="v221_11"></div>
-		<span class="v221_12">Conservados</span>
-	</div>
-	<div class="v221_13">
-		<div class="v221_14"></div>
-		<span class="v221_15">Bebidas</span>
-	</div>
-	<div class="v221_16">
-		<div class="v221_17"></div>
-		<span class="v221_18">Otros</span>
-	</div>
-	<div class="v221_19">
-		<div class="v221_20"></div>
-		<span class="v221_21">Limpieza</span>
-	</div>
-	<div class="v221_22">
-		<div class="v221_23"></div>
-		<span class="v221_24">¿Quienes Somos?</span>
-	</div>
-	<div class="v221_25">
-		<div class="v221_26"></div>
-		<span class="v221_27">Tecnologia</span>
-	</div>
-</div>
+<p class="v221_48">Confirmar la entregra</p>
 <div class="v221_54">
 	<div class="v221_55"></div>
 	<span class="v221_56">Confirmar</span>

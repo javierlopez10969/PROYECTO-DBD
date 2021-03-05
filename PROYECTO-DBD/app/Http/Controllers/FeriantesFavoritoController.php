@@ -20,16 +20,14 @@ class FeriantesFavoritoController extends Controller
     }
 
     //Crear una nueva tupla tupla
-    //Correxion 
     public function store(Request $request)
     {
         $feriante_favorito = new FeriantesFavorito();
-            $validatedData = $request->validate([
+        $validatedData = $request->validate([
             'valoracion' => ['required'],
         ]);        
 
-        $feriante_favorito = new FeriantesFavorito();
-        $feriante_favorito->valoracion = $validatedData->valoracion;
+        $feriante_favorito->valoracion = $request->valoracion;
         $feriante_favorito->save();
         return response()->json([
             "message"=> "Se ha añadido un nuevo feriante_favorito a favoritos",

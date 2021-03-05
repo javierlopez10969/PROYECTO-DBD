@@ -1,4 +1,4 @@
 @extends('layouts.sidebar')
-@section('content')
+@section('seccion')
     i am the about page
-@stop
+@endsection

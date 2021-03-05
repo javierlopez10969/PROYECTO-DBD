@@ -21,31 +21,22 @@ class Feriante_FeriantesFavoritoController extends Controller
         ],404);
     }
 
-    //Crear una nueva tupla tupla
-    //Correxion
+    //Crear una nueva tupla
+    //Correxion (se genera el id, pero lo muestra nulo)
     public function store(Request $request)
     {
         $feriante_feriantesfavorito = new Feriante_FeriantesFavorito();
-            $validatedData = $request->validate([
-            'id_feriante' => ['require' , 'numeric'],
-            'id_feriantesfavoritos'=> ['require' , 'numeric'],
-        ]);        
-        $feriante= Feriante::find($request->id_feriante);
-        if ($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }
-        $feriantefavorito = FeriantesFavorito::find($request->id_feriantesfavoritos);
-        if ($feriantefavorito == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante favorito con esa id'
-            ]);
-        }
+        $validatedData = $request->validate([
+            'id_feriante' => ['required' , 'numeric'],
+            'id_feriantesfavoritos'=> ['required' , 'numeric']
+        ]); 
+
+        $feriante_feriantesfavorito->id_feriante = $request->id_feriante;
+        $feriante_feriantesfavorito->id_feriantesfavoritos = $request->id_feriantesfavoritos;
         $feriante_feriantesfavorito->save();
         return response()->json([
-            "message"=> "Se ha añadido un nueva tupla a la tabla",
-            "id"=>$feriante_feriantesfavorito->id
+            "message" => "Se ha añadido un nueva tupla a la tabla",
+            "id" => $feriante_feriantesfavorito->id
         ],202);
     }
 

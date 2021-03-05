@@ -30,28 +30,20 @@ class FeriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
         $feria = new Feria();
         $validatedData = $request->validate([
             'descripcion' => ['required' ,'string'],
-            'horario_desde' => ['required' , 'date(h:m:s)'],
-            'horario_hasta' => ['required' , 'date(h:m:s)'],
+            'horario_desde' => ['required'],
+            'horario_hasta' => ['required'],
             
-            'id_comuna' => ['required' , 'numeric'],
+            'id_comuna' => ['required' , 'numeric']
         ]);        
 
-        $comuna = Comuna::find($request->id_comuna);
-        if($comuna == NULL){
-            return response()->json([
-                'message'=>'No existe un comuna con esa id'
-                ],404);
-            }
-
-        $feria->$request->descripcion;
-        $feria->$request->horario_desde;
-        $feria->$request->horario_hasta;
+        $feria->descripcion = $request->descripcion;
+        $feria->horario_desde = $request->horario_desde;
+        $feria->horario_hasta = $request->horario_hasta;
         $feria->save();
         return response()->json([
             "message"=> "Nueva feria agregada",
@@ -149,5 +141,20 @@ class FeriaController extends Controller
                 'message'=>'id invalido'
             ],404);
         }
+    }
+    public function showComuna(Request $request)
+    {
+        $filtro = $request->get('nombre_comuna');
+        if($filtro == NULL){
+            $feria = Feria::all();
+                return view('feria_por_region')->with('feria',$feria);
+
+                return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+
+        $feria = Feria::all()->where('nombre_comuna', $filtro);
+        return view('feria_por_region')->with('feria',$feria);
     }
 }

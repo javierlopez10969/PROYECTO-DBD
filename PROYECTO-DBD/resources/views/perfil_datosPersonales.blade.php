@@ -33,7 +33,7 @@
         <!--  Titulo Mis datos personales -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Mis datos personales</div>
+            <div class="col-4 space_title color_texto">Modificar datos personales</div>
         </div>
  
         <!-- cuadrados -->
@@ -47,7 +47,10 @@
 
                         <ul class="nav flex-column padding_buttons">
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosPersonales">Mis datos personales</a>
+                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosActuales">Mis datos personales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosPersonales">Modificar datos personales</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link color7" aria-current="page" href="/perfil_modificarContraseña">Modificar contraseña</a>
@@ -169,7 +172,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
 
     .ventana_p{
         width: 400px;
-        height: 230px;
+        height: 250px;
         left: 50px;
         top: 150px;
 

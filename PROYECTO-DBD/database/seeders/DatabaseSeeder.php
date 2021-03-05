@@ -48,38 +48,38 @@ class DatabaseSeeder extends Seeder
         
         //Carlos
         Feria_FeriaFavorito::factory()->create();
-        FeriaFavorito::factory(10)->create();
+        FeriaFavorito::factory()->create();
         Feriante_FeriantesFavorito::factory()->create();
-        FeriantesFavorito::factory(10)->create();
-        OrdenDeDespacho::factory(10)->create();
+        FeriantesFavorito::factory()->create();
+        OrdenDeDespacho::factory()->create();
         
         //Javier
-        OrdenDePago::factory(10)->create();
-        OrdenDeCompra::factory(10)->create();
-        Pago::factory(10)->create();
+        OrdenDePago::factory()->create();
+        OrdenDeCompra::factory()->create();
+        Pago::factory()->create();
         Productos_orden_de_compra::factory()->create();
         Pago_ordendepago::factory()->create();
 
         //David
-        Cliente::factory(10)->create();
-        Comprobante::factory(10)->create();
-        CuentaBancaria::factory(10)->create();
-        DatosPersonal::factory(10)->create();
+        Cliente::factory()->create();
+        Comprobante::factory()->create();
+        CuentaBancaria::factory()->create();
+        DatosPersonal::factory(50)->create();
         DireccionDespacho::factory()->create();
 
         //Sebastian
-        Feria::factory(10)->create();
-        Feriante::factory(10)->create();
-        Region::factory(10)->create();
-        Comuna::factory(10)->create();
+        Feria::factory(30)->create();
+        Feriante::factory(300)->create();
+        Region::factory()->create();
+        Comuna::factory()->create();
         Feria_PuestoDeVenta::factory()->create();
 
         //Martin ??
         Categoria::factory(10)->create();
-        PuestoDeVenta::factory(10)->create();
-        Producto::factory(10)->create();
+        PuestoDeVenta::factory()->create();
+        Producto::factory(100)->create();
         Producto_PuestoDeVenta::factory()->create();
-        Unidad::factory(10)->create();
+        Unidad::factory()->create();
 
 
 

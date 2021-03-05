@@ -34,7 +34,6 @@ class CuentaBancariaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Corexion
     public function store(Request $request)
     {
                 //
@@ -43,36 +42,17 @@ class CuentaBancariaController extends Controller
             'numero_cuenta' => ['required' ,'numeric'],
             'banco' => ['required' , 'min:2' , 'max:50'],
             'tipo_cuenta' => ['required' , 'min:2' , 'max:50'],
+            'balance' => ['required' , 'min:2' , 'max:50'],
 			
 			'id_feriante' => ['required' , 'numeric'],
             'id_cliente' => ['required' , 'numeric'],
             'id_orden_pago' => ['required' , 'numeric']
         ]);
 		
-		
-        //verificar las llaves foraneas
-        $cliente = Cliente::find($request->id_cliente);
-        if($cliente == NULL){
-            return response()->json([
-                'message'=>'No existe un cliente con esa id'
-            ]);
-        }
-        $feriante = Feriante::find($request->id_feriante);
-        if($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }
-        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
-        if($orden_de_pago == NULL){
-            return response()->json([
-                'message'=>'No existe orden de pago con esa id'
-            ]);
-        }
-		
         $cuenta_bancarias->numero_cuenta = $request->numero_cuenta;
         $cuenta_bancarias->banco = $request->banco;
         $cuenta_bancarias->tipo_cuenta = $request->tipo_cuenta;
+        $cuenta_bancarias->balance = $request->balance;
         $cuenta_bancarias->save();
         return response()->json([
 			"message"=>"Se ha creado una cuenta bancaria",
@@ -170,5 +150,22 @@ class CuentaBancariaController extends Controller
                 'message'=>'id invalido'
             ],404);
         } 
+    }
+    public function showDatos($id)
+    {
+        if(is_numeric($id)){
+            $cuenta = CuentaBancaria::find($id);
+            if($cuenta == NULL){
+                return response()->json([
+                    'message'=>'id invalido'
+                ],404);
+            }
+            return view('perfil_datosBanco')->with('cuenta',$cuenta);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }

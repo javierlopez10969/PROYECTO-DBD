@@ -11,7 +11,7 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $producto = Producto::all()->where('delete',false);
+        $producto = Producto::all();//->where('delete',false);
         if($producto != NULL){
             return response()->json($producto);
         }
@@ -20,37 +20,32 @@ class ProductoController extends Controller
         ],404);
     }
 
-    //Correxion
+    //Correxion (no se genera la tupla)
     public function store(Request $request)
     {
         //
 		$producto = new Producto();
+        
 		$validateData = $request->validate([
-			'precio_producto' => ['required','max:255','numeric','regex:฿₵¢₡BsB/.₫€ƒ₲Kč₭£₤₥₦₱PRℛℳ₨рубSk৲S৳R$$₸₮₩¥zł₴₪'],
-			'unidad' => ['required','numeric'],
-			'tipo_de_stock' => ['required','alpha_num'],
-			'nombre_producto' => ['required','unique:posts','max:255'],
-			'id_categoria' => ['require' , 'numeric'],
-			'id_unidad' => ['require' , 'numeric']
+            'precio_producto' => ['required','numeric'],
+            'unidad' => ['required','numeric'],
+            'tipo_de_stock' => ['required','boolean'],
+            'nombre_producto' => ['required','string','max:500'],
+            'categoria' =>['required','string','max:50'],
+
+			'id_categoria' => ['required' , 'numeric'],
+			'id_unidad' => ['required' , 'numeric']
 		]);
-		$categoria = Categoria::find($request->id_categoria);
-        if($categoria == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
-		$unidad = Unidad::find($request->id_unidad);
-        if($unidad == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
+
 		$producto->precio_producto = $request->precio_producto;
 		$producto->unidad = $request->unidad;
 		$producto->tipo_de_stock = $request->tipo_de_stock;
 		$producto->nombre_producto = $request->nombre_producto;
+		$producto->id_categoria = $request->id_categoria;
+		$producto->id_unidad = $request->id_unidad;
+
 		$producto->save();
-		return responde()->json([
+		return response()->json([
             "message" => "Se ha creado un producto.",
             "id" => $producto->id
 		],202);
@@ -61,12 +56,13 @@ class ProductoController extends Controller
     {
 		if(is_numeric($id)){
             $producto = Producto::find($id);
+            $d = Producto::all();
             if($producto == NULL or $producto->delete == true){
                 return response()->json([
                     'message'=>'No se encontro el producto'
                 ]);
             }
-            return response()->json($producto);
+            return view('pagina_compra',compact('producto'));
         }
         else{
             return response()->json([
@@ -133,5 +129,31 @@ class ProductoController extends Controller
                 'message'=>'id invalido'
             ],404);
         }
+    }
+
+    public function showCategoria(Request $request)
+    {
+        $filtro = $request->get('categoria');
+        if($filtro == NULL){
+            $producto = Producto::all();
+                return view('feriantes_por_producto')->with('producto',$producto);
+
+                return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+
+        $producto = Producto::all()->where('categoria', $filtro);
+        return view('feriantes_por_producto')->with('producto',$producto);
+    }
+    public function storeProducto(Request $request)
+    {
+        $producto = new Producto();
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->precio_producto = $request->precio_producto;
+        $producto->categoria = $request->categoria;
+        $user->save();
+
+        return redirect('/productocategoria');
     }
 }

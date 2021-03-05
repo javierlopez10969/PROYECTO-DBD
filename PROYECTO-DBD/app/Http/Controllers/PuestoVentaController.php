@@ -11,7 +11,7 @@ class PuestoVentaController extends Controller
 
     public function index()
     {
-		$puestoVenta = PuestoDeVenta::all()->where('delete',false);
+		$puestoVenta = PuestoDeVenta::all();//->where('delete',false);
         if($puestoVenta != NULL){
             return response()->json($puestoVenta);
         }
@@ -20,25 +20,26 @@ class PuestoVentaController extends Controller
         ],404);
     }
 
-    //Correxion
     public function store(Request $request)
     {
         //
 		$puestoVenta = new PuestoDeVenta();
 		$validateData = $request->validate([
-			'categoria' => ['required','unique:posts','max:255'],
-			'id_feriante' => ['require' , 'numeric']
+			'categoria' => ['required','max:255'],
+			'id_feriante' => ['required' , 'numeric']
 		]);
+        /*
 		$feriante = Feriante::find($request->id_feriante);
         if($feriante == NULL){
             return response()->json([
                 'message'=>'No existe usuario con esa id'
             ]);
         }
+        */
 		$puestoVenta->categoria = $request->categoria;
-		$puesto->delete = $request->delete;
+		//$puesto->delete = $request->delete;
 		$puestoVenta->save();
-		return responde()->json([
+		return response()->json([
             "message" => "Se ha creado una categoria.",
             "id" => $puestoVenta->id
 		],202);

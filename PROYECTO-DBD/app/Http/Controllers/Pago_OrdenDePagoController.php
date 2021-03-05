@@ -17,7 +17,7 @@ class Pago_OrdenDePagoController extends Controller
     public function index()
     {
         //
-        $pago_OrdenDePago = Pago_ordendepago::all()->where('delete',false);
+        $pago_OrdenDePago = Pago_ordendepago::all();//->where('delete',false);
         if($pago_OrdenDePago != NULL){
             return response()->json($pago_OrdenDePago);
         }
@@ -32,28 +32,19 @@ class Pago_OrdenDePagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+    //Correxion(error en la llave foranea id_pago)
     public function store(Request $request)
     {
         //
         $pago_OrdenDePago = new Pago_ordendepago();
         $validatedData = $request->validate([
-            'id_pago' => ['require' , 'numeric'],
-            'id_orden_pago' => ['require' , 'numeric']
+            'id_pago' => ['required' , 'numeric'],
+            'id_orden_pago' => ['required' , 'numeric']
         ]);
         
-        $pago= Pago::find($request->id_pago);
-        if ($producto == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
-        $orden_de_pago = OrdenDePago::find($request->id_orden_pago);
-        if ($orden_de_pago == NULL){
-            return response()->json([
-                'message'=>'No existe usuario con esa id'
-            ]);
-        }
+        $pago_OrdenDePago->id_pago = $request->id_pago;
+        $pago_OrdenDePago->id_orden_pago = $request->id_orden_pago;
+
         $pago_OrdenDePago->save();
         return response()->json([
             "mesage"=>"Se ha creado una store",

@@ -12,26 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//PRUEBA DE LAYOUT
-/*
-Route::get('/', function () {
-    return view('layouts.default');
-})->name('home');
 
-Route::get('/about', function () {
-    return view('pages.about');
-})->name('about');
 
-Route::get('/projects', function () {
-    return view('pages.proyects');
-})->name('projects');
-Route::get('/contact', function () {
-    return view('pages.contact');
-})->name('contact');
-*/
 Route::get('/', function () {
     return view('layouts.main');
 })->name('home');
+
 Route::get('/', function () {
     return view('pages.carrousel');
 })->name('carousel');
@@ -40,17 +26,9 @@ Route::get('/ingresar', function () {
     return view('pages.ingresar');
 })->name('ingresar');
 
-Route::get('/registrar', function () {
-    return view('pages.registrar');
-})->name('registrar');
 
-/*
-*/
-/*
-Route::get('/', function () {
-    return view('prueba');
-})->name('home');
-*/
+Route::post('/cliente/create','ClienteController@store');
+
 
 Route::get('/login', function () {
     return view('login');
@@ -59,6 +37,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
 
 Route::get('/perfil_datosPersonales', function () {
     return view('perfil_datosPersonales');
@@ -79,6 +58,38 @@ Route::get('/carrito', function () {
 Route::get('/despacho', function () {
     return view('despacho');
 });
+
+
+Route::get('/feria_region', function () {
+    return view('feria_por_region');
+});
+
+Route::get('/feriantes_producto', function () {
+    return view('feriantes_por_producto');
+});
+
+Route::get('/feriante_fav', function () {
+    return view('feriante_fav');
+});
+
+Route::get('/confirmar_pago', function () {
+    return view('confirmar_pago');
+});
+
+Route::get('/bienvenida', function () {
+    return view('pages.bienvenida');
+})->name('bienvenida');;
+
+Route::get('/addp', function () {
+    return view('pagina_agregar_producto');
+});
+
+Route::get('/productocategoria','ProductoController@showCategoria');
+Route::get('/feriacomuna','FeriaController@showComuna');
+Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
+Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
+Route::post('/agregarproducto','ProductoController@storeProducto')->name('storeProducto');
+
 
 #feria
 Route::get('/feria','FeriaController@index');
@@ -132,7 +143,7 @@ Route::delete('/producto/delete/{id}','ProductoController@destroy');
 #cliente
 Route::get('/cliente','ClienteController@index');
 Route::get('/cliente/{id}','ClienteController@show');
-Route::post('/cliente/create','ClienteController@store');
+Route::post('/cliente/create','ClienteController@store')->name('ClienteStore');
 Route::put('/cliente/update/{id}','ClienteController@update');
 Route::delete('/cliente/delete/{id}','ClienteController@destroy');
 
@@ -153,7 +164,7 @@ Route::delete('/cuenta_bancarias/delete/{id}','CuentaBancariaController@destroy'
 #dato personal
 Route::get('/dato_personal','DatoPersonalController@index');
 Route::get('/dato_personal/{id}','DatoPersonalController@show');
-Route::post('/dato_personal/create','DatoPersonalController@store');
+Route::post('/dato_personal/create','DatoPersonalController@store')->name('DatoPersonalStore');
 Route::put('/dato_personal/update/{id}','DatoPersonalController@update');
 Route::delete('/dato_personal/delete/{id}','DatoPersonalController@destroy');
 
@@ -230,11 +241,11 @@ Route::put('/feria_PuestoDeVenta/update/{id}','Feria_PuestoDeVentaController@upd
 Route::delete('/feria_PuestoDeVenta/delete/{id}','Feria_PuestoDeVentaController@destroy');
 
 #producto_puestosDeVenta
-Route::get('/producto_puestosDeVenta','Producto_PuestoDeVentaController@index');
-Route::get('/producto_puestosDeVenta/{id}','Producto_PuestoDeVentaController@show');
-Route::post('/producto_puestosDeVenta/create','Producto_PuestoDeVentaController@store');
-Route::put('/producto_puestosDeVenta/update/{id}','Producto_PuestoDeVentaController@update');
-Route::delete('/producto_puestosDeVenta/delete/{id}','Producto_PuestoDeVentaController@destroy');
+Route::get('/producto_puestodeventa','Producto_PuestoDeVentaController@index');
+Route::get('/producto_puestodeventa/{id}','Producto_PuestoDeVentaController@show');
+Route::post('/producto_puestodeventa/create','Producto_PuestoDeVentaController@store');
+Route::put('/producto_puestodeventa/update/{id}','Producto_PuestoDeVentaController@update');
+Route::delete('/producto_puestodeventa/delete/{id}','Producto_PuestoDeVentaController@destroy');
 
 #feria_feriaFavorito
 Route::get('/feria_feriafavorito','Feria_FeriaFavoritoController@index');
@@ -263,3 +274,14 @@ Route::get('/producto_ordenDeCompra/{id}','Producto_OrdenDeCompraController@show
 Route::post('/producto_ordenDeCompra/create','Producto_OrdenDeCompraController@store');
 Route::put('/producto_ordenDeCompra/update/{id}','Producto_OrdenDeCompraController@update');
 Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraController@destroy');
+
+
+##TESTEANDO
+
+#cliente
+Route::get('/user','AuthController@index');
+Route::get('/user/{id}','AuthController@show');
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

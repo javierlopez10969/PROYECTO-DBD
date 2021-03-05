@@ -20,7 +20,6 @@ class FeriaFavoritoController extends Controller
     }
 
     //Crear una nueva tupla tupla 
-    //Correxion
     public function store(Request $request)
     {
         $feria_favorito = new FeriaFavorito();
@@ -28,8 +27,7 @@ class FeriaFavoritoController extends Controller
             'valoracion' => ['required' , 'numeric'],
         ]);        
 
-        $feria_favorito = new FeriaFavorito();
-        $feria_favorito->valoracion = $validatedData->valoracion;
+        $feria_favorito->valoracion = $request->valoracion;
         $feria_favorito->save();
         return response()->json([
             "message"=> "Se ha añadido una nueva feria a favoritos",

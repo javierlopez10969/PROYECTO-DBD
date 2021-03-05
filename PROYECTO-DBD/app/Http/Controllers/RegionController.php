@@ -30,16 +30,16 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
+ 
     public function store(Request $request)
     {
         $region = new Region();
 
         $validatedData = $request->validate([
-            'nombre_region' => ['required' ,'string'],
+            'nombre_region' => ['required' ,'string']
         ]); 
 
-        $region->$request->nombre_region;
+        $region->nombre_region = $request->nombre_region;
         $region->save();
         return response()->json([
             "message"=> "Nueva region agregada",

@@ -30,29 +30,21 @@ class FerianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
         $feriante = new Feriante();
-            $validatedData = $request->validate([
+        $validatedData = $request->validate([
             'direccion_feriante' => ['required' ,'string'],
             'telefono_feriante' => ['required' , 'string'],
             'nombre_feriante' => ['required' , 'string'],
         ]);        
 
-        $feriante = Feriante::find($request->id_feriante);
-        if($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ],404);
-        }
-
-        $feriante->$request->direccion_feriante;
-        $feriante->$request->telefono_feriante;
-        $feriante->$request->nombre_feriante;
+        $feriante->direccion_feriante = $request->direccion_feriante;
+        $feriante->telefono_feriante = $request->telefono_feriante;
+        $feriante->nombre_feriante = $request->nombre_feriante;
         $feriante->save();
         return response()->json([
-            "message"=> "Nueva feriante agregado",
+            "message"=> "Nuevo feriante agregado",
             "id"=>$feriante->id
         ],201);
     }

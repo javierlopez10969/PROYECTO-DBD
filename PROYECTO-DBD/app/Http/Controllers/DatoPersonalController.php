@@ -33,41 +33,35 @@ class DatoPersonalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //Correxion
     public function store(Request $request)
     {
-                //
+         
         $dato_personal = new DatosPersonal();
+        $cliente = new Cliente();//
         $validatedData = $request->validate([
+           
+			'nombre_cliente' => ['required' , 'min:2' , 'max:50'],
+            'telefono_cliente' => ['required' , 'min:2' , 'max:50'],
+
             'user_name' => ['required' , 'min:2' , 'max:50'],			
             'correo_electronico' => ['required' , 'min:2' , 'max:100'],
             'password' => ['required' , 'min:2' , 'max:50'],
-			
-			'id_feriante' => ['required' , 'numeric'],
-            'id_cliente' => ['required' , 'numeric']
+			//'id_feriante' => ['required' , 'numeric'],
+            //'id_cliente' => ['required' , 'numeric']
         ]);
-		
-		
-        //verificar las llaves foraneas
-        $cliente = Cliente::find($request->id_cliente);
-        if($cliente == NULL){
-            return response()->json([
-                'message'=>'No existe un cliente con esa id'
-            ]);
-        }
-        $feriante = Feriante::find($request->id_feriante);
-        if($feriante == NULL){
-            return response()->json([
-                'message'=>'No existe un feriante con esa id'
-            ]);
-        }
+        
+        
+        $cliente->nombre_cliente = $request->nombre_cliente;
+        $cliente->telefono_cliente = $request->telefono_cliente;
+        $cliente->save();
 
-		
-		
         $dato_personal->user_name = $request->user_name;
         $dato_personal->correo_electronico = $request->correo_electronico;
         $dato_personal->password = $request->password;
+        $dato_personal->id_cliente = $cliente->id;
+
         $dato_personal->save();
+        
         return response()->json([
 			"message"=>"Se ha creado un datos personales",
 			"id" => $dato_personal->id
@@ -164,5 +158,24 @@ class DatoPersonalController extends Controller
                 'message'=>'id invalido'
             ],404);
         }   
+    }
+
+    public function showDatos($id)
+    {
+        if(is_numeric($id)){
+            $dato_personal = DatosPersonal::find($id);
+            $cliente = Cliente::find($id);
+            if($dato_personal == NULL){
+                return response()->json([
+                    'message'=>'id invalido'
+                ],404);
+            }
+            return view('perfil_datosActuales')->with('dato_personal',$dato_personal)->with('cliente',$cliente);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
     }
 }
