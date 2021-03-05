@@ -30,10 +30,10 @@
 
         </div>
 
-        <!--  Titulo Modificar contraseña -->
+        <!--  Titulo Mis datos personales -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Modificar contraseña</div>
+            <div class="col-4 space_title color_texto">Modificarname datos personales</div>
         </div>
  
         <!-- cuadrados -->
@@ -41,9 +41,10 @@
             <!-- Mi perfil -->
             <div class="col-4">
                 <div class="container-fluid ventana_p">
+                    
                     <form class="form_perfil">
                         <h4 class="card-titl text-center">Mi perfil</h4>
-                        
+
                         <ul class="nav flex-column padding_buttons">
                             <li class="nav-item">
                                 <a class="nav-link active color7" aria-current="page" href="/perfil_datosActuales">Mis datos personales</a>
@@ -55,35 +56,71 @@
                                 <a class="nav-link color7" aria-current="page" href="/perfil_modificarContraseña">Modificar contraseña</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/perfil_cuentaBancaria">Modificar cuenta bancaria</a>
+                                <a class="nav-link color7" aria-current="page" href="/perfil_cuentaBancaria">Mi cuenta bancaria</a>
                             </li>
                         </ul>
                     </form>
+                    
 
                 </div>
             </div>
 
-            <!-- Modificar contraseña -->
+            <!-- Datos Personales -->
             <div class="col-8">
-                <div class="container-fluid ventana_mc">
-                    <form class="form-password">
-
+                <div class="container-fluid ventana_dp">
+                    <form class="form-personal">
                         <div class="col-12 padding_text">
-                            <label for="inputPassword" class="form-label">Contraseña actual</label>
-                            <input class="form-control" type="password" required="" id="inputPassword">                      
+                            <label class="form-label">Nombre Completo</label>
+                            <div class="col">
+                                <div class="row" style="padding: 30px">
+                                    <div class="container-fluid ventana_nombre">
+                                        <div class="row">
+                                            <div class="col titulo_nombre text-start"> {{$cliente->nombre_cliente}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12 padding_text">
-                            <label for="inputPassword" class="form-label">Nueva contraseña</label>
-                            <input class="form-control" type="password" required="" id="password" oninput="check_p(this)">
-                        </div> 
+                            <label class="form-label">Numero de telefono</label>
+                            <div class="col">
+                                <div class="row" style="padding: 30px">
+                                    <div class="container-fluid ventana_telefono">
+                                        <div class="row">
+                                            <div class="col titulo_telefono text-start"> {{$cliente->telefono_cliente}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row padding_text">
+                            <div class="col-12">
+                                <label class="form-label">Nombre de usuario</label>
+                                <div class="col">
+                                <div class="row" style="padding: 30px">
+                                    <div class="container-fluid ventana_user">
+                                        <div class="row">
+                                            <div class="col titulo_user text-start"> {{$dato_personal->user_name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
                         <div class="col-12 padding_text">
-                            <label for="inputPassword" class="form-label">Repetir nueva contraseña</label>
-                            <input class="form-control" type="password" required="" oninput="check(this)"> 
-                        </div>
-                        <div class="col-12" style="padding: 50px;">
-                            <button type="button" class="btn btn-secondary btn-lg">Volver al menú</button>
-                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                        </div>
+                            <label for="inputEmail" class="form-label">Correo electrónico</label>
+                            <div class="col">
+                                <div class="row" style="padding: 30px">
+                                    <div class="container-fluid ventana_correo">
+                                        <div class="row">
+                                            <div class="col titulo_correo text-start"> {{$dato_personal->correo_electronico}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
                     </form>
 
                 </div>
@@ -142,7 +179,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         padding: 20px;
     }
 
-    .ventana_mc{
+    .ventana_dp{
         width: 930px;
         height: 550px;
         left: 493px;
@@ -162,10 +199,10 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         border-radius: 39px;
     }
 
-    .form-password{
+    .form-personal {
         width: 100%;
         max-width: 630px;
-        padding: 50px;
+        padding: 10px;
         margin: 0 auto;
     }
 
@@ -176,35 +213,49 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         margin: 0 auto;
     }
     .padding_text{
-        padding: 20px;
+        padding: 10px;
     }
 
     .padding_buttons{
         padding: 15px;
     }
+    .ventana_nombre{
+        position: absolute;
+        width: 508.11px;
+        height: 34px;
+        left: 652px;
+        top: 260px;
 
+        background: #DB7F7F;
+    }
+
+    .ventana_user{
+        position: absolute;
+        width: 508.11px;
+        height: 34px;
+        left: 652px;
+        top: 480px;
+
+        background: #DB7F7F;
+    }
+
+    .ventana_telefono{
+        position: absolute;
+        width: 508.11px;
+        height: 34px;
+        left: 652px;
+        top: 370px;
+
+        background: #DB7F7F;
+    }
+
+    .ventana_correo{
+        position: absolute;
+        width: 508.11px;
+        height: 34px;
+        left: 652px;
+        top: 590px;
+
+        background: #DB7F7F;
+    }
  </style> 
-
-<!-- Javascript para verificar si al ingresar la nueva contraseña, estas sean distintas-->
-<script language='javascript' type='text/javascript'>
-    function check(input) {
-        if (input.value != document.getElementById('password').value) {
-            input.setCustomValidity('Las contraseñas no coinciden');
-        } else {
-            // input is valid -- reset the error message
-            input.setCustomValidity('');
-        }
-    }
-</script>
-
-<!-- Javascript para verificar si al ingresar la contraseña actual y la nueva contraseña, estas sean distintas-->
-<script language='javascript' type='text/javascript'>
-    function check_p(input) {
-        if (input.value == document.getElementById('inputPassword').value) {
-            input.setCustomValidity('La contraseña actual debe ser distinta a la nueva contraseña');
-        } else {
-            // input is valid -- reset the error message
-            input.setCustomValidity('');
-        }
-    }
-</script>

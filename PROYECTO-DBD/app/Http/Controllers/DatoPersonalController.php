@@ -159,4 +159,23 @@ class DatoPersonalController extends Controller
             ],404);
         }   
     }
+
+    public function showDatos($id)
+    {
+        if(is_numeric($id)){
+            $dato_personal = DatosPersonal::find($id);
+            $cliente = Cliente::find($id);
+            if($dato_personal == NULL){
+                return response()->json([
+                    'message'=>'id invalido'
+                ],404);
+            }
+            return view('perfil_datosActuales')->with('dato_personal',$dato_personal)->with('cliente',$cliente);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+    }
 }
