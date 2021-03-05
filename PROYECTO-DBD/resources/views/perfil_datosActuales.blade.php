@@ -33,7 +33,7 @@
         <!--  Titulo Mis datos personales -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Modificarname datos personales</div>
+            <div class="col-4 space_title color_texto">Modificar datos Personales</div>
         </div>
  
         <!-- cuadrados -->

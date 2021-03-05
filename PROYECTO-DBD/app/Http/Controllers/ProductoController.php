@@ -31,6 +31,7 @@ class ProductoController extends Controller
             'unidad' => ['required','numeric'],
             'tipo_de_stock' => ['required','boolean'],
             'nombre_producto' => ['required','string','max:500'],
+            'categoria' =>['required','string','max:50'],
 
 			'id_categoria' => ['required' , 'numeric'],
 			'id_unidad' => ['required' , 'numeric']
@@ -144,5 +145,15 @@ class ProductoController extends Controller
 
         $producto = Producto::all()->where('categoria', $filtro);
         return view('feriantes_por_producto')->with('producto',$producto);
+    }
+    public function storeProducto(Request $request)
+    {
+        $producto = new Producto();
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->precio_producto = $request->precio_producto;
+        $producto->categoria = $request->categoria;
+        $user->save();
+
+        return redirect('/productocategoria');
     }
 }

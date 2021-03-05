@@ -79,10 +79,15 @@ Route::get('/bienvenida', function () {
     return view('pages.bienvenida');
 })->name('bienvenida');;
 
+Route::get('/addp', function () {
+    return view('pagina_agregar_producto');
+});
+
 Route::get('/productocategoria','ProductoController@showCategoria');
 Route::get('/feriacomuna','FeriaController@showComuna');
 Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
 Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
+Route::post('/agregarproducto','ProductoController@storeProducto')->name('storeProducto');
 
 #feria
 Route::get('/feria','FeriaController@index');
