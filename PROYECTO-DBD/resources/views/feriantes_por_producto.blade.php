@@ -106,7 +106,7 @@
                         </select>
                     </div>
                         
-                            <input type="submit" value="Seleccionar" class="btn btn-warning"/>
+                        <input type="submit" value="Seleccionar" class="btn btn-warning"/>
                         
                     </form>
                 </div>

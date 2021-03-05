@@ -21,34 +21,17 @@ class ProductoController extends Controller
     }
 
     //Correxion (no se genera la tupla)
-    public function store(Request $request)
+    public function store(Post $request)
     {
         //
-		$producto = new Producto();
         
-		$validateData = $request->validate([
-            'precio_producto' => ['required','numeric'],
-            'unidad' => ['required','numeric'],
-            'tipo_de_stock' => ['required','boolean'],
-            'nombre_producto' => ['required','string','max:500'],
-            'categoria' =>['required','string','max:50'],
+        $producto = new Producto();
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->precio_producto = $request->precio_producto;
+        $producto->categoria = $request->categoria;
+        $user->save();
 
-			'id_categoria' => ['required' , 'numeric'],
-			'id_unidad' => ['required' , 'numeric']
-		]);
-
-		$producto->precio_producto = $request->precio_producto;
-		$producto->unidad = $request->unidad;
-		$producto->tipo_de_stock = $request->tipo_de_stock;
-		$producto->nombre_producto = $request->nombre_producto;
-		$producto->id_categoria = $request->id_categoria;
-		$producto->id_unidad = $request->id_unidad;
-
-		$producto->save();
-		return response()->json([
-            "message" => "Se ha creado un producto.",
-            "id" => $producto->id
-		],202);
+        return view('feriantes_por_producto');
 	}
 
 
@@ -146,14 +129,16 @@ class ProductoController extends Controller
         $producto = Producto::all()->where('categoria', $filtro);
         return view('feriantes_por_producto')->with('producto',$producto);
     }
+    
     public function storeProducto(Request $request)
     {
-        $producto = new Producto();
-        $producto->nombre_producto = $request->nombre_producto;
-        $producto->precio_producto = $request->precio_producto;
-        $producto->categoria = $request->categoria;
-        $user->save();
+        $newproducto = new Producto();
+        $newproducto->nombre_producto = $request->nombre_producto;
+        $newproducto->precio_producto = $request->precio_producto;
+        $newproducto->categoria = $request->categoria;
+        $newproducto->save();
 
-        return redirect('/productocategoria');
+        $producto = Producto::all();
+        return redirect('productocategoria')->with('producto',$producto);
     }
 }

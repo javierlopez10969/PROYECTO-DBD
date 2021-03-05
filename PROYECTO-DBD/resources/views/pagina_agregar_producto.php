@@ -24,7 +24,7 @@
                 </a>
                 
                 <div class="col-sm text-center padding-text color7">
-                    <h1> Perfil </h1>
+                    <h1> Agregar Producto </h1>
                 </div>
             </nav>
 
@@ -32,55 +32,37 @@
 
         <!--  Titulo Modificar contraseña -->
         <div class="row justify-content-center">
-            <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Modificar contraseña</div>
+            <div class="col space_title color_texto">Agregar nuevo Producto en Venta</div>
         </div>
  
-        <!-- cuadrados -->
-        <div class="row">
-            <!-- Mi perfil -->
-            <div class="col-4">
-                <div class="container-fluid ventana_p">
-                    <form class="form_perfil">
-                        <h4 class="card-titl text-center">Mi perfil</h4>
-                        
-                        <ul class="nav flex-column padding_buttons">
-                            <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosActuales">Mis datos personales</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/perfil_datosPersonales">Modificar datos personales</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/perfil_modificarContraseña">Modificar contraseña</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/perfil_cuentaBancaria">Modificar cuenta bancaria</a>
-                            </li>
-                        </ul>
-                    </form>
 
-                </div>
-            </div>
 
-            <!-- Modificar contraseña -->
-            <div class="col-8">
+            <!-- Agregar Producto -->
+            <div class="col">
                 <div class="container-fluid ventana_mc">
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <form action="/productonuevo" method="POST">
+                    <div class="mb-3" style="padding: 15px">
+                        <label for="exampleInputNombre" style="padding: 20px" class="form-label">Nombre o Descripción del Producto</label>
+                        <input type="text" class="form-control" name='nombre_producto' value="" placeholder='Nombre o Descripción del Producto'>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="mb-3" style="padding: 15px">
+                        <label for="exampleInputPrecio1" style="padding: 15px" class="form-label">Valor de Venta por Unidad</label>
+                        <input type="number" class="form-control" name='precio_producto' value="" placeholder='Ej: 4990'>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div class="mb-3" style="padding: 15px">
+                        <label for="categoria" style="padding: 15px" class="form-label">Categoría</label>
+                        <select for="exampleInputCategory1" class="form-select selector_region" value="" aria-label="selector_region" name="categoria">
+                                <option selected value="">--Seleccione una Categoría--</option>
+                                <option value="Frutas">Frutas</option>
+                                <option value="Verduras">Verduras</option>
+                                <option value="Carne y Pescado">Carnes y Pescado</option>
+                                <option value="Huevos">Huevos</option>
+                                <option value="Artículos de Aseo">Artículos de Aseo</option>
+                                <option value="Alimento para Mascotas">Alimento para Mascotas</option>
+                                <option value="Otros">Otros</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Poner en Venta</button>
                 </form>
 
                 </div>

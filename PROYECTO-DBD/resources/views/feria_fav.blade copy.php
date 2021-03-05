@@ -82,7 +82,7 @@
         <!-- Titulo Feriantes favoritos -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Feriantes favoritos</div>
+            <div class="col-4 space_title color_texto">Ferias favoritas</div>
         </div>
 
         <!-- Cuadrados -->
