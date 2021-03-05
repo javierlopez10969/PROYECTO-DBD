@@ -133,7 +133,7 @@
                 <div class="row" style="padding: 20px">
                     <!-- Boton de comprar ahora -->
                     <div class="col">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Comprar Ahora</a>
+                        <a class="btn btn-primary btn-lg" href="http://127.0.0.1:8000/confirmar_pago" role="button">Comprar Ahora</a>
                     </div>
 
                     <!-- Boton de agregar a carrito -->

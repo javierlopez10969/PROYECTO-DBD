@@ -73,24 +73,24 @@
                 <div class="container-fluid ventana_dp">
                     <form class="form-personal">
                         <div class="col-12 padding_text">
-                            <label class="form-label">Nombre Completo</label>
+                            <label class="form-label">Número de Cuenta</label>
                             <div class="col">
                                 <div class="row" style="padding: 30px">
                                     <div class="container-fluid ventana_nombre">
                                         <div class="row">
-                                            <div class="col titulo_nombre text-start"> {{$cliente->nombre_cliente}}</div>
+                                            <div class="col titulo_nombre text-start"> {{$cuenta->numero_cuenta}}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 padding_text">
-                            <label class="form-label">Numero de telefono</label>
+                            <label class="form-label">Banco</label>
                             <div class="col">
                                 <div class="row" style="padding: 30px">
                                     <div class="container-fluid ventana_telefono">
                                         <div class="row">
-                                            <div class="col titulo_telefono text-start"> {{$cliente->telefono_cliente}}</div>
+                                            <div class="col titulo_telefono text-start"> {{$cuenta->banco}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -99,12 +99,12 @@
                         
                         <div class="row padding_text">
                             <div class="col-12">
-                                <label class="form-label">Nombre de usuario</label>
+                                <label class="form-label">Tipo de Cuenta</label>
                                 <div class="col">
                                 <div class="row" style="padding: 30px">
                                     <div class="container-fluid ventana_user">
                                         <div class="row">
-                                            <div class="col titulo_user text-start"> {{$dato_personal->user_name}}</div>
+                                            <div class="col titulo_user text-start"> {{$cuenta->tipo_cuenta}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,12 +113,12 @@
                         </div>
                         
                         <div class="col-12 padding_text">
-                            <label for="inputEmail" class="form-label">Correo electrónico</label>
+                            <label for="inputEmail" class="form-label">Balance</label>
                             <div class="col">
                                 <div class="row" style="padding: 30px">
                                     <div class="container-fluid ventana_correo">
                                         <div class="row">
-                                            <div class="col titulo_correo text-start"> {{$dato_personal->correo_electronico}}</div>
+                                            <div class="col titulo_correo text-start"> {{$cuenta->balance}}</div>
                                         </div>
                                     </div>
                                 </div>

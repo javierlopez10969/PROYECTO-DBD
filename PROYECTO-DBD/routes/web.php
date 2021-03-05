@@ -82,6 +82,7 @@ Route::get('/bienvenida', function () {
 Route::get('/productocategoria','ProductoController@showCategoria');
 Route::get('/feriacomuna','FeriaController@showComuna');
 Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
+Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
 
 #feria
 Route::get('/feria','FeriaController@index');

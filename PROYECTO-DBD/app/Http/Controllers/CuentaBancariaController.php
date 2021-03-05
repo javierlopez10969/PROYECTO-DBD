@@ -151,4 +151,21 @@ class CuentaBancariaController extends Controller
             ],404);
         } 
     }
+    public function showDatos($id)
+    {
+        if(is_numeric($id)){
+            $cuenta = CuentaBancaria::find($id);
+            if($cuenta == NULL){
+                return response()->json([
+                    'message'=>'id invalido'
+                ],404);
+            }
+            return view('perfil_datosBanco')->with('cuenta',$cuenta);
+        }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+    }
 }
