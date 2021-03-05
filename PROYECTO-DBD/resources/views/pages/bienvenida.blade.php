@@ -1,40 +1,8 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.main')
+
+@section('seccion')
 
     <div class="container-fluid mx-0 px-0 ">
-        <!-- barra productos -->
-        <div class="row">
-            <div class="col border border-dark centrado">
-                <h5 > Frutas </h5>
-            </div>  
-
-            <div class="col border border-dark centrado">
-                <h5 > Verduras </h5>
-            </div>  
-            <div class="col border border-dark centrado">
-                <h5 > Pollo </h5>
-            </div>
-
-            <div class="col border border-dark centrado">
-                <h5> Carne y Pescado </h5>
-            </div>
-
-            <div class="col border border-dark centrado">
-                <h5> Huevos </h5> 
-            </div>
-
-            <div class="col border border-dark centrado">
-                <h5> Productos higiénicos </h5>
-            </div>  
-            <div class="col border border-dark centrado">
-                <h5> Comida para mascotas </h5>
-            </div>
-
-            <div class="col border border-dark centrado">
-                <h5> Otros </h5>
-            </div>
-        </div>
-
         <!-- BOTONES -->
         <div class="row justify-content-end">
             <div class="col-6" style="padding: 20px">
@@ -67,7 +35,7 @@
 
         <!-- barra ofertas -->
         <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_ofertas">
+            <div class="container-fluid ">
                 <!-- Primera linea -->
                 <div class="row">
                     
@@ -77,7 +45,7 @@
 
         <!-- barra destacados -->
         <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_destacados">
+            <div class="container-fluid ">
                 <!-- Primera linea -->
                 <div class="row">
                     
@@ -87,7 +55,7 @@
 
         <!-- barra productos -->
         <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_productos">
+            <div class="container-fluid ">
                 <!-- Primera linea -->
                 <div class="row">
                     
@@ -99,8 +67,7 @@
 
 
     </div>
-    @endsection
-    
+ 
 <!--CSS
 estilo de colores (pude ser HEX)   ej #FFFFFF 
     -->
@@ -141,7 +108,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         }
         .ventana_ofertas{
             position: absolute;
-            width: 1218px;
+            width: 1000px;
             height: 364px;
             left: 109px;
             top: 333px;
@@ -218,3 +185,6 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
             color: #000000;
         }
     </style>
+
+@endsection
+   

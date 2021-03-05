@@ -12,28 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//PRUEBA DE LAYOUT
-/*
-Route::get('/', function () {
-    return view('layouts.default');
-})->name('home');
 
-Route::get('/about', function () {
-    return view('pages.about');
-})->name('about');
-
-Route::get('/projects', function () {
-    return view('pages.proyects');
-})->name('projects');
-Route::get('/contact', function () {
-    return view('pages.contact');
-})->name('contact');
-*/
-/*
-Route::get('/', function () {
-    return view('prueba');
-})->name('prueba');
-*/
 
 Route::get('/', function () {
     return view('layouts.main');
@@ -47,9 +26,7 @@ Route::get('/ingresar', function () {
     return view('pages.ingresar');
 })->name('ingresar');
 
-Route::get('/registrar', function () {
-    return view('pages.registrar');
-})->name('registrar');
+
 Route::post('/cliente/create','ClienteController@store');
 
 
@@ -297,6 +274,5 @@ Route::get('/user','AuthController@index');
 Route::get('/user/{id}','AuthController@show');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -17,6 +17,7 @@
 
 <body>
     <div class="container-fluid">
+            <!--NavBar -->
             <header class="row">
                 @include('layouts.app')
             </header>
@@ -52,7 +53,7 @@
                     <h5> Otros </h5>
                 </div>
             </div>
-                <!--Cuerpo-->
+            <!--Cuerpo-->
             <div row class="container mt-5">
                 <div col></div>
                 <div col class ="container-fluid text-center">

@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('content')
+@section('seccion')
     i am the home page
 @stop
     
