@@ -82,7 +82,7 @@
         <!-- Titulo Feriantes favoritos -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Feriantes favoritos</div>
+            <div class="col-4 space_title color_texto">Agregar Feriantes a Favoritos</div>
         </div>
 
         <!-- Cuadrados -->
@@ -118,52 +118,37 @@
                 </div>
             </div>
             <!-- Tabla con la Lista de Feriantes -->
-            <div class="col-4">
+            <div class="col-8">
                 <!--<div class="row" style="padding: 130px">-->
                 <div class="row">
                     <div class="container-fluid ventana_ferias">
                         <div class="row">
                             <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
-                            <table class="table">
+                            <table class="table table-dark table-striped table-hover">
                                 <thead>
                                     <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Cod. Ref.</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Telefono</th>
                                     </tr>
                                 </thead>
+                                @forelse($feriante as $feriante)
                                 <tbody>
                                     <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
+                                    <td>{{$feriante->id}}</td>
+                                    <td>{{$feriante->nombre_feriante}}</td>
+                                    <td>{{$feriante->direccion_feriante}}</td>
+                                    <td>{{$feriante->telefono_feriante}}</td>
                                     </tr>
                                 </tbody>
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
                             </table>
                         </div>
                     </div>
                 </div>
-
-                <!-- Boton de Ferias -->
-                <div class="row" style="padding: 30px">
-                    <div class="col">
-                        <a class="btn btn-secondary btn-lg" href="/bienvenida" role="button">Volver</a>
-                    </div>
-                </div>
-
             </div>
         </div> 
     </div>

@@ -158,19 +158,9 @@ class FeriaController extends Controller
         return view('feria_por_region')->with('feria',$feria);
     }
 
-    public function showFeria(Request $request)
+    public function showFeria()
     {
-        $filtro = $request->get('feria');
-        if($filtro == NULL){
-            $feria = Feria::all();
-                return view('feria_fav')->with('feria',$feria);
-
-                return response()->json([
-                'message'=>'id invalido'
-            ],404);
-        }
-
-        $feria = Feria::all()->where('feria', $filtro);
-        return view('feria_fav')->with('feria',$feria);
+        $feria = Feria::all();
+        return view('addferia_fav')->with('feria',$feria);
     }
 }

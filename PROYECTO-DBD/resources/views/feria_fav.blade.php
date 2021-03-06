@@ -97,14 +97,22 @@
                         <h4 class="card-titl text-center">Mi favoritos</h4>
 
                         <ul class="nav flex-column" style="padding: 15px">
-                            <!-- Boton de Feriantes -->
+                            <!-- Boton de Feriantes Fav-->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/feriante_fav">Feriantes favoritos</a>
+                                <a class="nav-link active color7" aria-current="page" href="/feriantefav">Feriantes Favoritos</a>
                             </li>
-                            <!-- Boton de Ferias -->
+                            <!-- Boton de Ferias Fav-->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/feria_fav">Ferias favoritas</a>
+                                <a class="nav-link color7" aria-current="page" href="/feriafav">Ferias Favoritas</a>
                             </li>
+                            <!-- Boton de Add Feriantes -->
+                            <li class="nav-item">
+                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav">Agregar Feriantes</a>
+                            </li>
+                            <!-- Boton de Add Ferias -->
+                            <li class="nav-item">
+                                <a class="nav-link color7" aria-current="page" href="/addferiafav">Agregar Ferias</a>
+                            </li>    
                         </ul>
                     </form>
                 </div>
@@ -219,7 +227,7 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
     }
     .ventana_favoritos{
         width: 400px;
-        height: 212px;
+        height: 260px;
         left: 80px;
         top: 225px;
 

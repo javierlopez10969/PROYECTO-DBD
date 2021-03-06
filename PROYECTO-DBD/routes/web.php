@@ -67,25 +67,29 @@ Route::get('/bienvenida', function () {
 Route::get('/productocategoria','ProductoController@showCategoria');
 Route::get('/feriacomuna','FeriaController@showComuna');
 
+//[Sebastian]La ruta para obtener los datos personales TIENE que ser por ID, 
+//lo mismo para hacer UPDATE sino aparece todos y no se puede editar 1 a 1
 //Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
 //Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
 
 Route::post('/productonuevo','ProductoController@storeProducto')->name('storeProducto');
-
-Route::get('/feriantefav', function () {
-    return view('feriante_fav');
-});
-
 Route::get('/productonew', function () {
     return view('pagina_agregar_producto');
 });
 
+
+
+Route::get('/feriantefav', function () {
+    return view('feriante_fav');
+});
 Route::get('/feriafav', function () {
     return view('feria_fav');
 });
+Route::get('/addferiafav', 'FeriaController@showFeria');
+Route::get('/addferiantefav', 'FerianteController@showFeriante');
 
-Route::get('/addferiantefav','FeriaController@index');
-Route::get('/addferiafav', 'FerianteController@index');
+
+
 
 
 

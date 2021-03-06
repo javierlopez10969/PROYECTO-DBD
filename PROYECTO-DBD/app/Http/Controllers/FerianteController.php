@@ -141,4 +141,10 @@ class FerianteController extends Controller
             ],404);
         }
     }
+
+    public function showFeriante()
+    {
+        $feriante = Feriante::all();
+        return view('addferiante_fav')->with('feriante',$feriante);
+    }
 }

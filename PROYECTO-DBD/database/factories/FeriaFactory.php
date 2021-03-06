@@ -23,7 +23,7 @@ class FeriaFactory extends Factory
     public function definition()
     {
         return [
-            'descripcion'=>$this->faker->text($maxNbChars = 200), 
+            'descripcion'=>$this->faker->text($maxNbChars = 50), 
             'horario_desde'=>$this->faker->time($format = 'H:i:s', $max = 'now'),
             'horario_hasta'=>$this->faker->time($format = 'H:i:s', $max = 'now'),
             'nombre_comuna'=>$this->faker->randomElement($array = array ('San Felipe','Quilicura','Rancagua','Putaentdo','Rengo','Chincolco','San Lorenzo','La Florida','Arica','Renca','La Serena')),
