@@ -63,7 +63,7 @@
             </div>
             </div>
             <!--Footer-->
-            <div class="col bottom container-fluid">
+            <div class="col bottom container-fluid mx-0 px-0">
                 @include('includes.footer')
             </div> 
 

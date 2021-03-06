@@ -15,7 +15,7 @@
 
 <body>
 
-<div class="container-fluid bottom mododark margen" >
+<div class="container-fluid bottom mododark margen mx-0 px-0" >
     <div class="row padding1">
         <div class="col-md-3 col-lg-4 col-xl-3">
             <h5><a href="/about">About</a></h5>
