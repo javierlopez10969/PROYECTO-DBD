@@ -28,7 +28,7 @@ Route::get('/about', function () {
 //Usuario
 Route::get('/perfil_datosPersonales', function () {
     return view('perfil_datosPersonales');
-});
+})->name('perfil');
 
 Route::get('/perfil_modificarContraseña', function () {
     return view('perfil_modificarContraseña');
@@ -37,7 +37,9 @@ Route::get('/perfil_modificarContraseña', function () {
 Route::get('/perfil_cuentaBancaria', function () {
     return view('perfil_cuentaBancaria');
 });
-
+Route::get('/perfil_datosActuales', function () {
+    return view('perfil_datosActuales');
+});
 Route::get('/carrito', function () {
     return view('carrito');
 });
@@ -64,8 +66,10 @@ Route::get('/bienvenida', function () {
 
 Route::get('/productocategoria','ProductoController@showCategoria');
 Route::get('/feriacomuna','FeriaController@showComuna');
-Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
-Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
+
+//Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
+//Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
+
 Route::post('/productonuevo','ProductoController@storeProducto')->name('storeProducto');
 
 Route::get('/feriantefav', function () {

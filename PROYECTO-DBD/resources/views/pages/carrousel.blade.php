@@ -17,21 +17,21 @@
                 <img class="d-block item " src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="First slide">
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>LAS MEJORES FRUTAS Y VERDURAS</h2>
-                    <p>Inventen un texto para poner aqui.</p>
+                    <p>Manzanas, Naranjas y muchas otras frutas.</p>
                 </div>
             </div>
             <div class="carousel-item item ">
                 <img class="d-block item " src="https://i.ibb.co/RpNqj7W/Sin-t-tulo-2.png" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>ENCUENTRA TUS CARNES FAVORITAS</h2>
-                    <p>Inventen un segundo texto para poner aqui.</p>
+                    <p>Haz el asado perfecto!</p>
                 </div>
             </div>
             <div class="carousel-item item ">
                 <img class="d-block item" src="https://i.ibb.co/XDY5N9H/Sin-t-tulo-3.png" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>¡ARTICULOS DE ASEO Y MUCHO MAS!</h2>
-                    <p>Inventen un tercer texto para poner aqui.</p>
+                    <p>Articulos del hogar, comida para mascotas, entre otros.</p>
                 </div>
             </div>
         </div>

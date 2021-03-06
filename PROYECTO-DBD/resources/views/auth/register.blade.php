@@ -28,24 +28,17 @@
                             </div>
     
                             <div class="form-group input-group rounded-pill">
-                                <select class="form-control rounded-pill " placeholder="Seleccionar tipo de usuario" required="">
+                                <select id="rol" class="form-control rounded-pill @error('rol') is-invalid @enderror" name="rol" value="{{ old('rol') }}" placeholder="Seleccionar tipo de usuario" required="" autocomplete="rol">
+                                    <option hidden selected disabled value="">Selecciona un rol </option>
                                     <option>Cliente</option>
                                     <option>Feriante</option>
                                 </select>
                             </div> 
 
                             <div class="form-group input-group">
-                                <select class="custom-select rounded-pill" style="max-width: 120px;">
-                                    <option selected="">+569</option>
-                                    <option value="1">+562</option>
-                                </select>
-                                <input name="telefono_cliente" class="form-control rounded-pill" placeholder="Número teléfono" type="text">
+                                <input id="telefono" name="telefono" class="form-control rounded-pill @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" placeholder="Número teléfono" type="text">
                             </div>
                             
-                            <div class="form-group input-group">
-                                <input name="name" class="form-control rounded-pill" placeholder="Nombre de usuario" type="text" required="">
-                            </div>
-
                             <div class="form-group input-group">
 
                                     <input id="email" type="email" placeholder="Correo electrónico" class="form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

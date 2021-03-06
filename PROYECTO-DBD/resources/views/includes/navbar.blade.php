@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href=" https://unpkg.com/@popperjs/core@2">
 </head>
 
@@ -28,15 +29,13 @@
                     <!-- Links -->
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Link 3</a>
-                        </li>
+                        @guest
+                        @if (Route::has('login'))                        
+                        @endif
+                        @if (Route::has('register'))                        
+                        @endif    
+                        @else                        
+                        @endguest
                         <form class="form-inline">
                             <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Busca tu producto" aria-label="Search">
                             <button class="btn btn-outline-success color3 rounded-pill" type="submit">Buscar</button>
@@ -70,16 +69,29 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown ">
-                                <!--aria-haspopup="true" aria-expanded="false"-->
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" >
-                                    {{Auth::user()->name }}
-                                </a>
+                            <li>
+                                <!--solo los clientes tienen carrito de compras-->
+                                @if (Auth::user()->rol == "Cliente")
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="/carrito"><i class="bi bi-cart"></i></a>
+                                </li>
+                                @endif
+
+                                <div class="card text-center px-0" style="width: 10rem; height: 40px;">
+                                    <div class="card-body mx-0" style="padding-top: 5px;">
+                                      <h6 class="card-subtitle mb-1 text-muted">{{Auth::user()->name }}</h6>
+                                      <h6 class="card-subtitle  text-muted">{{Auth::user()->rol }}</h6>
+                                    </div>
+                                  </div>
+                                <!--
                                 <ul class="dropdown-menu color1" role="menu" aria-labelledby="dLabel">            
-                                    <!--href="#"-->
-                                    <li><a >Perfil</a></li>
+                                    <li><a class="color7" href="/perfil_datosPersonales">Perfil</a></li>
                                     <li class="divider"></li>
                                 </ul>
+-->
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="/perfil_datosActuales">{{ __('Mi Perfil') }}</a>
+                                </li>
 
                                 <li class="col-sm button">
                                     <a class="btn btn-default color2 rounded-pill" role="button" href="{{ route('logout') }}"
@@ -90,6 +102,7 @@
                                         @csrf
                                     </form>
                                 </li>
+
                                 </div>
                             </li>
 
@@ -133,6 +146,20 @@
     .color_verde{
         background-color:#FFFFFF;
         color:#386641;
+    }
+    .color7{
+        background-color:#A7C957;  
+        color:white;
+        
+    }
+    .color7:hover{
+        background-color:#A7C957;  
+        color:white;
+        text-decoration: none;
+        
+    }
+    .negro{
+        color:black;
     }
 
     .fuente1{
