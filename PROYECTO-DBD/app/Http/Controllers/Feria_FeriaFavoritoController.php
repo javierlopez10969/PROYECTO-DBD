@@ -111,4 +111,22 @@ class Feria_FeriaFavoritoController extends Controller
             ],404);
         }
     }
+
+    public function showFeriaFavorito($id)
+    {
+        //$filtro = $id->get('id_feriafavoritos');
+       // if($filtro == NULL){
+            //$feria_feriafavorito = collect([]);
+            //$feria = collect([]);
+               // return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavorito)->with('feria',$feria);
+
+             //   return response()->json([
+           //     'message'=>'id invalido'
+         //   ],404);
+        //}
+
+        $feria_feriafavoritos = Feria_FeriaFavorito::all()->where('id_feriafavoritos', $id);
+        $feria = Feria::all();
+        return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavoritos)->with('feria',$feria);
+    }
 }

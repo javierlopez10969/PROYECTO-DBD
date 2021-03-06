@@ -118,7 +118,7 @@
                 </div>
             </div>
             <!-- Tabla con la Lista de Feriantes -->
-            <div class="col-4">
+            <div class="col-8">
                 <!--<div class="row" style="padding: 130px">-->
                 <div class="row">
                     <div class="container-fluid ventana_ferias">
@@ -131,27 +131,28 @@
                                     <th scope="col">First</th>
                                     <th scope="col">Last</th>
                                     <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
                                     </tr>
                                 </thead>
+                                @forelse($feria_feriafavoritos as $favoritos)
+                                @forelse($feria as $feria)
+                                @if($feria->id == $favoritos->id_feria)
                                 <tbody>
                                     <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
+                                    <td>{{$feria->id}}</td>
+                                    <td>{{$feria->descripcion}}</td>
+                                    <td>{{$feria->nombre_comuna}}</td>
+                                    <td>{{$feria->horario_desde}}</td>
+                                    <td>{{$feria->horario_hasta}}</td>>
                                     </tr>
                                 </tbody>
+                                @endif
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
                             </table>
                         </div>
                     </div>

@@ -82,9 +82,8 @@ Route::get('/productonew', function () {
 Route::get('/feriantefav', function () {
     return view('feriante_fav');
 });
-Route::get('/feriafav', function () {
-    return view('feria_fav');
-});
+Route::get('/feriafav', 'Feria_FeriaFavoritoController@showFeriaFavorito');
+Route::get('/feriafav/{id}', 'Feria_FeriaFavoritoController@showFeriaFavorito');
 Route::get('/addferiafav', 'FeriaController@showFeria');
 Route::get('/addferiantefav', 'FerianteController@showFeriante');
 
