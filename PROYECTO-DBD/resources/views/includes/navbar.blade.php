@@ -1,80 +1,209 @@
-<div class="row color1">
-    <nav class="navbar navbar-expand-sm navbar-dark color1">
-        <!-- Brand/logo -->
-        <a class="navbar-brand" href="#">
-            <img src= "https://i.ibb.co/RQKpgvv/logo.png" onClick="window.location.reload();" alt="" height="40">
-        </a>
-    <!-- Links -->
-    <div class="navbar-collapse collapse">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link 3</a>
-            </li>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Busca tu producto" aria-label="Search">
-                <button class="btn btn-outline-success color3 rounded-pill" type="submit">Buscar</button>
-            </form>
-        </ul>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    </div>
-    <ul class="navbar-nav navbar-right">
-        <!-- Boton Iniciar Sesion -->
-        <div class="col-sm button">
-            <a class="btn btn-default color2 rounded-pill " href="{{route('ingresar')}}" role="button">Iniciar Sesión</a>
-             
-        </div>
-        <!-- Boton Registrarse -->
-        <div class="col-sm button ">
-            <a class="btn btn-default color2 rounded-pill " href="{{route('registrar')}}" role="button">Registrarse</a>
-        </div>
-    </ul>
-    <!-- Right Side Of Navbar -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Authentication Links -->
-        @guest
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-            @endif
-            
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @endif
-        @else
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href=" https://unpkg.com/@popperjs/core@2">
+</head>
+
+<body>
+    <div id="app" class="row mx-0 px-0">
+        <nav class="navbar navbar-expand-sm navbar-dark color1">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src= "https://i.ibb.co/RQKpgvv/logo.png"  alt="" height="40">
                 </a>
+                    <!-- Links -->
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                        </li>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2 rounded-pill" type="search" placeholder="Busca tu producto" aria-label="Search">
+                            <button class="btn btn-outline-success color3 rounded-pill" type="submit">Buscar</button>
+                        </form>                        
+                    </ul>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 </div>
-            </li>
-        @endguest
-    </ul>
-    </nav>
-     
-</div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="{{ route('register') }}">{{ __('Resgistrarse') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown ">
+                                <!--aria-haspopup="true" aria-expanded="false"-->
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" >
+                                    {{Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu color1" role="menu" aria-labelledby="dLabel">            
+                                    <!--href="#"-->
+                                    <li><a >Perfil</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                     {{ __('Cerrar sesión') }}</a>
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                                </div>
+                            </li>
+
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--
+        <div class="container">
+            @yield('content')
+        </div>
+        -->
+    </div>
+</body>
+</html>
+
+
+<style> 
+    .color1{
+        background-color:#A7C957;  
+        color:white;
+    }
+
+    .color2{
+        background-color:#F2E8CF;
+        color:black;
+    }
+    .color3{
+        background-color : #386641;
+        color : white;
+    }
+    .color4{
+        background-color:  #6A994E;
+        color : white;
+    }
+    .color5{
+        background-color: #BC4749;
+        color : black;
+    }
+    .color_verde{
+        background-color:#FFFFFF;
+        color:#386641;
+    }
+
+    .fuente1{
+        font-family: 'Roboto', sans-serif;
+    }
+    .margen_up{
+        margin-top: 8%;
+    }
+    .margen_r{
+        margin-right: 5%;
+    }
+    .margen_l{
+        margin-left: 5%;
+    }
+    .padding-text{
+        padding-top:30px;
+    }
+    .centrado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carousel .item {
+        height: 500px;
+        margin: auto;
+    }
+    .carousel-inner {
+        padding-top:70px; 
+        overflow:hidden;
+    }
+
+    .carousel-caption {
+        top: -70px;
+        bottom: auto;
+        background: rgba(0, 0, 0, 0);
+    }
+
+
+    .item img {
+        height: auto;
+        width: 100%;
+        margin: auto;
+        object-fit: contain;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 100px;
+        width: 100px;
+        outline: black;
+        background-size: 100%, 100%;
+        border-radius: 50%;
+        border: 1px solid black;
+        background-image: none;
+    }
+
+    .carousel-control-next-icon:after
+    {
+        content: '>';
+        font-size: 55px;
+        color: red ;
+    }
+
+    .carousel-control-prev-icon:after {
+        content: '<';
+        font-size: 55px;
+        color: red ;
+    }
+    .ventana{
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+    }
+ </style> 

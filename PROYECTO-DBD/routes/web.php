@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', function () {
     return view('layouts.main');
 })->name('home');
@@ -21,22 +19,6 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('pages.carrousel');
 })->name('carousel');
-
-Route::get('/ingresar', function () {
-    return view('pages.ingresar');
-})->name('ingresar');
-
-
-Route::post('/cliente/create','ClienteController@store');
-
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
 
 
 Route::get('/perfil_datosPersonales', function () {
@@ -59,7 +41,6 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-
 Route::get('/feria_region', function () {
     return view('feria_por_region');
 });
@@ -67,8 +48,6 @@ Route::get('/feria_region', function () {
 Route::get('/feriantes_producto', function () {
     return view('feriantes_por_producto');
 });
-
-
 
 Route::get('/confirmar_pago', function () {
     return view('confirmar_pago');

@@ -19,7 +19,7 @@
     <div class="container-fluid">
             <!--NavBar -->
             <header class="row">
-                @include('layouts.app')
+                @include('includes.navbar')
             </header>
             <!-- barra productos -->
             <div class="row">
@@ -61,9 +61,12 @@
                 </div>
             <div col>
             </div>
-
             </div>
             <!--Footer-->
+            <div class="col bottom container-fluid">
+                @include('includes.footer')
+            </div> 
+
     </div>  
 </body>
 
