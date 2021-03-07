@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!--Cuerpo-->
-            <div row class="container mt-5">
+            <div row class="container-fluid mt-5">
                 <div col></div>
                 <div col class ="container-fluid text-center">
                     @yield('seccion')

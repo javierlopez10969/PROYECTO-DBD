@@ -23,15 +23,11 @@ class ProductoController extends Controller
     //Correxion (no se genera la tupla)
     public function store(Post $request)
     {
-        //
-        
         $producto = new Producto();
         $producto->nombre_producto = $request->nombre_producto;
         $producto->precio_producto = $request->precio_producto;
         $producto->categoria = $request->categoria;
-        $user->save();
-
-        return view('feriantes_por_producto');
+        $producto->save();
 	}
 
 

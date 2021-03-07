@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-
-    
-            /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -58,7 +56,6 @@ class AuthController extends Controller
             'telefono' => 'required',
             'email' => 'required|email',
             'password' => 'required'
-
             ]);
 
         if ($validator->fails())
@@ -124,4 +121,36 @@ class AuthController extends Controller
             'token' => 'Token deleted Succcessfully'
         ]);
     }
+
+
+        //Modifcar una tupla específica
+        public function update(Request $request, $id)
+        {
+            if(is_numeric($id)){
+                $user = Auth::user();
+                if($user == NULL){
+                    return response()->json([
+                        'message'=>'No se encontro el usuario'
+                    ]);
+                }
+                else{
+                    if($request->name != NULL){
+                        $user->name = $request->name;
+                    }
+                    if($request->telefono != NULL){
+                        $user->telefono = $request->telefono;
+                    }
+                    if($request->telefono != NULL){
+                        $user->email = $request->telefono;
+                    }
+                    $user->save();
+                    return response()->json($user);
+                }  
+            }
+            else{
+                return response()->json([
+                    'message'=>'id invalido'
+                ],404);
+            }
+        }
 }

@@ -40,14 +40,15 @@
             <!-- Datos Personales -->
             <div class="col-8">
                 <div class="container-fluid ventana_dp">
-                    <form class="form-personal">
+                    <form method="PUT" href="/user/update/">
+                        @csrf
                         <div class="col-12 padding_text">
-                            <label class="form-label">Nombre completo *</label>
-                            <input type="text" class="form-control" id="" required="" value="{{Auth::user()->name }}">
+                            <label  class="form-label">Nombre completo *</label>
+                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" autocomplete="name" required="" value="{{Auth::user()->name }}">
                         </div>
                         <div class="col-12 padding_text">
                             <label class="form-label">Numero de telefono *</label>
-                            <input type="text" class="form-control" id="" required="" value = "{{Auth::user()->telefono }}">
+                            <input id="telefono" name="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror"  required="" value = "{{Auth::user()->telefono }}">
                         </div>
                         
                         <div class="row padding_text">
@@ -60,7 +61,7 @@
                         
                         <div class="col-12 padding_text">
                             <label for="inputEmail" class="form-label">Correo electrónico *</label>
-                            <input type="email" id="inputEmail" disabled value="{{Auth::user()->email }}" class="form-control" required="" >
+                            <input type="email" id="email" name="email"  value="{{Auth::user()->email }}" class="form-control @error('email') is-invalid @enderror" required="" autocomplete="email">
                         </div>
 
                         

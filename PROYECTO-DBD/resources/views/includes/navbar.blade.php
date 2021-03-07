@@ -68,12 +68,19 @@
                                     <a class="btn btn-default color2 rounded-pill" role="button" href="{{ route('register') }}">{{ __('Resgistrarse') }}</a>
                                 </li>
                             @endif
-                        @else
+
+                            @else
                             <li>
                                 <!--solo los clientes tienen carrito de compras-->
                                 @if (Auth::user()->rol == "Cliente")
                                 <li class="col-sm button">
                                     <a class="btn btn-default color2 rounded-pill" role="button" href="/carrito"><i class="bi bi-cart"></i></a>
+                                </li>
+                                @endif
+                                
+                                @if (Auth::user()->rol == "Feriante")
+                                <li class="col-sm button">
+                                    <a class="btn btn-default color2 rounded-pill" role="button" href="/mitienda"><i class="bi bi-shop"></i></a>
                                 </li>
                                 @endif
 
@@ -82,13 +89,8 @@
                                       <h6 class="card-subtitle mb-1 text-muted">{{Auth::user()->name }}</h6>
                                       <h6 class="card-subtitle  text-muted">{{Auth::user()->rol }}</h6>
                                     </div>
-                                  </div>
-                                <!--
-                                <ul class="dropdown-menu color1" role="menu" aria-labelledby="dLabel">            
-                                    <li><a class="color7" href="/perfil_datosPersonales">Perfil</a></li>
-                                    <li class="divider"></li>
-                                </ul>
--->
+                                  </div>                            
+                                  
                                 <li class="col-sm button">
                                     <a class="btn btn-default color2 rounded-pill" role="button" href="/perfil_datosActuales">{{ __('Mi Perfil') }}</a>
                                 </li>

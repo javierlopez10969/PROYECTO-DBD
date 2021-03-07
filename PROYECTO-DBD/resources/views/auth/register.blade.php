@@ -4,7 +4,6 @@
 <div class="row text-center">
         <div class="col">
         </div>
-    
         <div class="col text-center ">
             <div class="container-fluid ventana">
                 <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>

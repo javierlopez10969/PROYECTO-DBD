@@ -49,7 +49,6 @@
                                 </label>
                             </div>
                     </div>
-
                     <button type="submit" class="btn btn-lg color4 rounded-pill">
                         {{ __('Ingresar') }}
                     </button>

@@ -47,7 +47,10 @@
             <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
             <ul class="list-unstyled">
                 <li><i class="fa fa-envelope mr-2"></i> javier.lopez@usach.cl</li> 
-                <li><i class="fa fa-envelope mr-2"></i> david.ramirez.v@usach.cl</li>   
+                <li><i class="fa fa-envelope mr-2"></i> david.ramirez.v@usach.cl</li>  
+                <li><i class="fa fa-envelope mr-2"></i> carlos.castillo.d@usach.cl </li>  
+                <li><i class="fa fa-envelope mr-2"></i> sebastian.astete.r@usach.cl </li> 
+                <li><i class="fa fa-envelope mr-2"></i> martin.hormazabal@usach.cl </li> 
             </ul>
         </div>
 

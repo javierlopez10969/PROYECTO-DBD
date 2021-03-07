@@ -64,6 +64,15 @@ Route::get('/bienvenida', function () {
     return view('pages.bienvenida');
 })->name('bienvenida');;
 
+Route::get('/nuevo_producto', function () {
+    return view('productos.crearproducto');
+})->name('nuevo_producto');;
+
+Route::get('/mitienda', function () {
+    return view('productos.misproductos');
+})->name('mitienda');;
+
+
 Route::get('/productocategoria','ProductoController@showCategoria');
 Route::get('/feriacomuna','FeriaController@showComuna');
 
@@ -71,6 +80,9 @@ Route::get('/feriacomuna','FeriaController@showComuna');
 //lo mismo para hacer UPDATE sino aparece todos y no se puede editar 1 a 1
 //Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
 //Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
+
+
+Route::post('/producto/create', 'App\Http\Controllers\ProductoController@store')->name('ayudaaaa');
 
 Route::post('/productonuevo','ProductoController@storeProducto')->name('storeProducto');
 Route::get('/productonew', function () {
@@ -135,6 +147,7 @@ Route::put('/categoria/update/{id}','CategoriaController@update');
 Route::delete('/categoria/delete/{id}','CategoriaController@destroy');
 
 #producto
+
 Route::get('/producto','ProductoController@index');
 Route::get('/producto/{id}','ProductoController@show');
 Route::post('/producto/create','ProductoController@store');
@@ -282,6 +295,8 @@ Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraContr
 #cliente
 Route::get('/user','AuthController@index');
 Route::get('/user/{id}','AuthController@show');
+
+Route::put('/user/update','AuthController@update');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
