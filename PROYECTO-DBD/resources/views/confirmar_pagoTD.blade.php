@@ -3,61 +3,64 @@
 
 <body class="text-center">
     <div class="container-fluid">
+        <div class="row">
+            <!-- ventana metodo pago -->
+            <div class="col" style="padding: 10px">
 
-        <!-- ventana metodo pago -->
-        <div class="row" style="padding: 10px">
-
-            <div class="container-fluid ventana_metodo_pago">
-                <!-- Primera linea -->
-                <div class="row" style="padding: 20px">
-                    <div class="col titulo_metodo_pago text-start">Escoge un Método de pago</div>
-                </div>
-                <!-- Botones -->
-                
-                <div class="row" style="padding: 10px">
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-lg justify-content-center">
-                            <li class="page-item"><a class="page-link" href="/confirmar_pagoCB">Mi cuenta bancaria</a></li>
-                            <li class="page-item active" aria-current="page">
-                            <span class="page-link">Tarjeta Débito</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="/confirmar_pagoTC">Tarjeta Crédito</a></li>
-                            
-                        </ul>
-                    </nav>
+                <div class="container-fluid ventana_metodo_pago">
+                    <!-- Primera linea -->
+                    <div class="row" style="padding: 20px">
+                        <div class="col titulo_metodo_pago text-start">Escoge un Método de pago</div>
+                    </div>
+                    <!-- Botones -->
                     
-                </div>
-
-                <div class="row">
-                    <div class="container-fluid ventana_lista_metodo_pago">
-
+                    <div class="row" style="padding: 10px">
+                        <nav aria-label="...">
+                            <ul class="pagination pagination-lg justify-content-center">
+                                <li class="page-item"><a class="page-link" href="/confirmar_pagoCB">Mi cuenta bancaria</a></li>
+                                <li class="page-item active" aria-current="page">
+                                <span class="page-link">Tarjeta Débito</span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="/confirmar_pagoTC">Tarjeta Crédito</a></li>
+                                
+                            </ul>
+                        </nav>
+                        
                     </div>
+
+                    <div class="row">
+                        <div class="container-fluid ventana_lista_metodo_pago">
+                        <p class="text-center">Serás redireccionado al sitio de Webpay. Una vez finalizado el pago, espera hasta que Redcompra te redirija a nuestra página para confirmar tu pedido</p>
+                        </div>
+                    </div>
+
+
                 </div>
-
-
             </div>
-        </div>
 
-        <!-- ventana carrito-->
-        <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_carrito">
-                <div class="row" style="padding: 40px">
-                    <div class="col titulo_carrito text-start">Resumen del Carrito</div>
-                </div>
-
-                <div class="row">
-                    <div class="container-fluid ventana_lista_carrito">
-
+            <!-- ventana carrito-->
+            <div class="col" style="padding: 20px">
+                <div class="container-fluid ventana_carrito">
+                    <div class="row" style="padding: 40px">
+                        <div class="col titulo_carrito text-start">Resumen del Carrito</div>
                     </div>
-                </div> 
 
-                <!-- Botones -->
-                <div class="row" style="padding: 10px">
-                    <!-- Boton de comprar -->
-                    <div class="col">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
-                    </div>
-                </div>            
+                    <div class="row">
+                        <div class="container-fluid ventana_lista_carrito">
+
+                            
+
+                        </div>
+                    </div> 
+
+                    <!-- Botones -->
+                    <div class="row" style="padding: 10px">
+                        <!-- Boton de comprar -->
+                        <div class="col">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
+                        </div>
+                    </div>            
+            </div>
         </div>
     </div>
 </body>
