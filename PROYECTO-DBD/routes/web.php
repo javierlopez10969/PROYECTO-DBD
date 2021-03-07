@@ -48,8 +48,16 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-Route::get('/confirmar_pago', function () {
-    return view('confirmar_pago');
+Route::get('/confirmar_pagoCB', function () {
+    return view('confirmar_pagoCB');
+});
+
+Route::get('/confirmar_pagoTC', function () {
+    return view('confirmar_pagoTC');
+});
+
+Route::get('/confirmar_pagoTD', function () {
+    return view('confirmar_pagoTD');
 });
 
 Route::get('/bienvenida', function () {

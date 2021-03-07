@@ -3,60 +3,86 @@
 
 <body class="text-center">
     <div class="container-fluid">
+        <div class="row">
+            <!-- ventana metodo pago -->
+            <div class="col" style="padding: 10px">
 
-        <!-- ventana metodo pago -->
-        <div class="row" style="padding: 10px">
-
-            <div class="container-fluid ventana_metodo_pago">
-                <!-- Primera linea -->
-                <div class="row" style="padding: 20px">
-                    <div class="col titulo_metodo_pago text-start">Escoge un Método de pago</div>
-                </div>
-                <!-- Botones -->
-                
-                <div class="row" style="padding: 10px">
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-lg justify-content-center">
-                            <li class="page-item active" aria-current="page">
-                            <span class="page-link">Mi cuenta bancaria</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href=/confirmar_pagoTD>Tarjeta Débito</a></li>
-                            <li class="page-item"><a class="page-link" href=/confirmar_pagoTC>Tarjeta Crédito</a></li>
-                        </ul>
-                    </nav>
+                <div class="container-fluid ventana_metodo_pago">
+                    <!-- Primera linea -->
+                    <div class="row" style="padding: 20px">
+                        <div class="col titulo_metodo_pago text-start">Escoge un Método de pago</div>
+                    </div>
+                    <!-- Botones -->
                     
-                </div>
-
-                <div class="row">
-                    <div class="container-fluid ventana_lista_metodo_pago">
-
+                    <div class="row" style="padding: 10px">
+                        <nav aria-label="...">
+                            <ul class="pagination pagination-lg justify-content-center">
+                                <li class="page-item active" aria-current="page">
+                                <span class="page-link">Mi cuenta bancaria</span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href=/confirmar_pagoTD>Tarjeta Débito</a></li>
+                                <li class="page-item"><a class="page-link" href=/confirmar_pagoTC>Tarjeta Crédito</a></li>
+                            </ul>
+                        </nav>
+                        
                     </div>
+
+                    <div class="row">
+                        <div class="container-fluid ventana_lista_metodo_pago">
+                            <form class="form-cuenta">
+                                <div class="col-12 padding_text">
+                                    <label class="form-label">Número de cuenta *</label>
+                                    <input type="text" class="form-control" id="" required="">
+                                </div>
+                                <div class="col-12 padding_text">
+                                    <label class="form-label">Banco *</label>
+                                    <input type="text" class="form-control" id="" required="">
+                                </div>
+                                <div class="col-12 padding_text">
+                                    <label for="inputEmail" class="form-label">Tipo de cuenta *</label>
+                                    <input type="text" class="form-control" id="" required="">
+                                </div>
+                                <div class="col-12 padding_text">
+                                    <label for="inputPassword" class="form-label">Balance</label>
+                                    <input type="text" class="form-control" id="" required="">                      
+                                </div>
+                                
+                                <div class="col-12" style="padding: 50px;">
+                                    <button type="button" class="btn btn-secondary btn-lg">Editar datos</button>
+                                </div>  
+                                <div class="col-12" style="padding: 50px;">
+                                    <button type="button" class="btn btn-primary btn-lg">Pagar ahora</button>
+                                </div> 
+                            </form>
+
+                        </div>
+                    </div>
+
+
                 </div>
-
-
             </div>
-        </div>
 
-        <!-- ventana carrito-->
-        <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_carrito">
-                <div class="row" style="padding: 40px">
-                    <div class="col titulo_carrito text-start">Resumen del Carrito</div>
-                </div>
-
-                <div class="row">
-                    <div class="container-fluid ventana_lista_carrito">
-
+            <!-- ventana carrito-->
+            <div class="col" style="padding: 20px">
+                <div class="container-fluid ventana_carrito">
+                    <div class="row" style="padding: 40px">
+                        <div class="col titulo_carrito text-start">Resumen del Carrito</div>
                     </div>
-                </div> 
 
-                <!-- Botones -->
-                <div class="row" style="padding: 10px">
-                    <!-- Boton de comprar -->
-                    <div class="col">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
-                    </div>
-                </div>            
+                    <div class="row">
+                        <div class="container-fluid ventana_lista_carrito">
+
+                        </div>
+                    </div> 
+
+                    <!-- Botones -->
+                    <div class="row" style="padding: 10px">
+                        <!-- Boton de comprar -->
+                        <div class="col">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
+                        </div>
+                    </div>            
+            </div>
         </div>
     </div>
 </body>
@@ -156,6 +182,12 @@ estilo de colores (pude ser HEX)   ej #FFFFFF
         line-height: 35px;
 
         color: #245F00;
+    }
+    .form-cuenta {
+        width: 100%;
+        max-width: 630px;
+        padding: 45px;
+        margin: 0 auto;
     }
 </style>
 
