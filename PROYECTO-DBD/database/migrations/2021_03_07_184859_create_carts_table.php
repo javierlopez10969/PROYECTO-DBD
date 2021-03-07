@@ -21,7 +21,8 @@ class CreateCartsTable extends Migration
             $table->unsignedBigInteger('id_producto')->nullable();
             $table->foreign('id_producto')->references('id')->on('producto');
             
-
+            $table->unsignedBigInteger('id_cliente')->nullable();
+            $table->foreign('id_cliente')->references('id')->on('clientes');
 
         });
     }

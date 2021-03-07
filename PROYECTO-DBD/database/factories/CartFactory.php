@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\cart;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Producto;
+use App\Models\Cliente;
 
 class CartFactory extends Factory
 {
@@ -23,7 +24,8 @@ class CartFactory extends Factory
     public function definition()
     {
         return [
-            'id_producto'=> Producto::factory()
+            'id_producto'=> Producto::factory(),
+            'id_cliente'=> Cliente::factory()
             //'id_feriafavoritos' => FeriaFavorito::factory()
             //
         ];
