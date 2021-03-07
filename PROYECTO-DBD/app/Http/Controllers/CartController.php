@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cart;
 use Illuminate\Http\Request;
 use App\Models\Producto;
-use App\Models\User;
+use App\Models\Cliente;
 
 class CartController extends Controller
 {
@@ -85,4 +85,17 @@ class CartController extends Controller
     {
         //
     }
+    public function storeProducto(Request $request)
+    {
+        $newCart = new Cart();
+        $newCart->id_producto = $request->id_producto;
+        $newCart->id_cliente = $request->id_cliente;
+        $newCart->save();
+
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        $carts = Cart::all()->where('id_cliente', 1);
+        return view('carrito')->with('clientes',$clientes)->with('productos',$productos)->with('carts',$carts);
+    }
+
 }

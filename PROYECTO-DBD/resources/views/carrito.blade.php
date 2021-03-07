@@ -36,12 +36,29 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Cod. Ref.</th>
                                         <th>Nombre producto</th>
                                         <th>Categoria</th>
-                                        <th>Unidad</th>
-                                        <th>Tipo de stock</th>
-                                        <th>Precio $</th>
+                                        <th>Precio</th>
                                     </tr>
+                                    @forelse($carts as $cart)
+                                    @forelse($productos as $producto)
+                                        @if($cart->id_producto == $producto->id)
+                                        <tbody>
+                                            <tr>
+                                            <td>{{$producto->id}}</td>
+                                            <td>{{$producto->nombre_producto}}</td>
+                                            <td>{{$producto->categoria}}</td>
+                                            <td>${{$producto->precio_producto}}</td>>
+                                            </tr>
+                                        </tbody>
+                                        @endif
+                                    @empty
+                                    <p>"no hay nada"</p>
+                                    @endforelse
+                                @empty
+                                <p>"no hay nada"</p>
+                                @endforelse
                                 </thead>
                                 
                             </table>

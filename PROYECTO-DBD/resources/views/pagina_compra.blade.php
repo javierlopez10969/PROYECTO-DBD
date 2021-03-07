@@ -58,9 +58,13 @@
                 </div>
 
                 <!-- Boton de agregar a carrito -->
+                <form action=/agregarCarrito method="POST">
                 <div class="col">
-                    <a class="btn btn-secondary btn-lg" href="#" role="button">Agregar a Carrito</a>
+                    <input type="hidden" name="id_producto" value= "{{ $producto->id }}"> 
+                    <input type="hidden" name="id_cliente" value= "1">   
+                    <button type="submit" class="btn btn-secondary">Agregar al Carrito</button>
                 </div>
+                </form>
             </div>
 
         </div>
