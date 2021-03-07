@@ -39,4 +39,8 @@ class Cliente extends Model
     public function Datos_Personal(){
         return $this->hasOne(Datos_personal::class);
     }
+
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
 }

@@ -24,4 +24,8 @@ class Producto extends Model
 	public function producto_PuestoDeVenta(){
 		return $this->hasMany(Producto_PuestoDeVenta::class);
 	}
+
+	public function cart(){
+        return $this->belongsToMany(Cart::class);
+    }
 }

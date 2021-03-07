@@ -31,6 +31,7 @@ use App\Models\PuestoDeVenta;
 use App\Models\Producto;
 use App\Models\Producto_PuestoDeVenta;
 use App\Models\Unidad;
+use App\Models\Cart;
 
 
 use Illuminate\Database\Seeder;
@@ -73,6 +74,7 @@ class DatabaseSeeder extends Seeder
         Region::factory()->create();
         Comuna::factory()->create();
         Feria_PuestoDeVenta::factory()->create();
+        Cart::factory(50)->create();
 
         //Martin ??
         Categoria::factory(10)->create();

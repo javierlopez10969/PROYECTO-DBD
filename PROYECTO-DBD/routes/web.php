@@ -89,7 +89,7 @@ Route::post('/feriafavoritanueva','Feria_FeriaFavoritoController@storeFeria')->n
 
 Route::get('/addferiantefav/{id}', 'FerianteController@showFeriante')->name('ferianteAdd');
 Route::post('/feriantefavoritanueva','Feriante_FeriantesFavoritoController@storeFeriante')->name('storeFeriante');
-
+Route::get('/cart','CartController@index');
 
 
 #feria
