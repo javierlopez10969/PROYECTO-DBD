@@ -135,21 +135,21 @@
                                     </tr>
                                 </thead>
                                 @forelse($feria_feriafavoritos as $favoritos)
-                                @forelse($feria as $feria)
-                                @if($feria->id == $favoritos->id_feria)
-                                <tbody>
-                                    <tr>
-                                    <td>{{$feria->id}}</td>
-                                    <td>{{$feria->descripcion}}</td>
-                                    <td>{{$feria->nombre_comuna}}</td>
-                                    <td>{{$feria->horario_desde}}</td>
-                                    <td>{{$feria->horario_hasta}}</td>>
-                                    </tr>
-                                </tbody>
-                                @endif
-                                @empty
-                                <p>"no hay nada"</p>
-                                @endforelse
+                                    @forelse($ferias as $feria)
+                                        @if($feria->id == $favoritos->id_feria)
+                                        <tbody>
+                                            <tr>
+                                            <td>{{$feria->id}}</td>
+                                            <td>{{$feria->descripcion}}</td>
+                                            <td>{{$feria->nombre_comuna}}</td>
+                                            <td>{{$feria->horario_desde}}</td>
+                                            <td>{{$feria->horario_hasta}}</td>>
+                                            </tr>
+                                        </tbody>
+                                        @endif
+                                    @empty
+                                    <p>"no hay nada"</p>
+                                    @endforelse
                                 @empty
                                 <p>"no hay nada"</p>
                                 @endforelse

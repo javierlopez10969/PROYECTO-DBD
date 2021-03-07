@@ -115,8 +115,8 @@ class Feria_FeriaFavoritoController extends Controller
     public function showFeriaFavorito($id)
     {
         $feria_feriafavoritos = Feria_FeriaFavorito::all()->where('id_feriafavoritos', $id);
-        $feria = Feria::all();
-        return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavoritos)->with('feria',$feria);
+        $ferias = Feria::all();
+        return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavoritos)->with('ferias',$ferias);
     }
 
     public function showFeria()

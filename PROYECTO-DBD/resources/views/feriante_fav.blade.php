@@ -134,7 +134,7 @@
                                     </tr>
                                 </thead>
                                 @forelse($feriante_feriantefavoritos as $favoritos)
-                                @forelse($feriante as $feriante)
+                                @forelse($feriantes as $feriante)
                                 @if($feriante->id == $favoritos->id_feriante)
                                 <tbody>
                                     <tr>

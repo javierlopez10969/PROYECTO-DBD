@@ -118,9 +118,9 @@ class Feriante_FeriantesFavoritoController extends Controller
     public function showFerianteFavorito($id)
     {
         $feriante_feriantefavoritos = Feriante_FeriantesFavorito::all()->where('id_feriantesfavoritos', $id);
-        $feriante = Feriante::all();
+        $feriantes = Feriante::all();
         response()->json($feriante_feriantefavoritos);
-        return view('feriante_fav')->with('feriante_feriantefavoritos',$feriante_feriantefavoritos)->with('feriante',$feriante);
+        return view('feriante_fav')->with('feriante_feriantefavoritos',$feriante_feriantefavoritos)->with('feriantes',$feriantes);
     }
 
     public function storeFeriante(Request $request)
