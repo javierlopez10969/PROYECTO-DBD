@@ -114,4 +114,12 @@ class Feriante_FeriantesFavoritoController extends Controller
             ],404);
         }
     }
+
+    public function showFerianteFavorito($id)
+    {
+        $feriante_feriantefavoritos = Feriante_FeriantesFavorito::all()->where('id_feriantesfavoritos', $id);
+        $feriante = Feriante::all();
+        response()->json($feriante_feriantefavoritos);
+        return view('feriante_fav')->with('feriante_feriantefavoritos',$feriante_feriantefavoritos)->with('feriante',$feriante);
+    }
 }

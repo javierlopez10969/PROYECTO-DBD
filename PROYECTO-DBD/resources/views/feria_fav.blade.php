@@ -99,19 +99,19 @@
                         <ul class="nav flex-column" style="padding: 15px">
                             <!-- Boton de Feriantes Fav-->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/feriantefav">Feriantes Favoritos</a>
+                                <a class="nav-link active color7" aria-current="page" href="/feriantefav/{{ request()->route('id') }}">Feriantes Favoritos</a>
                             </li>
                             <!-- Boton de Ferias Fav-->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/feriafav">Ferias Favoritas</a>
+                                <a class="nav-link color7" aria-current="page" href="/feriafav/{{ request()->route('id') }}">Ferias Favoritas</a>
                             </li>
                             <!-- Boton de Add Feriantes -->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav">Agregar Feriantes</a>
+                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav/{{ request()->route('id') }}">Agregar Feriantes</a>
                             </li>
                             <!-- Boton de Add Ferias -->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/addferiafav">Agregar Ferias</a>
+                                <a class="nav-link color7" aria-current="page" href="/addferiafav/{{ request()->route('id') }}">Agregar Ferias</a>
                             </li>    
                         </ul>
                     </form>
@@ -127,11 +127,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Cod. Ref.</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Comuna</th>
+                                    <th scope="col">Desde</th>
+                                    <th scope="col">Hasta</th>
                                     </tr>
                                 </thead>
                                 @forelse($feria_feriafavoritos as $favoritos)

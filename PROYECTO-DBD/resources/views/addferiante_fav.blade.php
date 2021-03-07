@@ -99,19 +99,19 @@
                         <ul class="nav flex-column" style="padding: 15px">
                             <!-- Boton de Feriantes Fav-->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/feriantefav">Feriantes Favoritos</a>
+                                <a class="nav-link active color7" aria-current="page" href="/feriantefav/{{ request()->route('id') }}">Feriantes Favoritos</a>
                             </li>
                             <!-- Boton de Ferias Fav-->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/feriafav">Ferias Favoritas</a>
+                                <a class="nav-link color7" aria-current="page" href="/feriafav/{{ request()->route('id') }}">Ferias Favoritas</a>
                             </li>
                             <!-- Boton de Add Feriantes -->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav">Agregar Feriantes</a>
+                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav/{{ request()->route('id') }}">Agregar Feriantes</a>
                             </li>
                             <!-- Boton de Add Ferias -->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/addferiafav">Agregar Ferias</a>
+                                <a class="nav-link color7" aria-current="page" href="/addferiafav/{{ request()->route('id') }}">Agregar Ferias</a>
                             </li>    
                         </ul>
                     </form>

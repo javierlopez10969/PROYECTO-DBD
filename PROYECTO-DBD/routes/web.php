@@ -48,14 +48,6 @@ Route::get('/despacho', function () {
     return view('despacho');
 });
 
-Route::get('/feria_region', function () {
-    return view('feria_por_region');
-});
-
-Route::get('/feriantes_producto', function () {
-    return view('feriantes_por_producto');
-});
-
 Route::get('/confirmar_pago', function () {
     return view('confirmar_pago');
 });
@@ -81,26 +73,18 @@ Route::get('/feriacomuna','FeriaController@showComuna');
 //Route::get('/perfil_datosActuales/{id}','DatoPersonalController@showDatos');
 //Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
 
-
-Route::post('/producto/create', 'App\Http\Controllers\ProductoController@store')->name('ayudaaaa');
-
 Route::post('/productonuevo','ProductoController@storeProducto')->name('storeProducto');
 Route::get('/productonew', function () {
     return view('pagina_agregar_producto');
 });
 
-
-
-Route::get('/feriantefav', function () {
-    return view('feriante_fav');
-});
-Route::get('/feriafav', 'Feria_FeriaFavoritoController@showFeriaFavorito');
+Route::get('/feriantefav/{id}', 'Feriante_FeriantesFavoritoController@showFerianteFavorito');
 Route::get('/feriafav/{id}', 'Feria_FeriaFavoritoController@showFeriaFavorito');
-Route::get('/addferiafav', 'FeriaController@showFeria');
-Route::get('/addferiantefav', 'FerianteController@showFeriante');
 
+Route::get('/addferiafav/{id}', 'Feria_FeriaFavoritoController@showFeria')->name('feriaAdd');
+Route::post('/feriafavoritanueva','Feria_FeriaFavoritoController@storeFeria')->name('storeFeria');
 
-
+Route::get('/addferiantefav/{id}', 'FerianteController@showFeriante')->name('ferianteAdd');
 
 
 

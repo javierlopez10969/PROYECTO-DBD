@@ -114,19 +114,27 @@ class Feria_FeriaFavoritoController extends Controller
 
     public function showFeriaFavorito($id)
     {
-        //$filtro = $id->get('id_feriafavoritos');
-       // if($filtro == NULL){
-            //$feria_feriafavorito = collect([]);
-            //$feria = collect([]);
-               // return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavorito)->with('feria',$feria);
-
-             //   return response()->json([
-           //     'message'=>'id invalido'
-         //   ],404);
-        //}
-
         $feria_feriafavoritos = Feria_FeriaFavorito::all()->where('id_feriafavoritos', $id);
         $feria = Feria::all();
         return view('feria_fav')->with('feria_feriafavoritos',$feria_feriafavoritos)->with('feria',$feria);
+    }
+
+    public function showFeria()
+    {
+        $feria = Feria::all();
+        $feriafavorito = FeriaFavorito::all();
+        return view('addferia_fav')->with('feria',$feria)->with('feriafavorito',$feriafavorito);
+    }
+
+    public function storeFeria(Request $request)
+    {
+        $newFeria = new Feria_FeriaFavorito();
+        $newFeria->id_feria = $request->id_feria;
+        $newFeria->id_feriafavoritos = $request->id_feriafavoritos;
+        $newFeria->save();
+
+        $feria = Feria::all();
+        $feriafavorito = FeriaFavorito::all();
+        return redirect()->route('feriaAdd', ['id' => $request->id_feriafavoritos])->with('feria',$feria)->with('feriafavorito',$feriafavorito);
     }
 }

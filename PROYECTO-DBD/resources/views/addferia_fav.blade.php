@@ -99,19 +99,19 @@
                         <ul class="nav flex-column" style="padding: 15px">
                             <!-- Boton de Feriantes Fav-->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/feriantefav">Feriantes Favoritos</a>
+                                <a class="nav-link active color7" aria-current="page" href="/feriantefav/{{ request()->route('id') }}">Feriantes Favoritos</a>
                             </li>
                             <!-- Boton de Ferias Fav-->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/feriafav">Ferias Favoritas</a>
+                                <a class="nav-link color7" aria-current="page" href="/feriafav/{{ request()->route('id') }}">Ferias Favoritas</a>
                             </li>
                             <!-- Boton de Add Feriantes -->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav">Agregar Feriantes</a>
+                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav/{{ request()->route('id') }}">Agregar Feriantes</a>
                             </li>
                             <!-- Boton de Add Ferias -->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/addferiafav">Agregar Ferias</a>
+                                <a class="nav-link color7" aria-current="page" href="/addferiafav/{{ request()->route('id') }}">Agregar Ferias</a>
                             </li>                
                         </ul>
                     </form>
@@ -124,30 +124,44 @@
                     <div class="container-fluid ventana_ferias">
                         <div class="row">
                             <div class="col titulo_ferias text-start"> Nuestas Ferias </div>
-                            <table class="table table-dark table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">Cod. Ref.</th>
-                                    <th scope="col">Descripcion</th>
-                                    <th scope="col">Comuna</th>
-                                    <th scope="col">Desde</th>
-                                    <th scope="col">Hasta</th>
-                                    </tr>
-                                </thead>
-                                @forelse($feria as $feria)
-                                <tbody>
-                                    <tr>
-                                    <td>{{$feria->id}}</td>
-                                    <td>{{$feria->descripcion}}</td>
-                                    <td>{{$feria->nombre_comuna}}</td>
-                                    <td>{{$feria->horario_desde}}</td>
-                                    <td>{{$feria->horario_hasta}}</td>
-                                    </tr>
-                                </tbody>
-                                @empty
-                                <p>"no hay nada"</p>
-                                @endforelse
-                            </table>
+                                <table class="table table-dark table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Cod. Ref.</th>
+                                        <th scope="col">Descripcion</th>
+                                        <th scope="col">Comuna</th>
+                                        <th scope="col">Desde</th>
+                                        <th scope="col">Hasta</th>
+                                        <th scope="col">Favoritos</th>
+                                        </tr>
+                                    </thead>
+                                    @forelse($feria as $feria)
+                                    <tbody>
+                                        <tr>
+                                        <td>{{$feria->id}}</td>
+                                        <td>{{$feria->descripcion}}</td>
+                                        <td>{{$feria->nombre_comuna}}</td>
+                                        <td>{{$feria->horario_desde}}</td>
+                                        <td>{{$feria->horario_hasta}}</td>                                    
+                                        <td>
+                                            <form action=/feriafavoritanueva method="POST">
+                                            <div class="form-check">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                PANONQsUESO
+                                            </label>
+                                            <input class="form-check-input" type="radio" name="id_feria" value="{{$feria->id}}">
+                                            </div>
+                                            <input type="hidden" name="id_feriafavoritos" value= "{{ request()->route('id') }}">
+                                            <form>
+                                        </td>
+                                        </tr>                                        
+                                    </tbody>
+                                    @empty
+                                    <p>"no hay nada"</p>
+                                    @endforelse
+                                    <td><button type="submit" class="btn btn-light">Agregar a Favoritos</button></td>
+                                </table>
+                           
                         </div>
                     </div>
                 </div>

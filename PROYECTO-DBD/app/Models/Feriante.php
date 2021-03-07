@@ -11,7 +11,7 @@ class Feriante extends Model
 	use HasFactory;
 	protected $table = 'feriante';
     protected $primaryKey = 'id';
-	public $incrementing = false;
+	//public $incrementing = false;
 	
 	public function puestoDeVenta()
 	{

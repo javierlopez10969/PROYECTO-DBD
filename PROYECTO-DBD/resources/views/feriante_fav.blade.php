@@ -99,59 +99,58 @@
                         <ul class="nav flex-column" style="padding: 15px">
                             <!-- Boton de Feriantes Fav-->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/feriantefav">Feriantes Favoritos</a>
+                                <a class="nav-link active color7" aria-current="page" href="/feriantefav/{{ request()->route('id') }}">Feriantes Favoritos</a>
                             </li>
                             <!-- Boton de Ferias Fav-->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/feriafav">Ferias Favoritas</a>
+                                <a class="nav-link color7" aria-current="page" href="/feriafav/{{ request()->route('id') }}">Ferias Favoritas</a>
                             </li>
                             <!-- Boton de Add Feriantes -->
                             <li class="nav-item">
-                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav">Agregar Feriantes</a>
+                                <a class="nav-link active color7" aria-current="page" href="/addferiantefav/{{ request()->route('id') }}">Agregar Feriantes</a>
                             </li>
                             <!-- Boton de Add Ferias -->
                             <li class="nav-item">
-                                <a class="nav-link color7" aria-current="page" href="/addferiafav">Agregar Ferias</a>
+                                <a class="nav-link color7" aria-current="page" href="/addferiafav/{{ request()->route('id') }}">Agregar Ferias</a>
                             </li>    
                         </ul>
                     </form>
                 </div>
             </div>
             <!-- Tabla con la Lista de Feriantes -->
-            <div class="col-4">
+            <div class="col-8">
                 <!--<div class="row" style="padding: 130px">-->
                 <div class="row">
                     <div class="container-fluid ventana_ferias">
                         <div class="row">
-                            <div class="col titulo_ferias text-start"> TABLA HECHA EN FUERZA BRUTA NO SE SI CONTIENE DATOS </div>
+                            <div class="col titulo_ferias text-start">Tus Feriantes Favoritos</div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Cod. Ref</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Teléfono</th>
                                     </tr>
                                 </thead>
+                                @forelse($feriante_feriantefavoritos as $favoritos)
+                                @forelse($feriante as $feriante)
+                                @if($feriante->id == $favoritos->id_feriante)
                                 <tbody>
                                     <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
+                                    <td>{{$feriante->id}}</td>
+                                    <td>{{$feriante->nombre_feriante}}</td>
+                                    <td>{{$feriante->direccion_feriante}}</td>
+                                    <td>{{$feriante->telefono_feriante}}</td>
                                     </tr>
                                 </tbody>
+                                @endif
+                                @empty
+                                <p>"No tienes Feriantes Favoritos"</p>
+                                @endforelse
+                                @empty
+                                <p>"No tienes Feriantes Favoritos""</p>
+                                @endforelse
                             </table>
                         </div>
                     </div>
