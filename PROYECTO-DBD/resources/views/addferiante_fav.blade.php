@@ -131,6 +131,7 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Direccion</th>
                                     <th scope="col">Telefono</th>
+                                    <th scope="col">Favoritos</th>
                                     </tr>
                                 </thead>
                                 @forelse($feriante as $feriante)
@@ -140,11 +141,22 @@
                                     <td>{{$feriante->nombre_feriante}}</td>
                                     <td>{{$feriante->direccion_feriante}}</td>
                                     <td>{{$feriante->telefono_feriante}}</td>
-                                    </tr>
+                                    <td>
+                                            <form action=/feriantefavoritanueva method="POST">
+                                            <div class="form-check">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            </label>
+                                            <input class="form-check-input" type="radio" name="id_feriante" value="{{$feriante->id}}">
+                                            </div>
+                                            <input type="hidden" name="id_feriantefavoritos" value= "{{ request()->route('id') }}">
+                                            <form>
+                                        </td>
+                                        </tr>    
                                 </tbody>
                                 @empty
                                 <p>"no hay nada"</p>
                                 @endforelse
+                                <td><button type="submit" class="btn btn-light">Agregar a Favoritos</button></td>
                             </table>
                         </div>
                     </div>

@@ -81,10 +81,12 @@ Route::get('/productonew', function () {
 Route::get('/feriantefav/{id}', 'Feriante_FeriantesFavoritoController@showFerianteFavorito');
 Route::get('/feriafav/{id}', 'Feria_FeriaFavoritoController@showFeriaFavorito');
 
+
 Route::get('/addferiafav/{id}', 'Feria_FeriaFavoritoController@showFeria')->name('feriaAdd');
 Route::post('/feriafavoritanueva','Feria_FeriaFavoritoController@storeFeria')->name('storeFeria');
 
 Route::get('/addferiantefav/{id}', 'FerianteController@showFeriante')->name('ferianteAdd');
+Route::post('/feriantefavoritanueva','Feriante_FeriantesFavoritoController@storeFeriante')->name('storeFeriante');
 
 
 

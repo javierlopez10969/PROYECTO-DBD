@@ -122,4 +122,16 @@ class Feriante_FeriantesFavoritoController extends Controller
         response()->json($feriante_feriantefavoritos);
         return view('feriante_fav')->with('feriante_feriantefavoritos',$feriante_feriantefavoritos)->with('feriante',$feriante);
     }
+
+    public function storeFeriante(Request $request)
+    {
+        $newFeriante = new Feriante_FeriantesFavorito();
+        $newFeriante->id_feriante = $request->id_feriante;
+        $newFeriante->id_feriantesfavoritos = $request->id_feriantefavoritos;
+        $newFeriante->save();
+
+        $feriante = Feriante::all();
+        $feriantefavorito = FeriantesFavorito::all();
+        return redirect()->route('ferianteAdd', ['id' => $request->id_feriantefavoritos])->with('feriante',$feriante)->with('feriantefavorito',$feriantefavorito);
+    }
 }

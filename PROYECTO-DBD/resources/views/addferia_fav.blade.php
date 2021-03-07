@@ -147,7 +147,6 @@
                                             <form action=/feriafavoritanueva method="POST">
                                             <div class="form-check">
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                PANONQsUESO
                                             </label>
                                             <input class="form-check-input" type="radio" name="id_feria" value="{{$feria->id}}">
                                             </div>
