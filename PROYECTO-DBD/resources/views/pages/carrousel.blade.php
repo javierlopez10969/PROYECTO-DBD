@@ -14,21 +14,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item item active  ">
-                <img class="d-block item " src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="First slide">
+                <a href="http://127.0.0.1:8000/productocategoria?categoria=Frutas" >  <img class="d-block item "  src="https://i.ibb.co/QNYmqJw/Sin-t-tulo-1.png" alt="First slide"> </a> 
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>LAS MEJORES FRUTAS Y VERDURAS</h2>
                     <p>Manzanas, Naranjas y muchas otras frutas.</p>
                 </div>
             </div>
             <div class="carousel-item item ">
-                <img class="d-block item " src="https://i.ibb.co/RpNqj7W/Sin-t-tulo-2.png" alt="Second slide">
+                <a href="http://127.0.0.1:8000/productocategoria?categoria=Carne+y+Pescado"><img  class="d-block item " src="https://i.ibb.co/RpNqj7W/Sin-t-tulo-2.png" alt="Sin-t-tulo-2" border="0"></a>
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>ENCUENTRA TUS CARNES FAVORITAS</h2>
                     <p>Haz el asado perfecto!</p>
                 </div>
             </div>
             <div class="carousel-item item ">
-                <img class="d-block item" src="https://i.ibb.co/XDY5N9H/Sin-t-tulo-3.png" alt="Third slide">
+                <a href="http://127.0.0.1:8000/productocategoria"> <img class="d-block item" src="https://i.ibb.co/XDY5N9H/Sin-t-tulo-3.png" alt="Third slide"> </a> 
                 <div class="carousel-caption d-none d-md-block color_verde ">
                     <h2>¡ARTICULOS DE ASEO Y MUCHO MAS!</h2>
                     <p>Articulos del hogar, comida para mascotas, entre otros.</p>

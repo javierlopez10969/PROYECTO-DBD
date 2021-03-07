@@ -147,14 +147,13 @@ class FeriaController extends Controller
         $filtro = $request->get('nombre_comuna');
         if($filtro == NULL){
             $feria = Feria::all();
-                return view('feria_por_region')->with('feria',$feria);
-
+                return view('ferias.feriaComuna')->with('feria',$feria);
                 return response()->json([
                 'message'=>'id invalido'
             ],404);
         }
 
         $feria = Feria::all()->where('nombre_comuna', $filtro);
-        return view('feria_por_region')->with('feria',$feria);
+        return view('ferias.feriaComuna')->with('feria',$feria);
     }
 }

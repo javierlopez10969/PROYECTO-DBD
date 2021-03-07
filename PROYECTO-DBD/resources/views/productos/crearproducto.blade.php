@@ -9,7 +9,7 @@
     <div class="col text-center ">
         <div class="container-fluid ventana">
             <a href="/"><img src="https://i.ibb.co/RQKpgvv/logo.png" alt="logo" ></a>
-            <form method="POST" action="{{ url('/producto/create') }}">
+            <form action="/productonuevo" method="POST">
                 @csrf
                 <article class="card-body mx-auto" style="max-width: 400px;">
                     <h4 class="card-title text-center">Añadir Nuevo Producto</h4>                        
@@ -25,8 +25,8 @@
                                 <option>Pollo</option>
                                 <option>Carne y Pescado</option>
                                 <option>Huevos</option>
-                                <option>Productos higiénicos</option>
-                                <option>Comida para mascotas</option>
+                                <option>Artículos de Aseo</option>
+                                <option>Alimento para Mascotas</option>
                                 <option>Otros</option>
                             </select>
                         </div> 

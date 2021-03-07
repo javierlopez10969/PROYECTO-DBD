@@ -74,9 +74,11 @@ Route::get('/feriacomuna','FeriaController@showComuna');
 //Route::get('/perfil_datosBanco/{id}','CuentaBancariaController@showDatos');
 
 Route::post('/productonuevo','ProductoController@storeProducto')->name('storeProducto');
+/*
 Route::get('/productonew', function () {
     return view('pagina_agregar_producto');
 });
+*/
 
 Route::get('/feriantefav/{id}', 'Feriante_FeriantesFavoritoController@showFerianteFavorito');
 Route::get('/feriafav/{id}', 'Feria_FeriaFavoritoController@showFeriaFavorito');

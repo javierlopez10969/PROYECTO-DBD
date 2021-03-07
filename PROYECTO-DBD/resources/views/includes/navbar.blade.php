@@ -42,6 +42,11 @@
                         </form>                        
                     </ul>
 
+                    <div class="col-sm button">
+                        <a class="btn btn-default color2 rounded-pill" role="button" href="/productocategoria">{{ __('Productos') }}</a>
+                        <a class="btn btn-default color2 rounded-pill" role="button" href="/feriacomuna">{{ __('Ferias') }}</a>
+                    </div>
+
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -113,11 +118,42 @@
                 </div>
             </div>
         </nav>
-        <!--
-        <div class="container">
-            @yield('content')
-        </div>
-        -->
+
+                <!-- barra productos -->
+                <div class="row">
+                    <div class="col border border-dark centrado ">
+                        <h5 >
+                            <a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Frutas">Frutas  </a> 
+                        </h5>
+                    </div>  
+        
+                    <div class="col border border-dark centrado">
+                        <h5 > <a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Verduras"> Verduras </a>  </h5>
+                    </div>  
+                    <div class="col border border-dark centrado">
+                        <h5 > <a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Pollo">Pollo  </a>  </h5>
+                    </div>
+        
+                    <div class="col border border-dark centrado">
+                        <h5> <a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Carne+y+Pescado">Carne y Pescado  </a>   </h5>
+                    </div>
+        
+                    <div class="col border border-dark centrado">
+                        <h5> <a  class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Huevos">Huevos  </a>  </h5> 
+                    </div>
+        
+                    <div class="col border border-dark centrado">
+                        <h5> <a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Artículos+de+Aseo">Articulos de aseo</a>  </h5>
+                    </div>  
+                    <div class="col border border-dark centrado">
+                        <h5> <a class="colorRojo"  href="http://127.0.0.1:8000/productocategoria?categoria=Alimento+para+Mascotas"> Comida para mascotas</a>  </h5>
+                    </div>
+        
+                    <div class="col border border-dark centrado">
+                        <h5><a class="colorRojo" href="http://127.0.0.1:8000/productocategoria?categoria=Otros">Otros  </a> </h5>
+                    </div>
+                </div>
+    
     </div>
 </body>
 </html>

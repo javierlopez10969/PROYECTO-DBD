@@ -21,38 +21,6 @@
             <header class="row">
                 @include('includes.navbar')
             </header>
-            <!-- barra productos -->
-            <div class="row">
-                <div class="col border border-dark centrado">
-                    <h5 > Frutas </h5>
-                </div>  
-    
-                <div class="col border border-dark centrado">
-                    <h5 > Verduras </h5>
-                </div>  
-                <div class="col border border-dark centrado">
-                    <h5 > Pollo </h5>
-                </div>
-    
-                <div class="col border border-dark centrado">
-                    <h5> Carne y Pescado </h5>
-                </div>
-    
-                <div class="col border border-dark centrado">
-                    <h5> Huevos </h5> 
-                </div>
-    
-                <div class="col border border-dark centrado">
-                    <h5> Productos higiénicos </h5>
-                </div>  
-                <div class="col border border-dark centrado">
-                    <h5> Comida para mascotas </h5>
-                </div>
-    
-                <div class="col border border-dark centrado">
-                    <h5> Otros </h5>
-                </div>
-            </div>
             <!--Cuerpo-->
             <div row class="container-fluid mt-5">
                 <div col></div>
@@ -96,6 +64,14 @@
     .color_verde{
         background-color:#FFFFFF;
         color:#386641;
+    }
+
+    .colorRojo{
+        color: #BC4749;
+    }
+    .colorRojo:hover{
+        color: #dd696b;
+        text-decoration: none;
     }
 
     .fuente1{

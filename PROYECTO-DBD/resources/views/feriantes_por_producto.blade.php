@@ -15,8 +15,8 @@
 
         <!-- barra busqueda -->
         
-        <div class="row" style="padding: 20px">
-            <div class="container-fluid ventana_selector_region">
+        <div class="row" style="padding: ">
+            <div class="container-fluid" style="max-width: 500px;">
                 <!-- Primera linea -->
                 <div class="row">
                     <form>
@@ -38,8 +38,8 @@
                 </div>
 
                     <!-- Tabla con la Lista de Ferias -->
-                    <div class="col">
-                        <div class="row" style="padding: 130px">
+                    <div class="row">
+                        <div class="col" style="padding: 30px">
                             <div class="col titulo_ferias text-start"> Nuestras Ferias </div>
                                 <table class="table table-dark table-hover">
                                     <thead>
@@ -88,14 +88,9 @@
 
                 <!-- Botones -->
                 <div class="row" style="padding: 10px">
-                    <!-- Boton de comprar ahora -->
-                    <div class="col">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Agregar a Favoritos</a>
-                    </div>
-
                     <!-- Boton de agregar a carrito -->
                     <div class="col">
-                        <a class="btn btn-secondary btn-lg" href="/bienvenida" role="button">Volver</a>
+                        <a class="btn btn-secondary btn-lg" href="/" role="button">Volver</a>
                     </div>
                 </div>
 
