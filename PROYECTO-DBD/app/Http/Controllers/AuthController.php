@@ -123,34 +123,35 @@ class AuthController extends Controller
     }
 
 
-        //Modifcar una tupla específica
-        public function update(Request $request, $id)
-        {
-            if(is_numeric($id)){
-                $user = Auth::user();
-                if($user == NULL){
-                    return response()->json([
-                        'message'=>'No se encontro el usuario'
-                    ]);
-                }
-                else{
-                    if($request->name != NULL){
-                        $user->name = $request->name;
-                    }
-                    if($request->telefono != NULL){
-                        $user->telefono = $request->telefono;
-                    }
-                    if($request->telefono != NULL){
-                        $user->email = $request->telefono;
-                    }
-                    $user->save();
-                    return response()->json($user);
-                }  
+            //Modifcar una tupla específica
+    public function update(Request $request, $id)
+    {
+        if(is_numeric($id)){
+            $user = User::find($id);
+            if($user == NULL){
+                return response()->json([
+                    'message'=>'No se encontro el usuario'
+                ]);
             }
             else{
-                return response()->json([
-                    'message'=>'id invalido'
-                ],404);
-            }
+                if($request->name != NULL){
+                    $user->name = $request->name;
+                }
+                if($request->telefono != NULL){
+                    $user->telefono = $request->telefono;
+                }
+                if($request->email != NULL){
+                    $user->email = $request->email;
+                }
+                $user->save();
+                return view('perfil_datosActuales')->with('guardado',"Los datos se cambiaron con éxito !!");
+                
+            }  
         }
+        else{
+            return response()->json([
+                'message'=>'id invalido'
+            ],404);
+        }
+    }
 }

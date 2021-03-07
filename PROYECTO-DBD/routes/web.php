@@ -282,7 +282,7 @@ Route::delete('/producto_ordenDeCompra/delete/{id}','Producto_OrdenDeCompraContr
 Route::get('/user','AuthController@index');
 Route::get('/user/{id}','AuthController@show');
 
-Route::put('/user/update','AuthController@update');
+Route::put('/user/update/{id}','AuthController@update')->name('user/update');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

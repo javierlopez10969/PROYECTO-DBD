@@ -40,8 +40,8 @@
             <!-- Datos Personales -->
             <div class="col-8">
                 <div class="container-fluid ventana_dp">
-                    <form method="PUT" href="/user/update/">
-                        @csrf
+                <form action="{{url('user/update')}}/{{Auth::user()->id }}" method="POST">
+                        @csrf @method('PUT')
                         <div class="col-12 padding_text">
                             <label  class="form-label">Nombre completo *</label>
                             <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" autocomplete="name" required="" value="{{Auth::user()->name }}">

@@ -5,7 +5,7 @@
         <!--  Titulo Mis datos personales -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
-            <div class="col-4 space_title color_texto">Modificar datos personales</div>
+            <div class="col-4 space_title color_texto">Mis datos personales</div>
         </div>
  
         <!-- cuadrados -->
@@ -62,6 +62,14 @@
                             <label for="inputEmail" class="form-label">Correo electrónico *</label>
                             <input type="email" disabled id="inputEmail" value="{{Auth::user()->email }}" class="form-control" required="" >
                         </div>
+                        @if (session('guardado'))
+                        <div class="col -12 alert alert-success" role="alert">
+                            <strong>Aviso</strong> {{session('guardado')}}
+                            <button type="button" class="close" sata-dismiss="alert" alert-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
 
                     </form>
 
