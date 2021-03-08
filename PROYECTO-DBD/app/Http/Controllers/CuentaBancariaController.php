@@ -110,6 +110,9 @@ class CuentaBancariaController extends Controller
                 if($request->tipo_cuenta != NULL){
                     $cuenta_bancarias->tipo_cuenta = $request->tipo_cuenta;
                 }
+                if($request->balance != NULL){
+                    $cuenta_bancarias->balance = $request->balance;
+                }
                 $cuenta_bancarias->save();
                 return response()->json($cuenta_bancarias);
             }  

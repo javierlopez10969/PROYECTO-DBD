@@ -57,6 +57,7 @@ Route::get('/confirmar_pagoTD', function () {
     return view('confirmar_pagoTD');
 });
 
+
 Route::get('/bienvenida', function () {
     return view('pages.bienvenida');
 })->name('bienvenida');;

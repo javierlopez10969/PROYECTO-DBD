@@ -30,12 +30,20 @@
 
                     <div class="row">
                         <div class="container-fluid ventana_lista_metodo_pago">
-                        <p class="text-center">Serás redireccionado al sitio de Webpay. Una vez finalizado el pago, espera hasta que Redcompra te redirija a nuestra página para confirmar tu pedido</p>
+                        <h1 class="text-center">Haz click en el boton "Pagar ahora" para realizar tu pago con debito</h1>
+                        
+                        <div class="col-12" style="padding: 50px;">
+                            <a type="submit" class="btn btn-primary btn-lg" href="/" role="button">Pagar ahora</a>
+                            
+                        </div> 
+                        
                         </div>
                     </div>
-
+                    
 
                 </div>
+
+                
             </div>
 
             <!-- ventana carrito-->
@@ -50,14 +58,6 @@
 
                             
 
-                        </div>
-                    </div> 
-
-                    <!-- Botones -->
-                    <div class="row" style="padding: 10px">
-                        <!-- Boton de comprar -->
-                        <div class="col">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
                         </div>
                     </div>            
             </div>

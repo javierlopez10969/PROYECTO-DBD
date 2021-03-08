@@ -48,11 +48,10 @@
                                 </div>
                                 
                                 <div class="col-12" style="padding: 50px;">
-                                    <button type="button" class="btn btn-secondary btn-lg">Editar datos</button>
+                                    <a type="submit" class="btn btn-primary btn-lg" href="/" role="button">Pagar ahora</a>
+                                    <a type="submit" class="btn btn-secondary btn-lg" href="/perfil_cuentaBancaria" role="button">Editar datos</a>
+                                    
                                 </div>  
-                                <div class="col-12" style="padding: 50px;">
-                                    <button type="button" class="btn btn-primary btn-lg">Pagar ahora</button>
-                                </div> 
                             </form>
 
                         </div>
@@ -75,13 +74,7 @@
                         </div>
                     </div> 
 
-                    <!-- Botones -->
-                    <div class="row" style="padding: 10px">
-                        <!-- Boton de comprar -->
-                        <div class="col">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Confirmar Compra</a>
-                        </div>
-                    </div>            
+                          
             </div>
         </div>
     </div>
