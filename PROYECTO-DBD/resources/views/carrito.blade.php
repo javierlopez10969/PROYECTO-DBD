@@ -75,7 +75,7 @@
 
                     <!-- Boton de comprar -->
                     <div class="col">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Comprar</a>
+                        <a class="btn btn-primary btn-lg" href="/confirmar_pagoCB" role="button">Comprar</a>
                     </div>
                 </div>
             </div>

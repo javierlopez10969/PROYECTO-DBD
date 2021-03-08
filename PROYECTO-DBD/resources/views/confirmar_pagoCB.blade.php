@@ -70,7 +70,17 @@
 
                     <div class="row">
                         <div class="container-fluid ventana_lista_carrito">
-
+                            <!-- Mostrar datos del carrito -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre producto</th>
+                                        <th>Categoria</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                
+                            </table>
                         </div>
                     </div> 
 
